@@ -11,6 +11,7 @@ export default function Navigation() {
             <li><Link to="/animation"><i className="fas fa-project-diagram"></i>aniamtion</Link></li>
             <li><Link to="/keyframes"><i className="fas fa-wrench"></i>keyframes</Link></li>
             <li><Link to="/galery"><i className="fas fa-tasks"></i>galery</Link></li>
+            <li><i class="fas fa-palette"></i>Themes</li>
         </ul>
     )
 }

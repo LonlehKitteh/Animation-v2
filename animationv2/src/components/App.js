@@ -8,6 +8,15 @@ import Galery from "./Galery";
 import '../css/main.css'
 
 export default function Navigation() {
+
+    window.addEventListener("scroll", () => {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+            document.querySelector(".nav").classList.add("scrolled")
+        } else {
+            document.querySelector(".nav").classList.remove("scrolled")
+        }
+    })
+
     return (
         <BrowserRouter>
             <Switch>

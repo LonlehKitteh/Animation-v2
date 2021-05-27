@@ -5,8 +5,9 @@
     padding:1rem;
     width:80%;
     margin:1rem auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: sans-serif;
     letter-spacing: -1px;
+    color: $section-main;
     .subheader{
         font-size: larger;
     }

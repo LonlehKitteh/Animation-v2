@@ -1,0 +1,20 @@
+@-webkit-keyframes homePage {
+  from, to {
+    -webkit-transform: translate(-150%);
+            transform: translate(-150%);
+  }
+  50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+  }
+}
+@keyframes homePage {
+  from, to {
+    -webkit-transform: translate(-150%);
+            transform: translate(-150%);
+  }
+  50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+  }
+}

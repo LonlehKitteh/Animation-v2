@@ -1,8 +1,16 @@
+// main variables
+$css-track:var(--css-track,#e1e1e1);
+$css-track-div:var(--css-track-div,#323641);
+$css-track-div-color:var(--css-track-div-color, white);
+
 // navigation variables
 $navigation:var(--navigation, white);
 $nav-color:var(--nav-color, black);
+$navigation-scrolled:var(--navigation-scrolled, white);
+$nav-color-scrolled:var(--nav-color-scrolled, black);
 
 // section variables
 
 $section-aniamtion:var(--section-aniamtion,seagreen);
 $section-keyframes:var(--section-keyframes, sienna);
+$section-main:var(--section-main, black);

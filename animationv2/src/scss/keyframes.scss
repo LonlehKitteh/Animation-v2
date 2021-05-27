@@ -1,0 +1,8 @@
+@keyframes homePage {
+    from, to{
+        transform: translate(-150%);
+    }
+    50%{
+        transform: translate(150%);
+    }
+}

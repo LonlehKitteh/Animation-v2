@@ -1,5 +1,51 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import './keyframes.scss';
+
+*{
+    box-sizing: border-box;
+}
 body, html{
     background:#e1e1e1;
     padding:0;
     margin: 0;
+}
+.css-track{
+    width:100%;
+    height:5rem;
+    background-color: $css-track;
+    @include flex-center;
+    padding:.5rem;
+    div{
+        width:25%;
+        height:100%;
+        background: $css-track-div;
+        animation: homePage 7s ease-in-out infinite both;
+        @include flex-center;
+        z-index: 2;
+        &:after{
+            content: 'div';
+            font-size: 2.1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color:$css-track-div-color;
+        }
+    }
+    &:after{
+        content: 'dystans do przebycia';
+        position: absolute;
+        z-index: 1;
+        color: lighten(black, 45);
+    }
+    &:nth-child(2){
+        div{
+            animation: none;
+            transform: translate(-150%);
+        }
+        &:hover{
+            div{
+                animation: homePage 7s ease-in-out infinite both;
+            }
+        }
+    }
 }

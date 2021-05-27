@@ -1,5 +1,93 @@
+@-webkit-keyframes homePage {
+  from, to {
+    -webkit-transform: translate(-150%);
+            transform: translate(-150%);
+  }
+  50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+  }
+}
+
+@keyframes homePage {
+  from, to {
+    -webkit-transform: translate(-150%);
+            transform: translate(-150%);
+  }
+  50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body, html {
   background: #e1e1e1;
   padding: 0;
   margin: 0;
+}
+
+.css-track {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--css-track, #e1e1e1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .5rem;
+}
+
+.css-track div {
+  width: 25%;
+  height: 100%;
+  background: var(--css-track-div, #323641);
+  -webkit-animation: homePage 7s ease-in-out infinite both;
+          animation: homePage 7s ease-in-out infinite both;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+}
+
+.css-track div:after {
+  content: 'div';
+  font-size: 2.1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--css-track-div-color, white);
+}
+
+.css-track:after {
+  content: 'dystans do przebycia';
+  position: absolute;
+  z-index: 1;
+  color: #737373;
+}
+
+.css-track:nth-child(2) div {
+  -webkit-animation: none;
+          animation: none;
+  -webkit-transform: translate(-150%);
+          transform: translate(-150%);
+}
+
+.css-track:nth-child(2):hover div {
+  -webkit-animation: homePage 7s ease-in-out infinite both;
+          animation: homePage 7s ease-in-out infinite both;
 }

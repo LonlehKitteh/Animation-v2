@@ -1,25 +1,38 @@
-@import './variables.scss';
+@import "./variables.scss";
+@import "./mixins.scss";
 
-.nav{
-    padding:0;
+.nav {
+    padding: 0;
     margin: 0;
     list-style-type: none;
     display: flex;
-    background-color:$navigation;
-    li{
+    width: 100%;
+    background-color: $navigation;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    li {
+        transition: .3s ease-in-out;
         flex-grow: 1;
         text-align: center;
-        padding:1rem 0;
-        a{
+        padding: 2rem 0;
+        @include font-nav;
+        a {
             text-decoration: none;
-            color: $nav-color;
-            text-transform: uppercase;
-            font-family: monospace;
-            font-size:1.1rem;
-            font-weight: bold;
+            @include font-nav;
         }
-        i{
+        i {
             margin-right:.3rem;
+        }
+    }
+}
+.scrolled {
+    background-color: $navigation-scrolled;
+    li {
+        padding:1rem 0;
+        a {
+            color: $nav-color-scrolled;
         }
     }
 }
