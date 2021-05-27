@@ -1,0 +1,35 @@
+@import './variables.scss';
+
+.section{
+    background:white;
+    padding:1rem;
+    width:80%;
+    margin:1rem auto;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: -1px;
+    .subheader{
+        font-size: larger;
+    }
+    ul{
+        li{
+            padding:.1rem;
+        }
+    }    
+
+    h1{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    b{
+        color:$section-aniamtion;
+    }
+    i{
+        font-weight: bold;
+        font-style: normal;
+        color: $section-keyframes;
+    }
+    u{
+        text-decoration: none;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+.nav{
+    padding:0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    background-color:$navigation;
+    li{
+        flex-grow: 1;
+        text-align: center;
+        padding:1rem 0;
+        a{
+            text-decoration: none;
+            color: $nav-color;
+            text-transform: uppercase;
+            font-family: monospace;
+            font-size:1.1rem;
+            font-weight: bold;
+        }
+        i{
+            margin-right:.3rem;
+        }
+    }
+}

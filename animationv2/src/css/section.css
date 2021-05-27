@@ -1,0 +1,36 @@
+.section {
+  background: white;
+  padding: 1rem;
+  width: 80%;
+  margin: 1rem auto;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: -1px;
+}
+
+.section .subheader {
+  font-size: larger;
+}
+
+.section ul li {
+  padding: .1rem;
+}
+
+.section h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section b {
+  color: var(--section-aniamtion, seagreen);
+}
+
+.section i {
+  font-weight: bold;
+  font-style: normal;
+  color: var(--section-keyframes, sienna);
+}
+
+.section u {
+  text-decoration: none;
+  font-weight: bold;
+}
