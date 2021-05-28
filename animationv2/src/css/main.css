@@ -29,6 +29,9 @@ body, html {
   background: #e1e1e1;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
+  scroll-padding: 4rem;
+  overflow-x: hidden;
 }
 
 .css-track {
@@ -90,4 +93,130 @@ body, html {
 .css-track:nth-child(2):hover div {
   -webkit-animation: homePage 7s ease-in-out infinite both;
           animation: homePage 7s ease-in-out infinite both;
+}
+
+.page {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+}
+
+.page .push {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.page .push .main {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+}
+
+.page .push .aside {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  position: relative;
+}
+
+.menu {
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+  transition: -webkit-transform .4s ease-in-out;
+  transition: transform .4s ease-in-out;
+  transition: transform .4s ease-in-out, -webkit-transform .4s ease-in-out;
+  background-color: ivory;
+  padding: 1rem;
+  margin: 1rem 1rem 0 0;
+  z-index: 3;
+}
+
+.menu .menu-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.menu .menu-header .mark {
+  position: absolute;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2rem;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu h1 {
+  text-align: center;
+  margin: 0;
+  color: var(--nav-color, black);
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.menu a {
+  font-size: 1.1rem;
+  color: var(--nav-color, black);
+  text-decoration: none;
+  font-family: monospace;
+  letter-spacing: -1px;
+}
+
+.menu.closed {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.anchor {
+  background: white;
+  border-radius: 50%;
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: top 1s ease-in-out,-webkit-transform .4s ease-in-out;
+  transition: top 1s ease-in-out,-webkit-transform .4s ease-in-out;
+  transition: transform .4s ease-in-out,top 1s ease-in-out;
+  transition: transform .4s ease-in-out,top 1s ease-in-out,-webkit-transform .4s ease-in-out;
+  position: fixed;
+  bottom: 1rem;
+}
+
+.anchor.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }

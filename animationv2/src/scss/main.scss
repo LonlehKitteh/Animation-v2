@@ -9,7 +9,11 @@ body, html{
     background:#e1e1e1;
     padding:0;
     margin: 0;
+    scroll-behavior: smooth;
+    scroll-padding: 4rem;
+    overflow-x: hidden;
 }
+// css-track goes here
 .css-track{
     width:100%;
     height:5rem;
@@ -47,5 +51,76 @@ body, html{
                 animation: homePage 7s ease-in-out infinite both;
             }
         }
+    }
+}
+// page goes here
+.page{
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    .push{
+        display: flex;
+        flex-direction: row-reverse;
+        .main{
+            flex-basis: 70%;
+        }
+        .aside{
+            flex-basis: 30%;
+            position: relative;
+        }
+    }
+}
+// menu goes here
+.menu{
+    transition:transform .4s ease-in-out;
+    background-color: ivory;
+    padding: 1rem;
+    margin:1rem 1rem 0 0;
+    z-index: 3;
+    .menu-header{
+        @include flex-center;
+        position: relative;
+        .mark{
+            position: absolute;
+            right:0;
+            @include flex-center;
+            font-size: 2rem;
+        }
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+    }
+    h1{
+        text-align: center;
+        margin:0;
+        @include font-nav($nav-color);
+    }
+    a{
+        font-size: 1.1rem;
+        color: $nav-color;
+        text-decoration: none;
+        font-family: monospace;
+        letter-spacing: -1px;
+    }
+    &.closed{
+        transform: translateX(-100%);
+    }
+}
+.anchor{
+    background: white;
+    border-radius:50%;
+    font-size: 2rem;
+    width:3rem;
+    height:3rem;
+    margin: 1rem;
+    @include flex-center;
+    cursor: pointer;
+    transform: scale(0);
+    transition:transform .4s ease-in-out,top 1s ease-in-out;
+    position:fixed;
+    bottom: 1rem;
+    &.active{
+        transform: scale(1);
     }
 }

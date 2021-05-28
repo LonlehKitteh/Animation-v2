@@ -3,6 +3,7 @@ import Navigation from './Navigation'
 import '../css/home.css'
 import Section from './Section'
 import { arr } from '../js/data'
+import Menu from './Menu'
 
 export default function Home() {
 
@@ -11,7 +12,16 @@ export default function Home() {
             <Navigation />
             <div className="page">
                 <div className="svg-animation"></div>
-                {arr.map((el, counter) => <Section key={counter} header={el.header} content={el.content} />)}
+                <div className="push">
+                    <div className="main">
+                        {arr.map((el, counter) => <Section key={counter} id={`s${counter}`} header={el.header} content={el.content} />)}
+                    </div>
+                    <div className="aside">
+                        <Menu>
+                            {arr.map((el, counter) => <li key={counter}><a href={`#s${counter}`}>{el.header}</a></li>)}
+                        </Menu>
+                    </div>
+                </div>
             </div>
         </>
     )

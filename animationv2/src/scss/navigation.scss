@@ -13,14 +13,28 @@
     left: 0;
     z-index: 99;
     li {
+        height:5rem;
         transition: .3s ease-in-out;
         flex-grow: 1;
         text-align: center;
-        padding: 2rem 0;
-        @include font-nav;
-        a {
+        transition:color .2s ease-in-out, height .2s;
+        @include font-nav($nav-color);
+        @include flex-center;
+        &:hover{
+            span{
+                color: red;
+            }
+        }
+        span{
+            cursor: pointer;
+            color: $nav-color;
+            *{
+                color: inherit;
+            }
+            transition:color .2s ease-in-out;
+        }
+        a{
             text-decoration: none;
-            @include font-nav;
         }
         i {
             margin-right:.3rem;
@@ -30,7 +44,7 @@
 .scrolled {
     background-color: $navigation-scrolled;
     li {
-        padding:1rem 0;
+        height: 3.7rem;
         a {
             color: $nav-color-scrolled;
         }

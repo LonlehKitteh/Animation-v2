@@ -5,8 +5,8 @@
     justify-content: center;
     align-items: center;
 }
-@mixin font-nav {
-    color: $nav-color;
+@mixin font-nav($color) {
+    color: $color;
     text-transform: uppercase;
     font-family: monospace;
     font-size: 1.4rem;
