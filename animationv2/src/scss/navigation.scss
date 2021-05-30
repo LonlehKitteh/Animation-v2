@@ -9,44 +9,48 @@
     width: 100%;
     background-color: $navigation;
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 99;
     li {
-        height:5rem;
-        transition: .3s ease-in-out;
+        transition: 0.3s ease-in-out;
         flex-grow: 1;
-        text-align: center;
-        transition:color .2s ease-in-out, height .2s;
         @include font-nav($nav-color);
         @include flex-center;
-        &:hover{
-            span{
-                color: red;
+        &:hover {
+            span {
+                color: $nav-color-hover;
             }
         }
-        span{
+        span {
             cursor: pointer;
             color: $nav-color;
-            *{
+            transition: .2s ease-in-out;
+            * {
                 color: inherit;
             }
-            transition:color .2s ease-in-out;
+            &:last-of-type{
+                height: 5rem;
+                @include flex-center;
+            }
         }
-        a{
+        a {
+            text-align: center;
+            height: 5rem;
+            @include flex-center;
             text-decoration: none;
         }
         i {
-            margin-right:.3rem;
+            margin-right: 0.3rem;
         }
     }
 }
 .scrolled {
     background-color: $navigation-scrolled;
-    li {
+    :any-link{
         height: 3.7rem;
-        a {
-            color: $nav-color-scrolled;
+    }
+    li{
+        span:last-of-type{
+            height: 3.7rem;
         }
     }
 }

@@ -99,6 +99,7 @@ body, html {
   position: absolute;
   top: 4rem;
   left: 0;
+  width: 100%;
 }
 
 .page .push {
@@ -112,14 +113,11 @@ body, html {
 }
 
 .page .push .main {
-  -ms-flex-preferred-size: 70%;
-      flex-basis: 70%;
+  width: 70%;
 }
 
 .page .push .aside {
-  -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
-  position: relative;
+  width: 30%;
 }
 
 .menu {
@@ -127,10 +125,12 @@ body, html {
   transition: -webkit-transform .4s ease-in-out;
   transition: transform .4s ease-in-out;
   transition: transform .4s ease-in-out, -webkit-transform .4s ease-in-out;
-  background-color: ivory;
-  padding: 1rem;
-  margin: 1rem 1rem 0 0;
+  background-color: white;
+  margin-top: 1rem;
   z-index: 3;
+  position: fixed;
+  overflow: hidden;
+  padding-top: 1rem;
 }
 
 .menu .menu-header {
@@ -143,12 +143,12 @@ body, html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
 }
 
 .menu .menu-header .mark {
   position: absolute;
-  right: 0;
+  right: 1rem;
+  top: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,17 +159,19 @@ body, html {
       -ms-flex-align: center;
           align-items: center;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .menu ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .menu h1 {
   text-align: center;
-  margin: 0;
-  color: var(--nav-color, black);
+  margin-bottom: 1rem;
+  color: black;
   text-transform: uppercase;
   font-family: monospace;
   font-size: 1.4rem;
@@ -177,11 +179,31 @@ body, html {
 }
 
 .menu a {
+  display: block;
+  padding: 1rem .5rem 1rem 3vw;
+  border-top: 1px solid #9b9b9b;
+  position: relative;
   font-size: 1.1rem;
-  color: var(--nav-color, black);
+  color: black;
   text-decoration: none;
   font-family: monospace;
   letter-spacing: -1px;
+  position: relative;
+  font-weight: bold;
+  -webkit-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+}
+
+.menu a:hover {
+  color: var(--nav-color-hover, #3261ce);
+}
+
+.menu a.active {
+  color: var(--nav-color-hover, #3261ce);
+}
+
+.menu i {
+  color: white;
 }
 
 .menu.closed {
@@ -219,4 +241,10 @@ body, html {
 .anchor.active {
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+.footer {
+  height: 35rem;
+  width: 100%;
+  background: red;
 }

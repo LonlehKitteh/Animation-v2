@@ -3,8 +3,9 @@ import Navigation from './Navigation'
 
 export default function Galery() {
     return (
-        <div className="page">
+        <>
             <Navigation />
-        </div>
+            <div className="page">Galery</div>
+        </>
     )
 }

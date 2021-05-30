@@ -3,8 +3,9 @@ import Navigation from './Navigation'
 
 export default function Keyframes() {
     return (
-        <div className="page">
+        <>
             <Navigation />
-        </div>
+            <div className="page">Keyframes</div>
+        </>
     )
 }

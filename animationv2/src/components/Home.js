@@ -1,9 +1,9 @@
 import React from 'react'
-import Navigation from './Navigation'
 import '../css/home.css'
 import Section from './Section'
 import { arr } from '../js/data'
 import Menu from './Menu'
+import Navigation from './Navigation'
 
 export default function Home() {
 
@@ -18,9 +18,12 @@ export default function Home() {
                     </div>
                     <div className="aside">
                         <Menu>
-                            {arr.map((el, counter) => <li key={counter}><a href={`#s${counter}`}>{el.header}</a></li>)}
+                            {arr.map((el, counter) => <li key={counter}><a id={`l${counter}`} href={`#s${counter}`}>{el.header}</a></li>)}
                         </Menu>
                     </div>
+                </div>
+                <div className="footer">
+                footer
                 </div>
             </div>
         </>

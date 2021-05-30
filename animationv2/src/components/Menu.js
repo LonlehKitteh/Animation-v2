@@ -2,21 +2,18 @@ import React from 'react'
 
 export default function Menu(props) {
 
-    function menuClose(){
+    function menuClose() {
         document.querySelector(".menu").classList.add("closed")
         setTimeout(() => {
             document.querySelector(".anchor").classList.add("active")
         }, 400)
     }
-    function menuOpen(){
+    function menuOpen() {
         document.querySelector(".anchor").classList.remove("active")
         setTimeout(() => {
             document.querySelector(".menu").classList.remove("closed")
         }, 600)
     }
-    window.addEventListener("scroll",() =>{
-        // document.querySelector(".anchor").style.bottom = `${37*16+document.documentElement.scrollTop}px`
-    })
 
     return (
         <>
@@ -30,7 +27,7 @@ export default function Menu(props) {
                         <i className="fas fa-times"></i>
                     </div>
                 </div>
-                <ul>
+                <ul id="menuList">
                     {props.children}
                 </ul>
             </div>
