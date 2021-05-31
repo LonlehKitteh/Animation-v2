@@ -1,3 +1,9 @@
+// custom font
+@font-face {
+    font-family: Cairo;
+    src: url('../font/Cairo-Regular.ttf');
+}
+
 // main variables
 $css-track:var(--css-track,#e1e1e1);
 $css-track-div:var(--css-track-div,#323641);

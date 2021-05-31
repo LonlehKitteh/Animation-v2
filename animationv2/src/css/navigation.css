@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Cairo;
+  src: url("../font/Cairo-Regular.ttf");
+}
+
+@font-face {
+  font-family: Cairo;
+  src: url("../font/Cairo-Regular.ttf");
+}
+
 .nav {
   padding: 0;
   margin: 0;
@@ -23,7 +33,7 @@
           flex-grow: 1;
   color: var(--nav-color, black);
   text-transform: uppercase;
-  font-family: monospace;
+  font-family: Cairo;
   font-size: 1.4rem;
   font-weight: bold;
   display: -webkit-box;

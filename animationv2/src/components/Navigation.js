@@ -10,6 +10,9 @@ export default function Navigation() {
                 <span><NavLink activeClassName="activePage" exact={true} to="/"><i className="fas fa-home"></i>home</NavLink></span>
             </li>
             <li>
+                <span><NavLink activeClassName="activePage" to="/begin"><i className="fas fa-play"></i>begin</NavLink></span>
+            </li>
+            <li>
                 <span><NavLink activeClassName="activePage" to="/transform"><i className="fas fa-people-carry"></i>transform</NavLink></span>
             </li>
             <li>

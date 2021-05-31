@@ -54,9 +54,11 @@ export const arr = [
       <p>
         Najlepiej będzie omówić problem na przykładzie pożej:
       </p>
-      <div id="aniamcja1">Hover me</div>
-      <div id="aniamcja2">Hover me</div>
-      <p style="clear: both;">
+      <div class="flex">
+      <div id="animacja1">Hover me</div>
+      <div id="animacja2">Hover me</div>
+      </div>
+      <p>
         <b>Pierwszy</b> (ten z lewej) przycisk jest zbudowany z <u>:hover</u> i<u> ::after</u>, które razem odpowiadają za "wypełnienie" kolorem tła diva. Została dodana właściwość <i>transition: 1s;</i> w celu uzyskania efektu przejścia.
       </p>
       <p><b>

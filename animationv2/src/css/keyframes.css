@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Cairo;
+  src: url("../font/Cairo-Regular.ttf");
+}
+
 @-webkit-keyframes homePage {
   from, to {
     -webkit-transform: translate(-150%);
@@ -8,6 +13,7 @@
             transform: translate(150%);
   }
 }
+
 @keyframes homePage {
   from, to {
     -webkit-transform: translate(-150%);
@@ -16,5 +22,41 @@
   50% {
     -webkit-transform: translate(150%);
             transform: translate(150%);
+  }
+}
+
+@-webkit-keyframes hoverMe-1 {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
+}
+
+@keyframes hoverMe-1 {
+  from {
+    color: black;
+  }
+  to {
+    color: white;
+  }
+}
+
+@-webkit-keyframes hoverMe-2 {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes hoverMe-2 {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
   }
 }

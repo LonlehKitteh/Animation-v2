@@ -8,3 +8,20 @@
         transform: translate(150%);
     }
 }
+
+@keyframes hoverMe-1{
+    from{
+        color: black;
+    }
+    to{
+        color: white;
+    }
+}
+@keyframes hoverMe-2 {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
