@@ -6,9 +6,13 @@
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background-color: var(--navigation, white);
+  background: var(--navigation, linear-gradient(to right, #009fff, #ec2f4b));
   position: fixed;
   z-index: 99;
+}
+
+.nav .activePage {
+  color: var(--nav-color-hover, white);
 }
 
 .nav li {
@@ -34,7 +38,7 @@
 }
 
 .nav li:hover span {
-  color: #3261ce;
+  color: var(--nav-color-hover, white);
 }
 
 .nav li span {

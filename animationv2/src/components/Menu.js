@@ -16,7 +16,7 @@ export default function Menu(props) {
     }
 
     return (
-        <>
+        <div className="menuBlock">
             <div onClick={menuOpen} className="anchor">
                 <i className="fas fa-bars"></i>
             </div>
@@ -31,6 +31,6 @@ export default function Menu(props) {
                     {props.children}
                 </ul>
             </div>
-        </>
+        </div>
     )
 }

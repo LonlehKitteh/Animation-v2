@@ -4,11 +4,12 @@ $css-track-div:var(--css-track-div,#323641);
 $css-track-div-color:var(--css-track-div-color, white);
 
 // navigation variables
-$navigation:var(--navigation, white);
+$navigation:var(--navigation, linear-gradient(to right, #009fff, #ec2f4b));
 $nav-color:var(--nav-color, black);
-$nav-color-hover:var(--nav-color-hover, #3261ce);
+$nav-color-hover:var(--nav-color-hover, white);
 $navigation-scrolled:var(--navigation-scrolled, white);
 $nav-color-scrolled:var(--nav-color-scrolled, black);
+$menu-color-hover:var(--menu-color-hover, blue);
 
 // section variables
 

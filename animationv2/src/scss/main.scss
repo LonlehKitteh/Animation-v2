@@ -56,7 +56,7 @@ body, html{
 // page goes here
 .page{
     position: absolute;
-    top: 4rem;
+    top: 3rem;
     left: 0;
     width: 100%;
     .push{
@@ -71,60 +71,65 @@ body, html{
     }
 }
 // menu goes here
-.menu{
-    transition:transform .4s ease-in-out;
-    background-color: white;
-    margin-top:1rem;
-    z-index: 3;
-    position: fixed;
-    overflow: hidden;
-    padding-top:1rem;
-    .menu-header{
-        @include flex-center;
-        .mark{
-            position: absolute;
-            right:1rem;
-            top: 1rem;
+.menuBlock{
+    .menu{
+        transition:transform .4s ease-in-out;
+        background-color: white;
+        z-index: 3;
+        margin-top: 1rem;
+        height:100vh;
+        top: 0;
+        left: 0;
+        position: relative;
+        overflow: hidden;
+        padding-top:4rem;
+        .menu-header{
             @include flex-center;
-            font-size: 2rem;
-            cursor: pointer;
+            .mark{
+                position: absolute;
+                right:1rem;
+                top: 1rem;
+                @include flex-center;
+                font-size: 2rem;
+                cursor: pointer;
+            }
         }
-    }
-    ul{
-        list-style-type: none;
-        padding: 0;
-        margin:0;
-    }
-    h1{
-        text-align: center;
-        margin-bottom:1rem;
-        @include font-nav(black);
-    }
-    a{
-        display: block;
-        padding:1rem .5rem 1rem 3vw;
-        border-top: 1px solid white - 100;
-        position: relative;
-        font-size: 1.1rem;
-        color: black;
-        text-decoration: none;
-        font-family: monospace;
-        letter-spacing: -1px;
-        position: relative;
-        font-weight: bold;
-        transition: .1s ease-in-out;
-        &:hover{
-            color:$nav-color-hover;
+        ul{
+            list-style-type: none;
+            padding: 0;
+            margin:0;
         }
-        &.active{
-            color:$nav-color-hover;
+        h1{
+            text-align: center;
+            margin-bottom:1rem;
+            @include font-nav(black);
         }
-    }
-    i{
-        color: white;
-    }
-    &.closed{
-        transform: translateX(-100%);
+        a{
+            display: block;
+            padding:1rem .5rem 1rem 3vw;
+            border-top: 1px solid white - 100;
+            position: relative;
+            font-size: 1.1rem;
+            color: black;
+            text-decoration: none;
+            font-family: monospace;
+            letter-spacing: -1px;
+            position: relative;
+            font-weight: bold;
+            transition: .1s ease-in-out;
+            &:hover{
+                color:$menu-color-hover;
+            }
+            &.active{
+                color:$menu-color-hover;
+            }
+        }
+        i{
+            color: black;
+        }
+        &.closed{
+            transform: translateX(-100%);
+        }
     }
 }
 .anchor{

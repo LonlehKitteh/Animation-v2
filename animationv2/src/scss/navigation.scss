@@ -7,9 +7,12 @@
     list-style-type: none;
     display: flex;
     width: 100%;
-    background-color: $navigation;
+    background: $navigation;
     position: fixed;
     z-index: 99;
+    .activePage{
+        color: $nav-color-hover;
+    }
     li {
         transition: 0.3s ease-in-out;
         flex-grow: 1;
