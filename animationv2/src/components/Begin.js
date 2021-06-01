@@ -3,11 +3,13 @@ import Section from './Section'
 import { arr } from '../js/data'
 import Menu from './Menu'
 import Navigation from './Navigation'
+import hljs from 'highlight.js'
 
 export default function Begin() {
 
     useEffect(() => {
-
+        hljs.highlightAll()
+        
         function borderColor(element) {
             var randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
             if (element.style.borderLeftColor === '') {
@@ -27,6 +29,7 @@ export default function Begin() {
             sectionOffsets.push(el.offsetTop)
         })
 
+
         window.addEventListener("scroll", () => {
 
             if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
@@ -38,6 +41,7 @@ export default function Begin() {
             var scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
 
             sectionOffsets.forEach((element, counter) => {
+                if(document.getElementById(`l${counter}`) === null) return
                 if (element - 50 <= scrollPosition && sectionOffsets[counter + 1] - 50 >= scrollPosition) {
                     document.getElementById(`l${counter}`).classList.add("active")
                     borderColor(document.getElementById(`l${counter}`))

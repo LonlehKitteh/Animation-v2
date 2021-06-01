@@ -67,6 +67,82 @@ export const arr = [
       <p>
         <b>Drugi</b> przycisk jest zbudowany z <u>:hover ::after</u> i<u> animacji</u>, które razem odpowiadają za "wypełnienie" kolorem tła diva.
       </p>
+      <div class="flex-center">
+        <div>
+        <pre><code class="css">/* Przycisk pierwszy */
+
+#animacja1{
+  margin: 1rem;
+  padding: .5rem 1rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  border: 1px solid #009fff;
+  transition: color 1s ease-in-out;
+}
+#animacja1::after{
+  content: '';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #009fff;
+  transition: width 1s ease-in-out;
+}
+#animacja1:hover{
+  color: white;
+}
+#animacja1:hover::after{
+  width: 100%;
+}</code></pre>
+        </div>
+        <div>
+        <pre><code class="css">/* Przycisk drugi */
+
+#animacja2{
+  margin: 1rem;
+  padding: .5rem 1rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  border: 1px solid #009fff;
+}
+#animacja2::after{
+  content: '';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #009fff;
+}
+#animacja2:hover{
+  animation: animacja1 1s ease-in-out forwards;
+}
+#animacja2:hover::after{
+  animation: animacja2 1s ease-in-out forwards;
+}
+@keyframes animacja1{
+  from{
+    color: black;
+  } to {
+    color: white;
+  }
+}
+@keyframes animacja2{
+  from{
+    width: 0;
+  } to {
+    width: 100%;
+  }
+}</code></pre>
+        </div>
+      </div>
       <h3 style="text-align: center;font-size:1.6rem;">
         Wniosek
       </h3>

@@ -6,6 +6,7 @@ import Animation from './Animation'
 import Keyframes from './Keyframes'
 import Galery from "./Galery"
 import '../css/main.css'
+import '../css/hljs.css'
 import Begin from './Begin'
 
 export default function App() {
