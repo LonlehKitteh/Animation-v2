@@ -7,28 +7,28 @@ import hljs from 'highlight.js'
 
 export default function Begin() {
 
+    function borderColor(element) {
+        var randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
+        if (element.style.borderLeftColor === '') {
+            element.style.borderLeftColor = randomColor
+            element.style.color = randomColor
+        } else {
+            setTimeout(() => {
+                element.style.borderLeftColor = ''
+                element.style.color = 'black'
+            }, 800)
+        }
+    }
+
+
     useEffect(() => {
         hljs.highlightAll()
-        
-        function borderColor(element) {
-            var randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
-            if (element.style.borderLeftColor === '') {
-                element.style.borderLeftColor = randomColor
-                element.style.color = randomColor
-            } else {
-                setTimeout(() => {
-                    element.style.borderLeftColor = ''
-                    element.style.color = 'black'
-                }, 800)
-            }
-        }
 
         var sectionOffsets = []
 
         document.querySelectorAll(".section").forEach(el => {
             sectionOffsets.push(el.offsetTop)
         })
-
 
         window.addEventListener("scroll", () => {
 
