@@ -16,13 +16,13 @@
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background: var(--navigation, linear-gradient(to right, #009fff, #ec2f4b));
+  background: var(--navigation, #20232a);
   position: fixed;
   z-index: 99;
 }
 
 .nav .activePage {
-  color: var(--nav-color-hover, white);
+  color: var(--nav-color-hover, #009fff);
 }
 
 .nav li {
@@ -31,7 +31,7 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  color: var(--nav-color, black);
+  color: var(--nav-color, white);
   text-transform: uppercase;
   font-family: Cairo;
   font-size: 1.4rem;
@@ -48,12 +48,12 @@
 }
 
 .nav li:hover span {
-  color: var(--nav-color-hover, white);
+  color: var(--nav-color-hover, #009fff);
 }
 
 .nav li span {
   cursor: pointer;
-  color: var(--nav-color, black);
+  color: var(--nav-color, white);
   -webkit-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
 }
@@ -95,7 +95,7 @@
 }
 
 .scrolled {
-  background-color: var(--navigation-scrolled, white);
+  background-color: var(--navigation-scrolled, #f7f7f7);
 }
 
 .scrolled :-webkit-any-link {

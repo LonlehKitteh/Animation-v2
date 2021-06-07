@@ -12,6 +12,14 @@
   color: var(--section-main, black);
 }
 
+.section:first-of-type {
+  border-bottom: 1px solid var(--menu-border, #c5c5c5a1);
+}
+
+.section:last-of-type {
+  border-top: 1px solid var(--menu-border, #c5c5c5a1);
+}
+
 .section .subheader {
   font-size: larger;
 }
@@ -33,7 +41,7 @@
 .section i {
   font-weight: bold;
   font-style: normal;
-  color: var(--section-keyframes, sienna);
+  color: var(--section-keyframes, #c73535);
 }
 
 .section u {

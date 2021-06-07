@@ -7,17 +7,23 @@
 // main variables
 $css-track:var(--css-track,#e1e1e1);
 $css-track-div:var(--css-track-div,#323641);
+$css-track-div-text:var(--css-track-div,#282a2e80);
 $css-track-div-color:var(--css-track-div-color, white);
 
+// side menu variables
+$menu-border:var(--menu-border, #c5c5c5a1);
+$menu:var(--menu-border, #f7f7f7);
+
 // navigation variables
-$navigation:var(--navigation, linear-gradient(to right, #009fff, #ec2f4b));
-$nav-color:var(--nav-color, black);
-$nav-color-hover:var(--nav-color-hover, white);
-$navigation-scrolled:var(--navigation-scrolled, white);
+$default-navigation:var(--default-navigation, #009fff);
+$navigation:var(--navigation, #20232a);
+$nav-color:var(--nav-color, white);
+$nav-color-hover:var(--nav-color-hover, #009fff);
+$navigation-scrolled:var(--navigation-scrolled, #f7f7f7);
 $nav-color-scrolled:var(--nav-color-scrolled, black);
 
 // section variables
 
 $section-aniamtion:var(--section-aniamtion,seagreen);
-$section-keyframes:var(--section-keyframes, sienna);
+$section-keyframes:var(--section-keyframes, #c73535);
 $section-main:var(--section-main, black);

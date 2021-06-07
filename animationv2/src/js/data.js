@@ -36,16 +36,16 @@ export const arr = [
         header: "Animacja, pseudoklasy i pseudoelementy",
         content: `
       <p>
-        Warto wspomnieć, że animacja może się łączyć na przykład z <b>:hover :active itd.</b> a w szczególności <u>::before</u> i <u>::after</u>.
+        Warto wspomnieć, że <b>animacja</b> może się łączyć na przykład z <i>:hover :active itd.</i> a w szczególności <i>::before</i> i <i>::after</i>.
       </p>
       <div class="css-track">
         <div></div>
       </div>
       <p>
-        <b>Zauważ, co się dzieje z naszym elementem w momencie, kiedy nasza myszka opuści polę diva.</b>
+        <u>Zauważ, co się dzieje z naszym elementem w momencie, kiedy nasza myszka opuści polę diva.</u>
       </p>
       <p>
-        <u>Animacja zostaje przerwana a nasz element NATYCHMIASTOWO wraca do miejsca początkowego.</u>
+        Animacja zostaje przerwana a nasz element <u>NATYCHMIASTOWO</u> wraca do miejsca początkowego.
       </p>`
     },
     {
