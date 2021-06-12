@@ -5,6 +5,10 @@
 
 * {
     box-sizing: border-box;
+    &::selection{
+        background-color: transparent;
+        color: $selection;
+    }
 }
 body,
 html {
@@ -22,15 +26,19 @@ html {
     background-color: $css-track;
     border-radius: .2rem;
     @include flex-center;
-    padding: 0.5rem;
+    padding: .5rem;
+    box-shadow: 0 0 2px 1px $css-track;
+    cursor: pointer;
     div {
         width: 25%;
         height: 100%;
         background: $css-track-div;
+        box-shadow: 0 0 2px 1px $css-track-div;
         border-radius: .2rem;
         animation: homePage 7s ease-in-out infinite both;
         @include flex-center;
         z-index: 2;
+        will-change: transition;
         &:after {
             content: "div";
             font-size: 2.1rem;
@@ -55,53 +63,6 @@ html {
                 animation: homePage 7s ease-in-out infinite both;
             }
         }
-    }
-}
-.flex{
-    @include flex-center;
-}
-#animacja1, #animacja2{
-    flex-grow: 1;
-    cursor: pointer;
-    margin: 1rem;
-    padding: .5rem 1rem;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    border: 1px solid $default-navigation;
-    &::after{
-        content: '';
-        width: 0;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        background: $default-navigation;
-    }
-}
-
-#animacja1{
-    transition: 1s ease-in-out;
-    &::after{
-        transition: 1s ease-in-out;
-    }
-    &:hover:after{
-        width: 100%;
-    }
-    &:hover{
-        color: $nav-color-hover;
-    }
-}
-
-#animacja2{
-    &:hover{
-        animation: hoverMe-1 1s ease-in-out forwards;
-    }
-    &:hover::after{
-        animation: hoverMe-2 1s ease-in-out forwards;
     }
 }
 

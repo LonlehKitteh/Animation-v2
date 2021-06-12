@@ -1,12 +1,7 @@
-// custom font
-@font-face {
-    font-family: Cairo;
-    src: url('../font/Cairo-Regular.ttf');
-}
-
 // main variables
+$selection:var(--selection, #009fff80);
 $css-track:var(--css-track,#e1e1e1);
-$css-track-div:var(--css-track-div,#323641);
+$css-track-div:var(--css-track-div, #009fff);
 $css-track-div-text:var(--css-track-div,#282a2e80);
 $css-track-div-color:var(--css-track-div-color, white);
 
@@ -15,15 +10,12 @@ $menu-border:var(--menu-border, #c5c5c5a1);
 $menu:var(--menu-border, #f7f7f7);
 
 // navigation variables
-$default-navigation:var(--default-navigation, #009fff);
 $navigation:var(--navigation, #20232a);
 $nav-color:var(--nav-color, white);
 $nav-color-hover:var(--nav-color-hover, #009fff);
-$navigation-scrolled:var(--navigation-scrolled, #f7f7f7);
-$nav-color-scrolled:var(--nav-color-scrolled, black);
 
 // section variables
 
-$section-aniamtion:var(--section-aniamtion,seagreen);
+$section-aniamtion:var(--section-aniamtion, #009fff);
 $section-keyframes:var(--section-keyframes, #c73535);
 $section-main:var(--section-main, black);

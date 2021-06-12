@@ -22,10 +22,14 @@
         }
     }    
 
-    h1{
+    h1, h2{
         text-align: center;
         margin-bottom: 3rem;
         font-family: Cairo;
+    }
+    h2{
+        margin: 1rem 0;
+        font-size:1.6rem;
     }
     b{
         color:$section-aniamtion;

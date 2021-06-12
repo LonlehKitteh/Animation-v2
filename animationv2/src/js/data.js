@@ -16,21 +16,74 @@ export const arr = [
         <u>Animacja jest to zmiana stanu ze stanu A do stanu B, a potem ze stanu B do stanu C.</u>
         Zmiana stanu może polegać na najprostszej zmianie koloru, jaki i również na skomplikowanej transformacji.
         <p><u>Praktycznie wszystko może zostać animowane.</u></p>
-        <p>Np. width, height, background-color, color, transform, cursor i wiele więcej... </p>`
+        <p>Np. width, height, background-color, color, transform, cursor i wiele więcej... </p>
+        <p>
+        <b>Animacji</b> używamy wtedy, kiedy chcemy uzyskać efekt animowania obiektu zaraz  po załadowaniu strony przez użytkownika,
+        lub gdy chcemy, aby animowanie obiektu trwało w nieskończoność.
+    </p>
+    <p>Na przykład:</p>
+    <div class="css-track">
+    <div></div>
+    </div>
+    <p>Podobny efekt można uzyskać za pomocą marquee</p>
+    <p>Ten element div animuje się od początku załadowania się strony i robi to w nieskończoność, można sprawdzić :)</p>`        
     },
     {
-        header: "Po co nam animacje?",
-        content: `
-        <p>
-            <b>Animacji</b> używamy wtedy, kiedy chcemy uzyskać efekt animowania obiektu zaraz po załadowaniu strony przez użytkownika,
-            lub gdy chcemy, aby animowanie obiektu trwało w nieskończoność.
-        </p>
-        <p>Na przykład:</p>
-        <div class="css-track">
-        <div></div>
+      header:"Rodzaje Animacji",
+      content: `<p>Niestety <b>animacja</b> może być przeprowadzona w dwojaki sposób, to znaczy wyróżniamy dwa rodzaje <b>animacji</b>: </p>
+      <div class="flex" style="align-items:initial;">
+        <div class="flex-child">
+          <h2>Animacja płynna</h2>
+          <div>
+            <p>To jest taka animacja, która jest płynna to znaczy element posiada przejście pomiędzy stanami.</p>
+            <p>Np: color, border, padding, width, height, itd...</p>
+            <div class="example-flow-animation">
+              <div></div>
+            </div>
+            <p>Zauważ, że ta animacja ma płynne przejście pomiędzy stanami</p>
+            <div class="flex-center">
+<div><pre><code class="css">/* Przykładowa animacja płynna */
+
+@keyframes example-flow-animation{
+  from, to{
+      transform: translateX(0);
+      width: 25%;
+  }
+  50%{
+      transform: translateX(100%);
+      width: 50%;
+      background: black;
+  }
+}</code></pre>
+</div>
+            </div>
+          </div>
         </div>
-        <p>Podobny efekt można uzyskać za pomocą marquee</p>
-        <p>Ten element div animuje się od początku załadowania się strony i robi to w nieskończoność, można sprawdzić :)</p>`
+        <div class="flex-child">
+          <h2>Animacja schodkowa</h2>
+          <div>
+            <p>To jest taka animacja, która <u>nie</u> posiada przejścia pomiędzy stanami.</p>
+            <p>Np: background-image, cursor, display, flex-wrap, resize, itd...</p>
+            <div class="example-static-animation">
+              <div></div>
+              <div></div>
+            </div>
+            <p>Zauważ, że to wygląda dokładnie jakby ten element nie miał przejścia pomiędzy stanami, oczywiście da się to obejść w inny sposób np nie animować właściwości display tylko opacity :)</p>
+            <div class="flex-center">
+<div><pre><code class="css">/* Przykładowa animacja schodkowa */
+
+@keyframes example-static-animation{
+  to{
+      cursor: copy;
+      justify-content: space-between;
+  }
+}</code></pre>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      `
     },
     {
         header: "Animacja, pseudoklasy i pseudoelementy",
@@ -143,9 +196,9 @@ export const arr = [
 }</code></pre>
         </div>
       </div>
-      <h3 style="text-align: center;font-size:1.6rem;">
+      <h2>
         Wniosek
-      </h3>
+      </h2>
       <p>
         <b>Animacja</b><u> :hover</u> działa tak długo, jak użytkownik jest cursorem na elemencie, ale po opuszczeniu diva przez kursor <u>natychmiastowo</u> wraca do stanu początkowego. (bez żadnego przejścia)
       </p>`

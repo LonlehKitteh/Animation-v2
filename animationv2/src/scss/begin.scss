@@ -1,0 +1,103 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./keyframes.scss";
+@import './hljs.scss';
+
+#animacja1,
+#animacja2 {
+    flex-grow: 1;
+    cursor: pointer;
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    border: 1px solid $default-navigation;
+    &::after {
+        content: "";
+        width: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: $default-navigation;
+    }
+}
+
+#animacja1 {
+    transition: 1s ease-in-out;
+    &::after {
+        transition: 1s ease-in-out;
+    }
+    &:hover:after {
+        width: 100%;
+    }
+    &:hover {
+        color: $nav-color;
+    }
+}
+
+#animacja2 {
+    &:hover {
+        animation: hoverMe-1 1s ease-in-out forwards;
+    }
+    &:hover::after {
+        animation: hoverMe-2 1s ease-in-out forwards;
+    }
+}
+.flex {
+    @include flex-center;
+}
+.flex-child {
+    flex-basis: 50%;
+    padding: 1rem;
+    &:last-of-type {
+        border-left: 1px solid $menu-border;
+    }
+}
+.example-flow-animation, .example-static-animation {
+    height: 4rem;
+    background: $css-track;
+    padding: 0.5rem;
+    box-shadow: 0 0 2px 1px $css-track;
+    cursor: pointer;
+    div {
+        position: relative;
+        width: 25%;
+        height: 100%;
+        background: $css-track-div;
+        box-shadow: 0 0 2px 1px $css-track-div;
+        will-change: background, width, transform;
+        &::after {
+            content: "DIV";
+            position: absolute;
+            color: $css-track-div-color;
+            font-size: 1.5rem;
+            font-weight: bolder;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    &:hover {
+        div{
+            animation: example-flow-animation 2s infinite both;
+        }
+    }
+}
+
+.example-static-animation{
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-start;
+    will-change: cursor, justify-content;
+    &:hover {
+        animation: example-static-animation 2s infinite;
+        div{
+            animation: none;
+        }
+    }
+}

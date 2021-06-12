@@ -4,6 +4,8 @@ import { arr } from '../js/data'
 import Menu from './Menu'
 import Navigation from './Navigation'
 import hljs from 'highlight.js'
+import Footer from './Footer'
+import '../css/begin.css'
 
 export default function Begin() {
 
@@ -20,7 +22,6 @@ export default function Begin() {
         }
     }
 
-
     useEffect(() => {
         hljs.highlightAll()
 
@@ -32,16 +33,10 @@ export default function Begin() {
 
         window.addEventListener("scroll", () => {
 
-            if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-                document.querySelector(".nav").classList.add("scrolled")
-            } else {
-                document.querySelector(".nav").classList.remove("scrolled")
-            }
-
             var scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
 
             sectionOffsets.forEach((element, counter) => {
-                if(document.getElementById(`l${counter}`) === null) return
+                if (document.getElementById(`l${counter}`) === null) return
                 if (element - 50 <= scrollPosition && sectionOffsets[counter + 1] - 50 >= scrollPosition) {
                     document.getElementById(`l${counter}`).classList.add("active")
                     borderColor(document.getElementById(`l${counter}`))
@@ -54,6 +49,7 @@ export default function Begin() {
                 }
             })
         })
+
     }, [])
 
     return (
@@ -70,9 +66,7 @@ export default function Begin() {
                         </Menu>
                     </div>
                 </div>
-                <div className="footer">
-                    footer
-                </div>
+                <Footer />
             </div>
         </>
     )

@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Cairo;
-  src: url("../font/Cairo-Regular.ttf");
-}
-
 @-webkit-keyframes homePage {
   from, to {
     -webkit-transform: translate(-150%);
@@ -58,5 +53,56 @@
   }
   to {
     width: 100%;
+  }
+}
+
+@-webkit-keyframes example-flow-animation {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    width: 25%;
+    background: var(--css-track-div, #009fff);
+  }
+  50% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    width: 50%;
+    background: var(--navigation, #20232a);
+    -webkit-box-shadow: 0 0 2px 1px var(--navigation, #20232a);
+            box-shadow: 0 0 2px 1px var(--navigation, #20232a);
+  }
+}
+
+@keyframes example-flow-animation {
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    width: 25%;
+    background: var(--css-track-div, #009fff);
+  }
+  50% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    width: 50%;
+    background: var(--navigation, #20232a);
+    -webkit-box-shadow: 0 0 2px 1px var(--navigation, #20232a);
+            box-shadow: 0 0 2px 1px var(--navigation, #20232a);
+  }
+}
+
+@-webkit-keyframes example-static-animation {
+  to {
+    cursor: copy;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@keyframes example-static-animation {
+  to {
+    cursor: copy;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }

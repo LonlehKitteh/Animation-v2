@@ -25,3 +25,22 @@
         width: 100%;
     }
 }
+@keyframes example-flow-animation{
+    to{
+        transform: translateX(0);
+        width: 25%;
+        background: $css-track-div;
+    }
+    50%{
+        transform: translateX(100%);
+        width: 50%;
+        background: $navigation;
+        box-shadow: 0 0 2px 1px $navigation;
+    }
+}
+@keyframes example-static-animation{
+    to{
+        cursor: copy;
+        justify-content: space-between;
+    }
+}
