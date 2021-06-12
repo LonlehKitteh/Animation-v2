@@ -85,7 +85,7 @@ html {
 
 // menu goes here
 .menu {
-    position: fixed;
+    position: fixed !important;
     padding-top: 4rem;
     background: $menu;
     right: 0;
@@ -113,7 +113,7 @@ html {
                 transition: border-left-color .7s ease-in-out, color .7s ease;
             }
             .active{
-                border-left: 4px solid $default-navigation; 
+                border-left: 4px solid $navigation; 
                 font-weight: bolder;    
             }
         }

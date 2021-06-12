@@ -321,7 +321,7 @@ html {
 }
 
 .menu {
-  position: fixed;
+  position: fixed !important;
   padding-top: 4rem;
   background: var(--menu-border, #f7f7f7);
   right: 0;
@@ -363,7 +363,7 @@ html {
 }
 
 .menu ul li .active {
-  border-left: 4px solid var(--default-navigation, #009fff);
+  border-left: 4px solid var(--navigation, #20232a);
   font-weight: bolder;
 }
 

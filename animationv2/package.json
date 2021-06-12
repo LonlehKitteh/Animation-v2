@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "framer-motion": "^4.1.17",
     "highlight.js": "^11.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",

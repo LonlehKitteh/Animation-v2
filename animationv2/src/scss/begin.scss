@@ -14,7 +14,9 @@
     position: relative;
     z-index: 2;
     text-align: center;
-    border: 1px solid $default-navigation;
+    border: 1px solid $btn-primary-hover;
+    border-radius: 1rem;
+    overflow: hidden;
     &::after {
         content: "";
         width: 0;
@@ -23,7 +25,7 @@
         top: 0;
         left: 0;
         z-index: -1;
-        background: $default-navigation;
+        background: $btn-primary-hover;
     }
 }
 
@@ -71,6 +73,7 @@
         background: $css-track-div;
         box-shadow: 0 0 2px 1px $css-track-div;
         will-change: background, width, transform;
+        animation: example-flow-animation 2s infinite both;
         &::after {
             content: "DIV";
             position: absolute;
@@ -82,11 +85,6 @@
             transform: translate(-50%, -50%);
         }
     }
-    &:hover {
-        div{
-            animation: example-flow-animation 2s infinite both;
-        }
-    }
 }
 
 .example-static-animation{
@@ -94,10 +92,9 @@
     gap: .5rem;
     justify-content: flex-start;
     will-change: cursor, justify-content;
-    &:hover {
+    animation: example-static-animation 2s infinite;
+    div{
+        will-change: cursor, justify-content;
         animation: example-static-animation 2s infinite;
-        div{
-            animation: none;
-        }
     }
 }

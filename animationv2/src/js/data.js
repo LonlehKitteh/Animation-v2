@@ -1,36 +1,41 @@
 export const arr = [
-    {
-        header: "Wstęp",
-        content: `
+  {
+    header: "Wstęp",
+    content: `
         <div class="subheader">W tej części kursu dowiesz się:</div>
         <ul>
-            <li>Czym są <b>animacje</b>, a także, kiedy należy ich używać,</li>
-            <li>Zapoznasz się z różnicami pomiędzy przejściem a <b>animacją</b></li>
-            <li>Poznasz regułę <i>@keyframes</i>,</li>
+            <li>Czym są animacje, a także, kiedy należy ich używać,</li>
+            <li>Zapoznasz się z różnicami pomiędzy przejściem a animacją</li>
+            <li>Poznasz regułę @keyframes,</li>
             <li>Nauczysz się wszystkich potrzebnych komend związanych z animacjami.</li>
         </ul>`
-    },
-    {
-        header: "Czym są animacje?",
-        content: `
-        <u>Animacja jest to zmiana stanu ze stanu A do stanu B, a potem ze stanu B do stanu C.</u>
-        Zmiana stanu może polegać na najprostszej zmianie koloru, jaki i również na skomplikowanej transformacji.
-        <p><u>Praktycznie wszystko może zostać animowane.</u></p>
-        <p>Np. width, height, background-color, color, transform, cursor i wiele więcej... </p>
-        <p>
-        <b>Animacji</b> używamy wtedy, kiedy chcemy uzyskać efekt animowania obiektu zaraz  po załadowaniu strony przez użytkownika,
-        lub gdy chcemy, aby animowanie obiektu trwało w nieskończoność.
+  },
+  {
+    header: "Czym są animacje?",
+    content: `
+        <div class="alert alert-info" role="alert">
+          <i class="fas fa-exclamation"></i><span>
+            Animacja jest to zmiana stanu ze stanu A do stanu B.
+            Zmiana stanu może polegać na najprostszej zmianie koloru, jaki i również na skomplikowanej transformacji.
+            Należy pamiętać, że transormacja i przejście to nie to samo różnice przedstawie w sekcji poniżej.
+            Animacji używamy wtedy, kiedy chcemy uzyskać efekt animowania obiektu zaraz  po załadowaniu strony przez użytkownika,
+            lub gdy chcemy, aby animowanie obiektu trwało w nieskończoność, lub gdy po prostu chcemy aby element na stronie się ruszał.
+            </span>
+        </div>
+        <p>Praktycznie wszystko może zostać animowane.
+        Np. width, height, background-color, color, transform, cursor i wiele więcej...
+        W prawdzie mówiąc ciężko jest wymienić, właściwości CSS których nie można animować, to nie znaczy że ich nie ma. Przykładowe właściwości, których nie można animować: <tt>all, animation, will-change, </tt>
     </p>
     <p>Na przykład:</p>
     <div class="css-track">
     <div></div>
     </div>
     <p>Podobny efekt można uzyskać za pomocą marquee</p>
-    <p>Ten element div animuje się od początku załadowania się strony i robi to w nieskończoność, można sprawdzić :)</p>`        
-    },
-    {
-      header:"Rodzaje Animacji",
-      content: `<p>Niestety <b>animacja</b> może być przeprowadzona w dwojaki sposób, to znaczy wyróżniamy dwa rodzaje <b>animacji</b>: </p>
+    <p>Ten element div animuje się od początku załadowania się strony i robi to w nieskończoność, można sprawdzić :)</p>`
+  },
+  {
+    header: "Rodzaje Animacji",
+    content: `<p>Niestety <b>animacja</b> może być przeprowadzona w dwojaki sposób, to znaczy wyróżniamy dwa rodzaje <b>animacji</b>: </p>
       <div class="flex" style="align-items:initial;">
         <div class="flex-child">
           <h2>Animacja płynna</h2>
@@ -84,26 +89,19 @@ export const arr = [
         </div>
       </div>
       `
-    },
-    {
-        header: "Animacja, pseudoklasy i pseudoelementy",
-        content: `
+  },
+  {
+    header: "Animacja, pseudoklasy i pseudoelementy",
+    content: `
       <p>
         Warto wspomnieć, że <b>animacja</b> może się łączyć na przykład z <i>:hover :active itd.</i> a w szczególności <i>::before</i> i <i>::after</i>.
       </p>
-      <div class="css-track">
-        <div></div>
-      </div>
-      <p>
-        <u>Zauważ, co się dzieje z naszym elementem w momencie, kiedy nasza myszka opuści polę diva.</u>
-      </p>
-      <p>
-        Animacja zostaje przerwana a nasz element <u>NATYCHMIASTOWO</u> wraca do miejsca początkowego.
-      </p>`
-    },
-    {
-      header:"Dlaczego to takie istotne?",
-      content:`
+      <p>Animacje to nie jest coś zupełnie innego, czy dziwnego</p>
+      `
+  },
+  {
+    header: "Dlaczego to takie istotne?",
+    content: `
       <p>
         Najlepiej będzie omówić problem na przykładzie pożej:
       </p>
@@ -202,15 +200,15 @@ export const arr = [
       <p>
         <b>Animacja</b><u> :hover</u> działa tak długo, jak użytkownik jest cursorem na elemencie, ale po opuszczeniu diva przez kursor <u>natychmiastowo</u> wraca do stanu początkowego. (bez żadnego przejścia)
       </p>`
-    },
-    {
-      header:"Co należy zapamiętać?",
-      content:`
+  },
+  {
+    header: "Co należy zapamiętać?",
+    content: `
       <ul>
         <li>Czym jest animacja.</li>
         <li>Do czego używamy animacji.</li>
         <li>Że animacja może łączyć się z <u>:hover</u>.</li>
         <li>Różnice pomiędzy przejściem a animacją.</li>
       </ul>`
-    }
+  }
 ]

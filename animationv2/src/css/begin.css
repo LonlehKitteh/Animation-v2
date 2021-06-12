@@ -218,7 +218,9 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  border: 1px solid var(--default-navigation, #009fff);
+  border: 1px solid var(--btn-primary-hover, #008cff);
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 #animacja1::after,
@@ -230,7 +232,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  background: var(--default-navigation, #009fff);
+  background: var(--btn-primary-hover, #008cff);
 }
 
 #animacja1 {
@@ -300,6 +302,8 @@
   -webkit-box-shadow: 0 0 2px 1px var(--css-track-div, #009fff);
           box-shadow: 0 0 2px 1px var(--css-track-div, #009fff);
   will-change: background, width, transform;
+  -webkit-animation: example-flow-animation 2s infinite both;
+          animation: example-flow-animation 2s infinite both;
 }
 
 .example-flow-animation div::after, .example-static-animation div::after {
@@ -314,11 +318,6 @@
           transform: translate(-50%, -50%);
 }
 
-.example-flow-animation:hover div, .example-static-animation:hover div {
-  -webkit-animation: example-flow-animation 2s infinite both;
-          animation: example-flow-animation 2s infinite both;
-}
-
 .example-static-animation {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -328,14 +327,12 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   will-change: cursor, justify-content;
-}
-
-.example-static-animation:hover {
   -webkit-animation: example-static-animation 2s infinite;
           animation: example-static-animation 2s infinite;
 }
 
-.example-static-animation:hover div {
-  -webkit-animation: none;
-          animation: none;
+.example-static-animation div {
+  will-change: cursor, justify-content;
+  -webkit-animation: example-static-animation 2s infinite;
+          animation: example-static-animation 2s infinite;
 }

@@ -1,48 +1,43 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../css/navigation.css'
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
+import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap'
+import { links } from '../js/links'
 
 export default function Navigation() {
-    const links = [{
-        title: "begin",
-        icon: "fas fa-play"
-    },
-    {
-        title: "transform",
-        icon: "fas fa-expand-arrows-alt"
-    },
-    {
-        title: "animation",
-        icon: "fas fa-project-diagram"
-    },
-    {
-        title: "keyframes",
-        icon: "fas fa-wrench"
-    },
-    {
-        title:"test",
-        icon: "fas fa-vial"
-    }
-]
+    var keycounter = 100
+    var titles = []
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nav">
             <Container>
-                <NavLink to="/" className="logo">GachFrames - Animation</NavLink>
+                <NavLink exact to="/" className="logo">GachFrames - Animation</NavLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <NavDropdown title="CSS-Animation" id="collasible-nav-dropdown">
-                            {links.map((el, counter) => {
-                                return <NavLink to={`${el.title}`} key={counter}><i className={el.icon}></i>{el.title}</NavLink>
-                            })}
-                        </NavDropdown>
+                        {links.map((el, counter) => {
+                            return (<NavDropdown key={counter} title={el[0]} id={`collasible-nav-dropdown ${counter}`}>
+                                {el.map(element => {
+                                    if (typeof element === 'object' && element !== null) {
+                                        var id = element.id || ''
+                                        return <NavLink to={`${element.title}${id}`} key={keycounter++}><i className={element.icon}></i>{element.title}</NavLink>
+                                    }
+                                    return titles
+                                })}
+                            </NavDropdown>)
+                        })}
+                        <Nav className="galery">
+                            <NavLink to="/galery"><i className="fas fa-camera"></i>Galery</NavLink>
+                        </Nav>
+                        <Nav className="themes">
+                            <NavDropdown title="Themes" id="collasible-nav-dropdown">
+                                <Nav.Item><span className="black"></span>black</Nav.Item>
+                            </NavDropdown>
+                        </Nav>
                     </Nav>
-                    <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
-                        </Nav.Link>
+                    <Nav className="loginpanel">
+                        <NavLink to="/login"><Button variant="primary">Log In</Button></NavLink>
+                        <NavLink to="/sign in"><Button variant="success">Sign In</Button></NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
