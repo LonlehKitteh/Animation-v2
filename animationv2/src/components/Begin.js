@@ -10,7 +10,6 @@ import { motion } from 'framer-motion'
 import { pageTransition, pageVariants } from '../js/pageAnimation'
 
 export default function Begin() {
-
     useEffect(() => {
         hljs.highlightAll()
         scrolllingAnchor()
@@ -18,7 +17,7 @@ export default function Begin() {
 
     return (
         <>
-            <motion.div
+            <motion.div layout
                 className="page"
                 initial="initial"
                 animate="in"

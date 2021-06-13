@@ -74,14 +74,24 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
 }
 
 .btn-primary:active {
-  background: var(--btn-primary-hover, #008cff);
+  background: #0088ff;
 }
 
 .btn-primary:focus {
-  background: var(--btn-primary, #009fff);
+  background: #0088ff;
 }
 
 .btn-success:focus {
+  -webkit-box-shadow: 0 0 0 0.25rem #146c43a1;
+          box-shadow: 0 0 0 0.25rem #146c43a1;
+}
+
+.btn-success:focus:active {
+  -webkit-box-shadow: 0 0 0 0.25rem #146c43a1;
+          box-shadow: 0 0 0 0.25rem #146c43a1;
+}
+
+.btn-success:focus:focus {
   -webkit-box-shadow: 0 0 0 0.25rem #146c43a1;
           box-shadow: 0 0 0 0.25rem #146c43a1;
 }

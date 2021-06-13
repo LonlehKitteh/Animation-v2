@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../css/home.css'
 import { motion } from 'framer-motion'
 import { pageTransition, pageVariants } from '../js/pageAnimation'
 
 export default function Home() {
-    useEffect(() => {
-        setTimeout(() => {
-            document.querySelector(".page").removeAttribute("style");
-        }, 500)    
-    }, [])
 
     return (
         <>
-            <motion.div
+            <motion.div layout
                 className="page"
                 initial="initial"
                 animate="in"

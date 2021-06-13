@@ -301,7 +301,7 @@ html {
 
 .page {
   position: absolute;
-  top: 3rem;
+  top: 3.5rem;
   left: 0;
   width: 100%;
 }
@@ -363,7 +363,7 @@ html {
 }
 
 .menu ul li .active {
-  border-left: 4px solid var(--navigation, #20232a);
+  border-left: 4px solid var(--nav-color-hover, #009fff);
   font-weight: bolder;
 }
 

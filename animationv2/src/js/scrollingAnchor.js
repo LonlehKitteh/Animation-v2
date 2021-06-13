@@ -1,8 +1,5 @@
 export function scrolllingAnchor() {
-    setTimeout(() => {
-        document.querySelector(".page").removeAttribute("style");
-    }, 500)
-    
+
     function borderColor(element) {
         var randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
         if (element.style.borderLeftColor === '') {
@@ -40,5 +37,4 @@ export function scrolllingAnchor() {
             }
         })
     })
-
 }

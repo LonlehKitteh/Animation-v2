@@ -62,14 +62,20 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
         background: $btn-primary-hover;
     }
     &:active{
-        background: $btn-primary-hover;
+        background: #0088ff;
     }
     &:focus{
-        background: $btn-primary;
+        background: #0088ff;
     }
 }
 .btn-success:focus{
     box-shadow: 0 0 0 0.25rem #146c43a1;
+    &:active{
+        box-shadow: 0 0 0 0.25rem #146c43a1;
+    }
+    &:focus{
+        box-shadow: 0 0 0 0.25rem #146c43a1;
+    }
 }
 .galery{
     a{

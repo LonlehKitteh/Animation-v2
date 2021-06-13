@@ -6,7 +6,6 @@ import { links } from '../js/links'
 
 export default function Navigation() {
     var keycounter = 100
-    var titles = []
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nav">
@@ -22,7 +21,7 @@ export default function Navigation() {
                                         var id = element.id || ''
                                         return <NavLink to={`${element.title}${id}`} key={keycounter++}><i className={element.icon}></i>{element.title}</NavLink>
                                     }
-                                    return titles
+                                    return null
                                 })}
                             </NavDropdown>)
                         })}

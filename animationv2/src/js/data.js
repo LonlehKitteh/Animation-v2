@@ -47,7 +47,8 @@ export const arr = [
             </div>
             <p>Zauważ, że ta animacja ma płynne przejście pomiędzy stanami</p>
             <div class="flex-center">
-<div><pre><code class="css">/* Przykładowa animacja płynna */
+<div>
+<pre><code class="css">/* Przykładowa animacja płynna */
 
 @keyframes example-flow-animation{
   from, to{
