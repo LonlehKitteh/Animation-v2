@@ -17,4 +17,10 @@ const pageTransition = {
     type: "spring",
     ease: "easeInOut"
 }
-export { pageTransition, pageVariants }
+const btnAnimation = {
+    duration: .4,
+    type: "spring",
+    ease: "anticipate"
+}
+
+export { pageTransition, pageVariants, btnAnimation }
