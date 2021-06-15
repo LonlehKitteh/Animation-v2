@@ -5,6 +5,16 @@ import { Form } from 'react-bootstrap'
 import { testcss } from '../js/test'
 
 export default function TestCss() {
+    var correctAnswersTable = []
+    
+    function getHash(){
+        let hash = ''
+        for(let i = 0;i < 8;i++){
+            hash += Math.floor(Math.random() * 10)
+        }
+        return hash
+    }
+    
     function shuffle(array) {
         var i = array.length,
             j = 0,
@@ -44,6 +54,8 @@ export default function TestCss() {
                             <Form.Group key={counter}>
                                 <Form.Label>{`${counter + 1}. ${el[0]}`}</Form.Label>
                                 {answers.map(element => {
+                                var hash = getHash()
+                                if(el[element].value) correctAnswersTable.push(hash)
                                     return (
                                         <Form.Check
                                             key={`${counter}-${element}`}
@@ -51,6 +63,7 @@ export default function TestCss() {
                                             label={`${el[element].answer}`}
                                             name="formHorizontalRadios"
                                             id={`formHorizontalRadios${element}`}
+                                            value={hash}
                                         />
                                     )
                                 })}
@@ -58,6 +71,7 @@ export default function TestCss() {
                         )
                     })
                 }
+                <Button>Calculate</Button>
             </Form>
         </motion.div>
     )
