@@ -1,152 +1,47 @@
-export const testcss = [
-    [
-        "Question 1",
-        {
-            answer: "True Answer1",
-            value: true
-        },
-        {
-            answer: "False Answer1",
-            value: false
-        },
-        {
-            answer: "False Answer1",
-            value: false
+import firebase from 'firebase/app'
+import { firebaseConfig } from './config'
+import 'firebase/database'
+
+const app = (!firebase.apps.length) ? firebase.initializeApp(firebaseConfig) : firebase.app()
+const database = app.database().ref().child('testcss')
+
+var correctAnswers = []
+
+var dataTestCss = () => {
+    var answers = []
+    database.on('value', snap => {
+        for (let i = 1; i <= 10; i++) {
+            var element = snap.val()['question0' + i]
+            if (i > 9) {
+                element = snap.val()['question' + i]
+            }
+            answers.push([])
+            correctAnswers.push(element.answer1)
+            for (let j = 1; j <= 4; j++) {
+                answers[i - 1].push(element['answer' + j])
+            }
         }
-    ],
-    [
-        "Question 2",
-        {
-            answer: "True Answer2",
-            value: true
-        },
-        {
-            answer: "False Answer2",
-            value: false
-        },
-        {
-            answer: "False Answer2",
-            value: false
-        }
-    ],
-    [
-        "Question 3",
-        {
-            answer: "True Answer3",
-            value: true
-        },
-        {
-            answer: "False Answer3",
-            value: false
-        },
-        {
-            answer: "False Answer3",
-            value: false
-        }
-    ],
-    [
-        "Question 4",
-        {
-            answer: "True Answer4",
-            value: true
-        },
-        {
-            answer: "False Answer4",
-            value: false
-        },
-        {
-            answer: "False Answer4",
-            value: false
-        }
-    ],
-    [
-        "Question 5",
-        {
-            answer: "True Answer5",
-            value: true
-        },
-        {
-            answer: "False Answer5",
-            value: false
-        },
-        {
-            answer: "False Answer5",
-            value: false
-        }
-    ],
-    [
-        "Question 6",
-        {
-            answer: "True Answer6",
-            value: true
-        },
-        {
-            answer: "False Answer6",
-            value: false
-        },
-        {
-            answer: "False Answer6",
-            value: false
-        }
-    ],
-    [
-        "Question 7",
-        {
-            answer: "True Answer7",
-            value: true
-        },
-        {
-            answer: "False Answer7",
-            value: false
-        },
-        {
-            answer: "False Answer7",
-            value: false
-        }
-    ],
-    [
-        "Question 8",
-        {
-            answer: "True Answer8",
-            value: true
-        },
-        {
-            answer: "False Answer8",
-            value: false
-        },
-        {
-            answer: "False Answer8",
-            value: false
-        }
-    ],
-    [
-        "Question 9",
-        {
-            answer: "True Answer9",
-            value: true
-        },
-        {
-            answer: "False Answer9",
-            value: false
-        },
-        {
-            answer: "False Answer9",
-            value: false
-        }
-    ],
-    [
-        "Question 10",
-        {
-            answer: "True Answer10",
-            value: true
-        },
-        {
-            answer: "False Answer10",
-            value: false
-        },
-        {
-            answer: "False Answer10",
-            value: false
-        }
-    ]
-]
+    })
+    return answers
+}
+
+function shuffle(array) {
+    var i = array.length,
+        j = 0,
+        temp;
+
+    while (i--) {
+
+        j = Math.floor(Math.random() * (i + 1));
+
+        // swap randomly chosen element with current element
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+
+    }
+
+    return array;
+}
+
+export { dataTestCss, shuffle }

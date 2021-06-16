@@ -1,30 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { pageTransition, pageVariants } from '../js/pageAnimation'
-import { Form } from 'react-bootstrap'
-import { testcss } from '../js/test'
+import { Button, Form } from 'react-bootstrap'
+import 'firebase/database'
+import { shuffle, dataTestCss } from '../js/test'
 
 export default function TestCss() {
-    function shuffle(array) {
-        var i = array.length,
-            j = 0,
-            temp;
+    const [solution, setSolution] = useState([])
 
-        while (i--) {
+    useEffect(() => {
+        setSolution(dataTestCss())
+    }, [])
 
-            j = Math.floor(Math.random() * (i + 1));
-
-            // swap randomly chosen element with current element
-            temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-
-        }
-
-        return array;
-    }
+    console.log(dataTestCss())
+    var answers = dataTestCss()
     var ranNums = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
     return (
         <motion.div
             layout
@@ -37,20 +27,20 @@ export default function TestCss() {
         >
             <Form>
                 {
-                    testcss.map((el, counter) => {
-                        el = testcss[ranNums[counter] - 1]
-                        var answers = shuffle([1, 2, 3])
+                    answers.map((el, counter) => {
+                        el = answers[ranNums[counter] - 1]
+                        let ranAnswers = shuffle([0, 1, 2])
                         return (
                             <Form.Group key={counter}>
-                                <Form.Label>{`${counter + 1}. ${el[0]}`}</Form.Label>
-                                {answers.map(element => {
+                                <Form.Label>{`${counter + 1}. ${el.pop()}`}</Form.Label>
+                                {ranAnswers.map((answer, key) => {
                                     return (
                                         <Form.Check
-                                            key={`${counter}-${element}`}
+                                            key={`${counter}-${key}`}
                                             type="radio"
-                                            label={`${el[element].answer}`}
+                                            label={el[answer]}
                                             name="formHorizontalRadios"
-                                            id={`formHorizontalRadios${element}`}
+                                            id={`formHorizontalRadios${key + 1}`}
                                         />
                                     )
                                 })}
@@ -58,6 +48,7 @@ export default function TestCss() {
                         )
                     })
                 }
+                <Button>Sprawdź odpowiedzi</Button>
             </Form>
         </motion.div>
     )

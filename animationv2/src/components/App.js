@@ -12,6 +12,7 @@ import Begin from './Begin'
 import { AnimatePresence } from 'framer-motion'
 import Example0 from '../projects/example0/example0'
 import TestCss from './TestCss'
+import TestSvg from './TestSvg'
 
 export default function App() {
     const location = useLocation()
@@ -20,10 +21,10 @@ export default function App() {
 
         if (location.pathname === '/') {
             title = 'Home'
-        } else if(location.pathname.includes("test")){
+        } else if (location.pathname.includes("test")) {
             title = "Test " + location.pathname.substring(5)[0].toUpperCase() + location.pathname.substring(6)
-        } else if(location.pathname.endsWith("0")){
-            title = location.pathname[1].toUpperCase() + location.pathname.substring(2,location.pathname.length - 1)
+        } else if (location.pathname.endsWith("0")) {
+            title = location.pathname[1].toUpperCase() + location.pathname.substring(2, location.pathname.length - 1)
         }
         else {
             title = title.charAt(0).toUpperCase() + title.substring(1)
@@ -43,6 +44,7 @@ export default function App() {
                     <Route path="/keyframes" component={Keyframes}></Route>
                     <Route path="/galery" component={Galery}></Route>
                     <Route path="/testcss" component={TestCss}></Route>
+                    <Route path="/testsvg" component={TestSvg}></Route>
                     <Route path="/example0" exact component={Example0}></Route>
                     {/* <Route path="/example1" exact component={Example1}></Route>
                     <Route path="/example2" exact component={Example2}></Route>
