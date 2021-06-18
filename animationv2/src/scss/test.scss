@@ -1,0 +1,17 @@
+.test {
+    width: 60%;
+    margin: auto;
+    background-color: #eee;
+    margin-top: 1rem;
+    box-shadow: 0 0 30px -3px #18181881;
+    padding: 1rem;
+    .form-label{
+        font-weight: bold;
+    }
+    .form-group{
+        margin: 1rem 0;
+    }
+    #answers{
+        margin: auto;
+    }
+}

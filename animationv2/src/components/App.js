@@ -45,6 +45,7 @@ export default function App() {
                     <Route path="/galery" component={Galery}></Route>
                     <Route path="/testcss" component={TestCss}></Route>
                     <Route path="/testsvg" component={TestSvg}></Route>
+
                     <Route path="/example0" exact component={Example0}></Route>
                     {/* <Route path="/example1" exact component={Example1}></Route>
                     <Route path="/example2" exact component={Example2}></Route>

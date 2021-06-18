@@ -1,0 +1,21 @@
+.test {
+  width: 60%;
+  margin: auto;
+  background-color: #eee;
+  margin-top: 1rem;
+  -webkit-box-shadow: 0 0 30px -3px #18181881;
+          box-shadow: 0 0 30px -3px #18181881;
+  padding: 1rem;
+}
+
+.test .form-label {
+  font-weight: bold;
+}
+
+.test .form-group {
+  margin: 1rem 0;
+}
+
+.test #answers {
+  margin: auto;
+}
