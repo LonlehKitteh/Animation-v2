@@ -7,7 +7,6 @@
 }
 @mixin font-nav($color) {
     color: $color;
-    text-transform: uppercase;
     font-family: Cairo;
     font-size: 1.4rem;
     font-weight: bold;

@@ -26,22 +26,30 @@ export default function TestCss() {
 
     function takeAnswers(e) {
         e.preventDefault()
-        var result = []
+        var counter = 0
+        var key = 0
         document.querySelectorAll("input").forEach(el => {
+            let answer = document.querySelector(`[for=${el.id}]`)
             if (el.checked) {
-                result.push(document.querySelector(`[for=${el.id}]`).innerHTML)
+                answer.classList.add("incorrect")
+                el.classList.add("incorrect")
+                if (correct[randQuestions[key++]].value === answer.innerHTML) {
+                    counter++
+                    setPoints(counter)
+                }
+            }
+            for (let i = 0; i <= correct.length - 1; i++) {
+                if (correct[randQuestions[i]].value === answer.innerHTML) {
+                    answer.classList.remove("incorrect")
+                    el.classList.remove("incorrect")
+                    answer.classList.add("correct")
+                    el.classList.add("correct")
+                }
             }
             el.disabled = true
-        })
-        arraysEqual(result)
-    }
-    function arraysEqual(result) {
-        var counter = 0
-        correct.forEach(element => {
-            if (result.includes(element)) {
-                counter++
-            }
-            return setPoints(counter)
+            document.getElementById("points").style.width = "100%"
+            document.getElementById("points").style.setProperty("--points", `"${Math.round(counter / correct.length * 100)}%"`)
+            if (counter > correct.length / 2) document.getElementById("points").style.setProperty("--color", "white")
         })
     }
     return (
@@ -54,19 +62,24 @@ export default function TestCss() {
             transition={pageTransition}
         >
             <Form className="test">
+                <div className="alert alert-primary d-flex align-items-center" role="alert">
+                    <i className="fas fa-exclamation"></i>
+                    <span>Test sprawdzający wiedzę z animacji w CSS3.</span>
+                </div>
                 {
                     question.map(check => {
                         return (
                             check.questions.map((quest, key) => {
+                                quest = check.questions[randQuestions[key]]
                                 return (
                                     <Form.Group key={`${check.id}-${key}`}>
-                                        <Form.Label>{check.questions[randQuestions[key]].question}</Form.Label>
+                                        <Form.Label>{`${key + 1}. ${quest.question}`}</Form.Label>
                                         {[1, 2, 3].map((el, counter) => {
                                             return (
                                                 <Form.Check
                                                     key={el}
                                                     type="radio"
-                                                    label={check.questions[randQuestions[key]][`answer${randAnswers[counter]}`]}
+                                                    label={quest[`answer${randAnswers[counter]}`]}
                                                     name={`formHorizontalRadios${key + 1}`}
                                                     id={`formHorizontalRadios${key + 1}-${counter + 1}`}
                                                 />
@@ -78,8 +91,10 @@ export default function TestCss() {
                         )
                     })
                 }
-                <div id="points">{points}</div>
-                <Button variant="primary" id="answers" onClick={takeAnswers}>Sprawdź odpowiedzi</Button>
+                <div id="points">{`${points} / ${correct.length}`}
+                    <div style={{ width: `${Math.round(points / correct.length * 100)}%`, filter: `hue-rotate(${Math.round(points / correct.length * 180)}deg)` }}></div> 
+                </div>
+                <Button variant="success" id="answers" onClick={takeAnswers}>Sprawdź odpowiedzi</Button>
             </Form>
         </motion.div>
     )

@@ -76,6 +76,11 @@ html {
         display: flex;
         .main {
             width: 70%;
+            h1{
+                @include font-nav($btn-primary);
+                font-size: 2rem;
+                text-shadow: 1px 1px black;
+            }
         }
         .aside {
             width: 30%;
@@ -95,7 +100,7 @@ html {
     h1 {
         margin-top: 0;
         text-align: center;
-        @include font-nav(black);
+        @include font-nav($btn-primary-hover);
     }
     ul {
         list-style-type: none;
@@ -121,7 +126,7 @@ html {
 }
 
 .footer {
-    height: 40rem;
+    height: 60rem;
     width: 100%;
     background: #20232a;
 }

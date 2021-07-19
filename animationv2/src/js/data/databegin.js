@@ -4,10 +4,10 @@ export const arr = [
     content: `
         <div class="subheader">W tej części kursu dowiesz się:</div>
         <ul>
-            <li>Czym są animacje, a także, kiedy należy ich używać,</li>
-            <li>Zapoznasz się z różnicami pomiędzy przejściem a animacją</li>
-            <li>Poznasz regułę @keyframes,</li>
-            <li>Nauczysz się wszystkich potrzebnych komend związanych z animacjami.</li>
+            <li>Czym są <b>animacje</b>, a także, kiedy należy ich używać,</li>
+            <li>Zapoznasz się z różnicami pomiędzy <b>przejściem a animacją</b></li>
+            <li>Poznasz regułę <b>@keyframes</b>,</li>
+            <li>Nauczysz się wszystkich potrzebnych <b>komend</b> związanych z <b>animacjami</b>.</li>
         </ul>`
   },
   {
@@ -24,14 +24,13 @@ export const arr = [
         </div>
         <p>Praktycznie wszystko może zostać animowane.
         Np. width, height, background-color, color, transform, cursor i wiele więcej...
-        W prawdzie mówiąc ciężko jest wymienić, właściwości CSS których nie można animować, to nie znaczy że ich nie ma. Przykładowe właściwości, których nie można animować: <tt>all, animation, will-change, </tt>
+        W prawdzie mówiąc ciężko jest wymienić, właściwości CSS których nie można animować, to nie znaczy że ich nie ma. Przykładowe właściwości, których nie można animować: <tt>all, animation, will-change</tt>
     </p>
-    <p>Na przykład:</p>
+    <p><b>Na przykład:</b></p>
     <div class="css-track">
     <div></div>
     </div>
-    <p>Podobny efekt można uzyskać za pomocą marquee</p>
-    <p>Ten element div animuje się od początku załadowania się strony i robi to w nieskończoność, można sprawdzić :)</p>`
+    <p>Podobny efekt można uzyskać za pomocą <b>marquee</b>, ten element div animuje się od początku załadowania się strony i robi to w nieskończoność, można sprawdzić :)</p>`
   },
   {
     header: "Rodzaje Animacji",
@@ -89,15 +88,15 @@ export const arr = [
           </div>
         </div>
       </div>
-      `
-  },
-  {
-    header: "Animacja, pseudoklasy i pseudoelementy",
-    content: `
-      <p>
-        Warto wspomnieć, że <b>animacja</b> może się łączyć na przykład z <i>:hover :active itd.</i> a w szczególności <i>::before</i> i <i>::after</i>.
-      </p>
-      <p>Animacje to nie jest coś zupełnie innego, czy dziwnego</p>
+      <p></p>
+      <div class="alert alert-info" role="alert">
+        <i class="fas fa-exclamation"></i>
+        <span>
+        Warto wspomnieć, że <b>animacja</b> może się łączyć na przykład z :hover :active itd. a w szczególności ::before i ::after. 
+        Animacje to nie jest coś zupełnie innego, czy dziwnego dzięki niej można dodawać stronie ciekawe efekty. 
+        Jendakże, wiąże się to z obciążeniem strony warto to mieć na uwadze gdy tworzycie większą stronę internetową.
+        </span>
+        </div>
       `
   },
   {
@@ -111,13 +110,13 @@ export const arr = [
       <div id="animacja2">Hover me</div>
       </div>
       <p>
-        <b>Pierwszy</b> (ten z lewej) przycisk jest zbudowany z <u>:hover</u> i<u> ::after</u>, które razem odpowiadają za "wypełnienie" kolorem tła diva. Została dodana właściwość <i>transition: 1s;</i> w celu uzyskania efektu przejścia.
+        <b>Pierwszy</b> (ten z lewej) przycisk jest zbudowany z :hover i ::after, które razem odpowiadają za "wypełnienie" kolorem tła diva. Została dodana właściwość transition: 1s; w celu uzyskania efektu przejścia.
       </p>
       <p><b>
         Działa tak długo, jak jesteś myszką na danym elemencie div i jeżeli opuścisz element div to zauważysz płynny powrót do pozycji początkowej.
       </b></p>
       <p>
-        <b>Drugi</b> przycisk jest zbudowany z <u>:hover ::after</u> i<u> animacji</u>, które razem odpowiadają za "wypełnienie" kolorem tła diva.
+        <b>Drugi</b> przycisk jest zbudowany z :hover ::after i animacji, które razem odpowiadają za "wypełnienie" kolorem tła diva.
       </p>
       <div class="flex-center">
         <div>
@@ -199,7 +198,7 @@ export const arr = [
         Wniosek
       </h2>
       <p>
-        <b>Animacja</b><u> :hover</u> działa tak długo, jak użytkownik jest cursorem na elemencie, ale po opuszczeniu diva przez kursor <u>natychmiastowo</u> wraca do stanu początkowego. (bez żadnego przejścia)
+        <b>Animacja</b> przy użyciu :hover mogą działać tak długo, jak użytkownik jest cursorem na elemencie, ale po opuszczeniu diva przez kursor <b>natychmiastowo</b> wraca do stanu początkowego. (bez żadnego przejścia)
       </p>`
   },
   {
@@ -208,7 +207,7 @@ export const arr = [
       <ul>
         <li>Czym jest animacja.</li>
         <li>Do czego używamy animacji.</li>
-        <li>Że animacja może łączyć się z <u>:hover</u>.</li>
+        <li>Że animacja może łączyć się z :hover.</li>
         <li>Różnice pomiędzy przejściem a animacją.</li>
       </ul>`
   }

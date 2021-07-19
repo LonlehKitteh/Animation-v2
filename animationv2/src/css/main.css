@@ -316,6 +316,15 @@ html {
   width: 70%;
 }
 
+.page .push .main h1 {
+  color: var(--btn-primary, #009fff);
+  font-family: Cairo;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-size: 2rem;
+  text-shadow: 1px 1px black;
+}
+
 .page .push .aside {
   width: 30%;
 }
@@ -333,8 +342,7 @@ html {
 .menu h1 {
   margin-top: 0;
   text-align: center;
-  color: black;
-  text-transform: uppercase;
+  color: var(--btn-primary-hover, #008cff);
   font-family: Cairo;
   font-size: 1.4rem;
   font-weight: bold;
@@ -348,7 +356,6 @@ html {
 
 .menu ul li a {
   color: black;
-  text-transform: uppercase;
   font-family: Cairo;
   font-size: 1.4rem;
   font-weight: bold;
@@ -368,7 +375,7 @@ html {
 }
 
 .footer {
-  height: 40rem;
+  height: 60rem;
   width: 100%;
   background: #20232a;
 }

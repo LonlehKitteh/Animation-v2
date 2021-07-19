@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import Home from './Home'
 import Transform from './Transform'
@@ -13,9 +13,14 @@ import { AnimatePresence } from 'framer-motion'
 import Example0 from '../projects/example0/example0'
 import TestCss from './TestCss'
 import TestSvg from './TestSvg'
+import hljs from 'highlight.js'
+import { pageTransition } from '../js/pageAnimation'
+import { scrolllingAnchor } from '../js/scrollingAnchor'
 
 export default function App() {
     const location = useLocation()
+    const sectionOffsets = useRef([])
+
     useEffect(() => {
         var title = location.pathname.substring(1)
 
@@ -30,7 +35,18 @@ export default function App() {
             title = title.charAt(0).toUpperCase() + title.substring(1)
         }
         document.getElementById("title").innerHTML = `Animation tutorial | ${title}`
-    }, [location])
+        hljs.highlightAll()
+
+        setTimeout(() => {
+            sectionOffsets.current = []
+            document.querySelectorAll(".section").forEach(section => {
+                sectionOffsets.current.push(section.offsetTop)
+            })
+        }, pageTransition.duration * 1000)
+
+    }, [location, sectionOffsets])
+
+    scrolllingAnchor(sectionOffsets)
 
     return (
         <>

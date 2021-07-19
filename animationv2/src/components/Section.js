@@ -6,7 +6,9 @@ export default function Section(props) {
     return (
         <div className="section" id={props.id}>
             <h1>{props.header}</h1>
-            <div dangerouslySetInnerHTML={{__html: props.content}}></div>
+            {
+                (typeof props.content === "string") ? <div dangerouslySetInnerHTML={{ __html: props.content }}></div> : <div>{props.children}</div>
+            }
         </div>
     )
 }

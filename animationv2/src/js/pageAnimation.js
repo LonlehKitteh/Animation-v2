@@ -1,15 +1,12 @@
 const pageVariants = {
     initial: {
-        opacity: 0,
-        x: "-100vw"
+        opacity: 0
     },
     in: {
-        opacity: 1,
-        x: 0
+        opacity: 1
     },
     out: {
-        opacity: 0,
-        x: "100vw"
+        opacity: 0
     }
 }
 const pageTransition = {
