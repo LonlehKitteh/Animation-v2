@@ -1,11 +1,13 @@
 export const datatransform = [
+
+    { mainHeader: "Transform" },
     {
         header: "Wstęp",
         content: "Transform to bardzo ważna właściwość CSS, która pozwala nam przesuwać obiekty na stronie umieszczać je w dowolnym miejscu (pozycjonować)"
     },
     {
         header: "Wartości właściwości transform",
-        content: [   
+        content: [
             "none",
             "prespective()",
             "translateX()",
@@ -126,5 +128,10 @@ export const datatransform = [
     {
         header: "kombinacja",
         content: "test test test"
+    },
+    { mainHeader: "Transform-origin" },
+    {
+        header:"in progress...",
+        content:"test your abilities"
     }
 ]

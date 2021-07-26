@@ -5,8 +5,12 @@ import { datatransform } from '../js/data/datatransform'
 import Footer from './Footer'
 import Section from './Section'
 import Menu from './Menu'
+import { Button } from 'react-bootstrap'
+import { btnAnimation } from '../js/pageAnimation'
 
 export default function Transform() {
+    var counter = 0
+    var links = 0
 
     return (
         <motion.div layout
@@ -20,15 +24,33 @@ export default function Transform() {
             <div className="push">
                 <div className="main">
                     {datatransform.map((data, key) => {
-                        return (typeof data.content !== 'string') ? <Section key={key} id={`s${key}`} header={data.header}>{data.content.map(subdata => <div key={subdata}>{subdata}</div>)}</Section> : 
-                        
-                        <Section header={data.header} content={data.content} key={key} id={`s${key}`} />
+                        if (data.hasOwnProperty("mainHeader")){
+                            links++
+                            return null
+                        }
+                        return (typeof data.content !== 'string') ? <Section key={key} id={`s${key - links}`} header={data.header}>{data.content.map((subdata, subkey) => {
+                            var initial = false
+                            if (subkey === 0) initial = "initial"
+                            return (
+                                <motion.div
+                                    whileTap={{ scale: 0.9 }}
+                                    whileHover={{ scale: 1.2, zIndex: 99 }}
+                                    transition={btnAnimation}
+                                    key={subkey}
+                                >
+                                    <a href={`#s${subkey + 3}`}><Button variant="primary" className={initial}>{subdata}</Button></a></motion.div>)
+                        })}</Section> :
+                            <Section header={data.header} content={data.content} key={key} id={`s${key - links}`} />
                     })}
                 </div>
 
                 <div className="aside">
                     <Menu>
-                        {datatransform.map((el, counter) => <li key={counter}><a id={`l${counter}`} href={`#s${counter}`}>{el.header}</a></li>)}
+                        {
+                            datatransform.map((element, key) => {
+                                return (element.hasOwnProperty("mainHeader")) ? <div key={key}>{`${++counter}. ${element.mainHeader}`}</div> : <li key={key}><a id={`l${key - counter}`} href={`#s${key - counter}`}>{element.header}</a></li>
+                            })
+                        }
                     </Menu>
                 </div>
             </div>

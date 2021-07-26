@@ -1,5 +1,5 @@
 @import './variables.scss';
-
+@import './mixins.scss';
 .section{
     &:first-of-type{
         border-bottom: 1px solid $menu-border;
@@ -40,4 +40,22 @@
     display: flex;
     align-items: center;
     border-radius: 1rem;
+}
+.flex-group{
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: .3rem;
+    button{
+        padding:1rem 2rem;
+        font-weight: bold;
+        position: relative;
+    }
+    .initial::after{
+        content: 'initial';
+        position: absolute;
+        bottom: 1%;
+        right: 5%;
+        font-size: smaller;
+        color: #323641;
+    }
 }

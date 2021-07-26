@@ -331,12 +331,14 @@ html {
 
 .menu {
   position: fixed !important;
-  padding-top: 4rem;
+  padding: 4rem 0;
   background: var(--menu-border, #f7f7f7);
   right: 0;
   border-left: 1px solid var(--menu-border, #c5c5c5a1);
   width: 30%;
-  height: 100vh;
+  top: 3.5rem;
+  bottom: 0;
+  overflow-y: auto;
 }
 
 .menu h1 {

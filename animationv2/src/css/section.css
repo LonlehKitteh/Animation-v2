@@ -48,3 +48,33 @@
           align-items: center;
   border-radius: 1rem;
 }
+
+.flex-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: .3rem;
+}
+
+.flex-group button {
+  padding: 1rem 2rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.flex-group .initial::after {
+  content: 'initial';
+  position: absolute;
+  bottom: 1%;
+  right: 5%;
+  font-size: smaller;
+  color: #323641;
+}
