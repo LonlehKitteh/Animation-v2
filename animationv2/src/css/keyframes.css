@@ -128,3 +128,41 @@
             transform: rotate(360deg);
   }
 }
+
+@-webkit-keyframes move {
+  from, to {
+    -webkit-transform: translate(-150%);
+            transform: translate(-150%);
+  }
+  50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+  }
+}
+
+@keyframes move {
+  from, to {
+    -webkit-transform: translate(-150%);
+            transform: translate(-150%);
+  }
+  50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+  }
+}
+
+@-webkit-keyframes color {
+  50% {
+    background: coral;
+    -webkit-box-shadow: 0 0 2px 1px coral;
+            box-shadow: 0 0 2px 1px coral;
+  }
+}
+
+@keyframes color {
+  50% {
+    background: coral;
+    -webkit-box-shadow: 0 0 2px 1px coral;
+            box-shadow: 0 0 2px 1px coral;
+  }
+}

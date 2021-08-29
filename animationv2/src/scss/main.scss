@@ -65,6 +65,45 @@ html {
     }
 }
 
+.css-track-animation {
+    width: 100%;
+    height: 5rem;
+    background-color: $css-track;
+    border-radius: 0.2rem;
+    @include flex-center;
+    padding: 0.5rem;
+    box-shadow: 0 0 2px 1px $css-track;
+    cursor: pointer;
+    div {
+        width: 25%;
+        height: 100%;
+        background: $css-track-div;
+        box-shadow: 0 0 2px 1px $css-track-div;
+        border-radius: 0.2rem;
+        @include flex-center;
+        z-index: 2;
+        will-change: transform, background-color;
+        transform: translate(-150%);
+        animation-name: move, color;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        &:after {
+            content: "div";
+            font-size: 2.1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $css-track-div-color;
+        }
+    }
+    &:after {
+        content: "dystans do przebycia";
+        position: absolute;
+        z-index: 1;
+        color: $css-track-div-text;
+    }
+}
+
 // page goes here
 .page {
     position: absolute;
@@ -159,7 +198,7 @@ html {
 }
 // ----------------------------------------------------------------------------------------------
 
-.toCreator{
+.toCreator {
     width: 60px;
     height: 60px;
     background: red;
@@ -170,9 +209,9 @@ html {
     bottom: 1vh;
     right: -10vh;
     transform: scale(0);
-    transition: right .2s ease, transform .5s ease;
+    transition: right 0.2s ease, transform 0.5s ease;
 }
-.activated{
+.activated {
     right: 1vh;
     transform: scale(1);
 }

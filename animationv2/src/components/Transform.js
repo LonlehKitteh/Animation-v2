@@ -1,12 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { pageVariants, pageTransition } from '../js/pageAnimation'
+import { pageVariants, pageTransition, btnAnimation } from '../js/pageAnimation'
 import { datatransform } from '../js/data/datatransform'
 import Footer from './Footer'
 import Section from './Section'
 import Menu from './Menu'
 import { Button } from 'react-bootstrap'
-import { btnAnimation } from '../js/pageAnimation'
 
 export default function Transform() {
     var counter = 0
@@ -24,15 +23,11 @@ export default function Transform() {
             <div className="push">
                 <div className="main">
                     {datatransform.map((data, key) => {
-                        var pictured
                         if (data.hasOwnProperty("mainHeader")) {
                             links++
                             return <p key={key} className="title">{`${links}. ${data.mainHeader}`}</p>
                         }
-                        if((key > 3 && key < 27) || key === 30) pictured = true
                         return (typeof data.content !== 'string') ? <Section key={key} id={`s${key - links}`} header={data.header}>{data.content.map((subdata, subkey) => {
-                            var initial = false
-                            if (subkey === 0) initial = "initial"
                             return (
                                 <motion.div
                                     whileTap={{ scale: 0.9 }}
@@ -40,9 +35,9 @@ export default function Transform() {
                                     transition={btnAnimation}
                                     key={subkey}
                                 >
-                                    <a href={`#s${subkey + 3}`}><Button variant="primary" className={initial}>{subdata}</Button></a></motion.div>)
+                                    <a href={`#s${subkey + 3}`}><Button variant="primary" className={(subkey === 0) ? "initial" : false}>{subdata}</Button></a></motion.div>)
                         })}</Section> :
-                            <Section counter={key} code={data.code} picturedTransform={pictured} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
+                            <Section counter={key} code={data.code} picturedTransform={((key > 3 && key < 27) || key === 30) ? true : false} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
                     })}
                 </div>
 
