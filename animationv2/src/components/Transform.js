@@ -24,10 +24,12 @@ export default function Transform() {
             <div className="push">
                 <div className="main">
                     {datatransform.map((data, key) => {
-                        if (data.hasOwnProperty("mainHeader")){
+                        var pictured
+                        if (data.hasOwnProperty("mainHeader")) {
                             links++
-                            return null
+                            return <p key={key} className="title">{`${links}. ${data.mainHeader}`}</p>
                         }
+                        if((key > 3 && key < 27) || key === 30) pictured = true
                         return (typeof data.content !== 'string') ? <Section key={key} id={`s${key - links}`} header={data.header}>{data.content.map((subdata, subkey) => {
                             var initial = false
                             if (subkey === 0) initial = "initial"
@@ -40,7 +42,7 @@ export default function Transform() {
                                 >
                                     <a href={`#s${subkey + 3}`}><Button variant="primary" className={initial}>{subdata}</Button></a></motion.div>)
                         })}</Section> :
-                            <Section header={data.header} content={data.content} key={key} id={`s${key - links}`} />
+                            <Section counter={key} code={data.code} picturedTransform={pictured} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
                     })}
                 </div>
 
@@ -48,7 +50,7 @@ export default function Transform() {
                     <Menu>
                         {
                             datatransform.map((element, key) => {
-                                return (element.hasOwnProperty("mainHeader")) ? <div key={key}>{`${++counter}. ${element.mainHeader}`}</div> : <li key={key}><a id={`l${key - counter}`} href={`#s${key - counter}`}>{element.header}</a></li>
+                                return (element.hasOwnProperty("mainHeader")) ? <li key={key}>{`${++counter}. ${element.mainHeader}`}</li> : <li key={key}><a id={`l${key - counter}`} href={`#s${key - counter}`}>{element.header}</a></li>
                             })
                         }
                     </Menu>

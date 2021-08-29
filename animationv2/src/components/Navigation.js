@@ -33,6 +33,9 @@ export default function Navigation() {
                                 <Nav.Item><span className="black"></span>black</Nav.Item>
                             </NavDropdown>
                         </Nav>
+                        <Nav className="galery">
+                            <NavLink to="/creator"><i className="fas fa-tools"></i>Creator</NavLink>
+                        </Nav>
                     </Nav>
                     <Nav className="loginpanel">
                         <NavLink to="/login"><Button variant="primary">Log In</Button></NavLink>

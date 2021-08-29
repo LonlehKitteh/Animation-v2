@@ -47,17 +47,17 @@ export const arr = [
             <p>Zauważ, że ta animacja ma płynne przejście pomiędzy stanami</p>
             <div class="flex-center">
 <div>
-<pre><code class="css">/* Przykładowa animacja płynna */
+<pre><code class="css"><span class="css-comment">/* Przykładowa animacja płynna */</span>
 
-@keyframes example-flow-animation{
-  from, to{
-      transform: translateX(0);
-      width: 25%;
+<span class="css-keyframes-role">@keyframes</span> example-flow-animation{
+  <span class="css-keyframes-role">from, to</span>{
+      <span class="css-property">transform</span>: <span class="css-value">translateX</span>(<span class="css-number">0</span>);
+      <span class="css-property">width</span>: <span class="css-number">25%</span>;
   }
-  50%{
-      transform: translateX(100%);
-      width: 50%;
-      background: black;
+  <span class="css-keyframes-role">50%</span>{
+      <span class="css-property">transform</span>: <span class="css-value">translateX</span>(<span class="css-number">100%</span>);
+      <span class="css-property">width</span>: <span class="css-number">50%</span>;
+      <span class="css-property">background</span>: <span class="css-value">black</span>;
   }
 }</code></pre>
 </div>
@@ -75,12 +75,12 @@ export const arr = [
             </div>
             <p>Zauważ, że to wygląda dokładnie jakby ten element nie miał przejścia pomiędzy stanami, oczywiście da się to obejść w inny sposób np nie animować właściwości display tylko opacity :)</p>
             <div class="flex-center">
-<div><pre><code class="css">/* Przykładowa animacja schodkowa */
+<div><pre><code class="css"><span class="css-comment">/* Przykładowa animacja schodkowa */</span>
 
-@keyframes example-static-animation{
-  to{
-      cursor: copy;
-      justify-content: space-between;
+<span class="css-keyframes-role">@keyframes</span> example-static-animation{
+  <span class="css-keyframes-role">to</span>{
+      <span class="css-property">cursor</span>: <span class="css-value">copy</span>;
+      <span class="css-property">justify-content</span>: <span class="css-value">space-between</span>;
   }
 }</code></pre>
 </div>
@@ -120,76 +120,76 @@ export const arr = [
       </p>
       <div class="flex-center">
         <div>
-        <pre><code class="css">/* Przycisk pierwszy */
+        <pre><code class="css"><span class="css-comment">/* Przycisk pierwszy */</span>
 
-#animacja1{
-  margin: 1rem;
-  padding: .5rem 1rem;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 2;
-  border: 1px solid #009fff;
-  transition: color 1s ease-in-out;
+<span class="css-selector">#animacja1</span>{
+  <span class="css-property">margin</span>: <span class="css-number">1rem</span>;
+  <span class="css-property">padding</span>: <span class="css-number">.5rem 1rem</span>;
+  <span class="css-property">font-size</span>: <span class="css-number">1.4rem</span>;
+  <span class="css-property">text-transform</span>: <span class="css-value">uppercase</span>;
+  <span class="css-property">position</span>: <span class="css-value">relative</span>;
+  <span class="css-property">z-index</span>: <span class="css-number">2</span>;
+  <span class="css-property">border</span>: <span class="css-number">1px</span> <span class="css-value">solid #009fff</span>;
+  <span class="important"><span class="css-property">transition</span>: <span class="css-value">color</span> <span class="css-number">1s</span> <span class="css-value">ease-in-out</span>;</span>
 }
-#animacja1::after{
-  content: '';
-  width: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: #009fff;
-  transition: width 1s ease-in-out;
+<span class="css-selector">#animacja1::after</span>{
+  <span class="css-property">content</span>: <span class="css-value">''</span>;
+  <span class="css-property">width</span>: <span class="css-number">0</span>;
+  <span class="css-property">height</span>: <span class="css-number">100%</span>;
+  <span class="css-property">position</span>: <span class="css-value">absolute</span>;
+  <span class="css-property">top</span>: <span class="css-number">0</span>;
+  <span class="css-property">left</span>: <span class="css-number">0</span>;
+  <span class="css-property">z-index</span>: <span class="css-number">-1</span>;
+  <span class="css-property">background</span>: <span class="css-value">#009fff</span>;
+  <span class="important"><span class="css-property">transition</span>: <span class="css-value">width</span> <span class="css-number">1s</span> <span class="css-value">ease-in-out</span>;</span>
 }
-#animacja1:hover{
-  color: white;
+<span class="css-selector">#animacja1:hover</span>{
+  <span class="css-property">color</span>: <span class="css-value">white</span>;
 }
-#animacja1:hover::after{
-  width: 100%;
+<span class="css-selector">#animacja1:hover::after</span>{
+  <span class="css-property">width</span>: <span class="css-number">100%</span>;
 }</code></pre>
         </div>
         <div>
-        <pre><code class="css">/* Przycisk drugi */
+        <pre><code class="css"><span class="css-comment">/* Przycisk drugi */</span>
 
-#animacja2{
-  margin: 1rem;
-  padding: .5rem 1rem;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 2;
-  border: 1px solid #009fff;
+<span class="css-selector">#animacja2</span>{
+  <span class="css-property">margin</span>: <span class="css-number">1rem</span>;
+  <span class="css-property">padding</span>: <span class="css-number">.5rem 1rem</span>;
+  <span class="css-property">font-size</span>: <span class="css-number">1.4rem</span>;
+  <span class="css-property">text-transform</span>: <span class="css-value">uppercase</span>;
+  <span class="css-property">position</span>: <span class="css-value">relative</span>;
+  <span class="css-property">z-index</span>: <span class="css-number">2</span>;
+  <span class="css-property">border</span>: <span class="css-number">1px</span> <span class="css-value">solid #009fff</span>;
 }
-#animacja2::after{
-  content: '';
-  width: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: #009fff;
+<span class="css-selector">#animacja2::after</span>{
+  <span class="css-property">content</span>: <span class="css-value">''</span>;
+  <span class="css-property">width</span>: <span class="css-number">0</span>;
+  <span class="css-property">height</span>: <span class="css-number">100%</span>;
+  <span class="css-property">position</span>: <span class="css-value">absolute</span>;
+  <span class="css-property">top</span>: <span class="css-number">0</span>;
+  <span class="css-property">left</span>: <span class="css-number">0</span>;
+  <span class="css-property">z-index</span>: <span class="css-number">-1</span>;
+  <span class="css-property">background</span>: <span class="css-value">#009fff</span>;
 }
-#animacja2:hover{
-  animation: animacja1 1s ease-in-out forwards;
+<span class="css-selector">#animacja2:hover</span>{
+  <span class="important"><span class="css-property">animation</span>: animacja1 <span class="css-number">1s</span> <span class="css-value">ease-in-out forwards</span>;</span>
 }
-#animacja2:hover::after{
-  animation: animacja2 1s ease-in-out forwards;
+<span class="css-selector">#animacja2:hover::after</span>{
+  <span class="important"><span class="css-property">animation</span>: animacja2 <span class="css-number">1s</span> <span class="css-value">ease-in-out forwards</span>;</span>
 }
-@keyframes animacja1{
-  from{
-    color: black;
-  } to {
-    color: white;
+<span class="css-keyframes-role">@keyframes</span> animacja1{
+  <span class="css-keyframes-role">from</span>{
+    <span class="css-property">color</span>: <span class="css-value">black</span>;
+  } <span class="css-keyframes-role">to</span> {
+    <span class="css-property">color</span>: <span class="css-value">white</span>;
   }
 }
-@keyframes animacja2{
-  from{
-    width: 0;
-  } to {
-    width: 100%;
+<span class="css-keyframes-role">@keyframes</span> animacja2{
+  <span class="css-keyframes-role">from</span>{
+    <span class="css-property">width</span>: <span class="css-number">0</span>;
+  } <span class="css-keyframes-role">to</span> {
+    <span class="css-property">width</span>: <span class="css-number">100%</span>;
   }
 }</code></pre>
         </div>

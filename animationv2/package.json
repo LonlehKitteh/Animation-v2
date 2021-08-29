@@ -6,6 +6,7 @@
     "firebase": "^8.6.7",
     "framer-motion": "^4.1.17",
     "highlight.js": "^11.0.1",
+    "hljs": "^6.2.3",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",

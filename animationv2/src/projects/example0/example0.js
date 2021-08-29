@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { pageTransition, pageVariants, btnAnimation } from '../../js/pageAnimation'
 import './main.css'
@@ -6,15 +6,7 @@ import '../../css/galery.css'
 import { NavLink } from 'react-router-dom'
 
 export default function Example0() {
-    useEffect(() => {
-        document.querySelector(".flex").addEventListener("click", () => {
-            if (document.querySelector(".circle").innerHTML < 99) {
-                document.querySelector(".circle").innerHTML++
-            } else {
-                document.querySelector(".circle").innerHTML = "99+"
-            }
-        }, [])
-    })
+    const counter = useRef(0)
 
     return (
         <motion.div layout
@@ -27,6 +19,7 @@ export default function Example0() {
         >
             <motion.div className="flex"
                 whileTap={{ scale: 0.9 }}
+                onClick={() => (counter.current < 99) ? document.querySelector(".circle").innerHTML = ++counter.current : document.querySelector(".circle").innerHTML = "99+"}
             >
                 <div className="main-letter">
                     <div className="right-triangle"></div>
