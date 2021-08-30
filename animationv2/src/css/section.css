@@ -1,4 +1,5 @@
 .section {
+  border-top: 1px solid var(--menu-border, #c5c5c5a1);
   background: white;
   padding: 1rem;
   margin: 1rem;
@@ -8,11 +9,7 @@
 }
 
 .section:first-of-type {
-  border-bottom: 1px solid var(--menu-border, #c5c5c5a1);
-}
-
-.section:last-of-type {
-  border-top: 1px solid var(--menu-border, #c5c5c5a1);
+  border-top: none;
 }
 
 .section .subheader {
@@ -292,4 +289,9 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.css-role {
+  color: var(--section-keyframes, #c73535);
+  font-weight: bold;
 }

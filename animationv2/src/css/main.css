@@ -301,8 +301,8 @@ html {
   will-change: transform, background-color;
   -webkit-transform: translate(-150%);
           transform: translate(-150%);
-  -webkit-animation-name: move, color;
-          animation-name: move, color;
+  -webkit-animation-name: move;
+          animation-name: move;
   -webkit-animation-duration: 4s;
           animation-duration: 4s;
   -webkit-animation-iteration-count: infinite;
@@ -350,6 +350,7 @@ html {
   font-weight: bold;
   font-size: 2rem;
   text-shadow: 1px 1px black;
+  padding: 1rem;
 }
 
 .page .push .aside {

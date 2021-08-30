@@ -1,18 +1,16 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 .section {
-    &:first-of-type {
-        border-bottom: 1px solid $menu-border;
-    }
-    &:last-of-type {
-        border-top: 1px solid $menu-border;
-    }
+    border-top: 1px solid $menu-border;
     background: white;
     padding: 1rem;
     margin: 1rem;
     font-family: sans-serif;
     letter-spacing: -1px;
     color: $section-main;
+    &:first-of-type {
+        border-top: none;
+    }
     .subheader {
         font-size: larger;
     }
@@ -237,4 +235,8 @@
     font-size: 2.6rem;
     text-transform: uppercase;
     user-select: none;
+}
+.css-role{
+    color: $section-keyframes;
+    font-weight: bold;
 }

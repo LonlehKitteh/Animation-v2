@@ -1,5 +1,30 @@
 import Schemat from '../../images/schemat.png'
-
+export const transforms = [
+    'none',
+    'perspective(100px) rotateX(125deg)',
+    'translateX(40px)',
+    'translateY(-20px)',
+    'translate(40px, -20px)',
+    'perspective(100px) translateZ(20px)',
+    'perspective(300px) translate3d(50px, 75px, 40px)',
+    'scaleX(0.8)',
+    'scaleY(1.2)',
+    'scale(1.3, 0.75)',
+    'perspective(300px) scaleZ(0.5) translateZ(200px)',
+    'perspective(300px) scale3d(0.75, 1.25, 0.5) translateZ(200px)',
+    'skewX(30deg)',
+    'skewY(-30deg)',
+    'skew(30deg, 20deg)',
+    'rotate(60deg)',
+    'perspective(300px) rotateX(45deg)',
+    'perspective(300px) rotateY(45deg)',
+    'perspective(300px) rotateZ(45deg)',
+    'perspective(300px) rotate3d(1, 1, 1, 45deg)',
+    'matrix(0.8660254, 0.5, -0.5, 0.8660254, 0, 0)',
+    'perspective(300px) matrix3d(0.7071067, 0, -0.7071067, 0, 0, 1, 0, 0, 0.7071067, 0, 0.7071067, 0, 0, 0, 0, 1)',
+    'translateX(100px) rotate(30deg)',
+    'left top'
+]
 export const datatransform = [
 
     { mainHeader: "Transform" },

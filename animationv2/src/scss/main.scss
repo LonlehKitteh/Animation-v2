@@ -84,7 +84,7 @@ html {
         z-index: 2;
         will-change: transform, background-color;
         transform: translate(-150%);
-        animation-name: move, color;
+        animation-name: move;
         animation-duration: 4s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
@@ -118,6 +118,7 @@ html {
                 @include font-nav($btn-primary);
                 font-size: 2rem;
                 text-shadow: 1px 1px black;
+                padding: 1rem;
             }
         }
         .aside {
