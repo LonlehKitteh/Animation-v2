@@ -1,5 +1,6 @@
 @-webkit-keyframes homePage {
-  from, to {
+  from,
+  to {
     -webkit-transform: translate(-150%);
             transform: translate(-150%);
   }
@@ -10,7 +11,8 @@
 }
 
 @keyframes homePage {
-  from, to {
+  from,
+  to {
     -webkit-transform: translate(-150%);
             transform: translate(-150%);
   }
@@ -130,7 +132,8 @@
 }
 
 @-webkit-keyframes move {
-  from, to {
+  from,
+  to {
     -webkit-transform: translate(-150%);
             transform: translate(-150%);
   }
@@ -141,11 +144,34 @@
 }
 
 @keyframes move {
-  from, to {
+  from,
+  to {
     -webkit-transform: translate(-150%);
             transform: translate(-150%);
   }
   50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+  }
+}
+
+@-webkit-keyframes move2 {
+  from {
+    -webkit-transform: translate(-150%);
+            transform: translate(-150%);
+  }
+  to {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+  }
+}
+
+@keyframes move2 {
+  from {
+    -webkit-transform: translate(-150%);
+            transform: translate(-150%);
+  }
+  to {
     -webkit-transform: translate(150%);
             transform: translate(150%);
   }
@@ -164,6 +190,52 @@
     background: coral;
     -webkit-box-shadow: 0 0 2px 1px coral;
             box-shadow: 0 0 2px 1px coral;
+  }
+}
+
+@-webkit-keyframes color2 {
+  from {
+    background: #ff8052;
+    -webkit-box-shadow: 0 0 2px 1px #ff8052;
+            box-shadow: 0 0 2px 1px #ff8052;
+  }
+  25% {
+    background: #52a8ff;
+    -webkit-box-shadow: 0 0 2px 1px #52a8ff;
+            box-shadow: 0 0 2px 1px #52a8ff;
+  }
+  50% {
+    background: #e252ff;
+    -webkit-box-shadow: 0 0 2px 1px #e252ff;
+            box-shadow: 0 0 2px 1px #e252ff;
+  }
+  to {
+    background: #52ffe2;
+    -webkit-box-shadow: 0 0 2px 1px #52ffe2;
+            box-shadow: 0 0 2px 1px #52ffe2;
+  }
+}
+
+@keyframes color2 {
+  from {
+    background: #ff8052;
+    -webkit-box-shadow: 0 0 2px 1px #ff8052;
+            box-shadow: 0 0 2px 1px #ff8052;
+  }
+  25% {
+    background: #52a8ff;
+    -webkit-box-shadow: 0 0 2px 1px #52a8ff;
+            box-shadow: 0 0 2px 1px #52a8ff;
+  }
+  50% {
+    background: #e252ff;
+    -webkit-box-shadow: 0 0 2px 1px #e252ff;
+            box-shadow: 0 0 2px 1px #e252ff;
+  }
+  to {
+    background: #52ffe2;
+    -webkit-box-shadow: 0 0 2px 1px #52ffe2;
+            box-shadow: 0 0 2px 1px #52ffe2;
   }
 }
 
@@ -319,6 +391,16 @@ html {
   color: var(--css-track-div-color, white);
 }
 
+.css-track-animation:hover > div.paused {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.css-track-animation:hover > div.running {
+  -webkit-animation-play-state: running, paused;
+          animation-play-state: running, paused;
+}
+
 .css-track-animation:after {
   content: "dystans do przebycia";
   position: absolute;
@@ -408,6 +490,7 @@ html {
   background-color: #474949;
   display: block;
   margin: 1rem;
+  padding: 1rem;
 }
 
 .css {

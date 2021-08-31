@@ -96,6 +96,12 @@ html {
             color: $css-track-div-color;
         }
     }
+    &:hover > div.paused{
+        animation-play-state: paused;
+    }
+    &:hover > div.running{
+        animation-play-state: running, paused;
+    }
     &:after {
         content: "dystans do przebycia";
         position: absolute;
@@ -171,6 +177,7 @@ html {
     background-color: #474949;
     display: block;
     margin: 1rem;
+    padding: 1rem;
 }
 .css {
     color: white;

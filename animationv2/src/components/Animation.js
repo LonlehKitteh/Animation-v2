@@ -10,7 +10,7 @@ import { Button } from 'react-bootstrap'
 export default function Animation() {
     var counter = 0
     var links = 0
-    var picturedBugFixer = [1, 2, 3, 7, 8, 9, 10, 13, 14, 15, 16, 27, 28, 29, 30, 31, 34, 35, 36, 37, 41, 42, 43, 44, 50, 51, 52, 53, 59, 60, 61, 62, 66, 67, 68, 69]
+    var picturedBugFixer = [4, 5, 6, 11, 12, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 33, 38, 39, 40, 45, 46, 47, 48, 49, 54, 55, 56, 57, 58, 63, 64, 65, 70, 71]
 
     return (
         <motion.div layout
@@ -38,7 +38,7 @@ export default function Animation() {
                                 >
                                     <a href={`#s${subkey + key - links + 2}`}><Button variant="primary" className={(subkey === 0 && key !== 9 && key !== 30) ? "initial" : false}>{subdata}</Button></a></motion.div>)
                         })}</Section> :
-                            <Section counter={key} code={data.code} animationName={links - 1} picturedAnimation={(picturedBugFixer.includes(key)) ? false : true} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
+                            <Section counter={key} code={data.code} animationName={links - 1} picturedAnimation={(picturedBugFixer.includes(key)) ? true : false} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
                     })}
                 </div>
 

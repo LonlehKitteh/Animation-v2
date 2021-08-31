@@ -1,67 +1,96 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 @keyframes homePage {
-    from, to{
+    from,
+    to {
         transform: translate(-150%);
     }
-    50%{
+    50% {
         transform: translate(150%);
     }
 }
 
-@keyframes hoverMe-1{
-    from{
+@keyframes hoverMe-1 {
+    from {
         color: black;
     }
-    to{
+    to {
         color: white;
     }
 }
 @keyframes hoverMe-2 {
-    from{
+    from {
         width: 0%;
     }
-    to{
+    to {
         width: 100%;
     }
 }
-@keyframes example-flow-animation{
-    to{
+@keyframes example-flow-animation {
+    to {
         transform: translateX(0);
         width: 25%;
         background: $css-track-div;
     }
-    50%{
+    50% {
         transform: translateX(100%);
         width: 50%;
         background: $navigation;
         box-shadow: 0 0 2px 1px $navigation;
     }
 }
-@keyframes example-static-animation{
-    to{
+@keyframes example-static-animation {
+    to {
         cursor: copy;
         justify-content: space-between;
     }
 }
 @keyframes transformOrigin {
-    from{
+    from {
         transform: rotate(0deg);
-    } to{
+    }
+    to {
         transform: rotate(360deg);
     }
 }
 @keyframes move {
-    from, to{
+    from,
+    to {
         transform: translate(-150%);
     }
-    50%{
+    50% {
+        transform: translate(150%);
+    }
+}
+@keyframes move2 {
+    from {
+        transform: translate(-150%);
+    }
+    to {
         transform: translate(150%);
     }
 }
 @keyframes color {
-     50%{
+    50% {
         background: coral;
         box-shadow: 0 0 2px 1px coral;
+    }
+}
+@keyframes color2 {
+    from {
+        background: hsl(16, 100%, 66%);
+        box-shadow: 0 0 2px 1px hsl(16, 100%, 66%);
+    }
+    25%{
+        background: hsl(210, 100%, 66%);
+        box-shadow: 0 0 2px 1px hsl(210, 100%, 66%);
+    }
+    50%{
+        background: hsl(290, 100%, 66%);
+        box-shadow: 0 0 2px 1px hsl(290, 100%, 66%);
+    }
+    to {
+        background: hsl(170, 100%, 66%);
+        box-shadow: 0 0 2px 1px hsl(170, 100%, 66%);
     }
 }

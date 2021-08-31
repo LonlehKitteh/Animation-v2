@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/section.css'
 import { transforms } from '../js/data/datatransform'
-import { animationNames, animation } from '../js/data/dataanimation'
+import { animations } from '../js/data/dataanimation'
 
 export default function Section(props) {
 
@@ -33,24 +33,17 @@ export default function Section(props) {
                     }
                 </> : (props.picturedAnimation) ? <>
                     <div className="pictured">
-                        {
-                            (props.counter > 10) ? <h2>{`${animationNames[props.animationName]}: ${animation[props.counter - 8]}`}</h2>
-                                : <h2>{`${animationNames[props.animationName]}: ${animation[props.counter - 4]};`}</h2>
-                        }
+                        <h2>{(animations[props.counter - 4] !== undefined) ? `${animations[props.counter - 4].value};` : "in progress..."}</h2>
                         <div className="css-track-animation">
-                            {
-                                (props.counter > 10) ? <div style={
-                                    {
-                                        animationDuration: animation[props.counter - 8],
-                                        animationName: (props.counter === 12) ? 'move, color' : null
-                                    }
-                                }></div>
-                                    : <div style={{ animationName: animation[props.counter - 4] }}></div>
-                            }
+                            <div style={animations[props.counter - 4]} className={(props.counter === 64) ? 'paused' : (props.counter === 65) ? 'running' : null}></div>
                         </div>
                     </div>
                     {
-                        (props.code) ? <div className="css-lan" dangerouslySetInnerHTML={{ __html: props.code }}></div> : null
+                        (props.code) ? <div className="css-lan">
+                            <pre>
+                                <code className="css" dangerouslySetInnerHTML={{ __html: props.code }}></code>
+                            </pre>
+                        </div> : null
                     }
                 </>
                     : null

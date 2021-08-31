@@ -65,7 +65,7 @@ export default function App() {
             setTimeout(() => {
                 element.style.borderLeftColor = ''
                 element.style.color = 'black'
-            }, 800)
+            }, 1000)
         }
     }
 

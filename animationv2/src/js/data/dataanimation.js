@@ -1,21 +1,223 @@
-export const animation = [
-    'none',
-    'move',
-    'move, color',
-    '2s',
-    '2s, 5s'
+const defaultDuration = '4s'
+const defaultIteration = 'infinite'
+
+export var animations = [
+    {
+        animationName: 'none',
+        value: 'animation-name: none'
+    },
+    {
+        animationName: 'move',
+        value: 'animation-name: move'
+    },
+    {
+        animationName: 'move, color',
+        value: 'animation-name: move, color'
+    },
+    "", "", "", "",
+    {
+        animationDuration: '2s',
+        value: 'animation-duration: 2s'
+    },
+    {
+        animationDuration: '2s, 4s',
+        animationName: 'move, color',
+        value: 'animation-duration: 2s, 4s'
+    },
+    "", "", "", "",
+    {
+        animationTimingFunction: 'ease',
+        value: 'animation-timing-function: ease'
+    },
+    {
+        animationTimingFunction: 'ease-in',
+        value: 'animation-timing-function: ease-in'
+    },
+    {
+        animationTimingFunction: 'ease-out',
+        value: 'animation-timing-function: ease-out'
+    },
+    {
+        animationTimingFunction: 'ease-in-out',
+        value: 'animation-timing-function: ease-in-out'
+    },
+    {
+        animationTimingFunction: 'linear',
+        value: 'animation-timing-function: linear'
+    },
+    {
+        animationTimingFunction: 'step-start',
+        value: 'animation-timing-function: step-start'
+    },
+    {
+        animationTimingFunction: 'step-end',
+        value: 'animation-timing-function: step-end'
+    },
+    {
+        animationTimingFunction: 'steps(10)',
+        value: 'animation-timing-function: steps(10)'
+    },
+    {
+        animationTimingFunction: 'cubic-bezier(.1,.75,.51,-0.01)',
+        value: 'animation-timing-function: cubic-bezier(.1,.75,.51,-0.01)'
+    },
+    {
+        animationName: 'move, color',
+        animationTimingFunction: 'steps(5), ease-in-out',
+        value: 'animation-timing-function: steps(5), ease-in-out'
+    },
+    "", "", "", "", "",
+    {
+        animationDelay: '2s',
+        value: 'animation-delay: 2s'
+    },
+    {
+        animationDelay: '5s, 1s',
+        animationName: 'move, color',
+        value: 'animation-delay: 5s, 1s'
+    },
+    "", "", "", "",
+    {
+        animationIterationCount: '3',
+        value: 'animation-iteration-count: 3'
+    },
+    {
+        animationIterationCount: 'infinite',
+        value: 'animation-iteration-count: infinite'
+    },
+    {
+        animationIterationCount: '5, infinite',
+        animationName: 'move, color',
+        value: 'animation-iteration-count: 5, infinite'
+    },
+    "", "", "", "",
+    {
+        animationDirection: 'normal',
+        animationName: 'move2',
+        animationDuration: '2s',
+        value: 'animation-direction: normal'
+    },
+    {
+        animationDirection: 'reverse',
+        animationName: 'move2',
+        animationDuration: '2s',
+        value: 'animation-direction: reverse'
+    },
+    {
+        animationDirection: 'alternate',
+        animationName: 'move2',
+        animationDuration: '2s',
+        value: 'animation-direction: alternate'
+    },
+    {
+        animationDirection: 'alternate-reverse',
+        animationName: 'move2',
+        animationDuration: '2s',
+        value: 'animation-direction: alternate-reverse'
+    },
+    {
+        animationDirection: 'alternate, reverse',
+        animationName: 'move2, color2',
+        animationDuration: '2s',
+        value: 'animation-direction: alternate, reverse'
+    },
+    "", "", "", "",
+    {
+        animationFillMode: 'none',
+        animationName: "color2",
+        value: 'animation-fill-mode: none'
+    },
+    {
+        animationFillMode: 'backwards',
+        animationName: "color2",
+        animationDelay: '4s',
+        animationIterationCount: '3',
+        value: 'animation-fill-mode: backwards'
+    },
+    {
+        animationFillMode: 'forwards',
+        animationName: "color2",
+        animationDelay: '4s',
+        animationIterationCount: '3',
+        value: 'animation-fill-mode: forwards'
+    },
+    {
+        animationFillMode: 'both',
+        animationName: "color2",
+        animationDelay: '4s',
+        animationIterationCount: '3',
+        value: 'animation-fill-mode: both'
+    },
+    {
+        animationFillMode: 'none, both',
+        animationName: "move, color2",
+        animationIterationCount: '3',
+        value: 'animation-fill-mode: none, both'
+    },
+    "", "", "", "",
+    {
+        animationPlayState: 'running',
+        value: 'animation-play-state: running'
+    },
+    {
+        value: 'animation-play-state: paused'
+    },
+    {
+        animationName: 'move, color',
+        value: 'animation-play-state: running, paused'
+    },
+    "", "", "", "",
+    {
+        animation: "move 8s ease-in 3s infinite alternate none running",
+        value: 'animation: move 8s ease-in 3s infinite alternate none running'
+    },
+    {
+        animation: 'move2 3s linear infinite reverse, color2 2s ease-in 4s 5 both',
+        value: 'animation: move 3s linear infinite reverse, color 2s ease-in 4s 5 both',
+    }
 ]
-export const animationNames = [
-    'animation-name',
-    'animation-duration',
-    'animation-timing-function',
-    'animation-delay',
-    'animation-iteration-count',
-    'animation-direction',
-    'animation-fill-mode',
-    'animation-play-state',
-    'animation'
-]
+
+function code(move, color, name, value, type, animationName, animationNameValue, animationDuration, animationDurationValue, animationIterationCount, animationIterationCountValue) {
+    return `<span class="css-selector">div</span>{
+        <span class="css-property">width</span>: <span class="css-number">196px</span>;
+        <span class="css-property">height</span>: <span class="css-number">96px</span>;
+        <span class="css-property">padding</span>: <span class="css-number">16px</span>;
+        <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
+        <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
+        <span class="important"><span class="css-property">${name}</span>: <span class="css-${type}">${value}</span>;</span>${(animationIterationCount) ? `<br />        <span class="css-property">animation-iteration-count</span>: <span class="css-number">${animationIterationCountValue}</span>;` : ``}${(animationDuration) ? `<br />        <span class="css-property">animation-duration</span>: <span class="css-number">${animationDurationValue}</span>;` : ``}${(animationName) ? `<br />        <span class="css-property">animation-name</span>: <span class="css-value">${animationNameValue}</span>;<br />    }` : `<br />    }`}     
+
+    ${(move === 'move') ? `<span class="css-selector">@keyframes</span> move {
+        <span class="css-selector">from, to</span>{
+            <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
+        } <span class="css-selector">50%</span>{
+            <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+        }<br />    }` : (move === 'move2') ? `<span class="css-selector">@keyframes</span> move {
+        <span class="css-selector">from</span>{
+            <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
+        } <span class="css-selector">to</span>{
+            <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+        }<br />    }` : ``}${(color === 'color') ? `
+    <span class="css-selector">@keyframes</span> color {
+        <span class="css-selector">from, to</span>{
+            <span class="css-property">background</span>: <span class="css-value">blue</span>;
+        } <span class="css-selector">50%</span>{
+            <span class="css-property">background</span>: <span class="css-value">orange</span>;
+        }
+    }` : (color === 'color2') ? `
+    <span class="css-selector">@keyframes</span> color {
+        <span class="css-selector">from</span>{
+            <span class="css-property">background</span>: <span class="css-value">coral</span>;
+        } <span class="css-selector">25%</span>{
+            <span class="css-property">background</span>: <span class="css-value">blue</span>;
+        } <span class="css-selector">50%</span>{
+            <span class="css-property">background</span>: <span class="css-value">pink</span>;
+        } <span class="css-selector">to</span>{
+            <span class="css-property">background</span>: <span class="css-value">green</span>;
+        }
+    }
+        ` : ``
+        }`
+}
 
 export const dataanimation = [
     { mainHeader: "Animation-name" },
@@ -63,88 +265,17 @@ export const dataanimation = [
     {
         header: "none",
         content: `<div>Wartość none jest <b>domyślną</b> wartością właściwości <span class="css-role">animation-name</span>. Domyślnie na elemencie HTML nie jest wykonywana <b>żadna</b> animacja.</div>`,
-        code: `
-        <pre><code class="css">
-    <span class="css-selector">div</span>{
-        <span class="css-property">width</span>: <span class="css-number">196px</span>;
-        <span class="css-property">height</span>: <span class="css-number">96px</span>;
-        <span class="css-property">padding</span>: <span class="css-number">16px</span>;
-        <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
-        <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
-        <span class="css-property">animation-iteration-count</span>: <span class="css-value">infinite</span>;
-        <span class="css-property">animation-duration</span>: <span class="css-value">4s</span>;
-        <span class="important"><span class="css-property">animation-name</span>: <span class="css-value">none</span>;</span>
-    }
-
-    <span class="css-selector">@keyframes</span> jeju_ruszam_sie {
-        <span class="css-selector">from, to</span>{
-            <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
-        } <span class="css-selector">50%</span>{
-            <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
-        }
-    }
-    </code></pre>
-        `
+        code: code("move", "", 'aniamtion-name', animations[0].animationName, 'value', false, '', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "nazwa animacji",
         content: `<div>Za pomocą właściwości <span class="css-role">animation-name</span> oraz nazwy istniejącej animacji utworzonej za pomocą reguły <b>@keyframes</b> możemy dodać animację.`,
-        code: `
-        <pre><code class="css">
-    <span class="css-selector">div</span>{
-        <span class="css-property">width</span>: <span class="css-number">196px</span>;
-        <span class="css-property">height</span>: <span class="css-number">96px</span>;
-        <span class="css-property">padding</span>: <span class="css-number">16px</span>;
-        <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
-        <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
-        <span class="css-property">animation-iteration-count</span>: <span class="css-value">infinite</span>;
-        <span class="css-property">animation-duration</span>: <span class="css-value">4s</span>;
-        <span class="important"><span class="css-property">animation-name</span>: <span class="css-value">jeju_ruszam_sie</span>;</span>
-    }
-
-    <span class="css-selector">@keyframes</span> jeju_ruszam_sie {
-        <span class="css-selector">from, to</span>{
-            <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
-        } <span class="css-selector">50%</span>{
-            <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
-        }
-    }
-    </code></pre>
-        `
+        code: code("move", "", "animation-name", animations[1].animationName, "value", false, '', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "sekwencja",
         content: `<div>Za pomocą sekwencji oddzielonych od siebie przecinkiem wartości właściwości <span class="css-role">animation-name</span> możemy dodać kilka animacji jednocześnie.</div>`,
-        code: `
-        <pre><code class="css">
-    <span class="css-selector">div</span>{
-        <span class="css-property">width</span>: <span class="css-number">196px</span>;
-        <span class="css-property">height</span>: <span class="css-number">96px</span>;
-        <span class="css-property">padding</span>: <span class="css-number">16px</span>;
-        <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
-        <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
-        <span class="css-property">animation-iteration-count</span>: <span class="css-value">infinite</span>;
-        <span class="css-property">animation-duration</span>: <span class="css-value">4s</span>;
-        <span class="important"><span class="css-property">animation-name</span>: <span class="css-value">jeju_ruszam_sie, zmieniam_kolory</span>;</span>
-    }
-
-    <span class="css-selector">@keyframes</span> jeju_ruszam_sie {
-        <span class="css-selector">from, to</span>{
-            <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
-        } <span class="css-selector">50%</span>{
-            <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
-        }
-    }
-
-    <span class="css-selector">@keyframes</span> zmieniam_kolory {
-        <span class="css-selector">from, to</span>{
-            <span class="css-property">background</span>: <span class="css-value">blue</span>;
-        } <span class="css-selector">50%</span>{
-            <span class="css-property">background</span>: <span class="css-value">orange</span>;
-        }
-    }
-    </code></pre>
-        `
+        code: code('move', 'color', 'aniamtion-name', animations[2].animationName, 'value', false, '', true, defaultDuration, true, defaultIteration)
     },
     { mainHeader: "Animation-duration" },
     {
@@ -200,32 +331,12 @@ export const dataanimation = [
                 </span>
         </div>
         `,
-        code: `
-        <pre><code class="css">
-    <span class="css-selector">div</span>{
-        <span class="css-property">width</span>: <span class="css-number">196px</span>;
-        <span class="css-property">height</span>: <span class="css-number">96px</span>;
-        <span class="css-property">padding</span>: <span class="css-number">16px</span>;
-        <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
-        <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
-        <span class="css-property">animation-iteration-count</span>: <span class="css-value">infinite</span>;
-        <span class="css-property">animation-duration</span>: <span class="css-value">4s</span>;
-        <span class="important"><span class="css-property">animation-name</span>: <span class="css-value">jeju_ruszam_sie</span>;</span>
-    }
-
-    <span class="css-selector">@keyframes</span> jeju_ruszam_sie {
-        <span class="css-selector">from, to</span>{
-            <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
-        } <span class="css-selector">50%</span>{
-            <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
-        }
-    }
-    </code></pre>
-        `
+        code: code('move', '', 'animation-duration', animations[7].animationDuration, 'number', true, 'move', false, '', true, defaultIteration)
     },
     {
         header: "sekwencja",
-        content: "sekwencja"
+        content: "sekwencja",
+        code: code('move', 'color', 'aniamtion-duration', animations[8].animationDuration, 'number', true, 'move, color', false, '', true, defaultIteration)
     },
     { mainHeader: "Animation-timing-function" },
     {
@@ -271,43 +382,53 @@ export const dataanimation = [
     },
     {
         header: "ease",
-        content: "ease"
+        content: "ease",
+        code: code('move', '', 'animation-timing-function', animations[13].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "ease-in",
-        content: "ease-in"
+        content: "ease-in",
+        code: code('move', '', 'animation-timing-function', animations[14].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "ease-out",
-        content: "ease-out"
+        content: "ease-out",
+        code: code('move', '', 'animation-timing-function', animations[15].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "ease-in-out",
-        content: "ease-in-out"
+        content: "ease-in-out",
+        code: code('move', '', 'animation-timing-function', animations[16].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "linear",
-        content: "linear"
+        content: "linear",
+        code: code('move', '', 'animation-timing-function', animations[17].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "step-start",
-        content: "steap-start"
+        content: "steap-start",
+        code: code('move', '', 'animation-timing-function', animations[18].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "step-end",
-        content: "step-end"
+        content: "step-end",
+        code: code('move', '', 'animation-timing-function', animations[19].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "steps()",
-        content: "steps()"
+        content: "steps()",
+        code: code('move', '', 'animation-timing-function', animations[20].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "cubic-bezier()",
-        content: "cubic-bezier()"
+        content: "cubic-bezier()",
+        code: code('move', '', 'animation-timing-function', animations[21].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "sekwencja",
-        content: "sekwencja"
+        content: "sekwencja",
+        code: code('move', 'color', 'animation-timing-function', animations[22].animationTimingFunction, 'value', true, 'move, color', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "zestawienie",
@@ -358,10 +479,12 @@ export const dataanimation = [
     {
         header: "czas",
         content: "czas",
+        code: code('move', '', 'animation-delay', animations[28].animationDelay, 'number', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "sekwencja",
-        content: "sekwencja"
+        content: "sekwencja",
+        code: code('move', 'color', 'animation-delay', animations[29].animationDelay, 'number', true, 'move, color', true, defaultDuration, true, defaultIteration)
     },
     { mainHeader: "Animation-iteration-count" },
     {
@@ -406,16 +529,19 @@ export const dataanimation = [
         `
     },
     {
-        header:"liczba całkowita",
-        content:"liczba całkowita"
+        header: "liczba całkowita",
+        content: "liczba całkowita",
+        code: code('move', '', 'animation-iteration-count', animations[34].animationIterationCount, 'number', true, 'move', true, defaultDuration, false, '')
     },
     {
-        header:"infinite",
-        content:"infinite"
+        header: "infinite",
+        content: "infinite",
+        code: code('move', '', 'animation-iteration-count', animations[35].animationIterationCount, 'number', true, 'move', true, defaultDuration, false, '')
     },
     {
-        header:"sekwencja",
-        content:"sekwencja"
+        header: "sekwencja",
+        content: "sekwencja",
+        code: code('move', '', 'animation-iteration-count', animations[36].animationIterationCount, 'number', true, 'move, color', true, defaultDuration, false, '')
     },
     { mainHeader: "Animation-direction" },
     {
@@ -460,24 +586,29 @@ export const dataanimation = [
         `
     },
     {
-        header:"normal",
-        content:"normal"
+        header: "normal",
+        content: "normal",
+        code: code('move2', '', 'animation-direction', animations[41].animationDirection, 'value', true, 'move', true, '2s', true, defaultIteration)
     },
     {
-        header:"reverse",
-        content:"reverse"
+        header: "reverse",
+        content: "reverse",
+        code: code('move2', '', 'animation-direction', animations[42].animationDirection, 'value', true, 'move', true, '2s', true, defaultIteration)
     },
     {
-        header:"alternate",
-        content:"alternate"
+        header: "alternate",
+        content: "alternate",
+        code: code('move2', '', 'animation-direction', animations[43].animationDirection, 'value', true, 'move', true, '2s', true, defaultIteration)
     },
     {
-        header:"alternate-reverse",
-        content:"alternate-reverse"
+        header: "alternate-reverse",
+        content: "alternate-reverse",
+        code: code('move2', '', 'animation-direction', animations[44].animationDirection, 'value', true, 'move', true, '2s', true, defaultIteration)
     },
     {
-        header:"sekwencja",
-        content:"sekwencja"
+        header: "sekwencja",
+        content: "sekwencja",
+        code: code('move2', 'color2', 'animation-direction', animations[45].animationDirection, 'value', true, 'move, color', true, '2s', true, defaultIteration)
     },
     { mainHeader: "Animation-fill-mode" },
     {
@@ -522,24 +653,29 @@ export const dataanimation = [
         `
     },
     {
-        header:"none",
-        content:"none"
+        header: "none",
+        content: "none",
+        code: code('', 'color2', 'animation-fill-mode', animations[50].animationFillMode, 'value', true, 'color', true, defaultDuration, true, '3')
     },
     {
-        header:"backwards",
-        content:"backwards"
+        header: "backwards",
+        content: "backwards",
+        code: code('', 'color2', 'animation-fill-mode', animations[51].animationFillMode, 'value', true, 'color', true, defaultDuration, true, '3')
     },
     {
-        header:"forwards",
-        content:"forwards"
+        header: "forwards",
+        content: "forwards",
+        code: code('', 'color2', 'animation-fill-mode', animations[52].animationFillMode, 'value', true, 'color', true, defaultDuration, true, '3')
     },
     {
-        header:"both",
-        content:"both"
+        header: "both",
+        content: "both",
+        code: code('', 'color2', 'animation-fill-mode', animations[53].animationFillMode, 'value', true, 'color', true, defaultDuration, true, '3')
     },
     {
-        header:"sekwencja",
-        content:"sekwencja"
+        header: "sekwencja",
+        content: "sekwencja",
+        code: code('', 'color2', 'animation-fill-mode', animations[54].animationFillMode, 'value', true, 'move, color', true, defaultDuration, true, '3')
     },
     { mainHeader: "Animation-play-state" },
     {
@@ -584,16 +720,83 @@ export const dataanimation = [
         `
     },
     {
-        header:"running",
-        content:"running"
+        header: "running",
+        content: "running",
+        code: `<span class="css-selector">div</span>{
+            <span class="css-property">width</span>: <span class="css-number">196px</span>;
+            <span class="css-property">height</span>: <span class="css-number">96px</span>;
+            <span class="css-property">padding</span>: <span class="css-number">16px</span>;
+            <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
+            <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
+            <span class="css-property">aniamtion-name</span>: <span class="css-value">move</span>;
+            <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
+            <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+        }
+        <span class="css-selector">div:hover</span>{
+            <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">running</span>;</span>
+        }
+        <span class="css-selector">@keyframes</span> move{
+            <span class="css-selector">from, to</span>{
+                <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
+            } <span class="css-selector">50%</span>{
+                <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+            }
+        }`
     },
     {
-        header:"paused",
-        content:"paused"
+        header: "paused",
+        content: "paused",
+        code: `<span class="css-selector">div</span>{
+            <span class="css-property">width</span>: <span class="css-number">196px</span>;
+            <span class="css-property">height</span>: <span class="css-number">96px</span>;
+            <span class="css-property">padding</span>: <span class="css-number">16px</span>;
+            <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
+            <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
+            <span class="css-property">aniamtion-name</span>: <span class="css-value">move</span>;
+            <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
+            <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+        }
+        <span class="css-selector">div:hover</span>{
+            <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">paused</span>;</span>
+        }
+        <span class="css-selector">@keyframes</span> move{
+            <span class="css-selector">from, to</span>{
+                <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
+            } <span class="css-selector">50%</span>{
+                <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+            }
+        }`
     },
     {
-        header:"sekwencja",
-        content:"sekwencja"
+        header: "sekwencja",
+        content: "sekwencja",
+        code: `<span class="css-selector">div</span>{
+            <span class="css-property">width</span>: <span class="css-number">196px</span>;
+            <span class="css-property">height</span>: <span class="css-number">96px</span>;
+            <span class="css-property">padding</span>: <span class="css-number">16px</span>;
+            <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
+            <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
+            <span class="css-property">aniamtion-name</span>: <span class="css-value">move, color</span>;
+            <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
+            <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+        }
+        <span class="css-selector">div:hover</span>{
+            <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">running, paused</span>;</span>
+        }
+        <span class="css-selector">@keyframes</span> move{
+            <span class="css-selector">from, to</span>{
+                <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
+            } <span class="css-selector">50%</span>{
+                <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+            }
+        }
+        <span class="css-selector">@keyframes</span> color {
+            <span class="css-selector">from, to</span>{
+                <span class="css-property">background</span>: <span class="css-value">blue</span>;
+            } <span class="css-selector">50%</span>{
+                <span class="css-property">background</span>: <span class="css-value">orange</span>;
+            }
+        }`
     },
     { mainHeader: "Animation" },
     {
@@ -638,11 +841,13 @@ export const dataanimation = [
         `
     },
     {
-        header:"grupa",
-        content:"grupa"
+        header: "grupa",
+        content: "grupa",
+        code: code('move', '', 'animation', animations[66].animation, 'value', false, '', false, '', false, '')
     },
     {
-        header:"sekwencja",
-        content:"sekwencja"
+        header: "sekwencja",
+        content: "sekwencja",
+        code: code('move2', 'color2', 'animation', animations[67].animation, 'value', false, '', false, '', false, '')
     }
 ]
