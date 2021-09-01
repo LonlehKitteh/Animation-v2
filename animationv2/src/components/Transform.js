@@ -10,6 +10,7 @@ import { Button } from 'react-bootstrap'
 export default function Transform() {
     var counter = 0
     var links = 0
+    var picturedBugFixer = [35, 36, 41, 42, 47, 48, 53]
 
     return (
         <motion.div layout
@@ -35,9 +36,9 @@ export default function Transform() {
                                     transition={btnAnimation}
                                     key={subkey}
                                 >
-                                    <a href={`#s${subkey + 3}`}><Button variant="primary" className={(subkey === 0) ? "initial" : false}>{subdata}</Button></a></motion.div>)
+                                    <a href={`#s${subkey + key - links + 2}`}><Button variant="primary" className={(subkey === 0) ? "initial" : false}>{subdata}</Button></a></motion.div>)
                         })}</Section> :
-                            <Section counter={key} code={data.code} picturedTransform={((key > 3 && key < 27) || key === 30) ? true : false} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
+                            <Section counter={key} code={data.code} picturedTransform={((key > 3 && key < 27) || key === 30 || picturedBugFixer.includes(key)) ? true : false} perspectivePicture={(picturedBugFixer.includes(key)) ? true : false} isChildNeed={(key === 41 || key === 42) ? false : true} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
                     })}
                 </div>
 

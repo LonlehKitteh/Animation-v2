@@ -34,6 +34,25 @@
         margin-right: 1rem;
         font-size: xx-large;
     }
+    .parent {
+        width: 300px;
+        height: 300px;
+        background: coral;
+        text-align: center;
+        margin: auto;
+        span{
+            font-size: 4rem;
+            @include flex-center;
+            height: 100%;
+            width: 100%;
+            font-family: monospace;
+        }
+        .child {
+            background: #A6D9A6;
+            height: 250px;
+            // transform: rotateY(-20deg);
+        }
+    }
 }
 .alert {
     display: flex;
@@ -194,12 +213,12 @@
             padding-left: 0.3rem;
             border-left: 5px solid $navigation;
             margin: 0;
-            margin-left: .2rem;
+            margin-left: 0.2rem;
         }
         div {
-            margin: .8rem 0 .8rem 1rem;
-            padding: .2rem .5rem;
-            border-radius: .7rem;
+            margin: 0.8rem 0 0.8rem 1rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.7rem;
             display: inline-block;
             color: hsl(54, 100%, 30%);
             background-color: hsl(54, 75%, 90%);
@@ -208,24 +227,24 @@
             color: hsl(120, 100%, 30%);
             background-color: hsl(120, 75%, 90%);
         }
-        .red{
+        .red {
             background-color: hsl(0, 100%, 95%);
             color: hsl(0, 100%, 50%);
         }
-        .link{
+        .link {
             background-color: hsl(219, 100%, 95%);
             color: hsl(219, 100%, 50%);
         }
-        a{
+        a {
             text-decoration: none;
         }
     }
 }
-.transformOrigin{
+.transformOrigin {
     will-change: transform;
     animation: transformOrigin 4s linear infinite;
 }
-.title{
+.title {
     color: white;
     background-color: $btn-primary-hover;
     padding: 2rem;
@@ -236,7 +255,7 @@
     text-transform: uppercase;
     user-select: none;
 }
-.css-role{
+.css-role {
     color: $section-keyframes;
     font-weight: bold;
 }

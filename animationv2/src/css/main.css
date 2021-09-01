@@ -110,24 +110,26 @@
 }
 
 @-webkit-keyframes transformOrigin {
-  from {
+  from,
+  to {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
 }
 
 @keyframes transformOrigin {
-  from {
+  from,
+  to {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
 }
 
@@ -236,6 +238,28 @@
     background: #52ffe2;
     -webkit-box-shadow: 0 0 2px 1px #52ffe2;
             box-shadow: 0 0 2px 1px #52ffe2;
+  }
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: perspective(800px) rotateY(0);
+            transform: perspective(800px) rotateY(0);
+  }
+  to {
+    -webkit-transform: perspective(800px) rotateY(360deg);
+            transform: perspective(800px) rotateY(360deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: perspective(800px) rotateY(0);
+            transform: perspective(800px) rotateY(0);
+  }
+  to {
+    -webkit-transform: perspective(800px) rotateY(360deg);
+            transform: perspective(800px) rotateY(360deg);
   }
 }
 

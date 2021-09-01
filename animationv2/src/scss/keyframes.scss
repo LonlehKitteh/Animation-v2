@@ -46,11 +46,12 @@
     }
 }
 @keyframes transformOrigin {
-    from {
+    from,
+    to {
         transform: rotate(0deg);
     }
-    to {
-        transform: rotate(360deg);
+    50% {
+        transform: rotate(180deg);
     }
 }
 @keyframes move {
@@ -81,16 +82,24 @@
         background: hsl(16, 100%, 66%);
         box-shadow: 0 0 2px 1px hsl(16, 100%, 66%);
     }
-    25%{
+    25% {
         background: hsl(210, 100%, 66%);
         box-shadow: 0 0 2px 1px hsl(210, 100%, 66%);
     }
-    50%{
+    50% {
         background: hsl(290, 100%, 66%);
         box-shadow: 0 0 2px 1px hsl(290, 100%, 66%);
     }
     to {
         background: hsl(170, 100%, 66%);
         box-shadow: 0 0 2px 1px hsl(170, 100%, 66%);
+    }
+}
+@keyframes rotation {
+    from {
+        transform: perspective(800px) rotateY(0);
+    }
+    to {
+        transform: perspective(800px) rotateY(360deg);
     }
 }

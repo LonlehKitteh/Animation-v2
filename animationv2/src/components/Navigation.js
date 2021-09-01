@@ -10,7 +10,7 @@ export default function Navigation() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nav">
             <Container>
-                <NavLink exact to="/" className="logo">GachFrames - Animation</NavLink>
+                <NavLink exact to="/" className="logo"><i className="fas fa-home"></i>GachFrames - Animation</NavLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">

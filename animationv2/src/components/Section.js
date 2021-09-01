@@ -5,6 +5,15 @@ import { animations } from '../js/data/dataanimation'
 
 export default function Section(props) {
 
+    function code() {
+        return (props.code) ? <div className="css-lan">
+            <pre>
+                <code className="css" dangerouslySetInnerHTML={{ __html: props.code }}></code>
+            </pre>
+        </div> : null
+
+    }
+
     return (
         <div className="section" id={props.id}>
             <h1>{props.header}</h1>
@@ -14,22 +23,27 @@ export default function Section(props) {
             {
                 (props.picturedTransform) ? <>
                     <div className="pictured">
-                        {(props.counter === 30) ? <h2>transform-origin: {transforms[23]};</h2> : <h2>transform: {transforms[props.counter - 4]};</h2>}
-                        <div className="css-example-block">
-                            <span className="x-dimention"></span>
-                            <span className="y-dimention"></span>
-                            <div className="example-main">
-                                <div className="border-example">
-                                    {
-                                        (props.counter === 30) ? <div className="content-example transformOrigin" style={{ transformOrigin: transforms[23] }}>div</div> :
-                                            <div className="content-example" style={{ transform: transforms[props.counter - 4] }}>div</div>
-                                    }
+                        <h2>{(transforms[props.counter - 4] !== undefined) ? `${transforms[props.counter - 4].value};` : 'in progress...'}</h2>
+                        {
+                            (props.perspectivePicture) ?
+                                <div className="flex" style={{ height: '50vh' }}>
+                                    <div className="parent" style={transforms[props.counter - 4]}>{(props.isChildNeed) ? "div.parent" : <span>div</span>}
+                                        {(props.isChildNeed) ? <div className="child" style={(transforms[props.counter - 4] !== undefined) ? transforms[props.counter - 4].child : null}>div.child</div> : null}
+                                    </div>
+                                </div> :
+                                <div className="css-example-block">
+                                    <span className="x-dimention"></span>
+                                    <span className="y-dimention"></span>
+                                    <div className="example-main">
+                                        <div className="border-example">
+                                            <div className="content-example" style={transforms[props.counter - 4]}>div</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                     {
-                        (props.code) ? <div className="css-lan" dangerouslySetInnerHTML={{ __html: props.code }}></div> : null
+                        code()
                     }
                 </> : (props.picturedAnimation) ? <>
                     <div className="pictured">
@@ -39,11 +53,7 @@ export default function Section(props) {
                         </div>
                     </div>
                     {
-                        (props.code) ? <div className="css-lan">
-                            <pre>
-                                <code className="css" dangerouslySetInnerHTML={{ __html: props.code }}></code>
-                            </pre>
-                        </div> : null
+                        code()
                     }
                 </>
                     : null
