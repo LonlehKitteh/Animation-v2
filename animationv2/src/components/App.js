@@ -15,6 +15,7 @@ import TestCss from './TestCss'
 import TestSvg from './TestSvg'
 import { pageTransition } from '../js/pageAnimation'
 import ScrollUp from './ScrollUp'
+import PageNotFound from './PageNotFound'
 
 export default function App() {
     const location = useLocation()
@@ -85,6 +86,8 @@ export default function App() {
                     <Route path="/testsvg" component={TestSvg} />
 
                     <Route path="/example0" exact component={Example0} />
+                    <Route component={PageNotFound} />
+                    
                     {/* <Route path="/example1" exact component={Example1}></Route>
                     <Route path="/example2" exact component={Example2}></Route>
                     <Route path="/example3" exact component={Example3}></Route>
