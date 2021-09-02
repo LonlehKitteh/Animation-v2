@@ -263,6 +263,68 @@
   }
 }
 
+@-webkit-keyframes boubleUp {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes boubleUp {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -571,6 +633,73 @@ html {
   right: 1vh;
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+.scrollUp {
+  width: 100%;
+  height: 100%;
+  background: #0575e6;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  -webkit-transition: background 0.2s cubic-bezier(0.17, 0.67, 0.9, 0.32);
+  transition: background 0.2s cubic-bezier(0.17, 0.67, 0.9, 0.32);
+  will-change: background, right, transform;
+  overflow: hidden;
+}
+
+.scrollUp div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.scrollUp i {
+  max-height: 100%;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.4rem;
+  color: var(--menu-border, #f7f7f7);
+  padding: 1rem;
+  will-change: transform;
+}
+
+.scrollUp i.bouble {
+  -webkit-animation: boubleUp 0.7s ease-in-out;
+          animation: boubleUp 0.7s ease-in-out;
+  will-change: transform;
+}
+
+.hidden, .visible {
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  z-index: 5;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  display: block;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.58, 0.95, 0.6, 0.35);
+  transition: -webkit-transform 0.5s cubic-bezier(0.58, 0.95, 0.6, 0.35);
+  transition: transform 0.5s cubic-bezier(0.58, 0.95, 0.6, 0.35);
+  transition: transform 0.5s cubic-bezier(0.58, 0.95, 0.6, 0.35), -webkit-transform 0.5s cubic-bezier(0.58, 0.95, 0.6, 0.35);
+}
+
+.hidden {
+  -webkit-transform: rotate(180deg) scale(0);
+          transform: rotate(180deg) scale(0);
+}
+
+.visible {
+  -webkit-transform: rotate(0) scale(1);
+          transform: rotate(0) scale(1);
 }
 
 .footer {

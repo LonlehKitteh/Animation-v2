@@ -121,3 +121,12 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
     border-radius: .2rem;
     transform: translateY(10%);
 }
+.version{
+    color: rgba(255,255,255,.55);
+    padding-left: 1rem;
+    *{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -42,6 +42,7 @@ export default function Navigation() {
                         <NavLink to="/sign in"><Button variant="success">Sign In</Button></NavLink>
                     </Nav>
                 </Navbar.Collapse>
+                <Nav className="version"><span>1.0</span><i className="fas fa-copyright"></i></Nav>
             </Container>
         </Navbar>
     )

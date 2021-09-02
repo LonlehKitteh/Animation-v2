@@ -585,7 +585,32 @@ export const datatransform = [
     },
     {
         header: "Informacje znacznika transform-style",
-        content: "test"
+        content: `<div class="technical">
+        <div class="box">
+            <p>Przeznacznie</p>
+            <div>element HTML każdego typu, lecz nie element HTML typu <b>table-column-group, table-column</b></div>
+        </div>
+        <div class="box">
+            <p>Pozycja</p>
+            <div class="green">dowolna</div>
+        </div>
+        <div class="box">    
+            <p>Dziedziczenie</p>
+            <div class="red">nie</div>
+        </div>
+        <div class="box">
+            <p>Wartość initial</p>
+            <div class="link"><a href="#s32">flat</a></div>
+        </div>
+        <div class="box">
+            <p>Wyjątki initial</p>
+            <div class="green">brak</div>
+        </div>
+        <div class="box">
+            <p>Animowanie</p>
+            <div class="green">tak (animacja schodkowa)</div>
+        </div>
+    </div>`
     },
     {
         header: "flat",
@@ -610,7 +635,32 @@ export const datatransform = [
     },
     {
         header: "Informacje znacznika backface-visibility",
-        content: "test"
+        content: `<div class="technical">
+        <div class="box">
+            <p>Przeznacznie</p>
+            <div>element HTML każdego typu, lecz nie element HTML typu <b>table-column-group, table-column</b></div>
+        </div>
+        <div class="box">
+            <p>Pozycja</p>
+            <div class="green">dowolna</div>
+        </div>
+        <div class="box">    
+            <p>Dziedziczenie</p>
+            <div class="red">nie</div>
+        </div>
+        <div class="box">
+            <p>Wartość initial</p>
+            <div class="link"><a href="#s37">visible</a></div>
+        </div>
+        <div class="box">
+            <p>Wyjątki initial</p>
+            <div class="green">brak</div>
+        </div>
+        <div class="box">
+            <p>Animowanie</p>
+            <div class="green">tak (animacja schodkowa)</div>
+        </div>
+    </div>`
     },
     {
         header: "visible",
@@ -633,7 +683,32 @@ export const datatransform = [
     },
     {
         header: "Informacje znacznika perspective",
-        content: "test"
+        content: `<div class="technical">
+        <div class="box">
+            <p>Przeznacznie</p>
+            <div>element HTML każdego typu, lecz nie element HTML typu <b>table-column-group, table-column</b></div>
+        </div>
+        <div class="box">
+            <p>Pozycja</p>
+            <div class="green">dowolna</div>
+        </div>
+        <div class="box">    
+            <p>Dziedziczenie</p>
+            <div class="red">nie</div>
+        </div>
+        <div class="box">
+            <p>Wartość initial</p>
+            <div class="link"><a href="#s42">none</a></div>
+        </div>
+        <div class="box">
+            <p>Wyjątki initial</p>
+            <div class="green">brak</div>
+        </div>
+        <div class="box">
+            <p>Animowanie</p>
+            <div class="green">tak, lecz tylko rozmiar</div>
+        </div>
+    </div>`
     },
     {
         header: "none",
@@ -658,7 +733,32 @@ export const datatransform = [
     },
     {
         header: "Informacje znacznika perspective-origin",
-        content: "test"
+        content: `<div class="technical">
+        <div class="box">
+            <p>Przeznacznie</p>
+            <div>element HTML każdego typu, lecz nie element HTML typu <b>table-column-group, table-column</b></div>
+        </div>
+        <div class="box">
+            <p>Pozycja</p>
+            <div class="green">dowolna</div>
+        </div>
+        <div class="box">    
+            <p>Dziedziczenie</p>
+            <div class="red">nie</div>
+        </div>
+        <div class="box">
+            <p>Wartość initial</p>
+            <div>50% 50%></div>
+        </div>
+        <div class="box">
+            <p>Wyjątki initial</p>
+            <div class="green">brak</div>
+        </div>
+        <div class="box">
+            <p>Animowanie</p>
+            <div class="green">tak</div>
+        </div>
+    </div>`
     },
     {
         header: "wzorzec",

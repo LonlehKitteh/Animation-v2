@@ -14,6 +14,7 @@ import Example0 from '../projects/example0/example0'
 import TestCss from './TestCss'
 import TestSvg from './TestSvg'
 import { pageTransition } from '../js/pageAnimation'
+import ScrollUp from './ScrollUp'
 
 export default function App() {
     const location = useLocation()
@@ -90,6 +91,7 @@ export default function App() {
                     <Route path="/example4" exact component={Example4}></Route> */}
                 </Switch>
             </AnimatePresence>
+            <ScrollUp />
         </>
     )
 }

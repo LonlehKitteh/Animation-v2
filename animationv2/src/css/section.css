@@ -66,6 +66,10 @@
   height: 250px;
 }
 
+p + .section {
+  border: none;
+}
+
 .alert {
   display: -webkit-box;
   display: -ms-flexbox;
