@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { btnAnimation } from '../js/pageAnimation';
 
 export default function ScrollUp() {
-    const [offset, setOffset] = useState(null);
+    const [offset, setOffset] = useState("hidden");
 
     useEffect(() => {
         var body = document.body,
