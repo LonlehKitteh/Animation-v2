@@ -10,7 +10,7 @@ export default function TestCss() {
     const correct = useCorrect()
     const [points, setPoints] = useState(0)
     const [randAnswers,] = useState(shuffle([1, 2, 3]))
-    const [randQuestions,] = useState(shuffle([0, 1, 2]))
+    const [randQuestions,] = useState(shuffle([0, 1, 2, 3]))
 
     function shuffle(array) {
         var i = array.length, j = 0, temp;

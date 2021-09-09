@@ -16,6 +16,14 @@ import TestSvg from './TestSvg'
 import { pageTransition } from '../js/pageAnimation'
 import ScrollUp from './ScrollUp'
 import PageNotFound from './PageNotFound'
+import { AuthProvider } from "./context/AuthContext"
+
+import Login from './auth/Login'
+import Signup from './auth/Signup'
+import ForgotPassword from './auth/ForgotPassword'
+import PrivateRoute from './auth/PrivateRoute'
+import Dashboard from './auth/Dashboard'
+import UpdateProfile from './auth/UpdateProfile'
 
 export default function App() {
     const location = useLocation()
@@ -72,7 +80,7 @@ export default function App() {
     }
 
     return (
-        <>
+        <AuthProvider>
             <Navigation />
             <AnimatePresence>
                 <Switch location={location} key={location.pathname}>
@@ -82,12 +90,18 @@ export default function App() {
                     <Route path="/animation" component={Animation} />
                     <Route path="/keyframes" component={Keyframes} />
                     <Route path="/galery" component={Galery} />
-                    <Route path="/testcss" component={TestCss} />
+                    <PrivateRoute path="/testcss" component={TestCss} />
                     <Route path="/testsvg" component={TestSvg} />
 
+                    <Route path="/login" component={Login} />
+                    <Route path="/signup" component={Signup} />
+                    <Route path="/forgot-password" component={ForgotPassword} />
+
+                    <PrivateRoute path="/dashboard" component={Dashboard} />
+                    <PrivateRoute path="/update profile" component={UpdateProfile} />
                     <Route path="/example0" exact component={Example0} />
                     <Route component={PageNotFound} />
-                    
+
                     {/* <Route path="/example1" exact component={Example1}></Route>
                     <Route path="/example2" exact component={Example2}></Route>
                     <Route path="/example3" exact component={Example3}></Route>
@@ -95,6 +109,6 @@ export default function App() {
                 </Switch>
             </AnimatePresence>
             <ScrollUp />
-        </>
+        </AuthProvider>
     )
 }

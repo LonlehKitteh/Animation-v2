@@ -335,7 +335,7 @@ export const dataanimation = [
     },
     {
         header: "sekwencja",
-        content: "sekwencja",
+        content: `<div>Za pomocą sekwencji oddzielonych od siebie przecinkiem wartości właściwości <span class="css-role">animation-name</span> możemy dodać <b>kilka</b> animacji jednocześnie.</div>`,
         code: code('move', 'color', 'aniamtion-duration', animations[8].animationDuration, 'number', true, 'move, color', false, '', true, defaultIteration)
     },
     { mainHeader: "Animation-timing-function" },
@@ -382,52 +382,52 @@ export const dataanimation = [
     },
     {
         header: "ease",
-        content: "ease",
+        content: `<div>Domyślnie tempem wykonywania się animacji elementu HTML jest tempo <span class="css-role">ease</span>. Tempo <span class="css-role">ease</span> od momentu startu ciągle przyspiesza, a następnie wyraźnie zwalnia przed momentem zakończenia.</div>`,
         code: code('move', '', 'animation-timing-function', animations[13].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "ease-in",
-        content: "ease-in",
+        content: `<div>Tempo <span class="css-role">ease-in</span> od momentu wolnego startu ciągle przyspiesza.</div>`,
         code: code('move', '', 'animation-timing-function', animations[14].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "ease-out",
-        content: "ease-out",
+        content: `<div>Tempo <span class="css-role">ease-out</span> od momentu szybkiego startu ciągle zwalnia.</div>`,
         code: code('move', '', 'animation-timing-function', animations[15].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "ease-in-out",
-        content: "ease-in-out",
+        content: `<div>Tempo <span class="css-role">ease-in-out</span> od momentu wolnego startu płynnie przyspiesza do momentu wolnego zakończenia.</div>`,
         code: code('move', '', 'animation-timing-function', animations[16].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "linear",
-        content: "linear",
+        content: `<div>Tempo <span class="css-role">linear</span> jest tempem stałym.</div>`,
         code: code('move', '', 'animation-timing-function', animations[17].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "step-start",
-        content: "steap-start",
+        content: `<div>Tempo <span class="css-role">step-start</span> jest tempem składającym się z tylu <b>klatek</b> (<b>z pominięciem pierwszej klatki</b>) z ilu selektorów składa się reguła <span class="css-role">@keyframes</span> tworząca animację interesującego nas elementu HTML.</div>`,
         code: code('move', '', 'animation-timing-function', animations[18].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "step-end",
-        content: "step-end",
+        content: `<div>Tempo <span class="css-role">step-end</span> jest tempem składającym się z tylu <b>klatek</b> (<b>z pominięciem ostatniej klatki</b>) z ilu selektorów składa się reguła <span class="css-role">@keyframes</span> tworząca animację interesującego nas elementu HTML.</div>`,
         code: code('move', '', 'animation-timing-function', animations[19].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "steps()",
-        content: "steps()",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-timing-function</span> oraz funkcji <b>steps()</b> możemy sprawić, że jest tempem stałym składającym się z <b>konkretnej ilości klatek</b>.</div>`,
         code: code('move', '', 'animation-timing-function', animations[20].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "cubic-bezier()",
-        content: "cubic-bezier()",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-timing-function</span> oraz funkcji <b>cubic-bezier()</b> możemy sprawić, że tempem wykonywania się animacji elementu HTML będzie tempo utworzone na podstawie <b>KRZYWEJ BEZIERA</b>.</div>`,
         code: code('move', '', 'animation-timing-function', animations[21].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "sekwencja",
-        content: "sekwencja",
+        content: `<div>Za pomocą sekwencji oddzielonych od siebie <b>przecinkiem</b> wartości właściwości <span class="css-role">animation-timing-function</span> możemy dodać kilka temp animacji jednocześnie.</div>`,
         code: code('move', 'color', 'animation-timing-function', animations[22].animationTimingFunction, 'value', true, 'move, color', true, defaultDuration, true, defaultIteration)
     },
     {

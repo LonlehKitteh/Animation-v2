@@ -1,0 +1,39 @@
+@import './variables.scss';
+
+.page.auth{
+    height: calc(100vh - 56px );
+    .push{
+        height: 100%;
+    }
+    .aside{
+        display: flex;
+    }
+    .main{
+        width: 60%;
+        .flex{
+            justify-content: left;
+        }
+        .iconUsers{
+            font-size: 10vh;
+            text-align: center;
+        }
+        .form-group{
+            border: 1px solid black;
+            margin: 1rem 0;
+        }
+        span{
+            padding:0 1rem;
+            font-size: 1.3rem;
+            transform: translateY(-3px);
+            color: $menu-border;
+        }
+        i{
+            padding-left: 1rem;
+            font-size: 2rem;
+        }
+        .control{
+            all: initial;
+            flex-grow: 1;
+        }
+    }
+}

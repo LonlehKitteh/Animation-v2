@@ -1,0 +1,53 @@
+.page.auth {
+  height: calc(100vh - 56px);
+}
+
+.page.auth .push {
+  height: 100%;
+}
+
+.page.auth .aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page.auth .main {
+  width: 60%;
+}
+
+.page.auth .main .flex {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.page.auth .main .iconUsers {
+  font-size: 10vh;
+  text-align: center;
+}
+
+.page.auth .main .form-group {
+  border: 1px solid black;
+  margin: 1rem 0;
+}
+
+.page.auth .main span {
+  padding: 0 1rem;
+  font-size: 1.3rem;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  color: var(--menu-border, #c5c5c5a1);
+}
+
+.page.auth .main i {
+  padding-left: 1rem;
+  font-size: 2rem;
+}
+
+.page.auth .main .control {
+  all: initial;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
