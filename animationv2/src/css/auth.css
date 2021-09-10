@@ -4,50 +4,75 @@
 
 .page.auth .push {
   height: 100%;
-}
-
-.page.auth .aside {
+  background-image: url("../images/loginBG.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.page.auth .main {
-  width: 60%;
-}
-
-.page.auth .main .flex {
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-}
-
-.page.auth .main .iconUsers {
-  font-size: 10vh;
+.page.auth .auth-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  width: 90%;
   text-align: center;
 }
 
+.page.auth .main {
+  background-color: white;
+  width: auto;
+  padding: 6rem 2rem 2rem 2rem;
+  -webkit-box-shadow: 0 0 20px 1px black;
+          box-shadow: 0 0 20px 1px black;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  position: relative;
+  border-radius: 1rem;
+}
+
+.page.auth .main .auth-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.page.auth .main .iconUsers {
+  font-size: 4rem;
+  background: var(--navigation, #20232a);
+  border-radius: 50%;
+  padding: 1rem 1.5rem;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+  position: absolute;
+}
+
 .page.auth .main .form-group {
-  border: 1px solid black;
-  margin: 1rem 0;
-}
-
-.page.auth .main span {
-  padding: 0 1rem;
-  font-size: 1.3rem;
-  -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
-  color: var(--menu-border, #c5c5c5a1);
-}
-
-.page.auth .main i {
-  padding-left: 1rem;
   font-size: 2rem;
+  margin: 1rem;
 }
 
-.page.auth .main .control {
-  all: initial;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+.page.auth .main .form-group i {
+  padding-right: 1rem;
 }

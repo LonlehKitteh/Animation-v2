@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react'
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 import '../../css/auth.css'
+import { motion } from 'framer-motion'
+import { pageVariants, pageTransition } from '../../js/pageAnimation'
 
 export default function Login() {
     const emailRef = useRef()
@@ -21,39 +23,46 @@ export default function Login() {
             await login(emailRef.current.value, passwordRef.current.value)
             history.push("/")
         } catch {
-            setError('Failed to log in')
+            setError('Incorrect email or password.')
         }
 
         setLoading(false)
     }
 
     return (
-        <div className="page auth">
+        <motion.div layout
+            className="page auth"
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            transition={pageTransition}
+        >
             <div className="push">
-                <div className="aside">
-
-                </div>
                 <div className="main">
                     <div className="iconUsers"><i className="fas fa-users"></i></div>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group className="flex">
-                        <i className="fas fa-envelope"></i><span> | </span><Form.Control className="control" type="email" ref={emailRef} required placeholder="Email" />
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" ref={passwordRef} required />
-                        </Form.Group>
-                        <Button disabled={loading} className="w-100 mt-4"
-                            type="submit">Log In</Button>
-                    </Form>
-                    <div className="w-100 text-center mt-3">
-                        <Link to="/forgot-password">Forgot Password</Link>
-                    </div>
-                    <div className="w-100 text-center mt-2">Need an account? <Link to="/signup">Sign up</Link>
+                    <div className="auth-flex">
+                        <div className="auth-title mb-4">Login</div>
+                        {error && <div className="flex"><Alert variant="danger"><i style={{ marginRight: '1rem', fontSize: "2rem" }} className="fas fa-exclamation-triangle"></i>{error}</Alert></div>}
+                        <div>
+                            <Form onSubmit={handleSubmit}>
+                                <Form.Group id="email" className="flex">
+                                    <i className="fas fa-envelope"></i><Form.Control type="email" ref={emailRef} required placeholder="Email" />
+                                </Form.Group>
+                                <Form.Group id="password" className="flex">
+                                    <i className="fas fa-lock" style={{ marginRight: '4px' }}></i><Form.Control type="password" ref={passwordRef} required placeholder="Password" />
+                                </Form.Group>
+                                <Button disabled={loading} className="w-100 mt-4" type="submit">Login</Button>
+                            </Form>
+                        </div>
+                        <div className="w-100 text-center mt-3">
+                            <Link to="/forgot-password">Forgot Password</Link>
+                        </div>
+                        <div className="w-100 text-center mt-2">Need an account? <Link to="/signup">Sign up</Link>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

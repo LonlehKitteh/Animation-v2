@@ -22,7 +22,6 @@ import Login from './auth/Login'
 import Signup from './auth/Signup'
 import ForgotPassword from './auth/ForgotPassword'
 import PrivateRoute from './auth/PrivateRoute'
-import Dashboard from './auth/Dashboard'
 import UpdateProfile from './auth/UpdateProfile'
 
 export default function App() {
@@ -97,7 +96,6 @@ export default function App() {
                     <Route path="/signup" component={Signup} />
                     <Route path="/forgot-password" component={ForgotPassword} />
 
-                    <PrivateRoute path="/dashboard" component={Dashboard} />
                     <PrivateRoute path="/update profile" component={UpdateProfile} />
                     <Route path="/example0" exact component={Example0} />
                     <Route component={PageNotFound} />
