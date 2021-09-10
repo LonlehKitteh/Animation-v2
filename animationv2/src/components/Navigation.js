@@ -64,7 +64,7 @@ export default function Navigation() {
                             </Nav>
                     }
                 </Navbar.Collapse>
-                <Nav className="version"><span>1.0</span><i className="fas fa-copyright"></i></Nav>
+                <Nav className="version"><span>1.1</span><i className="fas fa-copyright"></i></Nav>
             </Container>
         </Navbar>
     )
