@@ -701,9 +701,3 @@ html {
   -webkit-transform: rotate(0) scale(1);
           transform: rotate(0) scale(1);
 }
-
-.footer {
-  height: 60rem;
-  width: 100%;
-  background: #20232a;
-}

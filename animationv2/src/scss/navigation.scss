@@ -30,6 +30,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
     font-family: Cairo;
     text-decoration: none;
     transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+    &[href="/animation"] i {
+        margin-right: 4px;
+    }
     &.logo {
         color: $nav-color;
         margin-right: 3rem;

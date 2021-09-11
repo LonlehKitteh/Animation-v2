@@ -52,7 +52,7 @@ export default function Animation() {
                     </Menu>
                 </div>
             </div>
-            <Footer />
+            <Footer counter="0" currentPage='3'/>
         </motion.div>
     )
 }

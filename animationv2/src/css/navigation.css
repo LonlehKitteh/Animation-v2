@@ -34,6 +34,10 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
   transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
 }
 
+.container a[href="/animation"] i {
+  margin-right: 4px;
+}
+
 .container a.logo {
   color: var(--nav-color, white);
   margin-right: 3rem;

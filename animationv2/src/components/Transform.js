@@ -52,7 +52,7 @@ export default function Transform() {
                     </Menu>
                 </div>
             </div>
-            <Footer />
+            <Footer counter="0" currentPage='2' />
         </motion.div>
     )
 }

@@ -1,0 +1,82 @@
+@import "./variables.scss";
+
+.footer {
+    height: 40rem;
+    width: 100%;
+    background: #20232a;
+    color: white;
+    width: 70%;
+    .mainFooter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        h1 {
+            color: #999;
+            font-size: 1.2rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        div {
+            flex-grow: 1;
+        }
+        i {
+            margin-right: 1rem;
+        }
+        a {
+            text-transform: capitalize;
+            color: white;
+            text-decoration: none;
+            &[href="/animation"] i {
+                margin-right: 12px !important;
+            }
+            &.active {
+                color: $btn-primary-hover;
+            }
+        }
+    }
+    .minNav {
+        height: 10rem;
+        background-color: #282c34;
+        margin-bottom: 4rem;
+        padding: 0 6rem;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+        p {
+            color: $btn-primary-hover;
+        }
+        .prev,
+        .next {
+            display: flex;
+            flex-direction: column;
+            a {
+                text-transform: capitalize;
+                text-decoration: none;
+                color: white;
+                font-size: 1.8rem;
+                border-bottom: 1px solid #6d6d6d;
+                transition: border-bottom-color .3s ease-in-out;
+                &:hover {
+                    border-bottom: 1px solid white;
+                }
+            }
+        }
+        .next {
+            text-align: right;
+        }
+    }
+}
+.links {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+.author {
+    align-self: flex-start;
+    text-align: right;
+    box-sizing: border-box;
+}

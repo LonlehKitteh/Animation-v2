@@ -1,0 +1,127 @@
+.footer {
+  height: 40rem;
+  width: 100%;
+  background: #20232a;
+  color: white;
+  width: 70%;
+}
+
+.footer .mainFooter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3rem;
+}
+
+.footer .mainFooter h1 {
+  color: #999;
+  font-size: 1.2rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.footer .mainFooter div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.footer .mainFooter i {
+  margin-right: 1rem;
+}
+
+.footer .mainFooter a {
+  text-transform: capitalize;
+  color: white;
+  text-decoration: none;
+}
+
+.footer .mainFooter a[href="/animation"] i {
+  margin-right: 12px !important;
+}
+
+.footer .mainFooter a.active {
+  color: var(--btn-primary-hover, #008cff);
+}
+
+.footer .minNav {
+  height: 10rem;
+  background-color: #282c34;
+  margin-bottom: 4rem;
+  padding: 0 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer .minNav p {
+  color: var(--btn-primary-hover, #008cff);
+}
+
+.footer .minNav .prev,
+.footer .minNav .next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer .minNav .prev a,
+.footer .minNav .next a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: white;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #6d6d6d;
+  -webkit-transition: border-bottom-color .3s ease-in-out;
+  transition: border-bottom-color .3s ease-in-out;
+}
+
+.footer .minNav .prev a:hover,
+.footer .minNav .next a:hover {
+  border-bottom: 1px solid white;
+}
+
+.footer .minNav .next {
+  text-align: right;
+}
+
+.links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.author {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  text-align: right;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}

@@ -28,7 +28,7 @@ export default function Begin() {
                     </Menu>
                 </div>
             </div>
-            <Footer />
+            <Footer counter="0" currentPage='1' />
         </motion.div>
     )
 }
