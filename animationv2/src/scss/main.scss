@@ -175,6 +175,7 @@ html {
 // ---------------------------- code properties --------------------
 .css-lan {
     background-color: #474949;
+    border-radius: 1rem;
     display: block;
     margin: 1rem;
     padding: 1rem;
@@ -223,25 +224,15 @@ html {
     right: 1vh;
     transform: scale(1);
 }
-.hidden, .visible {
-    width: 3rem;
-    height: 3rem;
-    position: fixed;
-    z-index: 5;
-    bottom: 2.5rem;
-    right: 2.5rem;
-    display: block;
-    transition: transform .5s cubic-bezier(.58,.95,.6,.35);
-}
 .scrollUp {
     width: 3rem;
     height: 3rem;
     background: #0575e6;
     border-radius: 50%;
     cursor: pointer;
-    position: absolute;
-    transition: background 0.2s cubic-bezier(0.17, 0.67, 0.9, 0.32);
-    will-change: background, right, transform;
+    position: fixed;
+    bottom: 2rem;
+    right: 2.5rem;
     overflow: hidden;
     div{
         position: absolute;
@@ -257,16 +248,5 @@ html {
         font-size: 1.4rem;
         color: $menu;
         padding: 1rem;
-        will-change: transform;
-        &.bouble {
-            animation: boubleUp 0.7s ease-in-out;
-            will-change: transform;
-        }
     }
-}
-.hidden{
-    transform: rotate(180deg) scale(0);
-}
-.visible{
-    transform: rotate(0) scale(1);
 }

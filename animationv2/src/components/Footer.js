@@ -22,20 +22,23 @@ export default function Footer(props) {
                     <Link to={`/${links[props.counter][parseInt(props.currentPage) + 1].title}`} >{links[props.counter][parseInt(props.currentPage) + 1].title}</Link>
                 </div>
             </div>
+            <h1>Dokumentacja</h1>
             <div className="mainFooter">
-                <div className="author">
-                    Krzysztof Gach &copy; 2021
-                </div>
-
-                <div>
-                    <h1>Dokumentacja</h1>
-                    <div className="links">
-                        {links[props.counter].map((link, key) => {
-                            return (typeof link === 'object') ? <NavLink key={key} to={`/${(link.id !== undefined) ? link.title + link.id : link.title}`}><i className={link.icon}></i>{link.title}</NavLink> : <div key={key}>{`${parseInt(props.counter) + 1}. ${link}`}</div>
+                {links.map((el, counter) => {
+                    return (<div key={counter} className="links">
+                        <div className='footer-title'>{`${counter + 1}. ${el[0]}`}</div>
+                        {el.map((element, keycounter) => {
+                            if (typeof element === 'object' && element !== null) {
+                                var id = element.id || ''
+                                return <NavLink key={`${counter}-${keycounter}`} to={`${element.title}${id}`}><i className={element.icon}></i>{element.title}</NavLink>
+                            }
+                            return null
                         })}
-                    </div>
-                </div>
+
+                    </div>)
+                })}
             </div>
+            <div className="author">★ animation-project-cc229.web.app &copy; 2021 - 2077 ★ author Krzysztof Gach ★</div>
         </div>
     )
 }

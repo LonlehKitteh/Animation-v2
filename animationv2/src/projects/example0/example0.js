@@ -34,17 +34,17 @@ export default function Example0() {
                 </div>
                 <div className="shadowBox"></div>
             </motion.div>
-            <NavLink to="/galery"><motion.div 
-            whileTap={{ scale: 0.9 }} 
-            whileHover={{ scale: 1.2 }}
-            transition={btnAnimation}
-            className="prevPageGalery"
+            <NavLink to="/galery"><motion.div
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.2 }}
+                transition={btnAnimation}
+                className="prevPageGalery"
             ><i className="fas fa-angle-double-left"></i></motion.div></NavLink>
-            <NavLink to="/example1"><motion.div 
-            whileTap={{ scale: 0.9 }} 
-            whileHover={{ scale: 1.2 }}
-            transition={btnAnimation}
-            className="nextPageGalery"><i className="fas fa-angle-double-right"></i></motion.div></NavLink>
+            <NavLink to="/example1"><motion.div
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.2 }}
+                transition={btnAnimation}
+                className="nextPageGalery"><i className="fas fa-angle-double-right"></i></motion.div></NavLink>
         </motion.div>
     )
 }
