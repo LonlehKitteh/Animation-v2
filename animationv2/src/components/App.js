@@ -17,6 +17,7 @@ import { pageTransition } from '../js/pageAnimation'
 import ScrollUp from './ScrollUp'
 import PageNotFound from './PageNotFound'
 import { AuthProvider } from "./context/AuthContext"
+import { useViewportScroll } from 'framer-motion'
 
 import Login from './auth/Login'
 import Signup from './auth/Signup'
@@ -27,6 +28,8 @@ import UpdateProfile from './auth/UpdateProfile'
 export default function App() {
     const location = useLocation()
     const [getSection, setGetSection] = useState([])
+    const [sectionLength, setSectionLength] = useState(1)
+    const { scrollY } = useViewportScroll()
 
     useEffect(() => {
         var title = location.pathname.substring(1)
@@ -54,29 +57,39 @@ export default function App() {
 
     }, [location])
 
-    window.addEventListener("scroll", () => {
-        var scrollPosition = document.body.scrollTop || document.documentElement.scrollTop
-        const arrayOfSections = getSection.filter(element => element.section - 50 <= scrollPosition)
-        if (arrayOfSections[arrayOfSections.length - 1] === undefined) return
-        getSection.forEach(element => {
-            element.menuLink.classList.remove("active")
-        })
-        arrayOfSections[arrayOfSections.length - 1].menuLink.classList.add("active")
-        borderColor(arrayOfSections[arrayOfSections.length - 1].menuLink)
-    })
+    useEffect(() => {
+        var executed = false
 
-    function borderColor(element) {
-        var randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
-        if (element.style.borderLeftColor === '') {
+        window.addEventListener('scroll', scrollHandler)
+
+        function scrollHandler() {
+            const arrayOfSections = getSection.filter(element => element.section - 50 <= scrollY.current)
+            setSectionLength((arrayOfSections.length === 0) ? 1 : arrayOfSections.length)
+            if (arrayOfSections[arrayOfSections.length - 1] === undefined) return
+            getSection.forEach(element => {
+                element.menuLink.classList.remove("active")
+            })
+            arrayOfSections[arrayOfSections.length - 1].menuLink.classList.add("active")
+            if(!executed) borderColor(arrayOfSections[arrayOfSections.length - 1].menuLink)
+        }
+
+        requestAnimationFrame(scrollHandler)
+
+        function borderColor(element) {
+            executed = true
+            var randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
             element.style.borderLeftColor = randomColor
             element.style.color = randomColor
-        } else {
+
             setTimeout(() => {
-                element.style.borderLeftColor = ''
-                element.style.color = 'black'
+                element.removeAttribute('style')
             }, 1000)
         }
-    }
+
+        return () => {
+            window.removeEventListener('scroll', scrollHandler)
+        }
+    }, [getSection, scrollY, sectionLength])
 
     return (
         <AuthProvider>

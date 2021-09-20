@@ -29,12 +29,17 @@ export default function ScrollUp() {
     }, [lastYPos])
 
     return (
-        <motion.div className='scrollUp' animate={{ transform: `scale(${shouldActionShow ? 1 : 0})` }} initial={{ transform: 'scale(0)' }} onClick={handleClick} transition={btnAnimation}>
+        <motion.div
+            className='scrollUp'
+            animate={{ transform: `scale(${shouldActionShow ? 1 : 0})` }}
+            initial={{ transform: 'scale(0)' }}
+            onClick={handleClick}
+            transition={btnAnimation}
+        >
             <div>
-                <motion.i className="fas fa-angle-double-up"
-                    whileTap={{
-                        transform: 'rotate(45deg)'
-                    }}></motion.i>
+                <motion.i
+                    className="fas fa-angle-double-up"
+                    whileTap={{ rotate: 45 }} />
             </div>
         </motion.div>
     )
