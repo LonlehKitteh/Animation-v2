@@ -1,11 +1,101 @@
-@import './mixins.scss';
-@import './variables.scss';
+@import "./mixins.scss";
+@import "./variables.scss";
 
-.svg-animation{
-    width:100%;
-    height:15rem;
-    background: gray;
-    background-position: center;
+.space {
+    position: absolute;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100vh;
+    background: url("../images/space.webP");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
+    overflow: hidden;
+    z-index: -99;
+    user-select: none;
+    .typed {
+        margin-top: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4rem;
+        box-decoration-break: clone;
+        div:not(.typed-cursor) {
+            color: white;
+            display: inline;
+            text-transform: uppercase;
+            font-family: monospace, "Cairo";
+            margin: 0;
+            font-size: inherit;
+            height: min-content;
+        }
+    }
+    .typed-cursor {
+        color: white;
+        transform: translateY(-9%);
+        align-self: flex-end;
+    }
+    button {
+        font-size: 4rem;
+        border-radius: 1rem;
+        text-transform: uppercase;
+        font-family: monospace, "Cairo";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .jupiter {
+        background: url("../images/jupiter.webP");
+        width: 400px;
+        height: 400px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        z-index: -4;
+        cursor: pointer;
+    }
+    .neptune{
+        background: url("../images/neptune.webP");
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: absolute;
+        bottom: 5%;
+        right: 30%;
+        z-index: -5;
+        cursor: pointer;
+    }
+    .earth{
+        background: url("../images/earth.webP");
+        width: 200px;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: absolute;
+        bottom: 10%;
+        left: 15%;
+        z-index: -2;
+        cursor: pointer;
+    }
+    .mars{
+        background: url("../images/mars.webP");
+        width: 250px;
+        height: 250px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        z-index: -3;
+        cursor: pointer;
+    }
 }

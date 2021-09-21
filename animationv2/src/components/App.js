@@ -93,7 +93,7 @@ export default function App() {
 
     return (
         <AuthProvider>
-            <Navigation />
+            {location.pathname !== '/' ? <Navigation /> : null}
             <AnimatePresence>
                 <Switch location={location} key={location.pathname}>
                     <Route path="/" exact component={Home} />

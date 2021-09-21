@@ -25,7 +25,7 @@ export default function Navigation() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nav">
             <Container>
-                <NavLink exact to="/" className="logo"><i className="fas fa-home"></i>GachFrames - Animation</NavLink>
+                <NavLink exact to="/" className="logo"><i className="fas fa-home"></i>Home</NavLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -64,7 +64,7 @@ export default function Navigation() {
                             </Nav>
                     }
                 </Navbar.Collapse>
-                <Nav className="version"><span>1.1</span><i className="fas fa-copyright"></i></Nav>
+                <Nav className="version"><span>1.2</span><i className="fas fa-copyright"></i></Nav>
             </Container>
         </Navbar>
     )
