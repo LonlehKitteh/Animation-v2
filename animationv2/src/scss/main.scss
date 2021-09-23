@@ -179,6 +179,7 @@ html {
     display: block;
     margin: 1rem;
     padding: 1rem;
+    position: relative;
 }
 .css {
     color: white;
@@ -204,6 +205,19 @@ html {
 .important {
     background-color: #c4000083;
     padding: 0.3rem 0;
+}
+.copy-btn{
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    cursor: pointer;
+    background-color: $btn-primary-hover;
+    border-radius: 50%;
+    i{
+        color: white;
+        padding: 1rem 1.15rem;
+        margin: 0;
+    }
 }
 // ----------------------------------------------------------------------------------------------
 

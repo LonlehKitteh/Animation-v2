@@ -4,10 +4,10 @@ export const arr = [
     content: `
         <div class="subheader">W tej części kursu dowiesz się:</div>
         <ul>
-            <li>Czym są <b>animacje</b>, a także, kiedy należy ich używać,</li>
-            <li>Zapoznasz się z różnicami pomiędzy <b>przejściem a animacją</b></li>
-            <li>Poznasz regułę <b>@keyframes</b>,</li>
-            <li>Nauczysz się wszystkich potrzebnych <b>komend</b> związanych z <b>animacjami</b>.</li>
+            <li>Czym są <span class="css-role">animacje</span>, a także, kiedy należy ich używać</li>
+            <li>Zapoznasz się z różnicami pomiędzy <b>przejściem</b> a <span class="css-role">animacją</span></li>
+            <li>Poznasz regułę <span class="css-property"><b>@keyframes</b></span></li>
+            <li>Nauczysz się wszystkich potrzebnych <b>komend</b> związanych z <span class="css-role">animacjami</span></li>
         </ul>`
   },
   {
@@ -15,38 +15,38 @@ export const arr = [
     content: `
         <div class="alert alert-info" role="alert">
           <i class="fas fa-exclamation"></i><span>
-            Animacja jest to zmiana stanu ze stanu A do stanu B.
+            <b>Animacja jest to zmiana stanu ze stanu A do stanu B</b>.
             Zmiana stanu może polegać na najprostszej zmianie koloru, jaki i również na skomplikowanej transformacji.
             Należy pamiętać, że transormacja i przejście to nie to samo różnice przedstawie w sekcji poniżej.
-            Animacji używamy wtedy, kiedy chcemy uzyskać efekt animowania obiektu zaraz  po załadowaniu strony przez użytkownika,
+            <b>Animacji używamy wtedy, kiedy chcemy uzyskać efekt animowania obiektu</b> zaraz  po załadowaniu strony przez użytkownika,
             lub gdy chcemy, aby animowanie obiektu trwało w nieskończoność, lub gdy po prostu chcemy aby element na stronie się ruszał.
             </span>
         </div>
-        <p>Praktycznie wszystko może zostać animowane.
-        Np. width, height, background-color, color, transform, cursor i wiele więcej...
-        W prawdzie mówiąc ciężko jest wymienić, właściwości CSS których nie można animować, to nie znaczy że ich nie ma. Przykładowe właściwości, których nie można animować: <tt>all, animation, will-change</tt>
+        <p>Praktycznie <b>wszystko</b> może zostać animowane.
+        Np. <b>width, height, background-color, color, transform, cursor</b> i wiele więcej...
+        W prawdzie mówiąc ciężko jest wymienić, właściwości CSS których nie można animować, to nie znaczy że ich nie ma. Przykładowe właściwości, których nie można animować: <b>all, animation, will-change</b>.
     </p>
     <p><b>Na przykład:</b></p>
     <div class="css-track">
     <div></div>
     </div>
-    <p>Podobny efekt można uzyskać za pomocą <b>marquee</b>, ten element div animuje się od początku załadowania się strony i robi to w nieskończoność, można sprawdzić :)</p>`
+    <p>Podobny efekt można uzyskać za pomocą <b>marquee</b>, ten element div rusza się od początku załadowania się strony i robi to w <b>nieskończoność</b>, można sprawdzić :)</p>`
   },
   {
     header: "Rodzaje Animacji",
-    content: `<p>Niestety <b>animacja</b> może być przeprowadzona w dwojaki sposób, to znaczy wyróżniamy dwa rodzaje <b>animacji</b>: </p>
+    content: `<p>Niestety <span class="css-role">animacja</span> może być przeprowadzona w dwojaki sposób, to znaczy wyróżniamy <b>dwa rodzaje</b> <span class="css-role">animacji</span>: </p>
       <div class="flex" style="align-items:initial;">
         <div class="flex-child">
           <h2>Animacja płynna</h2>
           <div>
-            <p>To jest taka animacja, która jest płynna to znaczy element posiada przejście pomiędzy stanami.</p>
-            <p>Np: color, border, padding, width, height, itd...</p>
+            <p>To jest taka <span class="css-role">animacja</span>, która jest płynna to znaczy element posiada <b>przejście</b> pomiędzy stanami.</p>
+            <p>Np: <b>color, border, padding, width, height</b>, itd...</p>
             <div class="example-flow-animation">
               <div></div>
             </div>
-            <p>Zauważ, że ta animacja ma płynne przejście pomiędzy stanami</p>
+            <p>Zauważ, że ta <span class="css-role">animacja</span> ma płynne przejście pomiędzy stanami</p>
             <div class="flex-center">
-<div>
+<div class="css-lan">
 <pre><code class="css"><span class="css-comment">/* Przykładowa animacja płynna */</span>
 
 <span class="css-keyframes-role">@keyframes</span> example-flow-animation{
@@ -67,15 +67,15 @@ export const arr = [
         <div class="flex-child">
           <h2>Animacja schodkowa</h2>
           <div>
-            <p>To jest taka animacja, która <u>nie</u> posiada przejścia pomiędzy stanami.</p>
-            <p>Np: background-image, cursor, display, flex-wrap, resize, itd...</p>
+            <p>To jest taka <span class="css-role">animacja</span>, która <b>nie posiada przejścia</b> pomiędzy stanami.</p>
+            <p>Np: <b>background-image, cursor, display, flex-wrap, resize,</b> itd...</p>
             <div class="example-static-animation">
               <div></div>
               <div></div>
             </div>
-            <p>Zauważ, że to wygląda dokładnie jakby ten element nie miał przejścia pomiędzy stanami, oczywiście da się to obejść w inny sposób np nie animować właściwości display tylko opacity :)</p>
+            <p>Zauważ, że to wygląda dokładnie jakby ten element <b>nie miał przejścia pomiędzy stanami</b>, oczywiście da się to obejść w inny sposób np nie animować właściwości <b>display</b> tylko <b>opacity</b> :)</p>
             <div class="flex-center">
-<div><pre><code class="css"><span class="css-comment">/* Przykładowa animacja schodkowa */</span>
+<div class="css-lan"><pre><code class="css"><span class="css-comment">/* Przykładowa animacja schodkowa */</span>
 
 <span class="css-keyframes-role">@keyframes</span> example-static-animation{
   <span class="css-keyframes-role">to</span>{
@@ -118,8 +118,8 @@ export const arr = [
       <p>
         <b>Drugi</b> przycisk jest zbudowany z :hover ::after i animacji, które razem odpowiadają za "wypełnienie" kolorem tła diva.
       </p>
-      <div class="flex-center">
-        <div>
+      <div class="twoButtons">
+        <div class="css-lan">
         <pre><code class="css"><span class="css-comment">/* Przycisk pierwszy */</span>
 
 <span class="css-selector">#animacja1</span>{
@@ -150,7 +150,7 @@ export const arr = [
   <span class="css-property">width</span>: <span class="css-number">100%</span>;
 }</code></pre>
         </div>
-        <div>
+        <div class="css-lan">
         <pre><code class="css"><span class="css-comment">/* Przycisk drugi */</span>
 
 <span class="css-selector">#animacja2</span>{
@@ -200,15 +200,5 @@ export const arr = [
       <p>
         <b>Animacja</b> przy użyciu :hover mogą działać tak długo, jak użytkownik jest cursorem na elemencie, ale po opuszczeniu diva przez kursor <b>natychmiastowo</b> wraca do stanu początkowego. (bez żadnego przejścia)
       </p>`
-  },
-  {
-    header: "Co należy zapamiętać?",
-    content: `
-      <ul>
-        <li>Czym jest animacja.</li>
-        <li>Do czego używamy animacji.</li>
-        <li>Że animacja może łączyć się z :hover.</li>
-        <li>Różnice pomiędzy przejściem a animacją.</li>
-      </ul>`
   }
 ]

@@ -578,6 +578,7 @@ html {
   display: block;
   margin: 1rem;
   padding: 1rem;
+  position: relative;
 }
 
 .css {
@@ -610,6 +611,21 @@ html {
 .important {
   background-color: #c4000083;
   padding: 0.3rem 0;
+}
+
+.copy-btn {
+  position: absolute;
+  bottom: -1rem;
+  right: -1rem;
+  cursor: pointer;
+  background-color: var(--btn-primary-hover, #008cff);
+  border-radius: 50%;
+}
+
+.copy-btn i {
+  color: white;
+  padding: 1rem 1.15rem;
+  margin: 0;
 }
 
 .toCreator {

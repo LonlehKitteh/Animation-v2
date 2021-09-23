@@ -59,7 +59,8 @@
         border-left: 1px solid $menu-border;
     }
 }
-.example-flow-animation, .example-static-animation {
+.example-flow-animation,
+.example-static-animation {
     height: 4rem;
     background: $css-track;
     padding: 0.5rem;
@@ -86,14 +87,36 @@
     }
 }
 
-.example-static-animation{
+.example-static-animation {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
     justify-content: flex-start;
     will-change: cursor, justify-content;
     animation: example-static-animation 2s infinite;
-    div{
+    div {
         will-change: cursor, justify-content;
         animation: example-static-animation 2s infinite;
+    }
+}
+.begin h1 {
+    margin: -2rem;
+    font-family: monospace, 'Cairo';
+    margin-bottom: 2rem;
+    color: white !important;
+    background-color: $btn-primary-hover;
+    padding: 2rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    user-select: none;
+    text-shadow: none !important;
+}
+.twoButtons{
+    display: flex;
+    justify-content: space-around;
+    div{
+        flex-grow: 1;
     }
 }

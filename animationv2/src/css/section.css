@@ -62,7 +62,7 @@
 }
 
 .section .parent .child {
-  background: #A6D9A6;
+  background: #a6d9a6;
   height: 250px;
 }
 
@@ -304,7 +304,7 @@ p + .section {
 }
 
 .title {
-  color: white;
+  color: white !important;
   background-color: var(--btn-primary-hover, #008cff);
   padding: 2rem;
   display: -webkit-box;

@@ -38,7 +38,7 @@ export default function Transform() {
                                 >
                                     <a href={`#s${subkey + key - links + 2}`}><Button variant="primary" className={(subkey === 0) ? "initial" : false}>{subdata}</Button></a></motion.div>)
                         })}</Section> :
-                            <Section counter={key} code={data.code} picturedTransform={((key > 3 && key < 27) || key === 30 || picturedBugFixer.includes(key)) ? true : false} perspectivePicture={(picturedBugFixer.includes(key)) ? true : false} isChildNeed={(key === 41 || key === 42) ? false : true} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
+                            <Section counter={key} code={data.code} copy={data.copy} picturedTransform={((key > 3 && key < 27) || key === 30 || picturedBugFixer.includes(key)) ? true : false} perspectivePicture={(picturedBugFixer.includes(key)) ? true : false} isChildNeed={(key === 41 || key === 42) ? false : true} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
                     })}
                 </div>
 

@@ -164,7 +164,6 @@ function code(cssRole, valueOfClass, valueOfRule) {
         <span class="important"><span class="css-property">${cssRole}</span>: <span class="css-${valueOfClass}">${valueOfRule}</span>;</span>
     }`
 }
-
 function code2(cssRole, valueOfClass, valueOfRule, perspectiveTransform, perspective, child) {
     return `<span class="css-selector">div.parent</span>{
         <span class="css-property">width</span>: <span class="css-number">300px</span>;
@@ -177,6 +176,26 @@ ${(child) ? `}<br /><span class="css-selector">div.child</span>{
     <span class="css-property">height</span>: <span class="css-number">250px</span>;
     <span class="css-property">transform</span>: <span class="css-value">rotateY(-20deg)</span>;
 }` : `}`}
+    `
+}
+
+function copyText(cssRole, valueOfRule, addtext, child) {
+    return `${child ? `div.parent{
+        width: 300px;
+        height: 300px` :
+        `div{
+        width: 196px;
+        height: 96px;` }
+        text-align: center;
+        background-color: coral;
+        ${cssRole}: ${valueOfRule};
+        ${typeof addtext === 'string' ? `${addtext}
+}` : `}`}
+${(child) ? `div.child{
+    background: #A6D9A6;
+    height: 250px;
+    transform: rotateY(-20deg);
+}` : ``}
     `
 }
 
@@ -259,12 +278,14 @@ export const datatransform = [
                 </span>
             </div>
         </div>`,
-        code: code('transform', 'value', transforms[0].value)
+        code: code('transform', 'value', transforms[0].transform),
+        copy: copyText('transform', transforms[0].transform)
     },
     {
         header: "perspective",
         content: "perspective",
-        code: code('transform', 'value', transforms[1].value)
+        code: code('transform', 'value', transforms[1].transform),
+        copy: copyText('transform', transforms[1].transform)
     },
     {
         header: "translateX",
@@ -278,7 +299,8 @@ export const datatransform = [
             <li>translateX(50%)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[2].value)
+        code: code('transform', 'value', transforms[2].transform),
+        copy: copyText('transform', transforms[2].transform)
     },
     {
         header: "translateY",
@@ -293,7 +315,8 @@ export const datatransform = [
             <li>translateY(50%)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[3].value)
+        code: code('transform', 'value', transforms[3].transform),
+        copy: copyText('transform', transforms[3].transform)
     },
     {
         header: "translate",
@@ -307,17 +330,20 @@ export const datatransform = [
             <li>translateY(50%, -80%)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[4].value)
+        code: code('transform', 'value', transforms[4].transform),
+        copy: copyText('transform', transforms[4].transform)
     },
     {
         header: "translateZ",
         content: "in progress...",
-        code: code('transform', 'value', transforms[5].value)
+        code: code('transform', 'value', transforms[5].transform),
+        copy: copyText('transform', transforms[5].transform)
     },
     {
         header: "translate3d",
         content: "test test test",
-        code: code('transform', 'value', transforms[6].value)
+        code: code('transform', 'value', transforms[6].transform),
+        copy: copyText('transform', transforms[6].transform)
     },
     {
         header: "scaleX",
@@ -331,7 +357,8 @@ export const datatransform = [
             <li>scaleX(-1.5)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[7].value)
+        code: code('transform', 'value', transforms[7].transform),
+        copy: copyText('transform', transforms[7].transform)
     },
     {
         header: "scaleY",
@@ -345,7 +372,8 @@ export const datatransform = [
             <li>scaleY(1.25)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[8].value)
+        code: code('transform', 'value', transforms[8].transform),
+        copy: copyText('transform', transforms[8].transform)
     },
     {
         header: "scale",
@@ -359,17 +387,20 @@ export const datatransform = [
             <li>scaleY(1.25, -2)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[9].value)
+        code: code('transform', 'value', transforms[9].transform),
+        copy: copyText('transform', transforms[9].transform)
     },
     {
         header: "scaleZ",
         content: "test test test",
-        code: code('transform', 'value', transforms[10].value)
+        code: code('transform', 'value', transforms[10].transform),
+        copy: copyText('transform', transforms[10].transform)
     },
     {
         header: "scale3d",
         content: "test test test",
-        code: code('transform', 'value', transforms[11].value)
+        code: code('transform', 'value', transforms[11].transform),
+        copy: copyText('transform', transforms[11].transform)
     },
     {
         header: "skewX",
@@ -393,7 +424,8 @@ export const datatransform = [
             <li>skewX(60grad)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[12].value)
+        code: code('transform', 'value', transforms[12].transform),
+        copy: copyText('transform', transforms[12].transform)
     },
     {
         header: "skewY",
@@ -407,7 +439,8 @@ export const datatransform = [
             <li>skewY(-2turn)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[13].value)
+        code: code('transform', 'value', transforms[13].transform),
+        copy: copyText('transform', transforms[13].transform)
     },
     {
         header: "skew",
@@ -421,7 +454,8 @@ export const datatransform = [
             <li>skew(1rad, -50grad)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[14].value)
+        code: code('transform', 'value', transforms[14].transform),
+        copy: copyText('transform', transforms[14].transform)
     },
     {
         header: "rotate",
@@ -435,37 +469,44 @@ export const datatransform = [
             <li>rotate(5rad)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[15].value)
+        code: code('transform', 'value', transforms[15].transform),
+        copy: copyText('transform', transforms[15].transform)
     },
     {
         header: "rotateX",
         content: "test test test",
-        code: code('transform', 'value', transforms[16].value)
+        code: code('transform', 'value', transforms[16].transform),
+        copy: copyText('transform', transforms[16].transform)
     },
     {
         header: "rotateY",
         content: "test test test",
-        code: code('transform', 'value', transforms[17].value)
+        code: code('transform', 'value', transforms[17].transform),
+        copy: copyText('transform', transforms[17].transform)
     },
     {
         header: "rotateZ",
         content: "test test test",
-        code: code('transform', 'value', transforms[18].value)
+        code: code('transform', 'value', transforms[18].transform),
+        copy: copyText('transform', transforms[18].transform)
     },
     {
         header: "rotate3d",
         content: "test test test",
-        code: code('transform', 'value', transforms[19].value)
+        code: code('transform', 'value', transforms[19].transform),
+        copy: copyText('transform', transforms[19].transform)
     },
     {
         header: "matrix",
         content: "test test test",
-        code: code('transform', 'value', transforms[20].value)
+        code: code('transform', 'value', transforms[20].transform),
+        copy: copyText('transform', transforms[20].transform)
     },
     {
         header: "matrix3d",
         content: "test test test",
-        code: code('transform', 'value', transforms[21].value)
+        code: code('transform', 'value', transforms[21].transform),
+        copy: copyText('transform', transforms[21].transform)
     },
     {
         header: "kombinacja",
@@ -481,7 +522,8 @@ export const datatransform = [
             <li>scaleY(-1.5) translate(150q, 4em)</li>
         </ul>
         `,
-        code: code('transform', 'value', transforms[22].value)
+        code: code('transform', 'value', transforms[22].transform),
+        copy: copyText('transform', transforms[22].transform)
     },
     { mainHeader: "Transform-origin" },
     {
@@ -570,7 +612,16 @@ export const datatransform = [
         } <span class="css-selector">50%</span>{
             <span css-property>transform</span>: <span class="css-value">rotate(<span class="css-number">180deg</span>)</span>
         }
-    }`
+    }`,
+    copy: copyText('animation', 'rotation 4s linear infinite', `transform-origin: left top; 
+    }
+@keyframes rotation{
+        from, to{
+            transform: rotate(0)
+        }
+        50%{
+            transform: rotate(180deg)
+        }`, false)
     },
     { mainHeader: "Transform-style" },
     {
@@ -615,12 +666,14 @@ export const datatransform = [
     {
         header: "flat",
         content: "flat",
-        code: code2('transform-style', 'value', transforms[31].transformStyle, true, false, true)
+        code: code2('transform-style', 'value', transforms[31].transformStyle, true, false, true),
+        copy: copyText('transform-style', transforms[31].transformStyle, `transform: perspective(300px) rotateY(10deg);`, true)
     },
     {
         header: "preserve-3d",
         content: "preserve-3d",
-        code: code2('transform-style', 'value', transforms[32].transformStyle, true, false, true)
+        code: code2('transform-style', 'value', transforms[32].transformStyle, true, false, true),
+        copy: copyText('transform-style', transforms[32].transformStyle, `transform: perspective(300px) rotateY(10deg);`, true)
     },
     { mainHeader: "Backface-visibility" },
     {
@@ -713,12 +766,14 @@ export const datatransform = [
     {
         header: "none",
         content: "none",
-        code: code2('perspective', 'value', transforms[43].perspective, false, false, true)
+        code: code2('perspective', 'value', transforms[43].perspective, false, false, true),
+        copy: copyText('perspective', transforms[43].perspective, false, true)
     },
     {
         header: "rozmiar",
         content: "rozmiar",
-        code: code2('perspective', 'value', transforms[44].perspective, false, false, true)
+        code: code2('perspective', 'value', transforms[44].perspective, false, false, true),
+        copy: copyText('perspective', transforms[44].perspective, false, true)
     },
     { mainHeader: "Perspective-origin" },
     {
@@ -763,6 +818,7 @@ export const datatransform = [
     {
         header: "wzorzec",
         content: "wzorzec",
-        code: code2('perspective-origin', 'value', transforms[49].perspectiveOrigin, false, true, true)
+        code: code2('perspective-origin', 'value', transforms[49].perspectiveOrigin, false, true, true),
+        copy: copyText('perspective-origin', transforms[49].perspectiveOrigin, `perspective: 300px;`, true)
     }
 ]

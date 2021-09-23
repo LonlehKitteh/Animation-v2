@@ -19,7 +19,7 @@ export default function Begin() {
             transition={pageTransition}
         >
             <div className="push">
-                <div className="main">
+                <div className="main begin">
                     {arr.map((el, counter) => <Section key={counter} id={`s${counter}`} header={el.header} content={el.content} />)}
                 </div>
                 <div className="aside">

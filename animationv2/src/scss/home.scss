@@ -15,8 +15,10 @@
     z-index: -99;
     user-select: none;
     .typed {
+        margin: auto;
         margin-top: 5rem;
         display: flex;
+        width: max-content;
         justify-content: center;
         align-items: center;
         font-size: 4rem;
@@ -48,21 +50,23 @@
     }
     .jupiter {
         background: url("../images/jupiter.webP");
+        border-radius: 50%;
         width: 400px;
         height: 400px;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: contain;
+        background-size: cover;
         position: absolute;
-        top: 20%;
-        right: 5%;
         z-index: -4;
         cursor: pointer;
+        top: 20%;
+        right: 5%;
     }
     .neptune{
         background: url("../images/neptune.webP");
         width: 100px;
         height: 100px;
+        border-radius: 50%;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -74,6 +78,7 @@
     }
     .earth{
         background: url("../images/earth.webP");
+        border-radius: 50%;
         width: 200px;
         height: 200px;
         background-repeat: no-repeat;
@@ -89,6 +94,7 @@
         background: url("../images/mars.webP");
         width: 250px;
         height: 250px;
+        border-radius: 50%;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;

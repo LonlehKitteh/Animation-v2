@@ -7,7 +7,6 @@ import Keyframes from './Keyframes'
 import Navigation from './Navigation'
 import Galery from "./Galery"
 import '../css/main.css'
-import '../css/hljs.css'
 import Begin from './Begin'
 import { AnimatePresence } from 'framer-motion'
 import Example0 from '../projects/example0/example0'
@@ -63,7 +62,7 @@ export default function App() {
         window.addEventListener('scroll', scrollHandler)
 
         function scrollHandler() {
-            const arrayOfSections = getSection.filter(element => element.section - 50 <= scrollY.current)
+            const arrayOfSections = getSection.filter(element => element.section - 45 <= scrollY.current)
             setSectionLength((arrayOfSections.length === 0) ? 1 : arrayOfSections.length)
             if (arrayOfSections[arrayOfSections.length - 1] === undefined) return
             getSection.forEach(element => {

@@ -40,7 +40,7 @@
         background: coral;
         text-align: center;
         margin: auto;
-        span{
+        span {
             font-size: 4rem;
             @include flex-center;
             height: 100%;
@@ -48,13 +48,13 @@
             font-family: monospace;
         }
         .child {
-            background: #A6D9A6;
+            background: #a6d9a6;
             height: 250px;
             // transform: rotateY(-20deg);
         }
     }
 }
-p + .section{
+p + .section {
     border: none;
 }
 .alert {
@@ -247,8 +247,8 @@ p + .section{
     will-change: transform;
     animation: transformOrigin 4s linear infinite;
 }
-.title {
-    color: white;
+.title{
+    color: white !important;
     background-color: $btn-primary-hover;
     padding: 2rem;
     display: flex;

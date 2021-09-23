@@ -2,16 +2,18 @@ import React from 'react'
 import '../css/section.css'
 import { transforms } from '../js/data/datatransform'
 import { animations } from '../js/data/dataanimation'
+import copy from 'copy-to-clipboard'
+import { motion } from 'framer-motion'
 
 export default function Section(props) {
 
     function code() {
         return (props.code) ? <div className="css-lan">
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8, backgroundColor: '#00ff62' }} onClick={() => copy(props.copy)} className="copy-btn"><i className="fas fa-copy"></i></motion.div>
             <pre>
                 <code className="css" dangerouslySetInnerHTML={{ __html: props.code }}></code>
             </pre>
         </div> : null
-
     }
 
     return (
