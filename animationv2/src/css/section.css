@@ -24,7 +24,7 @@
 .section h2 {
   text-align: center;
   margin-bottom: 3rem;
-  font-family: Cairo;
+  font-family: 'Cairo';
 }
 
 .section h2 {
@@ -95,17 +95,24 @@ p + .section {
   gap: 0.3rem;
 }
 
+.flex-group div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 .flex-group button {
   padding: 1rem 2rem;
   font-weight: bold;
   position: relative;
+  width: 100%;
 }
 
 .flex-group .initial::after {
   content: "initial";
   position: absolute;
-  bottom: 1%;
-  right: 5%;
+  bottom: .1rem;
+  right: .2rem;
   font-size: smaller;
   color: #323641;
 }
@@ -327,4 +334,26 @@ p + .section {
 .css-role {
   color: var(--section-keyframes, #c73535);
   font-weight: bold;
+}
+
+.mysterious-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-top: 1rem;
+}
+
+.mysterious-btn i {
+  font-size: 1.1rem;
+  margin-right: 0;
+  margin-left: .5rem;
 }

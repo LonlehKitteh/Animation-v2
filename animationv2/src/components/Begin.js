@@ -6,6 +6,7 @@ import Footer from './Footer'
 import '../css/begin.css'
 import { motion } from 'framer-motion'
 import { pageTransition, pageVariants } from '../js/pageAnimation'
+import SplittedSection from './SplittedSection'
 
 export default function Begin() {
 
@@ -20,7 +21,20 @@ export default function Begin() {
         >
             <div className="push">
                 <div className="main begin">
-                    {arr.map((el, counter) => <Section key={counter} id={`s${counter}`} header={el.header} content={el.content} />)}
+                    {arr.map((el, counter) => (counter > 1) ? <SplittedSection
+                        key={counter}
+                        id={`s${counter}`}
+                        header={el.header}
+                        left={el.left}
+                        right={el.right}
+                        endNote={el.endNote}
+                        contentMainHeader={el.contentMainHeader}
+                        advanced={(counter > 2) ? true : false}
+                        />
+                        : <Section key={counter}
+                            id={`s${counter}`}
+                            header={el.header}
+                            content={el.content} />)}
                 </div>
                 <div className="aside">
                     <Menu>

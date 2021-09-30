@@ -24,7 +24,7 @@
     h2 {
         text-align: center;
         margin-bottom: 3rem;
-        font-family: Cairo;
+        font-family: 'Cairo';
     }
     h2 {
         margin: 1rem 0;
@@ -66,16 +66,20 @@ p + .section {
     @include flex-center;
     flex-wrap: wrap;
     gap: 0.3rem;
+    div{
+        flex-grow: 1;
+    }
     button {
         padding: 1rem 2rem;
         font-weight: bold;
         position: relative;
+        width: 100%;
     }
     .initial::after {
         content: "initial";
         position: absolute;
-        bottom: 1%;
-        right: 5%;
+        bottom: .1rem;
+        right: .2rem;
         font-size: smaller;
         color: #323641;
     }
@@ -261,4 +265,16 @@ p + .section {
 .css-role {
     color: $section-keyframes;
     font-weight: bold;
+}
+.mysterious-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    margin-top: 1rem;
+    i{
+        font-size: 1.1rem;
+        margin-right: 0;
+        margin-left: .5rem;
+    }
 }

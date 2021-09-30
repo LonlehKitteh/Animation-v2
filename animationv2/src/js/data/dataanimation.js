@@ -125,33 +125,41 @@ export var animations = [
     {
         animationFillMode: 'none',
         animationName: "color2",
+        animationIterationCount: '3',
+        animationDelay: '1s',
+        animationPlayState: 'paused',
         value: 'animation-fill-mode: none'
     },
     {
         animationFillMode: 'backwards',
         animationName: "color2",
-        animationDelay: '4s',
         animationIterationCount: '3',
+        animationDelay: '1s',
+        animationPlayState: 'paused',
         value: 'animation-fill-mode: backwards'
     },
     {
         animationFillMode: 'forwards',
         animationName: "color2",
-        animationDelay: '4s',
         animationIterationCount: '3',
+        animationDelay: '1s',
+        animationPlayState: 'paused',
         value: 'animation-fill-mode: forwards'
     },
     {
         animationFillMode: 'both',
         animationName: "color2",
-        animationDelay: '4s',
+        animationDelay: '1s',
         animationIterationCount: '3',
+        animationPlayState: 'paused',
         value: 'animation-fill-mode: both'
     },
     {
         animationFillMode: 'none, both',
         animationName: "move, color2",
         animationIterationCount: '3',
+        animationDelay: '1s',
+        animationPlayState: 'paused',
         value: 'animation-fill-mode: none, both'
     },
     "", "", "", "",
@@ -183,7 +191,7 @@ function code(move, color, name, value, type, animationName, animationNameValue,
         <span class="css-property">height</span>: <span class="css-number">96px</span>;
         <span class="css-property">padding</span>: <span class="css-number">16px</span>;
         <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
-        <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
+        <span class="css-property">background-color</span>: <span class="css-value">blue</span>;
         <span class="important"><span class="css-property">${name}</span>: <span class="css-${type}">${value}</span>;</span>${(animationIterationCount) ? `<br />        <span class="css-property">animation-iteration-count</span>: <span class="css-number">${animationIterationCountValue}</span>;` : ``}${(animationDuration) ? `<br />        <span class="css-property">animation-duration</span>: <span class="css-number">${animationDurationValue}</span>;` : ``}${(animationName) ? `<br />        <span class="css-property">animation-name</span>: <span class="css-value">${animationNameValue}</span>;<br />    }` : `<br />    }`}     
 
     ${(move === 'move') ? `<span class="css-selector">@keyframes</span> move {
@@ -322,7 +330,7 @@ export const dataanimation = [
     {
         header: "czas",
         content: `<div>Za pomocą właściwości <span class="css-role">animation-duration</span> oraz dowolnej nieujemnej liczby wraz z wybraną <b>jednostką czasu</b> możemy określić czas trwania wykonywania się animacji interesującego nas elementu HTML.</div>
-        <div class="alert alert-info" role="alert">
+        <div class="alert alert-danger" role="alert">
                 <i class="fas fa-exclamation"></i>
                 <span>Warto wiedzieć że:
                 <ul class="examples">
@@ -402,18 +410,20 @@ export const dataanimation = [
     },
     {
         header: "linear",
-        content: `<div>Tempo <span class="css-role">linear</span> jest tempem stałym.</div>`,
+        content: `<div>Tempo <span class="css-role">linear</span> jest tempem <b>stałym</b>.</div>`,
         code: code('move', '', 'animation-timing-function', animations[17].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "step-start",
-        content: `<div>Tempo <span class="css-role">step-start</span> jest tempem składającym się z tylu <b>klatek</b> (<b>z pominięciem pierwszej klatki</b>) z ilu selektorów składa się reguła <span class="css-role">@keyframes</span> tworząca animację interesującego nas elementu HTML.</div>`,
-        code: code('move', '', 'animation-timing-function', animations[18].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
+        content: `<div>Tempo <span class="css-role">step-start</span> jest tempem składającym się z tylu <b>klatek</b> (<b>z pominięciem pierwszej klatki</b>) z ilu selektorów składa się reguła <span class="css-role">@keyframes</span> tworząca animację interesującego nas elementu HTML.
+        Zauważ, że kolor <b>coral</b> się nie pokazuje. Kolor <b>green</b> jest widoczny trochę dłużej, ponieważ następna klatka jest wycięta.</div>`,
+        code: code( '', 'color2', 'animation-timing-function', animations[18].animationTimingFunction, 'value', true, 'color', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "step-end",
-        content: `<div>Tempo <span class="css-role">step-end</span> jest tempem składającym się z tylu <b>klatek</b> (<b>z pominięciem ostatniej klatki</b>) z ilu selektorów składa się reguła <span class="css-role">@keyframes</span> tworząca animację interesującego nas elementu HTML.</div>`,
-        code: code('move', '', 'animation-timing-function', animations[19].animationTimingFunction, 'value', true, 'move', true, defaultDuration, true, defaultIteration)
+        content: `<div>Tempo <span class="css-role">step-end</span> jest tempem składającym się z tylu <b>klatek</b> (<b>z pominięciem ostatniej klatki</b>) z ilu selektorów składa się reguła <span class="css-role">@keyframes</span> tworząca animację interesującego nas elementu HTML.
+        Zauważ, że kolor <b>green</b> się nie pokazuje. Kolor <b>pink</b> jest widoczny trochę dłużej, ponieważ następna klatka jest wycięta.</div>`,
+        code: code('', 'color2', 'animation-timing-function', animations[19].animationTimingFunction, 'value', true, 'color', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "steps()",
@@ -478,12 +488,12 @@ export const dataanimation = [
     },
     {
         header: "czas",
-        content: "czas",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-delay</span> możemy określić <b>czas trwania opónienia</b> animacji elementu HTML.</div>`,
         code: code('move', '', 'animation-delay', animations[28].animationDelay, 'number', true, 'move', true, defaultDuration, true, defaultIteration)
     },
     {
         header: "sekwencja",
-        content: "sekwencja",
+        content: `<div>Za pomocą sekwencji oddzielonych od siebie <b>przecinkiem</b> wartości właściwości <span class="css-role">animation-duration</span> możemy ustawić <b>czas</b> kilku animacjom jednocześnie.</div>`,
         code: code('move', 'color', 'animation-delay', animations[29].animationDelay, 'number', true, 'move, color', true, defaultDuration, true, defaultIteration)
     },
     { mainHeader: "Animation-iteration-count" },
@@ -530,17 +540,17 @@ export const dataanimation = [
     },
     {
         header: "liczba całkowita",
-        content: "liczba całkowita",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-iteration-count</span> wraz z dowolną liczbą nieujemną możemy określić <b>ilość powtórzeń</b> wykonania się animacji interesującego nas elementu HTML.</div>`,
         code: code('move', '', 'animation-iteration-count', animations[34].animationIterationCount, 'number', true, 'move', true, defaultDuration, false, '')
     },
     {
         header: "infinite",
-        content: "infinite",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-iteration-count</span> oraz wartości infinite możemy określić <b>nieskończoną ilość powtórzeń</b> animacji.</div>`,
         code: code('move', '', 'animation-iteration-count', animations[35].animationIterationCount, 'number', true, 'move', true, defaultDuration, false, '')
     },
     {
         header: "sekwencja",
-        content: "sekwencja",
+        content: `<div>Za pomocą sekwencji oddzielonych od siebie przecinkiem wartości właściwości <span class="css-role">animation-iteration-count</span> możemy dodać <b>kilka różnych powtórzeń animacji</b> jednocześnie</div>`,
         code: code('move', '', 'animation-iteration-count', animations[36].animationIterationCount, 'number', true, 'move, color', true, defaultDuration, false, '')
     },
     { mainHeader: "Animation-direction" },
@@ -587,33 +597,38 @@ export const dataanimation = [
     },
     {
         header: "normal",
-        content: "normal",
+        content: `<div>Wartość <b>normal</b> jest domyślną wartością właściwości <span class="css-role">animation-direction</span>. Domyślnie kierunek animacji następuje <b>od lewej do prawej</b>.</div>`,
         code: code('move2', '', 'animation-direction', animations[41].animationDirection, 'value', true, 'move', true, '2s', true, defaultIteration)
     },
     {
         header: "reverse",
-        content: "reverse",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-direcetion</span> oraz wartości <b>reverse</b> możemy sprawić, że kierunek animacji będzię następować <b>od prawej do lewej</b>.</div>`,
         code: code('move2', '', 'animation-direction', animations[42].animationDirection, 'value', true, 'move', true, '2s', true, defaultIteration)
     },
     {
         header: "alternate",
-        content: "alternate",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-direcetion</span> oraz wartości <b>alternate</b> możemy sprawić, że kierunek animacji będzię następować <b>od lewej do prawej i będze zawracać</b>.</div>`,
         code: code('move2', '', 'animation-direction', animations[43].animationDirection, 'value', true, 'move', true, '2s', true, defaultIteration)
     },
     {
         header: "alternate-reverse",
-        content: "alternate-reverse",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-direcetion</span> oraz wartości <b>alternate-reverse</b> możemy sprawić, że kierunek animacji będzie następować <b>od prawej do lewej i będzie zawracać</b>.</div>`,
         code: code('move2', '', 'animation-direction', animations[44].animationDirection, 'value', true, 'move', true, '2s', true, defaultIteration)
     },
     {
         header: "sekwencja",
-        content: "sekwencja",
+        content: `<div>Za pomocą sekwencji oddzielonych od siebie <b>przecinkiem</b> wartości właściwości <span class="css-role">animation-direction</span> możemy dodać <b>kilka różnych kierunków</b> animacji jednocześnie.</div>`,
         code: code('move2', 'color2', 'animation-direction', animations[45].animationDirection, 'value', true, 'move, color', true, '2s', true, defaultIteration)
     },
     { mainHeader: "Animation-fill-mode" },
     {
         header: "Opis właściwości animation-fill-mode",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-fill-mode</span> możemy dodać <b>dodatkowe właściwości</b> do elementu HTML.</div>`
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-fill-mode</span> możemy dodać <b>dodatkowe właściwości</b> do elementu HTML.</div>
+        <div class="alert alert-info" role="alert">
+                <i class="fas fa-exclamation"></i>
+                <span>W tej części dodałem przycisk który odpala animację, żebyście mogli lepiej zrozumieć co tutaj się będzie działo</span>
+        </div>
+        `
     },
     {
         header: "Wartości właściwości animation-fill-mode",
@@ -639,7 +654,7 @@ export const dataanimation = [
         </div>
         <div class="box">
             <p>Wartość initial</p>
-            <div class="link"><a href="#47">none</a></div>
+            <div class="link"><a href="#s47">none</a></div>
         </div>
         <div class="box">
             <p>Wyjątki initial</p>
@@ -654,28 +669,28 @@ export const dataanimation = [
     },
     {
         header: "none",
-        content: "none",
+        content: `<div>Wartość <b>none</b> jest <b>domyślną</b> wartością właściwości <span class="css-role">animation-fill-mode</span>. Domyślnie element html nie posiada dodatkowych właściwości.</div>`,
         code: code('', 'color2', 'animation-fill-mode', animations[50].animationFillMode, 'value', true, 'color', true, defaultDuration, true, '3')
     },
     {
         header: "backwards",
-        content: "backwards",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-fill-mode</span> oraz wartości <b>backwards</b> możemy określić, że <b>przed momentem rozpoczęcia pierwszego kroku</b> animacji, element HTML otrzyma wszystkie właściwości CSS występujące w <b>pierwszym selektorze reguły @keyframes</b> tworzącej animację elementu HTML. Zauważ, że nasz przycisk jest koloru <b>coral</b> a nie <b>blue</b>.</div>`,
         code: code('', 'color2', 'animation-fill-mode', animations[51].animationFillMode, 'value', true, 'color', true, defaultDuration, true, '3')
     },
     {
         header: "forwards",
-        content: "forwards",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-fill-mode</span> oraz wartości <b>forwards</b> możemy określić, że po zakończeniu animacji, element HTML otrzyma wszystkie właściwości CSS występujące <b>w ostatnim selektorze reguły @keyframes</b> tworzącej animację elementu HTML. Zauważ, że kolor diva to <b>blue</b> ale po zakończeniu animacji bedzię miał kolor <b>green</b>.</div>`,
         code: code('', 'color2', 'animation-fill-mode', animations[52].animationFillMode, 'value', true, 'color', true, defaultDuration, true, '3')
     },
     {
         header: "both",
-        content: "both",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-fill-mode</span> oraz wartości <b>both</b> możemy określić, że <b>przed rozpoczęciem i po zakończeniu animacji</b>, element HTML otrzyma wszystkie właściwości CSS występujące w <b>pierwszym i ostatnim selektorze reguły @keyframes</b> tworzącej animację elementu HTML. Zauważ, że przed wykonaniem animacji div ma kolor <b>coral</b> a po wykonaniu animacji ma kolor <b>green</b>.</div>`,
         code: code('', 'color2', 'animation-fill-mode', animations[53].animationFillMode, 'value', true, 'color', true, defaultDuration, true, '3')
     },
     {
         header: "sekwencja",
-        content: "sekwencja",
-        code: code('', 'color2', 'animation-fill-mode', animations[54].animationFillMode, 'value', true, 'move, color', true, defaultDuration, true, '3')
+        content: `<div>Za pomocą sekwencji oddzielonych od siebie <b>przecinkiem</b> wartości właściwości <span class="css-role">animation-fill-mode</span> możemy dodać kilka animacji jednocześnie. Zauważ, że przed wykonaniem animacji div ma kolor <b>coral</b> a po wykonaniu animacji ma kolor <b>green</b>.</div>`,
+        code: code('move', 'color2', 'animation-fill-mode', animations[54].animationFillMode, 'value', true, 'move, color', true, defaultDuration, true, '3')
     },
     { mainHeader: "Animation-play-state" },
     {
@@ -721,80 +736,147 @@ export const dataanimation = [
     },
     {
         header: "running",
-        content: "running",
+        content: `<div>Wartość <b>running</b> jest domyślną wartością właściwości <span class="css-role">animation-play-state</span>. Domyślnie po dodaniu pseudoklasy <b>:hover</b> element div <b>nie zatrzymuje się po najechaniu myszką</b> na element div.</div>`,
         code: `<span class="css-selector">div</span>{
-            <span class="css-property">width</span>: <span class="css-number">196px</span>;
-            <span class="css-property">height</span>: <span class="css-number">96px</span>;
-            <span class="css-property">padding</span>: <span class="css-number">16px</span>;
-            <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
-            <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
-            <span class="css-property">aniamtion-name</span>: <span class="css-value">move</span>;
-            <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
-            <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+    <span class="css-property">width</span>: <span class="css-number">196px</span>;
+    <span class="css-property">height</span>: <span class="css-number">96px</span>;
+    <span class="css-property">padding</span>: <span class="css-number">16px</span>;
+    <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
+    <span class="css-property">background-color</span>: <span class="css-value">blue</span>;
+    <span class="css-property">aniamtion-name</span>: <span class="css-value">move</span>;
+    <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
+    <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+}
+<span class="css-selector">div:hover</span>{
+    <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">running</span>;</span>
+}
+<span class="css-selector">@keyframes</span> move{
+    <span class="css-selector">from, to</span>{
+        <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
+    } <span class="css-selector">50%</span>{
+        <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+    }
+}`,
+        copy: `div{
+            width: 196px;
+            height: 96px;
+            padding: 16px;
+            font-size: 1.2rem;
+            background-color: blue;
+            aniamtion-name: move;
+            aniamtion-duration: 4s;
+            aniamtion-iteration-count: infinite;
         }
-        <span class="css-selector">div:hover</span>{
-            <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">running</span>;</span>
+        div:hover{
+            aniamtion-play-state: running;
         }
-        <span class="css-selector">@keyframes</span> move{
-            <span class="css-selector">from, to</span>{
-                <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
-            } <span class="css-selector">50%</span>{
-                <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+        @keyframes move{
+            from, to{
+                transform: translateX(0);
+            } 50%{
+                transform: translateY(300px);
             }
         }`
     },
     {
         header: "paused",
-        content: "paused",
+        content: `<div>Za pomocą właściwości <span class="css-role">animation-play-state</span> oraz wartości <b>paused</b> możemy określić, że po najechaniu myszką na element div <b>animacja się zatrzyma</b>.</div>`,
         code: `<span class="css-selector">div</span>{
-            <span class="css-property">width</span>: <span class="css-number">196px</span>;
-            <span class="css-property">height</span>: <span class="css-number">96px</span>;
-            <span class="css-property">padding</span>: <span class="css-number">16px</span>;
-            <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
-            <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
-            <span class="css-property">aniamtion-name</span>: <span class="css-value">move</span>;
-            <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
-            <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+    <span class="css-property">width</span>: <span class="css-number">196px</span>;
+    <span class="css-property">height</span>: <span class="css-number">96px</span>;
+    <span class="css-property">padding</span>: <span class="css-number">16px</span>;
+    <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
+    <span class="css-property">background-color</span>: <span class="css-value">blue</span>;
+    <span class="css-property">aniamtion-name</span>: <span class="css-value">move</span>;
+    <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
+    <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+}
+<span class="css-selector">div:hover</span>{
+    <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">paused</span>;</span>
+}
+<span class="css-selector">@keyframes</span> move{
+    <span class="css-selector">from, to</span>{
+        <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
+    } <span class="css-selector">50%</span>{
+        <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+    }
+}`,
+        copy:`div{
+            width: 196px;
+            height: 96px;
+            padding: 16px;
+            font-size: 1.2rem;
+            background-color: blue;
+            aniamtion-name: move;
+            aniamtion-duration: 4s;
+            aniamtion-iteration-count: infinite;
         }
-        <span class="css-selector">div:hover</span>{
-            <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">paused</span>;</span>
+        div:hover{
+            aniamtion-play-state: paused;
         }
-        <span class="css-selector">@keyframes</span> move{
-            <span class="css-selector">from, to</span>{
-                <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
-            } <span class="css-selector">50%</span>{
-                <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+        @keyframes move{
+            from, to{
+                transform: translateX(0);
+            } 50%{
+                transform: translateY(300px);
             }
         }`
     },
     {
         header: "sekwencja",
-        content: "sekwencja",
+        content: `<div>Za pomocą sekwencji oddzielonych od siebie <b>przecinkiem</b> wartości właściwości <span class="css-role">animation-play-state</span> możemy określić zachowanie elementu div z pseudoklasą <b>:hover</b> na kilku animacjach jednocześnie.</div>`,
         code: `<span class="css-selector">div</span>{
-            <span class="css-property">width</span>: <span class="css-number">196px</span>;
-            <span class="css-property">height</span>: <span class="css-number">96px</span>;
-            <span class="css-property">padding</span>: <span class="css-number">16px</span>;
-            <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
-            <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
-            <span class="css-property">aniamtion-name</span>: <span class="css-value">move, color</span>;
-            <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
-            <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+    <span class="css-property">width</span>: <span class="css-number">196px</span>;
+    <span class="css-property">height</span>: <span class="css-number">96px</span>;
+    <span class="css-property">padding</span>: <span class="css-number">16px</span>;
+    <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
+    <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
+    <span class="css-property">aniamtion-name</span>: <span class="css-value">move, color</span>;
+    <span class="css-property">aniamtion-duration</span>: <span class="css-number">4s</span>;
+    <span class="css-property">aniamtion-iteration-count</span>: <span class="css-number">infinite</span>;
+}
+<span class="css-selector">div:hover</span>{
+    <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">running, paused</span>;</span>
+}
+<span class="css-selector">@keyframes</span> move{
+    <span class="css-selector">from, to</span>{
+        <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
+    } <span class="css-selector">50%</span>{
+        <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+    }
+}
+<span class="css-selector">@keyframes</span> color {
+    <span class="css-selector">from, to</span>{
+        <span class="css-property">background</span>: <span class="css-value">blue</span>;
+    } <span class="css-selector">50%</span>{
+        <span class="css-property">background</span>: <span class="css-value">orange</span>;
+    }
+}`,
+        copy: `div{
+            width: 196px;
+            height: 96px;
+            padding: 16px;
+            font-size: 1.2rem;
+            background-color: #009fff;
+            aniamtion-name: move, color;
+            aniamtion-duration: 4s;
+            aniamtion-iteration-count: infinite;
         }
-        <span class="css-selector">div:hover</span>{
-            <span class="important"><span class="css-property">aniamtion-play-state</span>: <span class="css-value">running, paused</span>;</span>
+        div:hover{
+            aniamtion-play-state: running, paused;
         }
-        <span class="css-selector">@keyframes</span> move{
-            <span class="css-selector">from, to</span>{
-                <span class="css-property">transform</span>: <span class="css-value">translateX(<span class="css-number">0</span>)</span>;
-            } <span class="css-selector">50%</span>{
-                <span class="css-property">transform</span>: <span class="css-value">translateY(<span class="css-number">300px</span>)</span>;
+        @keyframes move{
+            from, to{
+                transform: translateX(0);
+            } 50%{
+                transform: translateY(300px);
             }
         }
-        <span class="css-selector">@keyframes</span> color {
-            <span class="css-selector">from, to</span>{
-                <span class="css-property">background</span>: <span class="css-value">blue</span>;
-            } <span class="css-selector">50%</span>{
-                <span class="css-property">background</span>: <span class="css-value">orange</span>;
+        @keyframes color {
+            from, to{
+                background: blue;
+            } 50%{
+                background: orange;
             }
         }`
     },

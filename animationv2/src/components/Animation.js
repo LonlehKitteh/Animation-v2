@@ -24,6 +24,7 @@ export default function Animation() {
             <div className="push">
                 <div className="main">
                     {dataanimation.map((data, key) => {
+                        console.log(data)
                         if (data.hasOwnProperty("mainHeader")) {
                             links++
                             return <p key={key} className="title">{`${links}. ${data.mainHeader}`}</p>
@@ -32,13 +33,13 @@ export default function Animation() {
                             return (
                                 <motion.div
                                     whileTap={{ scale: 0.9 }}
-                                    whileHover={{ scale: 1.2, zIndex: 99 }}
+                                    whileHover={{ scale: 1.1, zIndex: 99 }}
                                     transition={btnAnimation}
                                     key={subkey}
                                 >
                                     <a href={`#s${subkey + key - links + 2}`}><Button variant="primary" className={(subkey === 0 && key !== 9 && key !== 30) ? "initial" : false}>{subdata}</Button></a></motion.div>)
                         })}</Section> :
-                            <Section counter={key} code={data.code} animationName={links - 1} picturedAnimation={(picturedBugFixer.includes(key)) ? true : false} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
+                            <Section counter={key} code={data.code} copy={data.copy} animationName={links - 1} picturedAnimation={(picturedBugFixer.includes(key)) ? true : false} header={data.header} content={data.content} key={key} id={`s${key - links}`} />
                     })}
                 </div>
 
