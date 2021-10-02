@@ -24,7 +24,7 @@
 .section h2 {
   text-align: center;
   margin-bottom: 3rem;
-  font-family: 'Cairo';
+  font-family: "Cairo";
 }
 
 .section h2 {
@@ -111,8 +111,8 @@ p + .section {
 .flex-group .initial::after {
   content: "initial";
   position: absolute;
-  bottom: .1rem;
-  right: .2rem;
+  bottom: 0.1rem;
+  right: 0.2rem;
   font-size: smaller;
   color: #323641;
 }
@@ -337,23 +337,26 @@ p + .section {
 }
 
 .mysterious-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  margin-top: 1rem;
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
+  will-change: background-color;
 }
 
 .mysterious-btn i {
-  font-size: 1.1rem;
-  margin-right: 0;
-  margin-left: .5rem;
+  color: white;
+  padding: 1rem 1.15rem;
+  margin: 0;
+}
+
+.mysterious-text {
+  position: absolute;
+  font-family: monospace, 'Cairo';
+  top: .5rem;
+  right: 4rem;
+  color: #888;
 }

@@ -28,7 +28,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
 
 .container a {
   display: block;
-  font-family: Cairo;
+  font-family: monospace, 'Cairo';
   text-decoration: none;
   -webkit-transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
   transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;

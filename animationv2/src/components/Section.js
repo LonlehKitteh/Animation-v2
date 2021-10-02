@@ -1,28 +1,81 @@
-import React, { useRef, useState } from 'react'
+import React, { useState, useRef } from 'react'
 import '../css/section.css'
 import { transforms } from '../js/data/datatransform'
 import { animations } from '../js/data/dataanimation'
 import copy from 'copy-to-clipboard'
 import { motion } from 'framer-motion'
-import { Button } from 'react-bootstrap'
 
 export default function Section(props) {
-    const divRef = useRef(null)
+    const messages = [
+        'Skopiowano!', 'Skopiowano podwójnie!', 'Skopiowano potrójnie!', 'Dzikość!!', 'Dominacja!!', 'Mega Kopia!!', 'Nie do zatrzymania!!', 'Bezwzględne szaleństwo!!', 'Potwór kopiowania!!', 'Boskość!!!', 'Niesamowita boskość!!!'
+    ]
     const [isDisabled, setIsDisabled] = useState(false)
+    const [messageCounter, setMessageCounter] = useState(-1)
+    const messageRef = useRef(null)
+    var start = Date.now()
+    var timeoutHandler
 
     function code() {
         return <div className="css-lan">
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8, backgroundColor: '#00ff62' }} onClick={() => copy(props.copy)} className="copy-btn"><i className="fas fa-copy"></i></motion.div>
+            <div className="copy">
+                <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.8, backgroundColor: '#00ff62' }}
+                    onClick={CopyHandlerClick}
+                    className="copy-btn"
+                >
+                    <i className="fas fa-copy"></i>
+                </motion.div>
+                <div ref={messageRef} className='copy-message'>{messages[messageCounter]}</div>
+            </div>
+
+            {(props.counter < 62 && props.picturedAnimation) ? <>
+                <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="mysterious-btn" onClick={clickHandler}
+                    style={{ backgroundColor: isDisabled ? '#ff2600' : '#00ff4c' }}
+                >
+                    <i className={`fas ${isDisabled ? 'fa-pause' : 'fa-play'}`}></i>
+                </motion.div>
+                <div className="mysterious-text">Press me!</div>
+            </> : null}
             <pre>
                 <code className="css" dangerouslySetInnerHTML={{ __html: props.code }}></code>
             </pre>
         </div>
     }
 
+    function CopyHandlerClick() {
+        let now = Date.now()
+        copy(props.copy)
+
+        console.log(now - start)
+        messageRef.current.style.opacity = 1
+
+        if (now - start < 1500 && now - start > 500) {
+            setMessageCounter(prev => prev + 1 < messages.length ? prev + 1 : prev)
+            setTimeout(() => {
+                messageRef.current.style.opacity = 0
+            }, 400)
+        } else if (now - start > 1500) {
+            setMessageCounter(0)
+            setTimeout(() => {
+                messageRef.current.style.opacity = 0
+            }, 400)
+        } else {
+            messageRef.current.style.opacity = 1
+            clearTimeout(timeoutHandler)
+            timeoutHandler = setTimeout(() => {
+                messageRef.current.style.opacity = 0
+            }, 400)
+        }
+        start = Date.now()
+    }
+
     function clickHandler(e) {
         e.preventDefault()
         setIsDisabled(prev => !prev)
-        divRef.current.style.animationPlayState = (isDisabled) ? 'paused' : 'running' 
     }
 
     return (
@@ -58,10 +111,9 @@ export default function Section(props) {
                     }
                 </> : (props.picturedAnimation) ? <>
                     <div className="pictured">
-                        {[54, 55, 56, 57, 58].includes(props.counter) ? <div className="mysterious-btn"><Button disabled={isDisabled} variant="success" onClick={clickHandler} size="lg">Animate!<i className="fas fa-play"></i></Button></div> : null}
                         <h2>{(animations[props.counter - 4] !== undefined) ? `${animations[props.counter - 4].value};` : "in progress..."}</h2>
                         <div className={([22, 23, 54, 55, 56, 57].includes(props.counter)) ? 'css-track-color' : 'css-track-animation'}>
-                            <div ref={divRef} style={animations[props.counter - 4]} className={(props.counter === 64) ? 'paused' : (props.counter === 65) ? 'running' : null}></div>
+                            <div style={{ ...animations[props.counter - 4], animationPlayState: (!isDisabled) ? 'paused' : 'running' }} className={(props.counter === 64) ? 'paused' : (props.counter === 65) ? 'running' : null}></div>
                         </div>
                     </div>
                     {

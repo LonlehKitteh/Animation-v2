@@ -27,7 +27,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
 }
 .container a {
     display: block;
-    font-family: Cairo;
+    font-family: monospace, 'Cairo';
     text-decoration: none;
     transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
     &[href="/animation"] i {

@@ -1,11 +1,53 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import copy from 'copy-to-clipboard'
 import { motion } from 'framer-motion'
 
 export default function SplittedSection(props) {
-    function code(code, copied) {
+    const messages = [
+        'Skopiowano!', 'Skopiowano podwójnie!', 'Skopiowano potrójnie!', 'Dzikość!!', 'Dominacja!!', 'Mega Kopia!!', 'Nie do zatrzymania!!', 'Bezwzględne szaleństwo!!', 'Potwór kopiowania!!', 'Boskość!!!', 'Niesamowita boskość!!!'
+    ]
+    const [messageCounter, setMessageCounter] = useState(-1)
+    const messageRef = useRef(null)
+    var start = Date.now()
+    var timeoutHandler
+
+    function code(code, element) {
         return <div className="css-lan">
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8, backgroundColor: '#00ff62' }} onClick={() => copy(copied)} className="copy-btn"><i className="fas fa-copy"></i></motion.div>
+            <div className="copy">
+                <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.8, backgroundColor: '#00ff62' }}
+                    onClick={() => {
+                        let now = Date.now()
+                        copy(element)
+
+                        messageRef.current.style.opacity = 1
+
+                        if (now - start < 1700 && now - start > 800) {
+                            setMessageCounter(prev => prev + 1 < messages.length ? prev + 1 : prev)
+                            setTimeout(() => {
+                                messageRef.current.style.opacity = 0
+                            }, 800)
+                        } else if (now - start > 1700) {
+                            setMessageCounter(0)
+                            setTimeout(() => {
+                                messageRef.current.style.opacity = 0
+                            }, 800)
+                        } else {
+                            messageRef.current.style.opacity = 1
+                            clearTimeout(timeoutHandler)
+                            timeoutHandler = setTimeout(() => {
+                                messageRef.current.style.opacity = 0
+                            }, 800)
+                        }
+                        start = Date.now()
+                    }}
+                    className="copy-btn"
+                >
+                    <i className="fas fa-copy"></i>
+                </motion.div>
+                <div ref={messageRef} className='copy-message'>{messages[messageCounter]}</div>
+            </div>
             <pre>
                 <code className="css" dangerouslySetInnerHTML={{ __html: code }}></code>
             </pre>

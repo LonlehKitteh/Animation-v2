@@ -24,7 +24,6 @@ export default function Animation() {
             <div className="push">
                 <div className="main">
                     {dataanimation.map((data, key) => {
-                        console.log(data)
                         if (data.hasOwnProperty("mainHeader")) {
                             links++
                             return <p key={key} className="title">{`${links}. ${data.mainHeader}`}</p>

@@ -192,6 +192,7 @@ html {
     border-radius: 1rem;
     display: block;
     margin: 1rem;
+    margin-top: 2rem;
     padding: 1rem;
     position: relative;
 }
@@ -220,10 +221,18 @@ html {
     background-color: #c4000083;
     padding: 0.3rem 0;
 }
-.copy-btn{
+
+.copy{
     position: absolute;
     bottom: -1rem;
     right: -1rem;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn{
     cursor: pointer;
     background-color: $btn-primary-hover;
     border-radius: 50%;
@@ -231,6 +240,29 @@ html {
         color: white;
         padding: 1rem 1.15rem;
         margin: 0;
+    }
+}
+
+.copy-message{
+    margin-right: 1.5rem;
+    padding: 1rem;
+    background-color: $btn-primary-hover;
+    border-radius: .8rem;
+    color: white;
+    font-family: monospace, 'Cairo';
+    position: relative;
+    transition: opacity .1s .2s ease;
+    opacity: 0;
+    &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translateY(-50%);
+        border-top: 7px solid transparent;
+        border-left: 10px solid $btn-primary-hover;
+        border-bottom: 7px solid transparent;
     }
 }
 // ----------------------------------------------------------------------------------------------

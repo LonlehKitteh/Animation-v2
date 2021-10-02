@@ -135,7 +135,7 @@ export const arr = [
 <span class="css-selector">#animacja1:hover::after</span>{
   <span class="css-property">width</span>: <span class="css-number">100%</span>;
 }`,
-      copy: `/* Przycisk pierwszy */
+      copy: `<span class="css-comment">/* Przycisk pierwszy */</span>
 
 #animacja1{
   margin: 1rem;
@@ -169,7 +169,7 @@ export const arr = [
       header: 'Animacja',
       textBefore: '',
       textAfter: '',
-      code: `/* Przycisk drugi */</span>
+      code: `<span class="css-comment">/* Przycisk drugi */</span>
 
 <span class="css-selector">#animacja2</span>{
   <span class="css-property">margin</span>: <span class="css-number">1rem</span>;

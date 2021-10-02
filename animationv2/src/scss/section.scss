@@ -24,7 +24,7 @@
     h2 {
         text-align: center;
         margin-bottom: 3rem;
-        font-family: 'Cairo';
+        font-family: "Cairo";
     }
     h2 {
         margin: 1rem 0;
@@ -66,7 +66,7 @@ p + .section {
     @include flex-center;
     flex-wrap: wrap;
     gap: 0.3rem;
-    div{
+    div {
         flex-grow: 1;
     }
     button {
@@ -78,8 +78,8 @@ p + .section {
     .initial::after {
         content: "initial";
         position: absolute;
-        bottom: .1rem;
-        right: .2rem;
+        bottom: 0.1rem;
+        right: 0.2rem;
         font-size: smaller;
         color: #323641;
     }
@@ -251,7 +251,7 @@ p + .section {
     will-change: transform;
     animation: transformOrigin 4s linear infinite;
 }
-.title{
+.title {
     color: white !important;
     background-color: $btn-primary-hover;
     padding: 2rem;
@@ -266,15 +266,24 @@ p + .section {
     color: $section-keyframes;
     font-weight: bold;
 }
-.mysterious-btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: max-content;
-    margin-top: 1rem;
-    i{
-        font-size: 1.1rem;
-        margin-right: 0;
-        margin-left: .5rem;
+.mysterious-btn {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color .2s ease-in-out;
+    will-change: background-color;
+    i {
+        color: white;
+        padding: 1rem 1.15rem;
+        margin: 0;
     }
+}
+.mysterious-text{
+    position: absolute;
+    font-family: monospace, 'Cairo';
+    top: .5rem;
+    right: 4rem;
+    color: #888;
 }
