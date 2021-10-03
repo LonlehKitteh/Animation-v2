@@ -26,7 +26,7 @@ export default function Section(props) {
                 >
                     <i className="fas fa-copy"></i>
                 </motion.div>
-                <div ref={messageRef} className='copy-message'>{messages[messageCounter]}</div>
+                <div ref={messageRef} className='copy-message'><span>{messages[messageCounter]}</span></div>
             </div>
 
             {(props.counter < 62 && props.picturedAnimation) ? <>
@@ -50,25 +50,28 @@ export default function Section(props) {
         let now = Date.now()
         copy(props.copy)
 
-        console.log(now - start)
         messageRef.current.style.opacity = 1
 
-        if (now - start < 1500 && now - start > 500) {
+        if (now - start < 1500 && now - start > 800) {
             setMessageCounter(prev => prev + 1 < messages.length ? prev + 1 : prev)
+            if(messageCounter > 1) messageRef.current.classList.add('bold')
+            if(messageCounter > 3) messageRef.current.classList.add('bolder')
+            if(messageCounter > 7) messageRef.current.classList.add('bolderer')
             setTimeout(() => {
                 messageRef.current.style.opacity = 0
-            }, 400)
+            }, 600)
         } else if (now - start > 1500) {
             setMessageCounter(0)
+            messageRef.current.className = 'copy-message'
             setTimeout(() => {
                 messageRef.current.style.opacity = 0
-            }, 400)
+            }, 600)
         } else {
             messageRef.current.style.opacity = 1
             clearTimeout(timeoutHandler)
             timeoutHandler = setTimeout(() => {
                 messageRef.current.style.opacity = 0
-            }, 400)
+            }, 600)
         }
         start = Date.now()
     }
