@@ -12,13 +12,13 @@ export default function Footer(props) {
                     {
                         (typeof links[props.counter][parseInt(props.currentPage) - 1] !== 'string') ?
                             <>
-                                <p>Previous article</p>
+                                <p>Poprzedni artykuł</p>
                                 <Link to={`/${links[props.counter][parseInt(props.currentPage) + 1].title}`} >{links[props.counter][parseInt(props.currentPage) - 1].title}</Link>
                             </> : null
                     }
                 </div>
                 <div className="next">
-                    <p>Next article</p>
+                    <p>Następny artykuł</p>
                     <Link to={`/${links[props.counter][parseInt(props.currentPage) + 1].title}`} >{links[props.counter][parseInt(props.currentPage) + 1].title}</Link>
                 </div>
             </div>

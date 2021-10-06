@@ -5,6 +5,7 @@ import { pageTransition, pageVariants } from '../js/pageAnimation'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Typed from 'typed.js'
+import { options } from '../js/data/message'
 
 export default function Home() {
     const el = useRef(null)
@@ -14,18 +15,6 @@ export default function Home() {
     const earthRef = useRef(null)
     const marsRef = useRef(null)
     const pageRef = useRef(null)
-    const options = {
-        strings: [
-            '',
-            'Welcome to space',
-            'Enjoy some nothingness',
-            'Not really',
-            'Welcome to Aniamtion tuto',
-            'Welcome to Animation tutorial'
-        ],
-        typeSpeed: 50,
-        backSpeed: 50
-    }
 
     useEffect(() => {
         typed.current = new Typed(el.current, options)

@@ -32,7 +32,7 @@ export default function App() {
 
     useEffect(() => {
         var title = location.pathname.substring(1)
-
+        document.documentElement.scrollTop = 0
         if (location.pathname === '/') {
             title = 'Home'
         } else if (location.pathname.includes("test")) {

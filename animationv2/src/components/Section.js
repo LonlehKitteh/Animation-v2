@@ -4,13 +4,12 @@ import { transforms } from '../js/data/datatransform'
 import { animations } from '../js/data/dataanimation'
 import copy from 'copy-to-clipboard'
 import { motion } from 'framer-motion'
+import { messages } from '../js/data/message'
+import { Shake } from 'reshake'
 
 export default function Section(props) {
-    const messages = [
-        'Skopiowano!', 'Skopiowano podwójnie!', 'Skopiowano potrójnie!', 'Dzikość!!', 'Dominacja!!', 'Mega Kopia!!', 'Nie do zatrzymania!!', 'Bezwzględne szaleństwo!!', 'Potwór kopiowania!!', 'Boskość!!!', 'Niesamowita boskość!!!'
-    ]
     const [isDisabled, setIsDisabled] = useState(false)
-    const [messageCounter, setMessageCounter] = useState(-1)
+    const [messageCounter, setMessageCounter] = useState(0)
     const messageRef = useRef(null)
     var start = Date.now()
     var timeoutHandler
@@ -26,14 +25,16 @@ export default function Section(props) {
                 >
                     <i className="fas fa-copy"></i>
                 </motion.div>
-                <div ref={messageRef} className='copy-message'><span>{messages[messageCounter]}</span></div>
+                <div ref={messageRef} className='copy-message'>
+                    {messageCounter >= 9 ? <Shake h={15} v={15} r={5} int={1} max={100} fixed={true}><span className="bolder">{messages[messageCounter]}</span></Shake> : <span>{messages[messageCounter]}</span>}
+                </div>
             </div>
 
-            {(props.counter < 62 && props.picturedAnimation) ? <>
+            {(![63, 64, 65].includes(props.counter) && props.picturedAnimation) ? <>
                 <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="mysterious-btn" onClick={clickHandler}
+                    className="mysterious-btn" onClick={() => setIsDisabled(prev => !prev)}
                     style={{ backgroundColor: isDisabled ? '#ff2600' : '#00ff4c' }}
                 >
                     <i className={`fas ${isDisabled ? 'fa-pause' : 'fa-play'}`}></i>
@@ -54,9 +55,8 @@ export default function Section(props) {
 
         if (now - start < 1500 && now - start > 800) {
             setMessageCounter(prev => prev + 1 < messages.length ? prev + 1 : prev)
-            if(messageCounter > 1) messageRef.current.classList.add('bold')
-            if(messageCounter > 3) messageRef.current.classList.add('bolder')
-            if(messageCounter > 7) messageRef.current.classList.add('bolderer')
+            if (messageCounter > 1) messageRef.current.classList.add('bold')
+            if (messageCounter >= 8) messageRef.current.classList.add('bolder')
             setTimeout(() => {
                 messageRef.current.style.opacity = 0
             }, 600)
@@ -74,11 +74,6 @@ export default function Section(props) {
             }, 600)
         }
         start = Date.now()
-    }
-
-    function clickHandler(e) {
-        e.preventDefault()
-        setIsDisabled(prev => !prev)
     }
 
     return (
@@ -116,7 +111,10 @@ export default function Section(props) {
                     <div className="pictured">
                         <h2>{(animations[props.counter - 4] !== undefined) ? `${animations[props.counter - 4].value};` : "in progress..."}</h2>
                         <div className={([22, 23, 54, 55, 56, 57].includes(props.counter)) ? 'css-track-color' : 'css-track-animation'}>
-                            <div style={{ ...animations[props.counter - 4], animationPlayState: (!isDisabled) ? 'paused' : 'running' }} className={(props.counter === 64) ? 'paused' : (props.counter === 65) ? 'running' : null}></div>
+                            {![63, 64, 65].includes(props.counter) ? 
+                            <div style={{ ...animations[props.counter - 4], animationPlayState: (!isDisabled) ? 'paused' : 'running' }} /> : 
+                            <div style={{...animations[props.counter - 4]}} className={(props.counter === 64) ? 'paused' : (props.counter === 65) ? 'running' : null} />
+                            }
                         </div>
                     </div>
                     {
