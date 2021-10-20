@@ -85,12 +85,12 @@ export default function Section(props) {
             {
                 (props.picturedTransform) ? <>
                     <div className="pictured">
-                        <h2>{(transforms[props.counter - 4] !== undefined) ? `${transforms[props.counter - 4].value};` : 'in progress...'}</h2>
+                        <h2>{(transforms[props.counter] !== undefined) ? `${transforms[props.counter].value};` : 'in progress...'}</h2>
                         {
                             (props.perspectivePicture) ?
                                 <div className="flex" style={{ height: '50vh' }}>
-                                    <div className="parent" style={transforms[props.counter - 4]}>{(props.isChildNeed) ? "div.parent" : <span>div</span>}
-                                        {(props.isChildNeed) ? <div className="child" style={(transforms[props.counter - 4] !== undefined) ? transforms[props.counter - 4].child : null}>div.child</div> : null}
+                                    <div className="parent" style={transforms[props.counter]}>{(props.isChildNeed) ? "div.parent" : <span>div</span>}
+                                        {(props.isChildNeed) ? <div className="child" style={(transforms[props.counter] !== undefined) ? transforms[props.counter].child : null}>div.child</div> : null}
                                     </div>
                                 </div> :
                                 <div className="css-example-block">
@@ -98,7 +98,7 @@ export default function Section(props) {
                                     <span className="y-dimention"></span>
                                     <div className="example-main">
                                         <div className="border-example">
-                                            <div className="content-example" style={transforms[props.counter - 4]}>div</div>
+                                            <div className="content-example" style={transforms[props.counter]}>div</div>
                                         </div>
                                     </div>
                                 </div>

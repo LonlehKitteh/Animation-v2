@@ -50,7 +50,6 @@
         .child {
             background: #a6d9a6;
             height: 250px;
-            // transform: rotateY(-20deg);
         }
     }
 }
@@ -253,7 +252,7 @@ p + .section {
 }
 .title {
     color: white !important;
-    background-color: $btn-primary-hover;
+    background-color: lighten($color: #20232a, $amount: 5);
     padding: 2rem;
     display: flex;
     align-items: center;
@@ -261,6 +260,8 @@ p + .section {
     font-size: 2.6rem;
     text-transform: uppercase;
     user-select: none;
+    font-weight: bold;
+    font-family: 'Cairo';
 }
 .css-role {
     color: $section-keyframes;

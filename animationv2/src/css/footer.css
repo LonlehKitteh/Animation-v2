@@ -1,9 +1,34 @@
 .footer {
-  width: 100%;
   background: #20232a;
   color: white;
   width: 70%;
   padding-bottom: 1rem;
+  font-family: 'Cairo';
+}
+
+.footer .subtitle-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer .subtitle-footer span {
+  cursor: default;
+  text-transform: uppercase;
+}
+
+.footer .subtitle-footer a {
+  font-size: 0.65rem;
+  padding: 0.1rem 1rem;
+  text-transform: uppercase !important;
+  color: #bfbfbf !important;
+  padding-left: 1rem;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
 }
 
 .footer h1 {
@@ -25,7 +50,6 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  height: 20rem;
 }
 
 .footer .mainFooter i {
@@ -88,9 +112,9 @@
   border-bottom: 1px solid #6e6e6e;
   -webkit-transition: border-bottom-color 0.3s ease-in-out;
   transition: border-bottom-color 0.3s ease-in-out;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .footer .minNav .prev a:hover,
@@ -115,9 +139,18 @@
   width: max-content;
 }
 
+.links a {
+  -webkit-transition: color .1s ease-in-out;
+  transition: color .1s ease-in-out;
+}
+
+.links a:hover {
+  color: var(--btn-primary-hover, #008cff) !important;
+}
+
 .author {
   color: #999;
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-family: monospace;
   text-transform: uppercase;
   font-weight: bold;

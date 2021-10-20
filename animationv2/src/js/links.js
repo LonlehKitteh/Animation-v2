@@ -1,22 +1,24 @@
 export const links = [["CSS - Animation",
     {
-        title: "begin",
+        mainTitle: "begin",
         icon: "fas fa-play"
     },
     {
-        title: "transform",
-        icon: "fas fa-expand-arrows-alt"
+        mainTitle: 'Transform',
+        icon: "fas fa-expand-arrows-alt",
+        titles: ["transform", 'transform-origin', "transform-style", "backface-visibility", "perspective", "perspective-origin"]
     },
     {
-        title: "animation",
-        icon: "fas fa-project-diagram"
+        mainTitle: "Animation",
+        icon: "fas fa-project-diagram",
+        titles: ["animation-name", "animation-duration", "animation-timing-function", "animation-delay", "animation-iteration-count", "animation-direction", "animation-fill-mode", "animation-play-state", "animation"]
     },
     {
-        title: "keyframes",
+        mainTitle: "keyframes",
         icon: "fas fa-wrench"
     },
     {
-        title: "test",
+        mainTitle: "test",
         id: "css",
         icon: "fas fa-vial"
     }
@@ -24,7 +26,7 @@ export const links = [["CSS - Animation",
 [
     "SVG - Animation",
     {
-        title: "test",
+        mainTitle: "test",
         id: "svg",
         icon: "fas fa-vial"
     }
@@ -32,7 +34,7 @@ export const links = [["CSS - Animation",
 [
     "JS + Animation",
     {
-        title: "test",
+        mainTitle: "test",
         id: "js",
         icon: "fas fa-vial"
     }
@@ -40,7 +42,7 @@ export const links = [["CSS - Animation",
 [
     "WebGL + threeJS",
     {
-        title: "test",
+        mainTitle: "test",
         id: "webgl",
         icon: "fas fa-vial"
     }

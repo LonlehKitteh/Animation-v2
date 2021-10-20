@@ -312,7 +312,7 @@ p + .section {
 
 .title {
   color: white !important;
-  background-color: var(--btn-primary-hover, #008cff);
+  background-color: #2b2f38;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -329,6 +329,8 @@ p + .section {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  font-weight: bold;
+  font-family: 'Cairo';
 }
 
 .css-role {

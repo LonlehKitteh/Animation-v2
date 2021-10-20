@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import Home from './Home'
-import Transform from './Transform'
-import Animation from './Animation'
+import Transform from './transform/Transform'
+import TransformOrigin from './transform/TransformOrigin'
+import TransformStyle from './transform/TransformStyle'
+import BackfaceVisibility from './transform/BackfaceVisibility'
+import Perspective from './transform/Perspective'
+import PerspectiveOrigin from './transform/PerspectiveOrigin'
 import Keyframes from './Keyframes'
 import Navigation from './Navigation'
 import Galery from "./Galery"
@@ -17,12 +21,20 @@ import ScrollUp from './ScrollUp'
 import PageNotFound from './PageNotFound'
 import { AuthProvider } from "./context/AuthContext"
 import { useViewportScroll } from 'framer-motion'
-
 import Login from './auth/Login'
 import Signup from './auth/Signup'
 import ForgotPassword from './auth/ForgotPassword'
 import PrivateRoute from './auth/PrivateRoute'
 import UpdateProfile from './auth/UpdateProfile'
+import AnimationName from './animation/AnimationName'
+import AnimationDelay from './animation/AnimationDelay'
+import AnimationDirection from './animation/AnimationDirection'
+import AnimationDuration from './animation/AnimationDuration'
+import AnimationFillMode from './animation/AnimationFillMode'
+import AnimationIterationCount from './animation/AnimationIterationCount'
+import AnimationPlayState from './animation/AnimationPlayState'
+import AnimationTimingFunction from './animation/AnimationTimingFunction'
+import Animation from './animation/Animation'
 
 export default function App() {
     const location = useLocation()
@@ -97,8 +109,24 @@ export default function App() {
                 <Switch location={location} key={location.pathname}>
                     <Route path="/" exact component={Home} />
                     <Route path="/begin" component={Begin} />
-                    <Route path="/transform" component={Transform} />
-                    <Route path="/animation" component={Animation} />
+
+                    <Route path="/transform" exact component={Transform} />
+                    <Route path="/transform-origin" exact component={TransformOrigin} />
+                    <Route path="/transform-style" exact component={TransformStyle} />
+                    <Route path="/backface-visibility" component={BackfaceVisibility} />
+                    <Route path="/perspective" exact component={Perspective} />
+                    <Route path="/perspective-origin" exact component={PerspectiveOrigin} />
+
+                    <Route path="/animation" exact component={Animation} />
+                    <Route path="/animation-name" exact component={AnimationName} />
+                    <Route path="/animation-delay" exact component={AnimationDelay} />
+                    <Route path="/animation-direction" exact component={AnimationDirection} />
+                    <Route path="/animation-duration" exact component={AnimationDuration} />
+                    <Route path="/animation-fill-mode" exact component={AnimationFillMode} />
+                    <Route path="/animation-iteration-count" exact component={AnimationIterationCount} />
+                    <Route path="/animation-play-state" exact component={AnimationPlayState} />
+                    <Route path="/animation-timing-function" exact component={AnimationTimingFunction} />
+
                     <Route path="/keyframes" component={Keyframes} />
                     <Route path="/galery" component={Galery} />
                     <PrivateRoute path="/testcss" component={TestCss} />

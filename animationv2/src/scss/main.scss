@@ -14,7 +14,7 @@ html {
     background: white;
     padding: 0;
     margin: 0;
-    scroll-behavior: auto !important;
+    scroll-behavior: smooth;
     scroll-padding: 4rem;
     overflow-x: hidden;
 }
@@ -135,11 +135,17 @@ html {
         .main {
             width: 70%;
             h1 {
-                @include font-nav($btn-primary);
-                font-size: 2rem;
-                font-family: monospace, "Cairo";
-                letter-spacing: -2px;
-                padding: 1rem;
+                color: white;
+                font-size: 1.8rem;
+                font-family: "Cairo";
+                letter-spacing: 1px;
+                padding: 1.5rem;
+                margin: -2rem;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                background: $nav-color-hover;
+                user-select: none;
+                cursor: default;
             }
         }
         .aside {

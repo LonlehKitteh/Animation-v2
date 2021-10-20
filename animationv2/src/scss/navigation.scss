@@ -7,13 +7,33 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
     width: 100%;
     background: $navigation !important;
 }
+.dropdown-menu {
+    width: max-content !important;
+    user-select: none;
+}
+.dropdown-menu{
+    a{
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+.subtitle{
+    span{
+        padding-left: 1rem;
+        cursor: default;
+        text-transform: uppercase;
+    }
+    a{
+        font-size: .75rem;
+        padding: .1rem 1rem;
+        text-transform: lowercase;
+    }
+}
 .container {
     margin: 0;
-    .dropdown-menu.show {
-        a:last-of-type {
-            border-top: 1px solid $menu-border;
-            margin-top: 0.4rem;
-        }
+    .dropdown-menu.show > a:last-of-type{
+        border-top: 1px solid $menu-border;
+        margin-top: 0.4rem;
     }
     .nav-item.show.dropdown #collasible-nav-dropdown {
         color: $nav-color-hover !important;
@@ -27,7 +47,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
 }
 .container a {
     display: block;
-    font-family: monospace, 'Cairo';
+    font-family: "Cairo";
     text-decoration: none;
     transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
     &[href="/animation"] i {

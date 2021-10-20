@@ -1,11 +1,27 @@
 @import "./variables.scss";
 
 .footer {
-    width: 100%;
     background: #20232a;
     color: white;
     width: 70%;
     padding-bottom: 1rem;
+    font-family: 'Cairo';
+    .subtitle-footer {
+        display: flex;
+        flex-direction: column;
+        span {
+            cursor: default;
+            text-transform: uppercase;
+        }
+        a {
+            font-size: 0.65rem;
+            padding: 0.1rem 1rem;
+            text-transform: uppercase !important;
+            color: darken($color: white, $amount: 25) !important;
+            padding-left: 1rem;
+            transition: color 0.1s ease-in-out;
+        }
+    }
     h1 {
         color: #999;
         font-size: 1.2rem;
@@ -19,7 +35,6 @@
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
-        height: 20rem;
         i {
             margin-right: 1rem;
         }
@@ -58,7 +73,7 @@
                 font-size: 1.8rem;
                 border-bottom: 1px solid #6e6e6e;
                 transition: border-bottom-color 0.3s ease-in-out;
-                width: min-content;
+                width: max-content;
                 &:hover {
                     border-bottom: 1px solid white;
                 }
@@ -73,10 +88,17 @@
     display: flex;
     flex-direction: column;
     width: max-content;
+    a{
+        transition: color .1s ease-in-out;
+        &:hover{
+            color: $btn-primary-hover !important;
+    
+        }
+    }
 }
 .author {
     color: #999;
-    font-size: .7rem;
+    font-size: 0.7rem;
     font-family: monospace;
     text-transform: uppercase;
     font-weight: bold;
