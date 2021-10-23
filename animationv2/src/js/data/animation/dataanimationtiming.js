@@ -106,6 +106,6 @@ export const dataanimationtimingfunction = [
     },
     {
         header: "zestawienie",
-        content: "zestawienie"
+        content: ""
     }
 ]

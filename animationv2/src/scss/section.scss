@@ -299,3 +299,18 @@ p + .section {
         }
     }
 }
+.juxtaposition p{
+    text-align: center;
+    font-size: 1.5rem;
+    color: $navigation;
+    text-transform: uppercase;
+    font-family: 'Cairo';
+    font-weight: bold;
+    margin: 1rem 0;
+}
+.juxtaposition .css-track-animation{
+    height: 3rem !important;
+    div:after{
+        font-size: 1.4rem !important;
+    }
+}

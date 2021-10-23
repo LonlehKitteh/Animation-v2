@@ -36,7 +36,8 @@ export default function AnimationTimingFunction() {
                                     counter={key + 14}
                                     code={data.code}
                                     copy={data.copy}
-                                    picturedAnimation={key > 2 ? true : false}
+                                    picturedAnimation={key > 2 && key !== 13 ? true : false}
+                                    juxtaposition={key === 13 ? true : false}
                                     header={data.header}
                                     content={data.content}
                                     key={key}

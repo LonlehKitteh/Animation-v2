@@ -374,3 +374,21 @@ p + .section {
 .group-elements a:hover {
   color: var(--btn-primary-hover, #008cff);
 }
+
+.juxtaposition p {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--navigation, #20232a);
+  text-transform: uppercase;
+  font-family: 'Cairo';
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.juxtaposition .css-track-animation {
+  height: 3rem !important;
+}
+
+.juxtaposition .css-track-animation div:after {
+  font-size: 1.4rem !important;
+}

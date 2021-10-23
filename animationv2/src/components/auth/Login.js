@@ -42,7 +42,7 @@ export default function Login() {
                 <div className="main">
                     <div className="iconUsers"><i className="fas fa-users"></i></div>
                     <div className="auth-flex">
-                        <div className="auth-title mb-4">Login</div>
+                        <div className="auth-title mb-4">Sign in</div>
                         {error && <div className="flex"><Alert variant="danger"><i style={{ marginRight: '1rem', fontSize: "2rem" }} className="fas fa-exclamation-triangle"></i>{error}</Alert></div>}
                         <div>
                             <Form onSubmit={handleSubmit}>
@@ -52,7 +52,7 @@ export default function Login() {
                                 <Form.Group id="password" className="flex">
                                     <i className="fas fa-lock" style={{ marginRight: '4px' }}></i><Form.Control type="password" ref={passwordRef} required placeholder="Password" />
                                 </Form.Group>
-                                <Button disabled={loading} className="w-100 mt-4" type="submit">Login</Button>
+                                <Button variant="success" disabled={loading} className="w-100 mt-4" type="submit">Sign in</Button>
                             </Form>
                         </div>
                         <div className="w-100 text-center mt-3">

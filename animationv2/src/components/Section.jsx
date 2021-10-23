@@ -111,9 +111,9 @@ export default function Section(props) {
                     <div className="pictured">
                         <h2>{(animations[props.counter - 4] !== undefined) ? `${animations[props.counter - 4].value};` : "in progress..."}</h2>
                         <div className={([22, 23, 54, 55, 56, 57].includes(props.counter)) ? 'css-track-color' : 'css-track-animation'}>
-                            {![63, 64, 65].includes(props.counter) ? 
-                            <div style={{ ...animations[props.counter - 4], animationPlayState: (!isDisabled) ? 'paused' : 'running' }} /> : 
-                            <div style={{...animations[props.counter - 4]}} className={(props.counter === 64) ? 'paused' : (props.counter === 65) ? 'running' : null} />
+                            {![63, 64, 65].includes(props.counter) ?
+                                <div style={{ ...animations[props.counter - 4], animationPlayState: (!isDisabled) ? 'paused' : 'running' }} /> :
+                                <div style={{ ...animations[props.counter - 4] }} className={(props.counter === 64) ? 'paused' : (props.counter === 65) ? 'running' : null} />
                             }
                         </div>
                     </div>
@@ -121,7 +121,37 @@ export default function Section(props) {
                         code()
                     }
                 </>
-                    : null
+                    : (props.juxtaposition) ? <div className="juxtaposition">
+                        <p>ease</p>
+                        <div className='css-track-animation'>
+                            <div style={{ animationTimingFunction: 'ease', animationName: 'move2' }}></div>
+                        </div>
+                        <p>ease-in</p>
+                        <div className='css-track-animation'>
+                            <div style={{ animationTimingFunction: 'ease-in', animationName: 'move2' }}></div>
+                        </div>
+                        <p>ease-out</p>
+                        <div className='css-track-animation'>
+                            <div style={{ animationTimingFunction: 'ease-out', animationName: 'move2' }}></div>
+                        </div>
+                        <p>ease-in-out</p>
+                        <div className='css-track-animation'>
+                            <div style={{ animationTimingFunction: 'ease-in-out', animationName: 'move2' }}></div>
+                        </div>
+                        <p>linear</p>
+                        <div className='css-track-animation'>
+                            <div style={{ animationTimingFunction: 'linear', animationName: 'move2' }}></div>
+                        </div>
+                        <p>steps(10)</p>
+                        <div className='css-track-animation'>
+                            <div style={{ animationTimingFunction: 'steps(10)', animationName: 'move2' }}></div>
+                        </div>
+                        <p>cubic-bezier(0.19, 1, 0.22, 1)</p>
+                        <div className='css-track-animation'>
+                            <div style={{ animationTimingFunction: 'cubic-bezier(0.19, 1, 0.22, 1)', animationName: 'move2' }}></div>
+                        </div>
+                    </div>
+                        : null
             }
         </div>
     )

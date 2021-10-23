@@ -60,11 +60,14 @@ export default function Signup() {
                                 <Form.Group id="password" className="flex">
                                     <i className="fas fa-lock" style={{ marginRight: '4px' }}></i><Form.Control type="password" ref={passwordRef} required placeholder="Password" />
                                 </Form.Group>
-                                <Button disabled={loading} className="w-100 mt-4" type="submit">Sign Up</Button>
+                                <Form.Group id="password-confirm" className="flex">
+                                    <i className="fas fa-lock" style={{ marginRight: '4px' }}></i><Form.Control type="password" ref={passwordConfirmRef} required placeholder="Confirm password" />
+                                </Form.Group>
+                                <Button variant="success" disabled={loading} className="w-100 mt-4" type="submit">Sign Up</Button>
                             </Form>
                         </div>
                         <div className="w-100 text-center mt-2">
-                            Already have an account? <Link to="/login">Log In
+                            Already have an account? <Link to="/login">Sign in
                             </Link>
                         </div>
                     </div>
