@@ -337,3 +337,36 @@ html {
         padding: 1rem;
     }
 }
+.creator {
+    height: calc(100vh - 56px);
+    overflow: hidden;
+    .push {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 30vw;
+        grid-template-rows: 5rem 1fr;
+        .title {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+        .animation-field {
+            margin: 3rem;
+            background: rgb(51, 51, 51);
+            border-radius: 1rem;
+            border: 3px solid $btn-primary-hover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .animation-item {
+                width: 8rem;
+                height: 8rem;
+                background: $btn-primary;
+                border-radius: 0.25rem;
+                outline: 14px solid $btn-primary-hover;
+            }
+        }
+        .control-pannel {
+            background: $menu;
+            border-left: 1px solid $menu-border;
+        }
+    }
+}

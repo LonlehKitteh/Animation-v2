@@ -10,7 +10,7 @@ const pageVariants = {
     }
 }
 const pageTransition = {
-    duration: .5,
+    duration: 1,
     type: "spring",
     ease: "easeInOut"
 }

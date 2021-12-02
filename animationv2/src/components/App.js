@@ -35,6 +35,7 @@ import AnimationIterationCount from './animation/AnimationIterationCount'
 import AnimationPlayState from './animation/AnimationPlayState'
 import AnimationTimingFunction from './animation/AnimationTimingFunction'
 import Animation from './animation/Animation'
+import Creator from './Creator'
 
 export default function App() {
     const location = useLocation()
@@ -126,6 +127,7 @@ export default function App() {
                     <Route path="/animation-iteration-count" exact component={AnimationIterationCount} />
                     <Route path="/animation-play-state" exact component={AnimationPlayState} />
                     <Route path="/animation-timing-function" exact component={AnimationTimingFunction} />
+                    <Route path='/creator' component={Creator} />
 
                     <Route path="/keyframes" component={Keyframes} />
                     <Route path="/galery" component={Galery} />

@@ -729,3 +729,55 @@ html {
   color: var(--menu-border, #f7f7f7);
   padding: 1rem;
 }
+
+.creator {
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+.creator .push {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 30vw;
+      grid-template-columns: 1fr 30vw;
+  -ms-grid-rows: 5rem 1fr;
+      grid-template-rows: 5rem 1fr;
+}
+
+.creator .push .title {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.creator .push .animation-field {
+  margin: 3rem;
+  background: #333333;
+  border-radius: 1rem;
+  border: 3px solid var(--btn-primary-hover, #008cff);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.creator .push .animation-field .animation-item {
+  width: 8rem;
+  height: 8rem;
+  background: var(--btn-primary, #009fff);
+  border-radius: 0.25rem;
+  outline: 14px solid var(--btn-primary-hover, #008cff);
+}
+
+.creator .push .control-pannel {
+  background: var(--menu-border, #f7f7f7);
+  border-left: 1px solid var(--menu-border, #c5c5c5a1);
+}
