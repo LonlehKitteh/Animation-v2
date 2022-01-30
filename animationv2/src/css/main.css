@@ -777,7 +777,52 @@ html {
   outline: 14px solid var(--btn-primary-hover, #008cff);
 }
 
-.creator .push .control-pannel {
+.creator .push .control-panel {
   background: var(--menu-border, #f7f7f7);
   border-left: 1px solid var(--menu-border, #c5c5c5a1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: auto;
+}
+
+.creator .push .control-panel .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.creator .push .control-panel .options .mysterious-btn {
+  position: static;
+  margin: 1rem;
+}
+
+.creator .push .control-panel .options .mysterious-btn i {
+  padding: 0.75rem;
+}
+
+.creator .push .control-panel .options .mysterious-text {
+  position: static;
+}
+
+.creator .push .control-panel .program {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.creator .push .control-panel .code {
+  background: #0575e6;
+  min-height: 15rem;
 }

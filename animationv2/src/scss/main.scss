@@ -364,9 +364,35 @@ html {
                 outline: 14px solid $btn-primary-hover;
             }
         }
-        .control-pannel {
+        .control-panel {
             background: $menu;
             border-left: 1px solid $menu-border;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            .options{
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                align-items: center;
+                .mysterious-btn{
+                    position: static;
+                    margin: 1rem;
+                    i{
+                        padding: 0.75rem;
+                    }
+                }
+                .mysterious-text{
+                    position: static;
+                }
+            }
+            .program{
+                flex-grow: 1;
+            }
+            .code{
+                background: #0575e6;
+                min-height: 15rem;
+            }
         }
     }
 }
