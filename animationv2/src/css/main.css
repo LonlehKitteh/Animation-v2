@@ -778,7 +778,6 @@ html {
 }
 
 .creator .push .control-panel {
-  background: var(--menu-border, #f7f7f7);
   border-left: 1px solid var(--menu-border, #c5c5c5a1);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -788,6 +787,11 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow-y: auto;
+  background: var(--menu-border, #f7f7f7);
+}
+
+.creator .push .control-panel .dropdown-menu.show {
+  z-index: 1000;
 }
 
 .creator .push .control-panel .options {
@@ -825,4 +829,84 @@ html {
 .creator .push .control-panel .code {
   background: #0575e6;
   min-height: 15rem;
+}
+
+.creator .bundle {
+  padding: 0.3rem;
+  margin: 0.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.creator .bundle .control-btn {
+  margin-top: 0.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.creator .bundle .control-btn button {
+  border-radius: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 38px;
+  height: 38px;
+}
+
+.creator .bundle .control-btn button i {
+  font-size: 22px;
+}
+
+.creator .bundle .control-btn > div {
+  padding: 0 .1rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.creator .bundle .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #009fff50;
+  border: 1px solid #009fff50;
+  border-radius: 0.3rem;
+}
+
+.creator .bundle h1 {
+  font-size: small;
+  font-family: "Cairo";
+  font-weight: bold;
+}
+
+.creator .bundle .about-step {
+  color: #474949;
+  padding-right: 1rem;
+}
+
+.arm {
+  background: url("../images/arm.webP");
+  background-position: center;
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  margin-left: .4rem;
 }

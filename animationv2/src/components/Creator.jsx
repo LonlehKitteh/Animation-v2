@@ -1,28 +1,22 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { pageVariants, pageTransition } from '../js/pageAnimation'
-import { Button, Dropdown, DropdownButton } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { btnAnimation } from '../js/pageAnimation'
-
-function useForceUpdate() {
-    const [, setValue] = useState(0);
-    return () => setValue(value => value + 1);
-}
+import Bundle from './Creator/Bundle'
 
 const Creator = () => {
-    // const steps = ['transformX', 'transformY', 'transformZ']
+
     const [todos, setTodos] = useState([]);
     const [counter, setCounter] = useState(1);
-    const forceUpdate = useForceUpdate()
     const [isDisabled, setIsDisabled] = useState(false)
 
-
     const handleClick = () => {
-        setTodos([...todos, { id: counter, eventKey: null }])
+        setTodos([...todos, { id: counter }])
         setCounter(counter + 1)
     }
 
-    function handleDelete(element) {
+    const handleDelete = element => {
         const deleted = todos.filter(num => {
             if (num.id > element) {
                 return num.id -= 1
@@ -31,12 +25,6 @@ const Creator = () => {
         })
         setCounter(deleted.length + 1)
         setTodos(deleted)
-    }
-
-    const reRender = (element, eventKey) => {
-        element.eventKey = eventKey
-
-        forceUpdate()
     }
 
     return (
@@ -84,28 +72,13 @@ const Creator = () => {
                     <div className='program'>
                         {todos.map((el, key) => {
                             return (
-                                <div key={key}>
-                                    <h1>Step: {el.id}</h1>
-
-                                    <DropdownButton id="dropdown-item-button" title="Dropdown button" onSelect={(eventKey) => reRender(el, eventKey)}>
-                                        <Dropdown.Item as="button" eventKey="1">translateX</Dropdown.Item>
-                                        <Dropdown.Item as="button" eventKey="2">translateY</Dropdown.Item>
-                                    </DropdownButton>
-
-                                    {
-                                        el.eventKey === '1' ?
-                                            <div>
-                                                <input type="range" min="-100" max="100" defaultChecked="0" />
-                                            </div>
-                                            :
-                                            <div>
-                                                Not yet implemented
-                                            </div>
-                                    }
-
-                                    <Button variant="success">save</Button>
-                                    <Button variant="danger" onClick={() => handleDelete(el.id)}>delete</Button>
-                                </div>
+                                <Bundle key={key} counter={key} element={el} ><motion.div
+                                    whileTap={{ scale: 0.8 }}
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={btnAnimation}>
+                                    <Button variant="danger" onClick={() => handleDelete(key + 1)}><i className="fas fa-times"></i></Button>
+                                </motion.div>
+                                </Bundle>
                             )
                         })}
                     </div>
