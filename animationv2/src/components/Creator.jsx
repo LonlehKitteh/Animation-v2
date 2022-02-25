@@ -6,13 +6,12 @@ import { btnAnimation } from '../js/pageAnimation'
 import Bundle from './Creator/Bundle'
 
 const Creator = () => {
-
     const [todos, setTodos] = useState([]);
     const [counter, setCounter] = useState(1);
     const [isDisabled, setIsDisabled] = useState(false)
 
     const handleClick = () => {
-        setTodos([...todos, { id: counter }])
+        setTodos([...todos, { id: counter, value: 0, text: '', saved: false }])
         setCounter(counter + 1)
     }
 
@@ -25,6 +24,17 @@ const Creator = () => {
         })
         setCounter(deleted.length + 1)
         setTodos(deleted)
+        // delete doesnt work with ref :/
+    }
+
+    const handleStart = () => {
+        if (todos.find(element => element.saved === false)) {
+            let unSaved = todos.filter(element => element.saved === false)
+            unSaved.map(entity => entity.ref.children[2].classList.add('unSaved'))
+            console.log(unSaved)
+        } else {
+            setIsDisabled(prev => !prev)
+        }
     }
 
     return (
@@ -62,7 +72,7 @@ const Creator = () => {
                             <motion.div
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
-                                className="mysterious-btn" onClick={() => setIsDisabled(prev => !prev)}
+                                className="mysterious-btn" onClick={() => handleStart()}
                                 style={{ backgroundColor: isDisabled ? '#ff2600' : '#00ff4c' }}
                             >
                                 <i className={`fas ${isDisabled ? 'fa-pause' : 'fa-play'}`}></i>
@@ -72,12 +82,10 @@ const Creator = () => {
                     <div className='program'>
                         {todos.map((el, key) => {
                             return (
-                                <Bundle key={key} counter={key} element={el} ><motion.div
-                                    whileTap={{ scale: 0.8 }}
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={btnAnimation}>
-                                    <Button variant="danger" onClick={() => handleDelete(key + 1)}><i className="fas fa-times"></i></Button>
-                                </motion.div>
+                                <Bundle key={key} counter={key} element={el} >
+                                    <motion.div whileTap={{ scale: 0.8 }} whileHover={{ scale: 1.1 }} transition={btnAnimation}>
+                                        <Button variant="danger" onClick={() => handleDelete(key + 1)}><i className="fas fa-times"></i></Button>
+                                    </motion.div>
                                 </Bundle>
                             )
                         })}

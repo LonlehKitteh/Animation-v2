@@ -370,7 +370,7 @@ html {
             flex-direction: column;
             overflow-y: auto;
             background: $menu;
-            .dropdown-menu.show{
+            .dropdown-menu.show {
                 z-index: 1000;
             }
             .options {
@@ -420,8 +420,7 @@ html {
                 }
             }
             & > div {
-                padding: 0 .1rem;
-                align-self: flex-start;
+                padding: 0 0.1rem;
             }
         }
         .background {
@@ -434,6 +433,12 @@ html {
             background: #009fff50;
             border: 1px solid #009fff50;
             border-radius: 0.3rem;
+            transition: .2s background ease-in-out;
+        }
+        .unSaved{
+            background: #c7353580;
+            filter: none !important;
+            border: #c73535;
         }
         h1 {
             font-size: small;
@@ -442,15 +447,57 @@ html {
         }
         .about-step {
             color: #474949;
-            padding-right: 1rem;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        .number {
+            background-color: white;
+            font-weight: bold;
+            border-radius: 0.3rem;
+            font-size: 1.1rem;
+            width: 50px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: .3rem;
         }
     }
 }
-.arm{
-    background: url('../images/arm.webP');
+.arm {
+    background: url("../images/arm.webP");
     background-position: center;
     background-size: cover;
     width: 32px;
     height: 32px;
-    margin-left: .4rem;
+    margin-left: 0.4rem;
+}
+.customRange {
+    margin: 5px 1rem;
+    background-color: transparent;
+    -webkit-appearance: none;
+    &:focus {
+        outline: none;
+    }
+    &::-webkit-slider-runnable-track {
+        background: #484d4d;
+        border: 0;
+        border-radius: 7.5px;
+        width: 100%;
+        height: 15px;
+        cursor: pointer;
+    }
+    &:focus::-webkit-slider-runnable-track {
+        background: #6b7272;
+    }
+    &::-webkit-slider-thumb {
+        margin-top: -5px;
+        width: 30px;
+        height: 25px;
+        background:rgb(0, 159, 255);
+        border-radius: 50px;
+        cursor: pointer;
+        -webkit-appearance: none;
+    }
 }

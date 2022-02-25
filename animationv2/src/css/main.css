@@ -874,9 +874,7 @@ html {
 }
 
 .creator .bundle .control-btn > div {
-  padding: 0 .1rem;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  padding: 0 0.1rem;
 }
 
 .creator .bundle .background {
@@ -889,6 +887,15 @@ html {
   background: #009fff50;
   border: 1px solid #009fff50;
   border-radius: 0.3rem;
+  -webkit-transition: .2s background ease-in-out;
+  transition: .2s background ease-in-out;
+}
+
+.creator .bundle .unSaved {
+  background: #c7353580;
+  -webkit-filter: none !important;
+          filter: none !important;
+  border: #c73535;
 }
 
 .creator .bundle h1 {
@@ -899,7 +906,28 @@ html {
 
 .creator .bundle .about-step {
   color: #474949;
-  padding-right: 1rem;
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.creator .bundle .number {
+  background-color: white;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  font-size: 1.1rem;
+  width: 50px;
+  height: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  right: .3rem;
 }
 
 .arm {
@@ -908,5 +936,38 @@ html {
   background-size: cover;
   width: 32px;
   height: 32px;
-  margin-left: .4rem;
+  margin-left: 0.4rem;
+}
+
+.customRange {
+  margin: 5px 1rem;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+.customRange:focus {
+  outline: none;
+}
+
+.customRange::-webkit-slider-runnable-track {
+  background: #484d4d;
+  border: 0;
+  border-radius: 7.5px;
+  width: 100%;
+  height: 15px;
+  cursor: pointer;
+}
+
+.customRange:focus::-webkit-slider-runnable-track {
+  background: #6b7272;
+}
+
+.customRange::-webkit-slider-thumb {
+  margin-top: -5px;
+  width: 30px;
+  height: 25px;
+  background: #009fff;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-appearance: none;
 }
