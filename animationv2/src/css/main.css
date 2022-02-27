@@ -787,6 +787,7 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
   background: var(--menu-border, #f7f7f7);
 }
 

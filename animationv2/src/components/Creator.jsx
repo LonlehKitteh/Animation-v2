@@ -11,30 +11,34 @@ const Creator = () => {
     const [isDisabled, setIsDisabled] = useState(false)
 
     const handleClick = () => {
-        setTodos([...todos, { id: counter, value: 0, text: '', saved: false }])
+        setTodos([...todos, { id: counter, value: 0, text: '', saved: false, deleted: false }])
         setCounter(counter + 1)
     }
 
     const handleDelete = element => {
-        const deleted = todos.filter(num => {
-            if (num.id > element) {
-                return num.id -= 1
-            }
-            return num.id !== element
-        })
-        setCounter(deleted.length + 1)
-        setTodos(deleted)
-        // delete doesnt work with ref :/
+        element.deleted = true
+        setTimeout(() => {
+            element.ref.style.display = 'none'
+        }, 300)
+        todos.filter(entity => entity.id > element.id && !entity.deleted ? entity.id -= 1 : entity.id)
+        setCounter(todos.filter(entity => entity.deleted === false).length + 1)
+        setIsDisabled(false)
+        if (todos.filter(entity => entity.deleted === true).length === todos.length) setTodos([])
     }
 
     const handleStart = () => {
-        if (todos.find(element => element.saved === false)) {
+        if (todos.find(element => !element.saved && !element.deleted)) {
             let unSaved = todos.filter(element => element.saved === false)
             unSaved.map(entity => entity.ref.children[2].classList.add('unSaved'))
-            console.log(unSaved)
+            setIsDisabled(false)
+        } else if (todos.length === 0) {
+            setIsDisabled(false)
         } else {
             setIsDisabled(prev => !prev)
         }
+        // if(!isDisabled){
+        //     const configuration = todos.map(element => [element.text, element.value])
+        // }
     }
 
     return (
@@ -80,15 +84,16 @@ const Creator = () => {
                         </div>
                     </div>
                     <div className='program'>
-                        {todos.map((el, key) => {
-                            return (
-                                <Bundle key={key} counter={key} element={el} >
+                        {todos.map((el, key) =>
+                            <motion.div animate={{ scale: el.deleted ? [1, 0] : [0, 1], borderRadius: ["50%", "10%"] }} transition={btnAnimation} key={key}>
+                                <Bundle counter={el.id} element={el} isDisabled={setIsDisabled}>
                                     <motion.div whileTap={{ scale: 0.8 }} whileHover={{ scale: 1.1 }} transition={btnAnimation}>
-                                        <Button variant="danger" onClick={() => handleDelete(key + 1)}><i className="fas fa-times"></i></Button>
+                                        <Button variant="danger" onClick={() => handleDelete(el)}><i className="fas fa-times"></i></Button>
                                     </motion.div>
                                 </Bundle>
-                            )
-                        })}
+                            </motion.div>
+                        )}
+
                     </div>
                     <div className='code'>
                         code

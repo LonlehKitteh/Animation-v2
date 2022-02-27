@@ -369,6 +369,7 @@ html {
             display: flex;
             flex-direction: column;
             overflow-y: auto;
+            overflow-x: hidden;
             background: $menu;
             .dropdown-menu.show {
                 z-index: 1000;

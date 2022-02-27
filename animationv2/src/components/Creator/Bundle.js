@@ -3,7 +3,7 @@ import { Button, Modal } from 'react-bootstrap'
 import { motion } from 'framer-motion';
 import { btnAnimation } from '../../js/pageAnimation';
 
-export default function Bundle(props) {
+const Bundle = ({ isDisabled, ...props }) => {
     const ref = useRef(null)
     const [isSaved, setIsSaved] = useState(false)
     const [show, setShow] = useState(true)
@@ -24,6 +24,7 @@ export default function Bundle(props) {
 
     const handleEdit = () => {
         props.element.saved = false
+        isDisabled(false)
         setIsSaved(false)
     }
 
@@ -31,15 +32,8 @@ export default function Bundle(props) {
         setShow(true)
         ref.current.children[2].classList.remove('unSaved')
     }
-
     return (
-        <motion.div className='bundle' ref={ref}
-            animate={{
-                scale: [0, 1],
-                borderRadius: ["50%", "10%"]
-            }}
-            transition={btnAnimation}
-        >
+        <div className='bundle' id={props.element.id} ref={ref}>
             <h1>Step: {props.element.id}</h1>
 
             {!isSaved ? <>
@@ -94,6 +88,7 @@ export default function Bundle(props) {
                 </div>}
 
             <div className='background' style={{ filter: `hue-rotate(${props.counter * 20}deg)` }}></div>
-        </motion.div>
+        </div>
     );
 }
+export default Bundle
