@@ -362,6 +362,7 @@ html {
                 background: $btn-primary;
                 border-radius: 0.25rem;
                 outline: 14px solid $btn-primary-hover;
+                transition: transform 1s ease-in-out;
             }
         }
         .control-panel {
@@ -434,9 +435,9 @@ html {
             background: #009fff50;
             border: 1px solid #009fff50;
             border-radius: 0.3rem;
-            transition: .2s background ease-in-out;
+            transition: 0.2s background ease-in-out;
         }
-        .unSaved{
+        .unSaved {
             background: #c7353580;
             filter: none !important;
             border: #c73535;
@@ -462,7 +463,7 @@ html {
             align-items: center;
             justify-content: center;
             position: absolute;
-            right: .3rem;
+            right: 0.3rem;
         }
     }
 }
@@ -496,7 +497,7 @@ html {
         margin-top: -5px;
         width: 30px;
         height: 25px;
-        background:rgb(0, 159, 255);
+        background: rgb(0, 159, 255);
         border-radius: 50px;
         cursor: pointer;
         -webkit-appearance: none;

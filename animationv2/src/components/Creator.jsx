@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { pageVariants, pageTransition } from '../js/pageAnimation'
 import { Button } from 'react-bootstrap'
@@ -9,9 +9,10 @@ const Creator = () => {
     const [todos, setTodos] = useState([]);
     const [counter, setCounter] = useState(1);
     const [isDisabled, setIsDisabled] = useState(false)
+    const cubeRef = useRef(null)
 
     const handleClick = () => {
-        setTodos([...todos, { id: counter, value: 0, text: '', saved: false, deleted: false }])
+        setTodos([...todos, { id: counter, value: 0, text: '', saved: false, deleted: false, token: 0 }])
         setCounter(counter + 1)
     }
 
@@ -35,10 +36,14 @@ const Creator = () => {
             setIsDisabled(false)
         } else {
             setIsDisabled(prev => !prev)
+
+            if (!isDisabled) {
+                const configuration = todos.map(element => element.token === 1 ? [element.text, element.value] : 'not yet implemented...')
+                cubeRef.current.style.transform = configuration.flat().join('')
+            }
         }
-        // if(!isDisabled){
-        //     const configuration = todos.map(element => [element.text, element.value])
-        // }
+
+        // I need to put to the todos object some elemenets taht I can detect transform properties, because they are diffrent transform and transform-origin cde.
     }
 
     return (
@@ -55,7 +60,7 @@ const Creator = () => {
                     Animate!
                 </div>
                 <div className="animation-field">
-                    <div className="animation-item" style={{ animationPlayState: (!isDisabled) ? 'paused' : 'running' }}></div>
+                    <div className="animation-item" ref={cubeRef} style={{ animationPlayState: (!isDisabled) ? 'paused' : 'running' }}></div>
                 </div>
                 <div className='control-panel'>
                     <div className='options'>

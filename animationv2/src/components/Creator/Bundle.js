@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Button, Modal } from 'react-bootstrap'
 import { motion } from 'framer-motion';
 import { btnAnimation } from '../../js/pageAnimation';
+import { datatransform } from '../../js/data/transform/datatransform';
 
 const Bundle = ({ isDisabled, ...props }) => {
     const ref = useRef(null)
@@ -12,11 +13,16 @@ const Bundle = ({ isDisabled, ...props }) => {
     const pickStep = e => {
         props.element.text = e.target.innerHTML
         props.element.ref = ref.current
+
+        if(datatransform[1].content.map(element => element.endsWith('()') ? element.substring(0, element.length - 2) : element).includes(e.target.innerHTML)){
+            props.element.token = 1
+        }
+
         setShow(false)
     }
 
     const handleSave = () => {
-        props.element.value = rangeValue
+        props.element.value = `(${rangeValue}%) `
         props.element.saved = true
         ref.current.children[2].classList.remove('unSaved')
         setIsSaved(true)

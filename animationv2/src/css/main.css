@@ -775,6 +775,10 @@ html {
   background: var(--btn-primary, #009fff);
   border-radius: 0.25rem;
   outline: 14px solid var(--btn-primary-hover, #008cff);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .creator .push .control-panel {
@@ -888,8 +892,8 @@ html {
   background: #009fff50;
   border: 1px solid #009fff50;
   border-radius: 0.3rem;
-  -webkit-transition: .2s background ease-in-out;
-  transition: .2s background ease-in-out;
+  -webkit-transition: 0.2s background ease-in-out;
+  transition: 0.2s background ease-in-out;
 }
 
 .creator .bundle .unSaved {
@@ -928,7 +932,7 @@ html {
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  right: .3rem;
+  right: 0.3rem;
 }
 
 .arm {
