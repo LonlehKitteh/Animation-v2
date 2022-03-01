@@ -103,3 +103,8 @@
         transform: perspective(800px) rotateY(360deg);
     }
 }
+@keyframes program{
+    to{
+        transform: var(--transform, none)
+    }
+}

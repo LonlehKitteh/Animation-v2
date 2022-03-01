@@ -263,6 +263,20 @@
   }
 }
 
+@-webkit-keyframes program {
+  to {
+    -webkit-transform: var(--transform, none);
+            transform: var(--transform, none);
+  }
+}
+
+@keyframes program {
+  to {
+    -webkit-transform: var(--transform, none);
+            transform: var(--transform, none);
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -779,6 +793,8 @@ html {
   transition: -webkit-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
   transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+  -webkit-animation: program 1s infinite ease-in-out;
+          animation: program 1s infinite ease-in-out;
 }
 
 .creator .push .control-panel {

@@ -262,3 +262,17 @@
             transform: perspective(800px) rotateY(360deg);
   }
 }
+
+@-webkit-keyframes program {
+  to {
+    -webkit-transform: var(--transform, none);
+            transform: var(--transform, none);
+  }
+}
+
+@keyframes program {
+  to {
+    -webkit-transform: var(--transform, none);
+            transform: var(--transform, none);
+  }
+}

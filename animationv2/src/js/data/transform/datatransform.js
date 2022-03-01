@@ -9,7 +9,7 @@ export const datatransform = [
         header: "Wartości właściwości transform",
         content: [
             "none",
-            "prespective()",
+            "perspective()",
             "translateX()",
             "translateY()",
             "translate()",

@@ -39,11 +39,10 @@ const Creator = () => {
 
             if (!isDisabled) {
                 const configuration = todos.map(element => element.token === 1 ? [element.text, element.value] : 'not yet implemented...')
-                cubeRef.current.style.transform = configuration.flat().join('')
+                cubeRef.current.style.setProperty('--transform', configuration.flat().join(''))
             }
-        }
 
-        // I need to put to the todos object some elemenets taht I can detect transform properties, because they are diffrent transform and transform-origin cde.
+        }
     }
 
     return (

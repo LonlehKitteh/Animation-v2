@@ -14,7 +14,7 @@ const Bundle = ({ isDisabled, ...props }) => {
         props.element.text = e.target.innerHTML
         props.element.ref = ref.current
 
-        if(datatransform[1].content.map(element => element.endsWith('()') ? element.substring(0, element.length - 2) : element).includes(e.target.innerHTML)){
+        if (datatransform[1].content.map(element => element.endsWith('()') ? element.substring(0, element.length - 2) : element).includes(e.target.innerHTML)) {
             props.element.token = 1
         }
 
@@ -22,7 +22,7 @@ const Bundle = ({ isDisabled, ...props }) => {
     }
 
     const handleSave = () => {
-        props.element.value = `(${rangeValue}%) `
+        props.element.text.match(/translate/) ? props.element.value = `(${rangeValue}%) ` : props.element.text.match(/perspe/) ? props.element.value = `(${rangeValue}px) ` : props.element.value = `(${rangeValue}deg) `
         props.element.saved = true
         ref.current.children[2].classList.remove('unSaved')
         setIsSaved(true)
@@ -38,6 +38,11 @@ const Bundle = ({ isDisabled, ...props }) => {
         setShow(true)
         ref.current.children[2].classList.remove('unSaved')
     }
+
+    const handleClose = () => {
+        setShow(false)
+    }
+
     return (
         <div className='bundle' id={props.element.id} ref={ref}>
             <h1>Step: {props.element.id}</h1>
@@ -53,11 +58,14 @@ const Bundle = ({ isDisabled, ...props }) => {
                         <Modal.Title id="example-modal-sizes-title-lg" className='flex'>
                             <div>You can take whatever you what</div> <div className="arm"></div>
                         </Modal.Title>
-                        <button type="button" className="btn-close" aria-label="Close" onClick={() => setShow(false)}></button>
+                        <button type="button" className="btn-close" aria-label="Close" onClick={handleClose}></button>
                     </Modal.Header>
                     <Modal.Body>
-                        <Button variant="primary" onClick={(e) => pickStep(e)}>translateX</Button>
-                        <Button variant="primary" onClick={(e) => pickStep(e)}>translateY</Button>
+                        {
+                            datatransform[1].content.map((element, key) => element.endsWith('()') && key < 20 ? <Button key={key} variant="primary" onClick={(e) => pickStep(e)}>{element.substring(0, element.length - 2)}</Button> : null)
+                        }
+                        {/* <Button variant="primary" onClick={(e) => pickStep(e)}>translateX</Button>
+                        <Button variant="primary" onClick={(e) => pickStep(e)}>translateY</Button> */}
                     </Modal.Body>
                 </Modal>
                 <div className='control-btn'>

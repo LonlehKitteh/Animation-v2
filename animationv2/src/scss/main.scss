@@ -363,6 +363,7 @@ html {
                 border-radius: 0.25rem;
                 outline: 14px solid $btn-primary-hover;
                 transition: transform 1s ease-in-out;
+                animation: program 1s infinite ease-in-out;
             }
         }
         .control-panel {
