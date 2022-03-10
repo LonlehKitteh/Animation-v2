@@ -865,6 +865,10 @@ html {
   position: relative;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .creator .bundle .control-btn {
@@ -927,13 +931,30 @@ html {
   font-weight: bold;
 }
 
+.creator .bundle .rangeValue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 .creator .bundle .about-step {
   color: #474949;
-  margin-right: 1rem;
   font-weight: bold;
+  cursor: normal;
+  margin-right: 1rem;
 }
 
 .creator .bundle .number {
+  cursor: normal;
   background-color: white;
   font-weight: bold;
   border-radius: 0.3rem;
@@ -949,8 +970,7 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
-  right: 0.3rem;
+  margin: 0 .2rem;
 }
 
 .arm {
@@ -1010,9 +1030,20 @@ html {
 }
 
 .modal-group .modal-element {
+  background-color: #009dffb9;
+  border-radius: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.modal-group .modal-element .modal-child {
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1020,15 +1051,9 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background-color: #009dffb9;
-  border-radius: 1rem;
-  cursor: pointer;
 }
 
-.modal-group .modal-element .cube {
-  border: 1px dashed black;
+.modal-group .modal-element .modal-child .cube {
   width: 35%;
   height: 35%;
   position: relative;
@@ -1041,12 +1066,15 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background: #32364133;
+  border-radius: 0.5rem;
 }
 
-.modal-group .modal-element .cube .content-cube {
+.modal-group .modal-element .modal-child .cube .content-cube {
   width: 100%;
   height: 100%;
   background: #323641;
+  border-radius: 0.5rem;
   position: absolute;
   -webkit-transition: -webkit-transform 0.1s ease-in-out;
   transition: -webkit-transform 0.1s ease-in-out;
@@ -1054,6 +1082,16 @@ html {
   transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
 }
 
-.modal-group .modal-element .text {
+.modal-group .modal-element .modal-child .text {
   color: white;
+  font-family: 'Cairo';
+}
+
+.modal-group .modal-element .event-area {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0.5rem;
 }

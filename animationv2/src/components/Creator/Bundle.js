@@ -3,13 +3,15 @@ import { Button, Modal } from 'react-bootstrap'
 import { motion } from 'framer-motion';
 import { btnAnimation } from '../../js/pageAnimation';
 
-const Bundle = ({ isDisabled, ...props }) => {
+const Bundle = ({ isDisabled, setCounter, ...props }) => {
     const ref = useRef(null)
     const [isSaved, setIsSaved] = useState(false)
     const [show, setShow] = useState(true)
+    const [closed, setClosed] = useState(false)
     const [rangeValue, setRangeValue] = useState(0)
     const buttons = ['translateX', 'translateY', 'translateZ', 'scaleX', 'scaleY', 'scaleZ', 'skewX', 'skewY', 'rotateX', 'rotateY', 'rotateZ', 'perspective']
-
+    const transforms = ['translateX(50%)', 'translateY(50%)', 'perspective(100px) translateZ(-40px)', 'scaleX(0.7)', 'scaleY(0.5)', 'perspective(100px) scaleZ(0.5) translateZ(30px)', 'skewX(30deg)', 'skewY(-15deg)', 'perspective(100px) rotateX(65deg)', 'perspective(100px) rotateY(65deg)', 'perspective(300px) rotateZ(45deg)', 'perspective(100px)']
+    const icons = ['fas fa-arrows-alt-h', "fas fa-arrows-alt-v", "fas fa-level-up-alt", "fas fa-expand-arrows-alt", "fas fa-expand-arrows-alt", "fas fa-retweet", "fas fa-retweet", "fas fa-undo-alt", "fas fa-undo-alt", "fas fa-undo-alt", "fas fa-box-open"]
     const pickStep = e => {
         props.element.text = e
         props.element.ref = ref.current
@@ -22,7 +24,7 @@ const Bundle = ({ isDisabled, ...props }) => {
     }
 
     const handleSave = () => {
-        props.element.text.match(/translate/) ? props.element.value = `(${rangeValue}%) ` : props.element.text.match(/perspe/) ? props.element.value = `(${rangeValue}px) ` : props.element.text.match(/scale/) ? props.element.value = `(${rangeValue}) ` : props.element.value = `(${rangeValue}deg) `
+        (props.element.text.match(/translate/) || props.element.text.match(/perspe/)) ? props.element.value = `(${rangeValue}px) ` : props.element.text.match(/scale/) ? props.element.value = `(${rangeValue}) ` : props.element.value = `(${rangeValue}deg) `
         props.element.saved = true
         ref.current.children[2].classList.remove('unSaved')
         setIsSaved(true)
@@ -41,26 +43,23 @@ const Bundle = ({ isDisabled, ...props }) => {
     }
 
     const handleClose = () => {
+        props.element.deleted = true
+        setCounter(prev => prev - 1)
+        setClosed(true)
         setShow(false)
     }
 
-    const handleEnter = (e, key) => {
-        const transforms = ['translateX(50%)', 'translateY(50%)', 'perspective(100px) translateZ(20%)', 'scaleX(0.7)', 'scaleY(0.5)', 'perspective(100px) scaleZ(0.5) translateZ(50%)', 'skewX(30deg)', 'skewY(-30deg)', 'perspective(100px) rotateX(65deg)', 'perspective(100px) rotateY(65deg)', 'perspective(300px) rotateZ(45deg)', 'perspective(100px)']
-        // e.target.children[0].firstChild.style.transform = transforms[key]
-    }
+    const handleEnter = (e, key) => e.target.previousSibling.firstChild.firstChild.style.transform = transforms[key]
+    const handleLeave = e => e.target.previousSibling.firstChild.firstChild.style.transform = 'none'
+    const handleChoseModal = e => pickStep(e.target.parentElement.innerText)
 
-    const handleLeave = e => {
-        // e.target.children[0].firstChild.style.transform = 'none'
-    }
-
-    const handleChoseModal = e => {
-        if(e.target.parentElement.classList.value === 'modal-element' || e.target.classList.value === 'modal-element' || e.target.parentElement.parentElement.classList.value === 'modal-element'){
-            e.target.parentElement.parentElement.classList.value === 'modal-element' ? pickStep(e.target.parentElement.parentElement.innerText) : pickStep(e.target.innerText)
-        }
+    function handleDisplay() {
+        const value = props.element.value.substring(1, props.element.value.length - 2)
+        return buttons.map((element, key) => element === props.element.text ? <div className='about-step' key={key}>{element} <i className={`${icons[key]} m-2`}></i>{value}</div> : null)
     }
 
     return (
-        <div className='bundle' id={props.element.id} ref={ref}>
+        <div className='bundle' id={props.element.id} ref={ref} style={{ display: closed ? 'none' : 'block' }}>
             <h1>Step: {props.element.id}</h1>
 
             {!isSaved ? <>
@@ -80,11 +79,20 @@ const Bundle = ({ isDisabled, ...props }) => {
                         <div className='modal-group'>
                             {
                                 buttons.map((element, key) => {
-                                    return <motion.div style={{ filter: `hue-rotate(${key * 10}deg)` }} whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation} className="modal-element" key={key} onClick={e => handleChoseModal(e)} onMouseEnter={(e) => handleEnter(e, key)} onMouseLeave={e => handleLeave(e)}>
-                                        <div className='cube'>
-                                            <div className='content-cube'></div>
+                                    return <motion.div key={key} style={{ filter: `hue-rotate(${key * 10}deg)` }} className="modal-element" whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15, opacity: 0.9 }} transition={btnAnimation}>
+                                        <div className="modal-child">
+                                            <div className='cube'>
+                                                <div className='content-cube'></div>
+                                            </div>
+                                            <div className='text'>{element}</div>
                                         </div>
-                                        <div className='text'>{element}</div>
+                                        <div
+                                            className='event-area'
+                                            onClick={e => handleChoseModal(e)}
+                                            onMouseEnter={e => handleEnter(e, key)}
+                                            onMouseLeave={e => handleLeave(e)}
+                                        >
+                                        </div>
                                     </motion.div>
                                 })
                             }
@@ -95,34 +103,28 @@ const Bundle = ({ isDisabled, ...props }) => {
                     <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
                         <Button variant="success" onClick={() => handleSave()}><i className="fas fa-check"></i></Button>
                     </motion.div>
-                    {!show ?
-                        <>
-                            <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
-                                <Button variant="warning" onClick={() => handleUndo()}><i className="fas fa-undo"></i></Button>
-                            </motion.div>
 
-                            <div className="flex" style={{ flexGrow: 1, position: 'relative' }}>
-                                <div className="about-step">{props.element.text}</div>
-                                <input
-                                    className="customRange"
-                                    type="range"
-                                    min={['translateX', 'translateY', 'translateZ'].includes(props.element.text) ? -100 : ['scaleX', 'scaleY', 'scaleZ'].includes(props.element.text) ? -1 : -360}
-                                    max={['translateX', 'translateY', 'translateZ'].includes(props.element.text) ? 100 : ['scaleX', 'scaleY', 'scaleZ'].includes(props.element.text) ? 1 : 360}
-                                    value={rangeValue}
-                                    step={['scaleX', 'scaleY', 'scaleZ'].includes(props.element.text) ? 0.01 : null}
-                                    onChange={e => setRangeValue(e.target.value)} />
-                                <span className="number">{rangeValue}</span>
-                            </div>
-                        </>
-                        : null}
+                    <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
+                        <Button variant="warning" onClick={() => handleUndo()}><i className="fas fa-undo"></i></Button>
+                    </motion.div>
+
+                    <div className="rangeValue">
+                        <div className="about-step">{props.element.text}</div>
+                        <input
+                            className="customRange"
+                            type="range"
+                            min={props.element.text.match(/translate/) ? -100 : props.element.text.match(/scale/) ? -1 : props.element.text.match(/skew/) ? -90 : -360}
+                            max={props.element.text.match(/translate/) ? 100 : props.element.text.match(/scale/) ? 1 : props.element.text.match(/skew/) ? 90 : 360}
+                            value={rangeValue}
+                            step={props.element.text.match(/scale/) ? 0.01 : null}
+                            onChange={e => setRangeValue(e.target.value)} />
+                    </div>
+                    <span className="number">{rangeValue}</span>
                     {props.children}
                 </div>
             </> :
                 <div className='control-btn' style={{ justifyContent: 'flex-end' }}>
-                    {props.element.text === "translateX" ? <div className="about-step">X <i className="fas fa-arrows-alt-h"></i> {rangeValue}%</div>
-                        :
-                        props.element.text === "translateY" ? <div className="about-step">Y <i className="fas fa-arrows-alt-v"></i> {rangeValue}%</div> : null}
-
+                    {handleDisplay()}
                     <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
                         <Button variant="secondary" onClick={() => handleEdit()}><i className="fas fa-pen"></i></Button>
                     </motion.div>

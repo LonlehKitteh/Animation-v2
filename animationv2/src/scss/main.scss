@@ -408,6 +408,7 @@ html {
         flex-direction: column;
         position: relative;
         transition: all 0.3s ease-in-out;
+        user-select: none;
         .control-btn {
             margin-top: 0.3rem;
             display: flex;
@@ -449,12 +450,20 @@ html {
             font-family: "Cairo";
             font-weight: bold;
         }
+        .rangeValue{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
         .about-step {
             color: #474949;
-            margin-right: 1rem;
             font-weight: bold;
+            cursor: normal;
+            margin-right: 1rem;
         }
         .number {
+            cursor: normal;
             background-color: white;
             font-weight: bold;
             border-radius: 0.3rem;
@@ -464,8 +473,7 @@ html {
             display: flex;
             align-items: center;
             justify-content: center;
-            position: absolute;
-            right: 0.3rem;
+            margin: 0 .2rem;
         }
     }
 }
@@ -507,6 +515,7 @@ html {
 }
 .modal-group {
     $grid: 150px;
+    $border: 0.5rem;
     width: min-content;
     margin: auto;
     display: grid;
@@ -514,31 +523,47 @@ html {
     grid-template-rows: $grid $grid $grid $grid;
     gap: 1rem;
     .modal-element {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
         background-color: #009dffb9;
         border-radius: 1rem;
         cursor: pointer;
-        .cube {
-            border: 1px dashed black;
-            width: 35%;
-            height: 35%;
-            position: relative;
+        position: relative;
+        .modal-child {
+            width: 100%;
+            height: 100%;
             display: flex;
+            justify-content: space-around;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            .content-cube {
-                width: 100%;
-                height: 100%;
-                background: #323641;
-                position: absolute;
-                transition: transform 0.1s ease-in-out;
+            .cube {
+                width: 35%;
+                height: 35%;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #32364133;
+                border-radius: $border;
+                .content-cube {
+                    width: 100%;
+                    height: 100%;
+                    background: #323641;
+                    border-radius: $border;
+                    position: absolute;
+                    transition: transform 0.1s ease-in-out;
+                }
+            }
+            .text {
+                color: white;
+                font-family: 'Cairo';
             }
         }
-        .text {
-            color: white;
+        .event-area{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: $border;
         }
     }
 }

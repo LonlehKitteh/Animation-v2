@@ -13,25 +13,25 @@ const Creator = () => {
 
     const handleClick = () => {
         setTodos([...todos, { id: counter, value: 0, text: '', saved: false, deleted: false, token: 0 }])
-        setCounter(counter + 1)
+        setCounter(prev => prev + 1)
     }
 
     const handleDelete = element => {
         element.deleted = true
         todos.filter(entity => entity.id > element.id && !entity.deleted ? entity.id -= 1 : entity.id)
-        setCounter(todos.filter(entity => entity.deleted === false).length + 1)
+        setCounter(todos.filter(entity => !entity.deleted).length + 1)
         setIsDisabled(false)
         if (todos !== [] && element.hasOwnProperty('ref')) {
             setTimeout(() => {
                 element.ref.style.display = 'none'
-                if (todos.filter(entity => entity.deleted === true).length === todos.length) setTodos([])
+                if (todos.filter(entity => entity.deleted).length === todos.length) setTodos([])
             }, 300)
         }
     }
 
     const handleStart = () => {
         if (todos.find(element => !element.saved && !element.deleted)) {
-            let unSaved = todos.filter(element => element.saved === false)
+            let unSaved = todos.filter(element => !element.saved)
             unSaved.map(entity => entity.ref.children[2].classList.add('unSaved'))
             setIsDisabled(false)
         } else if (todos.length === 0) {
@@ -91,8 +91,8 @@ const Creator = () => {
                     </div>
                     <div className='program'>
                         {todos.map((el, key) =>
-                            <motion.div animate={{ scale: el.deleted ? [1, 0] : [0, 1], borderRadius: ["50%", "10%"] }} transition={btnAnimation} key={key}>
-                                <Bundle counter={el.id} element={el} isDisabled={setIsDisabled}>
+                            <motion.div animate={{ scale: el.deleted ? [1, 0] : [0, 1], borderRadius: ["50%", "10%"] }} transition={btnAnimation} key={key} whileHover={{ opacity: 0.9 }}>
+                                <Bundle counter={el.id} element={el} isDisabled={setIsDisabled} setCounter={setCounter}>
                                     <motion.div whileTap={{ scale: 0.8 }} whileHover={{ scale: 1.1 }} transition={btnAnimation}>
                                         <Button variant="danger" onClick={() => handleDelete(el)}><i className="fas fa-times"></i></Button>
                                     </motion.div>
