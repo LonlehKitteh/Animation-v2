@@ -263,6 +263,20 @@
   }
 }
 
+@-webkit-keyframes program {
+  to {
+    -webkit-transform: var(--transform, none);
+            transform: var(--transform, none);
+  }
+}
+
+@keyframes program {
+  to {
+    -webkit-transform: var(--transform, none);
+            transform: var(--transform, none);
+  }
+}
+
 #animacja1,
 #animacja2 {
   -webkit-box-flex: 1;

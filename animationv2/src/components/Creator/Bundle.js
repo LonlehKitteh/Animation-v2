@@ -2,19 +2,19 @@ import React, { useState, useRef } from 'react';
 import { Button, Modal } from 'react-bootstrap'
 import { motion } from 'framer-motion';
 import { btnAnimation } from '../../js/pageAnimation';
-import { datatransform } from '../../js/data/transform/datatransform';
 
 const Bundle = ({ isDisabled, ...props }) => {
     const ref = useRef(null)
     const [isSaved, setIsSaved] = useState(false)
     const [show, setShow] = useState(true)
     const [rangeValue, setRangeValue] = useState(0)
+    const buttons = ['translateX', 'translateY', 'translateZ', 'scaleX', 'scaleY', 'scaleZ', 'skewX', 'skewY', 'rotateX', 'rotateY', 'rotateZ', 'perspective']
 
     const pickStep = e => {
-        props.element.text = e.target.innerHTML
+        props.element.text = e
         props.element.ref = ref.current
 
-        if (datatransform[1].content.map(element => element.endsWith('()') ? element.substring(0, element.length - 2) : element).includes(e.target.innerHTML)) {
+        if (buttons.includes(e)) {
             props.element.token = 1
         }
 
@@ -22,7 +22,7 @@ const Bundle = ({ isDisabled, ...props }) => {
     }
 
     const handleSave = () => {
-        props.element.text.match(/translate/) ? props.element.value = `(${rangeValue}%) ` : props.element.text.match(/perspe/) ? props.element.value = `(${rangeValue}px) ` : props.element.value = `(${rangeValue}deg) `
+        props.element.text.match(/translate/) ? props.element.value = `(${rangeValue}%) ` : props.element.text.match(/perspe/) ? props.element.value = `(${rangeValue}px) ` : props.element.text.match(/scale/) ? props.element.value = `(${rangeValue}) ` : props.element.value = `(${rangeValue}deg) `
         props.element.saved = true
         ref.current.children[2].classList.remove('unSaved')
         setIsSaved(true)
@@ -36,11 +36,27 @@ const Bundle = ({ isDisabled, ...props }) => {
 
     const handleUndo = () => {
         setShow(true)
+        setRangeValue(0)
         ref.current.children[2].classList.remove('unSaved')
     }
 
     const handleClose = () => {
         setShow(false)
+    }
+
+    const handleEnter = (e, key) => {
+        const transforms = ['translateX(50%)', 'translateY(50%)', 'perspective(100px) translateZ(20%)', 'scaleX(0.7)', 'scaleY(0.5)', 'perspective(100px) scaleZ(0.5) translateZ(50%)', 'skewX(30deg)', 'skewY(-30deg)', 'perspective(100px) rotateX(65deg)', 'perspective(100px) rotateY(65deg)', 'perspective(300px) rotateZ(45deg)', 'perspective(100px)']
+        // e.target.children[0].firstChild.style.transform = transforms[key]
+    }
+
+    const handleLeave = e => {
+        // e.target.children[0].firstChild.style.transform = 'none'
+    }
+
+    const handleChoseModal = e => {
+        if(e.target.parentElement.classList.value === 'modal-element' || e.target.classList.value === 'modal-element' || e.target.parentElement.parentElement.classList.value === 'modal-element'){
+            e.target.parentElement.parentElement.classList.value === 'modal-element' ? pickStep(e.target.parentElement.parentElement.innerText) : pickStep(e.target.innerText)
+        }
     }
 
     return (
@@ -51,7 +67,7 @@ const Bundle = ({ isDisabled, ...props }) => {
                 <Modal
                     size="lg"
                     show={show}
-                    onHide={() => setShow(false)}
+                    onHide={handleClose}
                     aria-labelledby="example-modal-sizes-title-lg"
                 >
                     <Modal.Header>
@@ -61,11 +77,18 @@ const Bundle = ({ isDisabled, ...props }) => {
                         <button type="button" className="btn-close" aria-label="Close" onClick={handleClose}></button>
                     </Modal.Header>
                     <Modal.Body>
-                        {
-                            datatransform[1].content.map((element, key) => element.endsWith('()') && key < 20 ? <Button key={key} variant="primary" onClick={(e) => pickStep(e)}>{element.substring(0, element.length - 2)}</Button> : null)
-                        }
-                        {/* <Button variant="primary" onClick={(e) => pickStep(e)}>translateX</Button>
-                        <Button variant="primary" onClick={(e) => pickStep(e)}>translateY</Button> */}
+                        <div className='modal-group'>
+                            {
+                                buttons.map((element, key) => {
+                                    return <motion.div style={{ filter: `hue-rotate(${key * 10}deg)` }} whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation} className="modal-element" key={key} onClick={e => handleChoseModal(e)} onMouseEnter={(e) => handleEnter(e, key)} onMouseLeave={e => handleLeave(e)}>
+                                        <div className='cube'>
+                                            <div className='content-cube'></div>
+                                        </div>
+                                        <div className='text'>{element}</div>
+                                    </motion.div>
+                                })
+                            }
+                        </div>
                     </Modal.Body>
                 </Modal>
                 <div className='control-btn'>
@@ -77,13 +100,19 @@ const Bundle = ({ isDisabled, ...props }) => {
                             <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
                                 <Button variant="warning" onClick={() => handleUndo()}><i className="fas fa-undo"></i></Button>
                             </motion.div>
-                            {props.element.text === 'translateX' || props.element.text === 'translateY' ?
-                                <div className="flex" style={{ flexGrow: 1, position: 'relative' }}>
-                                    <div className="about-step">{props.element.text}</div>
-                                    <input className="customRange" type="range" min={-100} max={100} value={rangeValue} onChange={e => setRangeValue(e.target.value)} />
-                                    <span className="number">{rangeValue}</span>
-                                </div>
-                                : null}
+
+                            <div className="flex" style={{ flexGrow: 1, position: 'relative' }}>
+                                <div className="about-step">{props.element.text}</div>
+                                <input
+                                    className="customRange"
+                                    type="range"
+                                    min={['translateX', 'translateY', 'translateZ'].includes(props.element.text) ? -100 : ['scaleX', 'scaleY', 'scaleZ'].includes(props.element.text) ? -1 : -360}
+                                    max={['translateX', 'translateY', 'translateZ'].includes(props.element.text) ? 100 : ['scaleX', 'scaleY', 'scaleZ'].includes(props.element.text) ? 1 : 360}
+                                    value={rangeValue}
+                                    step={['scaleX', 'scaleY', 'scaleZ'].includes(props.element.text) ? 0.01 : null}
+                                    onChange={e => setRangeValue(e.target.value)} />
+                                <span className="number">{rangeValue}</span>
+                            </div>
                         </>
                         : null}
                     {props.children}

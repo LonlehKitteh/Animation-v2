@@ -407,6 +407,7 @@ html {
         display: flex;
         flex-direction: column;
         position: relative;
+        transition: all 0.3s ease-in-out;
         .control-btn {
             margin-top: 0.3rem;
             display: flex;
@@ -502,5 +503,42 @@ html {
         border-radius: 50px;
         cursor: pointer;
         -webkit-appearance: none;
+    }
+}
+.modal-group {
+    $grid: 150px;
+    width: min-content;
+    margin: auto;
+    display: grid;
+    grid-template-columns: $grid $grid $grid $grid;
+    grid-template-rows: $grid $grid $grid $grid;
+    gap: 1rem;
+    .modal-element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #009dffb9;
+        border-radius: 1rem;
+        cursor: pointer;
+        .cube {
+            border: 1px dashed black;
+            width: 35%;
+            height: 35%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .content-cube {
+                width: 100%;
+                height: 100%;
+                background: #323641;
+                position: absolute;
+                transition: transform 0.1s ease-in-out;
+            }
+        }
+        .text {
+            color: white;
+        }
     }
 }

@@ -18,13 +18,15 @@ const Creator = () => {
 
     const handleDelete = element => {
         element.deleted = true
-        setTimeout(() => {
-            element.ref.style.display = 'none'
-        }, 300)
         todos.filter(entity => entity.id > element.id && !entity.deleted ? entity.id -= 1 : entity.id)
         setCounter(todos.filter(entity => entity.deleted === false).length + 1)
         setIsDisabled(false)
-        if (todos.filter(entity => entity.deleted === true).length === todos.length) setTodos([])
+        if (todos !== [] && element.hasOwnProperty('ref')) {
+            setTimeout(() => {
+                element.ref.style.display = 'none'
+                if (todos.filter(entity => entity.deleted === true).length === todos.length) setTodos([])
+            }, 300)
+        }
     }
 
     const handleStart = () => {
@@ -38,7 +40,7 @@ const Creator = () => {
             setIsDisabled(prev => !prev)
 
             if (!isDisabled) {
-                const configuration = todos.map(element => element.token === 1 ? [element.text, element.value] : 'not yet implemented...')
+                const configuration = todos.map(element => element.token === 1 && !element.deleted ? [element.text, element.value] : '')
                 cubeRef.current.style.setProperty('--transform', configuration.flat().join(''))
             }
 
