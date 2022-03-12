@@ -9,15 +9,31 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
     const [show, setShow] = useState(true)
     const [closed, setClosed] = useState(false)
     const [rangeValue, setRangeValue] = useState(0)
-    const buttons = ['translateX', 'translateY', 'translateZ', 'scaleX', 'scaleY', 'scaleZ', 'skewX', 'skewY', 'rotateX', 'rotateY', 'rotateZ', 'perspective']
     const transforms = ['translateX(50%)', 'translateY(50%)', 'perspective(100px) translateZ(-40px)', 'scaleX(0.7)', 'scaleY(0.5)', 'perspective(100px) scaleZ(0.5) translateZ(30px)', 'skewX(30deg)', 'skewY(-15deg)', 'perspective(100px) rotateX(65deg)', 'perspective(100px) rotateY(65deg)', 'perspective(300px) rotateZ(45deg)', 'perspective(100px)']
-    const icons = ['fas fa-arrows-alt-h', "fas fa-arrows-alt-v", "fas fa-level-up-alt", "fas fa-expand-arrows-alt", "fas fa-expand-arrows-alt", "fas fa-retweet", "fas fa-retweet", "fas fa-undo-alt", "fas fa-undo-alt", "fas fa-undo-alt", "fas fa-box-open"]
+
+    const buttonsAndIcons = [
+        { name: 'translateX', icon: 'fas fa-arrows-alt-h' },
+        { name: 'translateY', icon: "fas fa-arrows-alt-v" },
+        { name: 'translateZ', icon: "fas fa-level-up-alt" },
+        { name: 'scaleX', icon: "fas fa-expand-arrows-alt" },
+        { name: 'scaleZ', icon: "fas fa-expand-arrows-alt" },
+        { name: 'skewX', icon: "fas fa-retweet" },
+        { name: 'skewY', icon: "fas fa-retweet" },
+        { name: 'rotateX', icon: "fas fa-undo-alt" },
+        { name: 'rotateY', icon: "fas fa-undo-alt" },
+        { name: 'rotateZ', icon: "fas fa-undo-alt" },
+        { name: 'perspective', icon: "fas fa-box-open" },
+        { name: 'transform-origin', icon: "" },
+        { name: 'backface-visibility', icon: "fas fa-eye" }
+    ]
+
     const pickStep = e => {
         props.element.text = e
         props.element.ref = ref.current
-
-        if (buttons.includes(e)) {
-            props.element.token = 1
+        props.element.text !== 'transform-origin' && props.element.text !== 'backface-visibility' ? props.element.token = 1 : props.element.token = 2
+        if (e === 'backface-visibility') {
+            props.element.saved = true
+            setIsSaved(true)
         }
 
         setShow(false)
@@ -37,8 +53,10 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
     }
 
     const handleUndo = () => {
+        if (props.element.text === 'backface-visibility') setIsSaved(false)
         setShow(true)
         setRangeValue(0)
+        props.element.text = ''
         ref.current.children[2].classList.remove('unSaved')
     }
 
@@ -54,8 +72,7 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
     const handleChoseModal = e => pickStep(e.target.parentElement.innerText)
 
     function handleDisplay() {
-        const value = props.element.value.substring(1, props.element.value.length - 2)
-        return buttons.map((element, key) => element === props.element.text ? <div className='about-step' key={key}>{element} <i className={`${icons[key]} m-2`}></i>{value}</div> : null)
+        return props.element.text !== 'backface-visibility' ? buttonsAndIcons.map((element, key) => element.name === props.element.text ? <div className='about-step' key={key}>{element.name} <i className={`${element.icon} m-2`}></i>{props.element.value.substring(1, props.element.value.length - 2)}</div> : null) : <div className='about-step'>{buttonsAndIcons[12].name}<i className={`${buttonsAndIcons[12].icon} m-2`}></i>visible</div>
     }
 
     return (
@@ -78,13 +95,13 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
                     <Modal.Body>
                         <div className='modal-group'>
                             {
-                                buttons.map((element, key) => {
+                                buttonsAndIcons.map((element, key) => {
                                     return <motion.div key={key} style={{ filter: `hue-rotate(${key * 10}deg)` }} className="modal-element" whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15, opacity: 0.9 }} transition={btnAnimation}>
                                         <div className="modal-child">
                                             <div className='cube'>
                                                 <div className='content-cube'></div>
                                             </div>
-                                            <div className='text'>{element}</div>
+                                            <div className='text'>{element.name}</div>
                                         </div>
                                         <div
                                             className='event-area'
@@ -100,35 +117,39 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
                     </Modal.Body>
                 </Modal>
                 <div className='control-btn'>
-                    <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
-                        <Button variant="success" onClick={() => handleSave()}><i className="fas fa-check"></i></Button>
-                    </motion.div>
+                    {props.element.text !== '' ? <>
+                        <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
+                            <Button variant="success" onClick={() => handleSave()}><i className="fas fa-check"></i></Button>
+                        </motion.div>
 
-                    <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
-                        <Button variant="warning" onClick={() => handleUndo()}><i className="fas fa-undo"></i></Button>
-                    </motion.div>
+                        <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
+                            <Button variant="warning" onClick={() => handleUndo()}><i className="fas fa-undo"></i></Button>
+                        </motion.div>
 
-                    <div className="rangeValue">
-                        <div className="about-step">{props.element.text}</div>
-                        <input
-                            className="customRange"
-                            type="range"
-                            min={props.element.text.match(/translate/) ? -100 : props.element.text.match(/scale/) ? -1 : props.element.text.match(/skew/) ? -90 : -360}
-                            max={props.element.text.match(/translate/) ? 100 : props.element.text.match(/scale/) ? 1 : props.element.text.match(/skew/) ? 90 : 360}
-                            value={rangeValue}
-                            step={props.element.text.match(/scale/) ? 0.01 : null}
-                            onChange={e => setRangeValue(e.target.value)} />
-                    </div>
-                    <span className="number">{rangeValue}</span>
+                        <div className="rangeValue">
+                            <div className="about-step">{props.element.text}</div>
+                            <input
+                                className="customRange"
+                                type="range"
+                                min={props.element.text.match(/translate/) ? -100 : props.element.text.match(/scale/) ? -1 : props.element.text.match(/skew/) ? -90 : props.element.text.match(/perspe/) ? -300 : -360}
+                                max={props.element.text.match(/translate/) ? 100 : props.element.text.match(/scale/) ? 1 : props.element.text.match(/skew/) ? 90 : props.element.text.match(/perspe/) ? 300 : 360}
+                                value={rangeValue}
+                                step={props.element.text.match(/scale/) ? 0.01 : null}
+                                onChange={e => setRangeValue(e.target.value)} />
+                        </div>
+                        <span className="number">{rangeValue}</span>
+                    </> : null}
                     {props.children}
                 </div>
             </> :
                 <div className='control-btn' style={{ justifyContent: 'flex-end' }}>
                     {handleDisplay()}
-                    <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
+                    {props.element.text !== 'backface-visibility' ? <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
                         <Button variant="secondary" onClick={() => handleEdit()}><i className="fas fa-pen"></i></Button>
-                    </motion.div>
-
+                    </motion.div> :
+                        <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
+                            <Button variant="warning" onClick={() => handleUndo()}><i className="fas fa-undo"></i></Button>
+                        </motion.div>}
                     {props.children}
                 </div>}
 
