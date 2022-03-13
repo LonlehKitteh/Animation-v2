@@ -364,6 +364,7 @@ html {
                 outline: 14px solid $btn-primary-hover;
                 transition: transform 1s ease-in-out;
                 animation: program 1s infinite ease-in-out;
+                backface-visibility: hidden;
             }
         }
         .control-panel {
@@ -409,6 +410,15 @@ html {
         position: relative;
         transition: all 0.3s ease-in-out;
         user-select: none;
+        .control-btn.down{
+            align-items: flex-end !important;
+            .range-value-group{
+                flex-grow: 1;
+                .customRange{
+                    margin: 1rem;
+                }
+            }
+        }
         .control-btn {
             margin-top: 0.3rem;
             display: flex;
@@ -534,6 +544,7 @@ html {
             justify-content: space-around;
             flex-direction: column;
             align-items: center;
+            position: relative;
             .cube {
                 width: 35%;
                 height: 35%;

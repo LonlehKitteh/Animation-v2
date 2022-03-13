@@ -5,26 +5,28 @@ import { btnAnimation } from '../../js/pageAnimation';
 
 const Bundle = ({ isDisabled, setCounter, ...props }) => {
     const ref = useRef(null)
+    const [xDimension, setXDimension] = useState(0)
+    const [yDimension, setYDimension] = useState(0)
     const [isSaved, setIsSaved] = useState(false)
     const [show, setShow] = useState(true)
     const [closed, setClosed] = useState(false)
     const [rangeValue, setRangeValue] = useState(0)
-    const transforms = ['translateX(50%)', 'translateY(50%)', 'perspective(100px) translateZ(-40px)', 'scaleX(0.7)', 'scaleY(0.5)', 'perspective(100px) scaleZ(0.5) translateZ(30px)', 'skewX(30deg)', 'skewY(-15deg)', 'perspective(100px) rotateX(65deg)', 'perspective(100px) rotateY(65deg)', 'perspective(300px) rotateZ(45deg)', 'perspective(100px)']
 
     const buttonsAndIcons = [
-        { name: 'translateX', icon: 'fas fa-arrows-alt-h' },
-        { name: 'translateY', icon: "fas fa-arrows-alt-v" },
-        { name: 'translateZ', icon: "fas fa-level-up-alt" },
-        { name: 'scaleX', icon: "fas fa-expand-arrows-alt" },
-        { name: 'scaleZ', icon: "fas fa-expand-arrows-alt" },
-        { name: 'skewX', icon: "fas fa-retweet" },
-        { name: 'skewY', icon: "fas fa-retweet" },
-        { name: 'rotateX', icon: "fas fa-undo-alt" },
-        { name: 'rotateY', icon: "fas fa-undo-alt" },
-        { name: 'rotateZ', icon: "fas fa-undo-alt" },
-        { name: 'perspective', icon: "fas fa-box-open" },
-        { name: 'transform-origin', icon: "" },
-        { name: 'backface-visibility', icon: "fas fa-eye" }
+        { name: 'translateX', icon: 'fas fa-arrows-alt-h', transform: 'translateX(50%)' },
+        { name: 'translateY', icon: "fas fa-arrows-alt-v", transform: 'translateY(50%)' },
+        { name: 'translateZ', icon: "fas fa-level-up-alt", transform: 'perspective(100px) translateZ(-40px)' },
+        { name: 'scaleX', icon: "fas fa-expand-arrows-alt", transform: 'scaleX(0.7)' },
+        { name: 'scaleY', icon: "fas fa-expand-arrows-alt", transform: 'scaleY(0.5)' },
+        { name: 'scaleZ', icon: "fas fa-expand-arrows-alt", transform: 'perspective(100px) scaleZ(0.5) translateZ(30px)' },
+        { name: 'skewX', icon: "fas fa-retweet", transform: 'skewX(30deg)' },
+        { name: 'skewY', icon: "fas fa-retweet", transform: 'skewY(-15deg)' },
+        { name: 'rotateX', icon: "fas fa-undo-alt", transform: 'perspective(100px) rotateX(65deg)' },
+        { name: 'rotateY', icon: "fas fa-undo-alt", transform: 'perspective(100px) rotateY(65deg)' },
+        { name: 'rotateZ', icon: "fas fa-undo-alt", transform: 'perspective(300px) rotateZ(45deg)' },
+        { name: 'perspective', icon: "fas fa-box-open", transform: 'perspective(100px) rotateX(50deg) rotateY(25deg)' },
+        { name: 'transform-origin', icon: "fab fa-buromobelexperte", transform: 'perspective(100px) rotateZ(45deg)' },
+        { name: 'backface-visibility', icon: "fas fa-eye", transform: 'perspective(300px) rotateY(125deg)' }
     ]
 
     const pickStep = e => {
@@ -40,7 +42,7 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
     }
 
     const handleSave = () => {
-        (props.element.text.match(/translate/) || props.element.text.match(/perspe/)) ? props.element.value = `(${rangeValue}px) ` : props.element.text.match(/scale/) ? props.element.value = `(${rangeValue}) ` : props.element.value = `(${rangeValue}deg) `
+        (props.element.text.match(/translate/) || props.element.text.match(/perspe/)) ? props.element.value = `(${rangeValue}px) ` : props.element.text.match(/scale/) ? props.element.value = `(${rangeValue}) ` : props.element.text.match(/transform-origin/) ? props.element.value = `${xDimension}% ${yDimension}%` : props.element.value = `(${rangeValue}deg) `
         props.element.saved = true
         ref.current.children[2].classList.remove('unSaved')
         setIsSaved(true)
@@ -67,17 +69,25 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
         setShow(false)
     }
 
-    const handleEnter = (e, key) => e.target.previousSibling.firstChild.firstChild.style.transform = transforms[key]
-    const handleLeave = e => e.target.previousSibling.firstChild.firstChild.style.transform = 'none'
+    const handleEnter = (e, key) => {
+        e.target.previousSibling.firstChild.firstChild.style.transform = buttonsAndIcons[key].transform
+        if (key === 13) e.target.previousSibling.firstChild.firstChild.style.backfaceVisibility = 'hidden'
+        if (key === 12) e.target.previousSibling.firstChild.firstChild.style.transformOrigin = '0 0 0'
+    }
+    const handleLeave = e => {
+        e.target.previousSibling.firstChild.firstChild.style.transform = 'none'
+        e.target.previousSibling.firstChild.firstChild.style.backfaceVisibility = 'visible'
+        e.target.previousSibling.firstChild.firstChild.style.transformOrigin = 'center center'
+    }
     const handleChoseModal = e => pickStep(e.target.parentElement.innerText)
 
     function handleDisplay() {
-        return props.element.text !== 'backface-visibility' ? buttonsAndIcons.map((element, key) => element.name === props.element.text ? <div className='about-step' key={key}>{element.name} <i className={`${element.icon} m-2`}></i>{props.element.value.substring(1, props.element.value.length - 2)}</div> : null) : <div className='about-step'>{buttonsAndIcons[12].name}<i className={`${buttonsAndIcons[12].icon} m-2`}></i>visible</div>
+        return props.element.text !== 'backface-visibility' ? buttonsAndIcons.map((element, key) => element.name === props.element.text ? <div className='about-step' key={key}>{element.name} <i className={`${element.icon} m-2`}></i>{props.element.text !== 'transform-origin' ? props.element.value.substring(1, props.element.value.length - 2) : props.element.value}</div> : null) : <div className='about-step'>{buttonsAndIcons[13].name}<i className={`${buttonsAndIcons[13].icon} m-2`}></i>visible</div>
     }
 
     return (
         <div className='bundle' id={props.element.id} ref={ref} style={{ display: closed ? 'none' : 'block' }}>
-            <h1>Step: {props.element.id}</h1>
+            <h1>Step: {props.element.id} {props.element.text === "transform-origin" && !isSaved ? props.element.text : null}</h1>
 
             {!isSaved ? <>
                 <Modal
@@ -116,7 +126,7 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
                         </div>
                     </Modal.Body>
                 </Modal>
-                <div className='control-btn'>
+                <div className={`control-btn ${props.element.text === 'transform-origin' ? 'down' : ''}`}>
                     {props.element.text !== '' ? <>
                         <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
                             <Button variant="success" onClick={() => handleSave()}><i className="fas fa-check"></i></Button>
@@ -126,18 +136,33 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
                             <Button variant="warning" onClick={() => handleUndo()}><i className="fas fa-undo"></i></Button>
                         </motion.div>
 
-                        <div className="rangeValue">
-                            <div className="about-step">{props.element.text}</div>
-                            <input
-                                className="customRange"
-                                type="range"
-                                min={props.element.text.match(/translate/) ? -100 : props.element.text.match(/scale/) ? -1 : props.element.text.match(/skew/) ? -90 : props.element.text.match(/perspe/) ? -300 : -360}
-                                max={props.element.text.match(/translate/) ? 100 : props.element.text.match(/scale/) ? 1 : props.element.text.match(/skew/) ? 90 : props.element.text.match(/perspe/) ? 300 : 360}
-                                value={rangeValue}
-                                step={props.element.text.match(/scale/) ? 0.01 : null}
-                                onChange={e => setRangeValue(e.target.value)} />
-                        </div>
-                        <span className="number">{rangeValue}</span>
+                        {props.element.text === 'transform-origin' ? <>
+                            <div className='range-value-group'>
+                                <div className="rangeValue">
+                                    <div className="about-step">X</div>
+                                    <input className="customRange" type="range" min="-100" max="100" value={xDimension} onChange={e => setXDimension(e.target.value)} />
+                                    <span className="number">{xDimension}</span>
+                                </div>
+                                <div className="rangeValue">
+                                    <div className="about-step">Y</div>
+                                    <input className="customRange" type="range" min="-100" max="100" value={yDimension} onChange={e => setYDimension(e.target.value)} />
+                                    <span className="number">{yDimension}</span>
+                                </div>
+                            </div>
+                        </> : <>
+                            <div className="rangeValue">
+                                <div className="about-step">{props.element.text}</div>
+                                <input
+                                    className="customRange"
+                                    type="range"
+                                    min={props.element.text.match(/translate/) ? -100 : props.element.text.match(/scale/) ? -1 : props.element.text.match(/skew/) ? -90 : props.element.text.match(/perspe/) ? -300 : -360}
+                                    max={props.element.text.match(/translate/) ? 100 : props.element.text.match(/scale/) ? 1 : props.element.text.match(/skew/) ? 90 : props.element.text.match(/perspe/) ? 300 : 360}
+                                    value={rangeValue}
+                                    step={props.element.text.match(/scale/) ? 0.01 : null}
+                                    onChange={e => setRangeValue(e.target.value)} />
+                            </div>
+                            <span className="number">{rangeValue}</span>
+                        </>}
                     </> : null}
                     {props.children}
                 </div>

@@ -795,6 +795,8 @@ html {
   transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
   -webkit-animation: program 1s infinite ease-in-out;
           animation: program 1s infinite ease-in-out;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 .creator .push .control-panel {
@@ -869,6 +871,22 @@ html {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.creator .bundle .control-btn.down {
+  -webkit-box-align: end !important;
+      -ms-flex-align: end !important;
+          align-items: flex-end !important;
+}
+
+.creator .bundle .control-btn.down .range-value-group {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.creator .bundle .control-btn.down .range-value-group .customRange {
+  margin: 1rem;
 }
 
 .creator .bundle .control-btn {
@@ -1051,6 +1069,7 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .modal-group .modal-element .modal-child .cube {

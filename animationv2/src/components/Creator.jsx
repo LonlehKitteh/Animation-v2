@@ -40,10 +40,11 @@ const Creator = () => {
             setIsDisabled(prev => !prev)
 
             if (!isDisabled) {
+                const secondConf = todos.map(element => element.token === 2 && !element.deleted ? [`${element.text}:`, element.text === 'backface-visibility' ? element.value = 'visible;' : `${element.value};`] : '')
+                cubeRef.current.style = secondConf.flat().join('')
+
                 const configuration = todos.map(element => element.token === 1 && !element.deleted ? [element.text, element.value] : '')
                 cubeRef.current.style.setProperty('--transform', configuration.flat().join(''))
-
-                typeof todos.find(element => element.token === 2 && !element.deleted && element.text === 'backface-visibility') === 'undefined' ? cubeRef.current.style.backfaceVisibility = 'hidden' : cubeRef.current.style.backfaceVisibility = 'visible'
             }
 
         }
