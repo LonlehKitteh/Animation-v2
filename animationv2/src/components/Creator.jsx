@@ -4,11 +4,13 @@ import { pageVariants, pageTransition } from '../js/pageAnimation'
 import { Button } from 'react-bootstrap'
 import { btnAnimation } from '../js/pageAnimation'
 import Bundle from './Creator/Bundle'
+import copy from 'copy-to-clipboard'
 
 const Creator = () => {
     const [todos, setTodos] = useState([]);
     const [counter, setCounter] = useState(1);
     const [isDisabled, setIsDisabled] = useState(false)
+    const [code, setCode] = useState([])
     const cubeRef = useRef(null)
 
     const handleClick = () => {
@@ -24,7 +26,10 @@ const Creator = () => {
         if (todos !== [] && element.hasOwnProperty('ref')) {
             setTimeout(() => {
                 element.ref.style.display = 'none'
-                if (todos.filter(entity => entity.deleted).length === todos.length) setTodos([])
+                if (todos.filter(entity => entity.deleted).length === todos.length) {
+                    setTodos([])
+                    setCode([])
+                }
             }, 300)
         }
     }
@@ -40,11 +45,13 @@ const Creator = () => {
             setIsDisabled(prev => !prev)
 
             if (!isDisabled) {
-                const secondConf = todos.map(element => element.token === 2 && !element.deleted ? [`${element.text}:`, element.text === 'backface-visibility' ? element.value = 'visible;' : `${element.value};`] : '')
+                const secondConf = todos.map(element => element.token === 2 && !element.deleted ? [`${element.text}: `, element.text === 'backface-visibility' ? element.value = 'visible;' : `${element.value};`] : '')
                 cubeRef.current.style = secondConf.flat().join('')
-
                 const configuration = todos.map(element => element.token === 1 && !element.deleted ? [element.text, element.value] : '')
                 cubeRef.current.style.setProperty('--transform', configuration.flat().join(''))
+                const code = `${secondConf.flat().join('')}transform: ${configuration.flat().join('').trim()};`.split(';')
+
+                setCode(code)
             }
 
         }
@@ -104,9 +111,11 @@ const Creator = () => {
                         )}
 
                     </div>
-                    <div className='code'>
-                        code
-                    </div>
+                    <motion.div className='code' onClick={() => copy(code.join(';'))} whileTap={{ scaleX: 0.95 }} whileHover={{ scaleX: 1.05 }} transition={btnAnimation}>
+                        <h1>Code: </h1>
+                        {code.flat().join('').length > 1 ? <span>Tap to copy</span> : null}
+                        {code.map((element, key) => element !== '' ? <div key={key}>{element};</div> : null)}
+                    </motion.div>
                 </div>
             </div>
         </motion.div>

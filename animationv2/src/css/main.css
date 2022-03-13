@@ -768,10 +768,9 @@ html {
 }
 
 .creator .push .animation-field {
-  margin: 3rem;
+  margin: .3rem;
   background: #333333;
-  border-radius: 1rem;
-  border: 3px solid var(--btn-primary-hover, #008cff);
+  border-radius: .5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -788,7 +787,7 @@ html {
   height: 8rem;
   background: var(--btn-primary, #009fff);
   border-radius: 0.25rem;
-  outline: 14px solid var(--btn-primary-hover, #008cff);
+  outline: 7px solid var(--btn-primary-hover, #008cff);
   -webkit-transition: -webkit-transform 1s ease-in-out;
   transition: -webkit-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
@@ -850,8 +849,30 @@ html {
 }
 
 .creator .push .control-panel .code {
-  background: #0575e6;
-  min-height: 15rem;
+  background: #474949;
+  color: white;
+  padding: 1rem;
+  font-family: 'Cairo';
+  position: relative;
+  cursor: pointer;
+}
+
+.creator .push .control-panel .code h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-family: 'Cairo';
+}
+
+.creator .push .control-panel .code div {
+  text-indent: 1rem;
+}
+
+.creator .push .control-panel .code span {
+  position: absolute;
+  top: .3rem;
+  right: .3rem;
+  color: #888;
+  font-family: 'Cairo';
 }
 
 .creator .bundle {

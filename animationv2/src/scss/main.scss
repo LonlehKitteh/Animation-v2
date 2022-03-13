@@ -349,10 +349,9 @@ html {
             grid-area: 1 / 1 / 2 / 3;
         }
         .animation-field {
-            margin: 3rem;
+            margin: .3rem;
             background: rgb(51, 51, 51);
-            border-radius: 1rem;
-            border: 3px solid $btn-primary-hover;
+            border-radius: .5rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -361,7 +360,7 @@ html {
                 height: 8rem;
                 background: $btn-primary;
                 border-radius: 0.25rem;
-                outline: 14px solid $btn-primary-hover;
+                outline: 7px solid $btn-primary-hover;
                 transition: transform 1s ease-in-out;
                 animation: program 1s infinite ease-in-out;
                 backface-visibility: hidden;
@@ -397,8 +396,27 @@ html {
                 flex-grow: 1;
             }
             .code {
-                background: #0575e6;
-                min-height: 15rem;
+                background: #474949;
+                color: white;
+                padding: 1rem;
+                font-family: 'Cairo';
+                position: relative;
+                cursor: pointer;
+                h1{ 
+                    font-size: 1.5rem;
+                    margin: 0;
+                    font-family: 'Cairo';
+                }
+                div{
+                    text-indent: 1rem;
+                }
+                span{
+                    position: absolute;
+                    top: .3rem;
+                    right: .3rem;
+                    color: #888;
+                    font-family: 'Cairo';
+                }
             }
         }
     }
