@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useRef } from 'react'
 import { pageVariants, pageTransition } from '../../js/pageAnimation'
 import { datatransformorigin } from '../../js/data/transform/datatransformorigin'
 import Menu from '../Menu'
 import Section from '../Section'
 import Footer from '../Footer'
+import useObserver from '../hooks/useObserver'
 
 export default function TransformOrigin() {
+    const sections = useRef([]);
+    const links = useRef([]);
+    const linksRef = useRef([]);
+    linksRef.current = datatransformorigin.map((element, i) => linksRef.current[i] ?? React.createRef());
+    useObserver(sections, links);
+
     return (
         <motion.div layout
             className="page"
@@ -19,25 +26,23 @@ export default function TransformOrigin() {
             <div className="push">
                 <div className="main">
                     <p className="title">Transform-origin</p>
-                    {datatransformorigin.map((data, key) => {
-                        return <Section
-                                counter={key + 21}
-                                code={data.code}
-                                copy={data.copy}
-                                picturedTransform={key === 2 ? true : false}
-                                header={data.header}
-                                content={data.content}
-                                key={key}
-                                id={`s${key}`} />
-                    })}
+                    {datatransformorigin.map((data, key) => <Section
+                     sections={sections}
+                        counter={key + 21}
+                        code={data.code}
+                        copy={data.copy}
+                        picturedTransform={key === 2 ? true : false}
+                        header={data.header}
+                        content={data.content}
+                        key={key}
+                        id={`s${key}`} />
+                    )}
                 </div>
 
                 <div className="aside">
-                    <Menu>
+                    <Menu links={links}>
                         {
-                            datatransformorigin.map((link, key) => {
-                                return <li key={key}><a id={`l${key}`} href={`#s${key}`}>{link.header}</a></li>
-                            })
+                            datatransformorigin.map((link, key) => <li key={key} ref={linksRef.current[key]}><a id={`l${key}`} href={`#s${key}`}>{link.header}</a></li>)
                         }
                     </Menu>
                 </div>

@@ -12,7 +12,7 @@ const pageVariants = {
 const pageTransition = {
     duration: 1,
     type: "spring",
-    ease: "easeInOut"
+    ease: "anticipate"
 }
 const btnAnimation = {
     duration: .4,

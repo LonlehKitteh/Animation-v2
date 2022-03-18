@@ -182,12 +182,11 @@ html {
                 text-transform: capitalize;
                 font-weight: normal;
                 padding-left: 2rem;
-                border-left: 4px solid transparent;
-                transition: border-left-color 0.7s ease-in-out, color 0.7s ease;
-            }
-            .active {
-                border-left: 4px solid $nav-color-hover;
-                font-weight: bolder;
+                border-left-width: 4px;
+                border-left-style: solid;
+                border-left-color: var(--randomColor, transparent);
+                color: var(--randomColor);
+                transition: border-color 0.5s ease-in-out, color 0.5s ease-in-out;
             }
         }
     }
@@ -349,9 +348,9 @@ html {
             grid-area: 1 / 1 / 2 / 3;
         }
         .animation-field {
-            margin: .3rem;
+            margin: 0.3rem;
             background: rgb(51, 51, 51);
-            border-radius: .5rem;
+            border-radius: 0.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -399,23 +398,23 @@ html {
                 background: #474949;
                 color: white;
                 padding: 1rem;
-                font-family: 'Cairo';
+                font-family: "Cairo";
                 position: relative;
                 cursor: pointer;
-                h1{ 
+                h1 {
                     font-size: 1.5rem;
                     margin: 0;
-                    font-family: 'Cairo';
+                    font-family: "Cairo";
                 }
-                div{
+                div {
                     text-indent: 1rem;
                 }
-                span{
+                span {
                     position: absolute;
-                    top: .3rem;
-                    right: .3rem;
+                    top: 0.3rem;
+                    right: 0.3rem;
                     color: #888;
-                    font-family: 'Cairo';
+                    font-family: "Cairo";
                 }
             }
         }
@@ -428,11 +427,11 @@ html {
         position: relative;
         transition: all 0.3s ease-in-out;
         user-select: none;
-        .control-btn.down{
+        .control-btn.down {
             align-items: flex-end !important;
-            .range-value-group{
+            .range-value-group {
                 flex-grow: 1;
-                .customRange{
+                .customRange {
                     margin: 1rem;
                 }
             }
@@ -478,7 +477,7 @@ html {
             font-family: "Cairo";
             font-weight: bold;
         }
-        .rangeValue{
+        .rangeValue {
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -501,7 +500,7 @@ html {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 .2rem;
+            margin: 0 0.2rem;
         }
     }
 }
@@ -583,10 +582,10 @@ html {
             }
             .text {
                 color: white;
-                font-family: 'Cairo';
+                font-family: "Cairo";
             }
         }
-        .event-area{
+        .event-area {
             width: 100%;
             height: 100%;
             position: absolute;

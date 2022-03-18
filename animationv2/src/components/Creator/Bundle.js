@@ -155,7 +155,7 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
                                 <input
                                     className="customRange"
                                     type="range"
-                                    min={props.element.text.match(/translate/) ? -100 : props.element.text.match(/scale/) ? -1 : props.element.text.match(/skew/) ? -90 : props.element.text.match(/perspe/) ? -300 : -360}
+                                    min={props.element.text.match(/translate/) ? -100 : props.element.text.match(/scale/) ? -1 : props.element.text.match(/skew/) ? -90 : props.element.text.match(/perspe/) ? 0 : -360}
                                     max={props.element.text.match(/translate/) ? 100 : props.element.text.match(/scale/) ? 1 : props.element.text.match(/skew/) ? 90 : props.element.text.match(/perspe/) ? 300 : 360}
                                     value={rangeValue}
                                     step={props.element.text.match(/scale/) ? 0.01 : null}

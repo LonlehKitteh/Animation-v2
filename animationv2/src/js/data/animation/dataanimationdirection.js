@@ -2,21 +2,15 @@ import { code, defaultIteration, animations, copy } from "../dataanimation"
 
 export const dataanimationdirection = [
     {
-        header: "Opis właściwości animation-direction",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-direction</span> możemy określić <b>kierunek rozpoczęcia</b> wykonywania się oraz kierunek co drugiego powtarzania wykonywania się animacji interesującego nas elementu HTML.</div>`
-    },
-    {
-        header: "Wartości właściwości animation-direction",
-        content: [
-            "normal", "reverse", "alternate", "alternate-reverse", "sekwencja"
-        ]
-    },
-    {
         header: "Informacje znacznika animation-direction",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation-direction</span> możemy określić <b>kierunek rozpoczęcia</b> wykonywania się oraz kierunek co drugiego powtarzania wykonywania się animacji interesującego nas elementu HTML</div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">
@@ -29,7 +23,7 @@ export const dataanimationdirection = [
         </div>
         <div class="box">
             <p>Wartość initial</p>
-            <div class="link"><a href="#39">normal</a></div>
+            <div class="link"><a href="#s1">normal</a></div>
         </div>
         <div class="box">
             <p>Wyjątki initial</p>

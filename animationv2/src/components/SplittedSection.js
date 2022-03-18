@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import copy from 'copy-to-clipboard'
 import { motion } from 'framer-motion'
 
 export default function SplittedSection(props) {
+    const ref = useRef(null)
+
+    useEffect(() => {
+        if (!props.sections.current.includes(ref)) props.sections.current = [...props.sections.current, ref]
+    })
 
     function code(code, element) {
         return <div className="css-lan">
@@ -22,7 +27,7 @@ export default function SplittedSection(props) {
         </div>
     }
     return (
-        <div className="section" id={props.id}>
+        <div className="section" id={props.id} ref={ref}>
             <h1>{props.header}</h1>
             <div>
                 <p dangerouslySetInnerHTML={{ __html: props.contentMainHeader }} />

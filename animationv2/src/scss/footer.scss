@@ -71,11 +71,10 @@
                 text-decoration: none;
                 color: white;
                 font-size: 1.8rem;
-                border-bottom: 1px solid #6e6e6e;
-                transition: border-bottom-color 0.3s ease-in-out;
+                transition: color 0.3s ease-in-out;
                 width: max-content;
                 &:hover {
-                    border-bottom: 1px solid white;
+                    color: $btn-primary;
                 }
             }
         }

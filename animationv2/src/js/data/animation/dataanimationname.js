@@ -2,21 +2,15 @@ import { code, defaultDuration, defaultIteration,  animations, copy} from "../da
 
 export const dataanimationname = [
     {
-        header: "Opis właściwości animation-name",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-name</span> możemy <b>nazwać</b>, która animacja powinna zostać dodana do elementu HTML.</div>`
-    },
-    {
-        header: "Wartości właściwości animation-name",
-        content: [
-            "none", "nazwa animacji", "sekwencja"
-        ]
-    },
-    {
         header: "Informacje znacznika animation-name",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation-name</span> możemy <b>nazwać</b>, która animacja powinna zostać dodana do elementu HTML</div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">
@@ -29,7 +23,7 @@ export const dataanimationname = [
         </div>
         <div class="box">
             <p>Wartość initial</p>
-            <div class="link"><a href="#s3">none</a></div>
+            <div class="link"><a href="#s1">none</a></div>
         </div>
         <div class="box">
             <p>Wyjątki initial</p>

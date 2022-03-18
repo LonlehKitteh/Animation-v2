@@ -38,11 +38,16 @@
 }
 
 .section .parent {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 300px;
   height: 300px;
   background: coral;
   text-align: center;
   margin: auto;
+  border-radius: 1rem;
 }
 
 .section .parent span {
@@ -64,6 +69,7 @@
 .section .parent .child {
   background: #a6d9a6;
   height: 250px;
+  border-radius: 1rem;
 }
 
 p + .section {
@@ -283,6 +289,11 @@ p + .section {
   display: inline-block;
   color: #998a00;
   background-color: #f9f5d2;
+}
+
+.technical .box .description {
+  color: black;
+  background-color: transparent;
 }
 
 .technical .box .green {

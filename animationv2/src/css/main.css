@@ -545,14 +545,12 @@ html {
   text-transform: capitalize;
   font-weight: normal;
   padding-left: 2rem;
-  border-left: 4px solid transparent;
-  -webkit-transition: border-left-color 0.7s ease-in-out, color 0.7s ease;
-  transition: border-left-color 0.7s ease-in-out, color 0.7s ease;
-}
-
-.menu ul li .active {
-  border-left: 4px solid var(--nav-color-hover, #009fff);
-  font-weight: bolder;
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: var(--randomColor, transparent);
+  color: var(--randomColor);
+  -webkit-transition: border-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  transition: border-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .css-lan {
@@ -768,9 +766,9 @@ html {
 }
 
 .creator .push .animation-field {
-  margin: .3rem;
+  margin: 0.3rem;
   background: #333333;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -852,7 +850,7 @@ html {
   background: #474949;
   color: white;
   padding: 1rem;
-  font-family: 'Cairo';
+  font-family: "Cairo";
   position: relative;
   cursor: pointer;
 }
@@ -860,7 +858,7 @@ html {
 .creator .push .control-panel .code h1 {
   font-size: 1.5rem;
   margin: 0;
-  font-family: 'Cairo';
+  font-family: "Cairo";
 }
 
 .creator .push .control-panel .code div {
@@ -869,10 +867,10 @@ html {
 
 .creator .push .control-panel .code span {
   position: absolute;
-  top: .3rem;
-  right: .3rem;
+  top: 0.3rem;
+  right: 0.3rem;
   color: #888;
-  font-family: 'Cairo';
+  font-family: "Cairo";
 }
 
 .creator .bundle {
@@ -1009,7 +1007,7 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 0 .2rem;
+  margin: 0 0.2rem;
 }
 
 .arm {
@@ -1124,7 +1122,7 @@ html {
 
 .modal-group .modal-element .modal-child .text {
   color: white;
-  font-family: 'Cairo';
+  font-family: "Cairo";
 }
 
 .modal-group .modal-element .event-area {

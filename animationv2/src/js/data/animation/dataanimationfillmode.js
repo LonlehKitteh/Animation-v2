@@ -2,22 +2,15 @@ import { code, defaultDuration, animations, copy } from "../dataanimation"
 
 export const dataanimationfillmode = [
     {
-        header: "Opis właściwości animation-fill-mode",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-fill-mode</span> możemy dodać <b>dodatkowe właściwości</b> do elementu HTML.</div>
-        `
-    },
-    {
-        header: "Wartości właściwości animation-fill-mode",
-        content: [
-            "none", "backwards", "forwards", "both", "sekwencja"
-        ]
-    },
-    {
         header: "Informacje znacznika animation-fill-mode",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation-fill-mode</span> możemy dodać <b>dodatkowe właściwości</b> do elementu HTML</div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">
@@ -30,7 +23,7 @@ export const dataanimationfillmode = [
         </div>
         <div class="box">
             <p>Wartość initial</p>
-            <div class="link"><a href="#s47">none</a></div>
+            <div class="link"><a href="#s1">none</a></div>
         </div>
         <div class="box">
             <p>Wyjątki initial</p>

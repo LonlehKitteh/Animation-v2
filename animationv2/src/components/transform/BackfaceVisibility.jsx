@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
-import { pageVariants,pageTransition, btnAnimation } from '../../js/pageAnimation'
+import { pageVariants, pageTransition } from '../../js/pageAnimation'
 import Section from '../Section'
 import Menu from '../Menu'
-import { Button } from 'react-bootstrap'
 import { databackfacevisibility } from '../../js/data/transform/databackfacevisibility'
 import Footer from '../Footer'
+import useObserver from '../hooks/useObserver'
 
 export default function BackfaceVisibility() {
+    const sections = useRef([]);
+    const links = useRef([]);
+    const linksRef = useRef([]);
+    linksRef.current = databackfacevisibility.map((element, i) => linksRef.current[i] ?? React.createRef());
+    useObserver(sections, links);    
+
     return (
         <motion.div layout
             className="page"
@@ -21,37 +27,25 @@ export default function BackfaceVisibility() {
                 <div className="main">
                     <p className="title">Backface-visibility</p>
                     {
-                        databackfacevisibility.map((data, key) => {
-                            return (typeof data.content !== 'string') ? <Section key={key} id={`s${key}`} header={data.header}>{data.content.map((subdata, subkey) => {
-                                return (
-                                    <motion.div
-                                        whileTap={{ scale: 0.9 }}
-                                        whileHover={{ scale: 1.05, zIndex: 99 }}
-                                        transition={btnAnimation}
-                                        key={subkey}
-                                    >
-                                        <a href={`#s${subkey + key + 2}`}><Button variant="secondary" className={(subkey === 0) ? "initial" : false}>{subdata}</Button></a></motion.div>)
-                            })}</Section> :
-                                <Section
-                                    counter={key + 23}
-                                    code={data.code}
-                                    copy={data.copy}
-                                    picturedTransform={key > 2 ? true : false}
-                                    perspectivePicture={true}
-                                    header={data.header}
-                                    content={data.content}
-                                    key={key}
-                                    id={`s${key}`} />
-                        })
+                        databackfacevisibility.map((data, key) => <Section
+                                sections={sections}
+                                counter={key + 25}
+                                code={data.code}
+                                copy={data.copy}
+                                picturedTransform={key > 0 ? true : false}
+                                perspectivePicture={true}
+                                header={data.header}
+                                content={data.content}
+                                key={key}
+                                id={`s${key}`} />
+                        )
                     }
                 </div>
 
                 <div className="aside">
-                    <Menu>
+                    <Menu links={links}>
                         {
-                            databackfacevisibility.map((link, key) => {
-                                return <li key={key}><a id={`l${key}`} href={`#s${key}`}>{link.header}</a></li>
-                            })
+                            databackfacevisibility.map((link, key) => <li key={key} ref={linksRef.current[key]}><a id={`l${key}`} href={`#s${key}`}>{link.header}</a></li>)
                         }
                     </Menu>
                 </div>

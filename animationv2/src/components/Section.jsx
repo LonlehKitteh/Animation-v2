@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import '../css/section.css'
 import { transforms } from '../js/data/datatransform'
 import { animations } from '../js/data/dataanimation'
@@ -7,12 +7,17 @@ import { motion } from 'framer-motion'
 import { messages } from '../js/data/message'
 import { Shake } from 'reshake'
 
-export default function Section(props) {
+const Section = props => {
+    const ref = useRef(null)
     const [isDisabled, setIsDisabled] = useState(false)
     const [messageCounter, setMessageCounter] = useState(0)
     const messageRef = useRef(null)
     var start = Date.now()
     var timeoutHandler
+
+    useEffect(() => {
+        if (!props.sections.current.includes(ref)) props.sections.current = [...props.sections.current, ref]
+    })
 
     function code() {
         return <div className="css-lan">
@@ -46,7 +51,6 @@ export default function Section(props) {
             </pre>
         </div>
     }
-
     function CopyHandlerClick() {
         let now = Date.now()
         copy(props.copy)
@@ -77,11 +81,9 @@ export default function Section(props) {
     }
 
     return (
-        <div className="section" id={props.id}>
+        <div className="section" id={props.id} ref={ref}>
             <h1>{props.header}</h1>
-            {
-                (typeof props.content === "string") ? <div dangerouslySetInnerHTML={{ __html: props.content }}></div> : <div className="flex-group">{props.children}</div>
-            }
+            <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
             {
                 (props.picturedTransform) ? <>
                     <div className="pictured">
@@ -121,38 +123,19 @@ export default function Section(props) {
                         code()
                     }
                 </>
-                    : (props.juxtaposition) ? <div className="juxtaposition">
-                        <p>ease</p>
-                        <div className='css-track-animation'>
-                            <div style={{ animationTimingFunction: 'ease', animationName: 'move2' }}></div>
-                        </div>
-                        <p>ease-in</p>
-                        <div className='css-track-animation'>
-                            <div style={{ animationTimingFunction: 'ease-in', animationName: 'move2' }}></div>
-                        </div>
-                        <p>ease-out</p>
-                        <div className='css-track-animation'>
-                            <div style={{ animationTimingFunction: 'ease-out', animationName: 'move2' }}></div>
-                        </div>
-                        <p>ease-in-out</p>
-                        <div className='css-track-animation'>
-                            <div style={{ animationTimingFunction: 'ease-in-out', animationName: 'move2' }}></div>
-                        </div>
-                        <p>linear</p>
-                        <div className='css-track-animation'>
-                            <div style={{ animationTimingFunction: 'linear', animationName: 'move2' }}></div>
-                        </div>
-                        <p>steps(10)</p>
-                        <div className='css-track-animation'>
-                            <div style={{ animationTimingFunction: 'steps(10)', animationName: 'move2' }}></div>
-                        </div>
-                        <p>cubic-bezier(0.19, 1, 0.22, 1)</p>
-                        <div className='css-track-animation'>
-                            <div style={{ animationTimingFunction: 'cubic-bezier(0.19, 1, 0.22, 1)', animationName: 'move2' }}></div>
-                        </div>
-                    </div>
+                    : (props.juxtaposition) ?
+                        ['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear', 'steps(10)', 'cubic-bezier(0.19, 1, 0.22, 1)'].map((element, key) => {
+                            return <div key={key} className="juxtaposition">
+                                <p>{element}</p>
+                                <div className='css-track-animation'>
+                                    <div style={{ animationTimingFunction: element, animationName: 'move2' }}></div>
+                                </div>
+                            </div>
+                        })
                         : null
             }
         </div>
     )
 }
+
+export default Section;

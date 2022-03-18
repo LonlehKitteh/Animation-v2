@@ -2,43 +2,15 @@ import { transforms, code, copyText } from "../datatransform"
 
 export const datatransform = [
     {
-        header: "Opis właściwości transform",
-        content: "Transform to bardzo ważna właściwość CSS, która pozwala nam przesuwać obiekty na stronie umieszczać je w dowolnym miejscu (pozycjonować)"
-    },
-    {
-        header: "Wartości właściwości transform",
-        content: [
-            "none",
-            "perspective()",
-            "translateX()",
-            "translateY()",
-            "translate()",
-            "translateZ()",
-            "translate3d()",
-            "scaleX()",
-            "scaleY()",
-            "scale()",
-            "scaleZ()",
-            "scale3d()",
-            "skewX()",
-            "skewY()",
-            "skew()",
-            "rotate()",
-            "rotateX()",
-            "rotateY()",
-            "rotateZ()",
-            "rotate3d()",
-            "matrix()",
-            "matrix3d()",
-            "kombinacja"
-        ]
-    },
-    {
         header: "Informacje znacznika transform",
         content: `
         <div class="technical">
             <div class="box">
-                <p>Przeznacznie</p>
+                <p>Opis</p>
+                <div class="description"><span class="css-role">Transform</span> to bardzo ważna właściwość CSS, która pozwala nam <b>przesuwać</b> obiekty na stronie umieszczać je w dowolnym miejscu (pozycjonować)</div>
+            </div>
+            <div class="box">
+                <p>Przeznaczenie</p>
                 <div>element HTML każdego typu, lecz nie element HTML typu <b>table-column-group, table-column</b></div>
             </div>
             <div class="box">
@@ -51,7 +23,7 @@ export const datatransform = [
             </div>
             <div class="box">
                 <p>Wartość initial</p>
-                <div class="link"><a href="#s3">none</a></div>
+                <div class="link"><a href="#s1">none</a></div>
             </div>
             <div class="box">
                 <p>Wyjątki initial</p>

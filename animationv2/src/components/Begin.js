@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Section from './Section'
 import { arr } from '../js/data/databegin'
 import Menu from './Menu'
@@ -7,8 +7,14 @@ import '../css/begin.css'
 import { motion } from 'framer-motion'
 import { pageTransition, pageVariants } from '../js/pageAnimation'
 import SplittedSection from './SplittedSection'
+import useObserver from './hooks/useObserver'
 
 export default function Begin() {
+    const sections = useRef([]);
+    const links = useRef([]);
+    const linksRef = useRef([]);
+    linksRef.current = arr.map((element, i) => linksRef.current[i] ?? React.createRef());
+    useObserver(sections, links);
 
     return (
         <motion.div layout
@@ -21,7 +27,8 @@ export default function Begin() {
         >
             <div className="push">
                 <div className="main begin">
-                    {arr.map((el, counter) => (counter > 1) ? <SplittedSection
+                    {arr.map((el, counter) => counter > 0 ? <SplittedSection
+                        sections={sections}
                         key={counter}
                         id={`s${counter}`}
                         header={el.header}
@@ -29,20 +36,21 @@ export default function Begin() {
                         right={el.right}
                         endNote={el.endNote}
                         contentMainHeader={el.contentMainHeader}
-                        advanced={(counter > 2) ? true : false}
-                        />
+                        advanced={counter > 1 ? true : false}
+                    />
                         : <Section key={counter}
+                            sections={sections}
                             id={`s${counter}`}
                             header={el.header}
                             content={el.content} />)}
                 </div>
                 <div className="aside">
-                    <Menu>
-                        {arr.map((el, counter) => <li key={counter}><a id={`l${counter}`} href={`#s${counter}`}>{el.header}</a></li>)}
+                    <Menu links={links}>
+                        {arr.map((el, key) => <li key={key} ref={linksRef.current[key]}><a id={`l${key}`} href={`#s${key}`}>{el.header}</a></li>)}
                     </Menu>
                 </div>
             </div>
-            <Footer counter="0" currentPage='1' />
+            <Footer />
         </motion.div>
     )
 }

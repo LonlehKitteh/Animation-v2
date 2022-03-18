@@ -2,21 +2,15 @@ import { code, defaultDuration, animations, copy } from "../dataanimation"
 
 export const dataanimationiteration = [
     {
-        header: "Opis właściwości animation-iteration-count",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-iteration-count</span> możemy dodać <b>ilość powtórzeń</b> animacji.</div>`
-    },
-    {
-        header: "Wartości właściwości animation-iteration-count",
-        content: [
-            "liczba całkowita", "infinite", "sekwencja"
-        ]
-    },
-    {
         header: "Informacje znacznika animation-iteration-count",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation-iteration-count</span> możemy dodać <b>ilość powtórzeń</b> animacji</div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">

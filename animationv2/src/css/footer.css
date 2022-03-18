@@ -109,9 +109,8 @@
   text-decoration: none;
   color: white;
   font-size: 1.8rem;
-  border-bottom: 1px solid #6e6e6e;
-  -webkit-transition: border-bottom-color 0.3s ease-in-out;
-  transition: border-bottom-color 0.3s ease-in-out;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -119,7 +118,7 @@
 
 .footer .minNav .prev a:hover,
 .footer .minNav .next a:hover {
-  border-bottom: 1px solid white;
+  color: var(--btn-primary, #009fff);
 }
 
 .footer .minNav .next {

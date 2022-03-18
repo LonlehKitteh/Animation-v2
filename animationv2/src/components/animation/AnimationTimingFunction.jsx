@@ -1,13 +1,19 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useRef } from 'react'
 import { dataanimationtimingfunction } from '../../js/data/animation/dataanimationtiming'
-import { pageVariants, pageTransition, btnAnimation } from '../../js/pageAnimation'
-import { Button } from 'react-bootstrap'
+import { pageVariants, pageTransition } from '../../js/pageAnimation'
 import Menu from '../Menu'
 import Section from '../Section'
 import Footer from '../Footer'
+import useObserver from '../hooks/useObserver'
 
 export default function AnimationTimingFunction() {
+    const sections = useRef([]);
+    const links = useRef([]);
+    const linksRef = useRef([]);
+    linksRef.current = dataanimationtimingfunction.map((element, i) => linksRef.current[i] ?? React.createRef());
+    useObserver(sections, links);
+
     return (
         <motion.div layout
             className="page"
@@ -21,37 +27,25 @@ export default function AnimationTimingFunction() {
                 <div className="main">
                     <p className="title">Animation-timing-function</p>
                     {
-                        dataanimationtimingfunction.map((data, key) => {
-                            return (typeof data.content !== 'string') ? <Section key={key} id={`s${key}`} header={data.header}>{data.content.map((subdata, subkey) => {
-                                return (
-                                    <motion.div
-                                        whileTap={{ scale: 0.9 }}
-                                        whileHover={{ scale: 1.05, zIndex: 99 }}
-                                        transition={btnAnimation}
-                                        key={subkey}
-                                    >
-                                        <a href={`#s${subkey + key + 2}`}><Button variant="secondary" className={(subkey === 0) ? "initial" : false}>{subdata}</Button></a></motion.div>)
-                            })}</Section> :
-                                <Section
-                                    counter={key + 14}
-                                    code={data.code}
-                                    copy={data.copy}
-                                    picturedAnimation={key > 2 && key !== 13 ? true : false}
-                                    juxtaposition={key === 13 ? true : false}
-                                    header={data.header}
-                                    content={data.content}
-                                    key={key}
-                                    id={`s${key}`} />
-                        })
+                        dataanimationtimingfunction.map((data, key) => <Section
+                            sections={sections}
+                            counter={key + 16}
+                            code={data.code}
+                            copy={data.copy}
+                            picturedAnimation={key > 0 && key !== 11 ? true : false}
+                            juxtaposition={key === 11 ? true : false}
+                            header={data.header}
+                            content={data.content}
+                            key={key}
+                            id={`s${key}`} />
+                        )
                     }
                 </div>
 
                 <div className="aside">
-                    <Menu>
+                    <Menu links={links}>
                         {
-                            dataanimationtimingfunction.map((link, key) => {
-                                return <li key={key}><a id={`l${key}`} href={`#s${key}`}>{link.header}</a></li>
-                            })
+                            dataanimationtimingfunction.map((link, key) => <li key={key} ref={linksRef.current[key]}><a id={`l${key}`} href={`#s${key}`}>{link.header}</a></li>)
                         }
                     </Menu>
                 </div>

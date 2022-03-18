@@ -1,13 +1,19 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useRef } from 'react'
 import { dataanimationdirection } from '../../js/data/animation/dataanimationdirection'
-import { pageVariants, pageTransition, btnAnimation } from '../../js/pageAnimation'
-import { Button } from 'react-bootstrap'
+import { pageVariants, pageTransition } from '../../js/pageAnimation'
 import Menu from '../Menu'
 import Section from '../Section'
 import Footer from '../Footer'
+import useObserver from '../hooks/useObserver'
 
 export default function AnimationDirection() {
+    const sections = useRef([]);
+    const links = useRef([]);
+    const linksRef = useRef([]);
+    linksRef.current = dataanimationdirection.map((element, i) => linksRef.current[i] ?? React.createRef());
+    useObserver(sections, links);
+
     return (
         <motion.div layout
             className="page"
@@ -21,36 +27,24 @@ export default function AnimationDirection() {
                 <div className="main">
                     <p className="title">Animation-direction</p>
                     {
-                        dataanimationdirection.map((data, key) => {
-                            return (typeof data.content !== 'string') ? <Section key={key} id={`s${key}`} header={data.header}>{data.content.map((subdata, subkey) => {
-                                return (
-                                    <motion.div
-                                        whileTap={{ scale: 0.9 }}
-                                        whileHover={{ scale: 1.05, zIndex: 99 }}
-                                        transition={btnAnimation}
-                                        key={subkey}
-                                    >
-                                        <a href={`#s${subkey + key + 2}`}><Button variant="secondary" className={(subkey === 0) ? "initial" : false}>{subdata}</Button></a></motion.div>)
-                            })}</Section> :
-                                <Section
-                                    counter={key + 42}
-                                    code={data.code}
-                                    copy={data.copy}
-                                    picturedAnimation={key > 2 ? true : false}
-                                    header={data.header}
-                                    content={data.content}
-                                    key={key}
-                                    id={`s${key}`} />
-                        })
+                        dataanimationdirection.map((data, key) => <Section
+                            sections={sections}
+                            counter={key + 44}
+                            code={data.code}
+                            copy={data.copy}
+                            picturedAnimation={key > 0 ? true : false}
+                            header={data.header}
+                            content={data.content}
+                            key={key}
+                            id={`s${key}`} />
+                        )
                     }
                 </div>
 
                 <div className="aside">
-                    <Menu>
+                    <Menu links={links}>
                         {
-                            dataanimationdirection.map((link, key) => {
-                                return <li key={key}><a id={`l${key}`} href={`#s${key}`}>{link.header}</a></li>
-                            })
+                            dataanimationdirection.map((link, key) => <li key={key} ref={linksRef.current[key]}><a id={`l${key}`} href={`#s${key}`}>{link.header}</a></li>)
                         }
                     </Menu>
                 </div>

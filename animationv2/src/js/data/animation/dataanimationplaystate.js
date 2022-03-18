@@ -1,20 +1,14 @@
 export const dataanimationplaystate = [
     {
-        header: "Opis właściwości animation-play-state",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-play-state</span> możemy określić <b>stan animacji</b>.</div>`
-    },
-    {
-        header: "Wartości właściwości animation-play-state",
-        content: [
-            "running", "paused", "sekwencja"
-        ]
-    },
-    {
         header: "Informacje znacznika animation-play-state",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation-play-state</span> możemy określić <b>stan animacji</b></div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">
@@ -27,7 +21,7 @@ export const dataanimationplaystate = [
         </div>
         <div class="box">
             <p>Wartość initial</p>
-            <div class="link"><a href="#55">running</a></div>
+            <div class="link"><a href="#s1">running</a></div>
         </div>
         <div class="box">
             <p>Wyjątki initial</p>

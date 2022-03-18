@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function Menu(props) {
+
+    useEffect(() => props.links.current = props.children.map(element => element.ref))
 
     return (
         <>

@@ -2,21 +2,15 @@ import { code, defaultIteration, animations, copy } from "../dataanimation"
 
 export const dataanimationduration = [
     {
-        header: "Opis właściwości animation-duration",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-duration</span> możemy określić <b>czas trwania</b> animacji.</div>`
-    },
-    {
-        header: "Wartości właściwości animation-duration",
-        content: [
-            "czas", "sekwencja"
-        ]
-    },
-    {
         header: "Informacje znacznika animation-duration",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation-duration</span> możemy określić <b>czas trwania</b> animacji</div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">

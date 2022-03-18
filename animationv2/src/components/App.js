@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import Home from './Home'
 import Transform from './transform/Transform'
@@ -16,11 +16,9 @@ import { AnimatePresence } from 'framer-motion'
 import Example0 from '../projects/example0/example0'
 import TestCss from './TestCss'
 import TestSvg from './TestSvg'
-import { pageTransition } from '../js/pageAnimation'
 import ScrollUp from './ScrollUp'
 import PageNotFound from './PageNotFound'
 import { AuthProvider } from "./context/AuthContext"
-import { useViewportScroll } from 'framer-motion'
 import Login from './auth/Login'
 import Signup from './auth/Signup'
 import ForgotPassword from './auth/ForgotPassword'
@@ -39,9 +37,6 @@ import Creator from './Creator'
 
 export default function App() {
     const location = useLocation()
-    const [getSection, setGetSection] = useState([])
-    const [sectionLength, setSectionLength] = useState(1)
-    const { scrollY } = useViewportScroll()
 
     useEffect(() => {
         var title = location.pathname.substring(1)
@@ -58,50 +53,7 @@ export default function App() {
         }
         document.getElementById("title").innerHTML = `Animation tutorial | ${title}`
 
-        setTimeout(() => {
-            var data = []
-            document.querySelectorAll(".section").forEach(section => {
-                let menuLink = document.getElementById(`l${section.id.substring(1)}`)
-                data.push({ section: section.offsetTop, menuLink: menuLink })
-            })
-            setGetSection(data)
-        }, pageTransition.duration * 1000)
-
     }, [location])
-
-    useEffect(() => {
-        var executed = false
-
-        window.addEventListener('scroll', scrollHandler)
-
-        function scrollHandler() {
-            const arrayOfSections = getSection.filter(element => element.section - 45 <= scrollY.current)
-            setSectionLength((arrayOfSections.length === 0) ? 1 : arrayOfSections.length)
-            if (arrayOfSections[arrayOfSections.length - 1] === undefined) return
-            getSection.forEach(element => {
-                element.menuLink.classList.remove("active")
-            })
-            arrayOfSections[arrayOfSections.length - 1].menuLink.classList.add("active")
-            if(!executed) borderColor(arrayOfSections[arrayOfSections.length - 1].menuLink)
-        }
-
-        requestAnimationFrame(scrollHandler)
-
-        function borderColor(element) {
-            executed = true
-            var randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`
-            element.style.borderLeftColor = randomColor
-            element.style.color = randomColor
-
-            setTimeout(() => {
-                element.removeAttribute('style')
-            }, 1000)
-        }
-
-        return () => {
-            window.removeEventListener('scroll', scrollHandler)
-        }
-    }, [getSection, scrollY, sectionLength])
 
     return (
         <AuthProvider>

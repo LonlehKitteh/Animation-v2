@@ -2,21 +2,15 @@ import { code, animations, copy } from "../dataanimation"
 
 export const dataanimation = [
     {
-        header: "Opis właściwości animation",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation</span> możemy określić grupę wartości animacji w jednej komendzie.</div>`
-    },
-    {
-        header: "Wartości właściwości animation",
-        content: [
-            "grupa", "sekwencja"
-        ]
-    },
-    {
         header: "Informacje znacznika animation",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation</span> możemy określić grupę wartości animacji w jednej komendzie</div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">

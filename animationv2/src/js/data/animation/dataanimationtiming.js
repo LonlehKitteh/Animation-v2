@@ -2,21 +2,15 @@ import { code, defaultDuration, defaultIteration, animations, copy } from "../da
 
 export const dataanimationtimingfunction = [
     {
-        header: "Opis właściwości animation-timing-function",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-timing-function</span> możemy dodać <b>tempo</b> do animacji.</div>`
-    },
-    {
-        header: "Wartości właściwości animation-timing-function",
-        content: [
-            "ease", "ease-in", "ease-out", "ease-in-out", "linear", "step-start", "step-end", "steps()", "cubic-bezier()", "sekwencja", "zestawienie"
-        ]
-    },
-    {
         header: "Informacje znacznika animation-timing-function",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation-timing-function</span> możemy dodać <b>tempo</b> do animacji</div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">
@@ -29,7 +23,7 @@ export const dataanimationtimingfunction = [
         </div>
         <div class="box">
             <p>Wartość initial</p>
-            <div class="link"><a href="#s14">ease</a></div>
+            <div class="link"><a href="#s1">ease</a></div>
         </div>
         <div class="box">
             <p>Wyjątki initial</p>

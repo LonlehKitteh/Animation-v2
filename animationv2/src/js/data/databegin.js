@@ -1,21 +1,10 @@
 export const arr = [
   {
-    header: "Wstęp",
-    content: `
-        <div class="subheader">W tej części kursu dowiesz się:</div>
-        <ul>
-            <li>Czym są <span class="css-role">animacje</span>, a także, kiedy należy ich używać</li>
-            <li>Zapoznasz się z różnicami pomiędzy <b>przejściem</b> a <span class="css-role">animacją</span></li>
-            <li>Poznasz regułę <span class="css-property"><b>@keyframes</b></span></li>
-            <li>Nauczysz się wszystkich potrzebnych <b>komend</b> związanych z <span class="css-role">animacjami</span></li>
-        </ul>`
-  },
-  {
     header: "Czym są animacje?",
     content: `
         <div class="alert alert-danger" role="alert">
           <i class="fas fa-exclamation"></i><span>
-            <b>Animacja jest to zmiana stanu ze stanu A do stanu B</b>.
+            <b>Animacja jest to zmiana stanu ze stanu A do stanu B</b>.s
             Zmiana stanu może polegać na najprostszej zmianie koloru, jaki i również na skomplikowanej transformacji.
             Należy pamiętać, że transormacja i przejście to nie to samo różnice przedstawie w sekcji poniżej.
             <b>Animacji używamy wtedy, kiedy chcemy uzyskać efekt animowania obiektu</b> zaraz  po załadowaniu strony przez użytkownika,

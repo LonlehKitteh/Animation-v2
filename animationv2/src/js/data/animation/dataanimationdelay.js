@@ -2,21 +2,15 @@ import { code, defaultDuration, defaultIteration,  animations, copy} from "../da
 
 export const dataanimationdelay = [
     {
-        header: "Opis właściwości animation-delay",
-        content: `<div>Za pomocą właściwości <span class="css-role">animation-delay</span> możemy dodać <b>opuźnienie</b> animacji.</div>`
-    },
-    {
-        header: "Wartości właściwości animation-delay",
-        content: [
-            "czas", "sekwencja"
-        ]
-    },
-    {
         header: "Informacje znacznika animation-delay",
         content: `
         <div class="technical">
         <div class="box">
-            <p>Przeznacznie</p>
+            <p>Opis</p>
+            <div class="description">Za pomocą właściwości <span class="css-role">animation-delay</span> możemy dodać <b>opuźnienie</b> animacji</div>
+        </div>
+        <div class="box">
+            <p>Przeznaczenie</p>
             <div>element HTML każdego typu</div>
         </div>
         <div class="box">
