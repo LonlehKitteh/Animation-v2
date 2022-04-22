@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "animation-project-cc229"
-  }
+    "animation": "animation-eaacf",
+    "default": "animation-eaacf"
+  },
+  "targets": {}
 }
