@@ -1,0 +1,16 @@
+// begin
+1. Dodać animacje 3d na stronie begin. (wyrzucić starą)
+2. Ogarnąć kopiowanie na stronach. (begin)
+
+// transform-origin
+1. poprawić widok sekcji
+
+// perspective-origin
+1. poprawić widok sekcji
+
+1. dodać keyframes
+2. strona 404
+3. themes
+4. poprawic admin panel
+5. zrobic test
+6. content dla 3d

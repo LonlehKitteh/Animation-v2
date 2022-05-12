@@ -7,16 +7,18 @@ const useObserver = (sections, links) => {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 const link = links.current[parseInt(entry.target.id.substring(1))].current;
-                if (link && entry.isIntersecting) {
-                    var randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-                    link.lastChild.style.setProperty('--randomColor', randomColor);
-                    link.lastChild.style.fontWeight = "bold";
-                } else{
-                    if(link) link.lastChild.removeAttribute("style");
+                if (!link) return;
+
+                if (!entry.isIntersecting) {
+                    link.removeAttribute("style");
+                    return;
                 }
+
+                link.style.setProperty('--randomColor', `#${Math.floor(Math.random() * 16777215).toString(16)}`);
+                link.style.fontWeight = "bold";
             })
         }, {
-            threshold: 0.3,
+            threshold: 0.51,
             root: null,
             rootMargin: '0px'
         });
