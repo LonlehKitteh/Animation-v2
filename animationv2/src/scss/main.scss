@@ -624,13 +624,13 @@ html {
             color: white;
             font-family: "Cairo";
         }
-        div{
+        div {
             color: white;
         }
-        a{
+        a {
             color: #2157df !important;
             text-decoration: none !important;
-            margin: .5rem;
+            margin: 0.5rem;
         }
     }
     .slices {
@@ -652,8 +652,7 @@ html {
         @each $name, $polygon in $polygons {
             .slice#{$name} {
                 clip-path: $polygon;
-                animation: page404_#{$name} 30s #{$name}s steps(4) infinite;
-                filter: blur(2px);
+                animation: page404_#{$name} 30s #{$name}s steps(5) infinite, filter 20s #{$name}s linear infinite;
             }
         }
     }

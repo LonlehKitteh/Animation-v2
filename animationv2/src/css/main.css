@@ -357,6 +357,108 @@
   }
 }
 
+@-webkit-keyframes filter {
+  from {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px red);
+            filter: blur(2px) drop-shadow(0 0 5px red);
+  }
+  5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px transparent);
+            filter: blur(2px) drop-shadow(0 0 5px transparent);
+  }
+  10% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px orange);
+            filter: blur(2px) drop-shadow(0 0 5px orange);
+  }
+  20% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px yellow);
+            filter: blur(2px) drop-shadow(0 0 5px yellow);
+  }
+  30% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px lightgreen);
+            filter: blur(2px) drop-shadow(0 0 5px lightgreen);
+  }
+  40% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px green);
+            filter: blur(2px) drop-shadow(0 0 5px green);
+  }
+  50% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px lightblue);
+            filter: blur(2px) drop-shadow(0 0 5px lightblue);
+  }
+  60% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px blue);
+            filter: blur(2px) drop-shadow(0 0 5px blue);
+  }
+  70% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px fuchsia);
+            filter: blur(2px) drop-shadow(0 0 5px fuchsia);
+  }
+  80% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px purple);
+            filter: blur(2px) drop-shadow(0 0 5px purple);
+  }
+  90% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px pink);
+            filter: blur(2px) drop-shadow(0 0 5px pink);
+  }
+  to {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px red);
+            filter: blur(2px) drop-shadow(0 0 5px red);
+  }
+}
+
+@keyframes filter {
+  from {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px red);
+            filter: blur(2px) drop-shadow(0 0 5px red);
+  }
+  5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px transparent);
+            filter: blur(2px) drop-shadow(0 0 5px transparent);
+  }
+  10% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px orange);
+            filter: blur(2px) drop-shadow(0 0 5px orange);
+  }
+  20% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px yellow);
+            filter: blur(2px) drop-shadow(0 0 5px yellow);
+  }
+  30% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px lightgreen);
+            filter: blur(2px) drop-shadow(0 0 5px lightgreen);
+  }
+  40% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px green);
+            filter: blur(2px) drop-shadow(0 0 5px green);
+  }
+  50% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px lightblue);
+            filter: blur(2px) drop-shadow(0 0 5px lightblue);
+  }
+  60% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px blue);
+            filter: blur(2px) drop-shadow(0 0 5px blue);
+  }
+  70% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px fuchsia);
+            filter: blur(2px) drop-shadow(0 0 5px fuchsia);
+  }
+  80% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px purple);
+            filter: blur(2px) drop-shadow(0 0 5px purple);
+  }
+  90% {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px pink);
+            filter: blur(2px) drop-shadow(0 0 5px pink);
+  }
+  to {
+    -webkit-filter: blur(2px) drop-shadow(0 0 5px red);
+            filter: blur(2px) drop-shadow(0 0 5px red);
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1270,7 +1372,7 @@ html {
 .notFound .return a {
   color: #2157df !important;
   text-decoration: none !important;
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .notFound .slices div {
@@ -1286,35 +1388,27 @@ html {
 .notFound .slices .slice1 {
   -webkit-clip-path: polygon(46% 0, 57% 26%, 50% 50%, 0 25%, 0 0);
           clip-path: polygon(46% 0, 57% 26%, 50% 50%, 0 25%, 0 0);
-  -webkit-animation: page404_1 30s 1s steps(4) infinite;
-          animation: page404_1 30s 1s steps(4) infinite;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  -webkit-animation: page404_1 30s 1s steps(5) infinite, filter 20s 1s linear infinite;
+          animation: page404_1 30s 1s steps(5) infinite, filter 20s 1s linear infinite;
 }
 
 .notFound .slices .slice2 {
   -webkit-clip-path: polygon(59.5% 20%, 77% 67%, 51% 50%);
           clip-path: polygon(59.5% 20%, 77% 67%, 51% 50%);
-  -webkit-animation: page404_2 30s 2s steps(4) infinite;
-          animation: page404_2 30s 2s steps(4) infinite;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  -webkit-animation: page404_2 30s 2s steps(5) infinite, filter 20s 2s linear infinite;
+          animation: page404_2 30s 2s steps(5) infinite, filter 20s 2s linear infinite;
 }
 
 .notFound .slices .slice3 {
   -webkit-clip-path: polygon(100% 0, 100% 100%, 90% 100%, 63% 28%, 70% 0);
           clip-path: polygon(100% 0, 100% 100%, 90% 100%, 63% 28%, 70% 0);
-  -webkit-animation: page404_3 30s 3s steps(4) infinite;
-          animation: page404_3 30s 3s steps(4) infinite;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  -webkit-animation: page404_3 30s 3s steps(5) infinite, filter 20s 3s linear infinite;
+          animation: page404_3 30s 3s steps(5) infinite, filter 20s 3s linear infinite;
 }
 
 .notFound .slices .slice4 {
   -webkit-clip-path: polygon(0 26%, 65% 60%, 70% 90%, 13% 100%, 0% 100%);
           clip-path: polygon(0 26%, 65% 60%, 70% 90%, 13% 100%, 0% 100%);
-  -webkit-animation: page404_4 30s 4s steps(4) infinite;
-          animation: page404_4 30s 4s steps(4) infinite;
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  -webkit-animation: page404_4 30s 4s steps(5) infinite, filter 20s 4s linear infinite;
+          animation: page404_4 30s 4s steps(5) infinite, filter 20s 4s linear infinite;
 }
