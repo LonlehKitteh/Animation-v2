@@ -277,6 +277,86 @@
   }
 }
 
+@-webkit-keyframes page404_1 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px 0px;
+  }
+}
+
+@keyframes page404_1 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px 0px;
+  }
+}
+
+@-webkit-keyframes page404_2 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -40px -55px;
+  }
+}
+
+@keyframes page404_2 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -40px -55px;
+  }
+}
+
+@-webkit-keyframes page404_3 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px -70px;
+  }
+}
+
+@keyframes page404_3 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px -70px;
+  }
+}
+
+@-webkit-keyframes page404_4 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -50px -50px;
+  }
+}
+
+@keyframes page404_4 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -50px -50px;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1132,4 +1212,109 @@ html {
   top: 0;
   left: 0;
   border-radius: 0.5rem;
+}
+
+.notFound {
+  width: 100%;
+  height: calc(100vh - 56px);
+  background: linear-gradient(45deg, #101727 10%, #1f2c4d 40%, #0d131f 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.notFound > div:not(.slices) {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 2rem;
+}
+
+.notFound .main-text {
+  margin-top: 10rem;
+  color: #2157df;
+  font-family: "Cairo";
+  font-size: 4rem;
+  -webkit-filter: drop-shadow(0 0 6px black);
+          filter: drop-shadow(0 0 6px black);
+}
+
+.notFound .return {
+  z-index: 99;
+  text-align: center;
+}
+
+.notFound .return span {
+  color: white;
+  font-family: "Cairo";
+}
+
+.notFound .return div {
+  color: white;
+}
+
+.notFound .return a {
+  color: #2157df !important;
+  text-decoration: none !important;
+  margin: .5rem;
+}
+
+.notFound .slices div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/pagenotfound.png");
+  background-attachment: fixed;
+}
+
+.notFound .slices .slice1 {
+  -webkit-clip-path: polygon(46% 0, 57% 26%, 50% 50%, 0 25%, 0 0);
+          clip-path: polygon(46% 0, 57% 26%, 50% 50%, 0 25%, 0 0);
+  -webkit-animation: page404_1 30s 1s steps(4) infinite;
+          animation: page404_1 30s 1s steps(4) infinite;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+.notFound .slices .slice2 {
+  -webkit-clip-path: polygon(59.5% 20%, 77% 67%, 51% 50%);
+          clip-path: polygon(59.5% 20%, 77% 67%, 51% 50%);
+  -webkit-animation: page404_2 30s 2s steps(4) infinite;
+          animation: page404_2 30s 2s steps(4) infinite;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+.notFound .slices .slice3 {
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 90% 100%, 63% 28%, 70% 0);
+          clip-path: polygon(100% 0, 100% 100%, 90% 100%, 63% 28%, 70% 0);
+  -webkit-animation: page404_3 30s 3s steps(4) infinite;
+          animation: page404_3 30s 3s steps(4) infinite;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+.notFound .slices .slice4 {
+  -webkit-clip-path: polygon(0 26%, 65% 60%, 70% 90%, 13% 100%, 0% 100%);
+          clip-path: polygon(0 26%, 65% 60%, 70% 90%, 13% 100%, 0% 100%);
+  -webkit-animation: page404_4 30s 4s steps(4) infinite;
+          animation: page404_4 30s 4s steps(4) infinite;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
 }

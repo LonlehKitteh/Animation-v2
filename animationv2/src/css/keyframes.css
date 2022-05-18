@@ -276,3 +276,83 @@
             transform: var(--transform, none);
   }
 }
+
+@-webkit-keyframes page404_1 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px 0px;
+  }
+}
+
+@keyframes page404_1 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px 0px;
+  }
+}
+
+@-webkit-keyframes page404_2 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -40px -55px;
+  }
+}
+
+@keyframes page404_2 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -40px -55px;
+  }
+}
+
+@-webkit-keyframes page404_3 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px -70px;
+  }
+}
+
+@keyframes page404_3 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50px -70px;
+  }
+}
+
+@-webkit-keyframes page404_4 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -50px -50px;
+  }
+}
+
+@keyframes page404_4 {
+  from,
+  to {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -50px -50px;
+  }
+}

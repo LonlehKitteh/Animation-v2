@@ -103,8 +103,25 @@
         transform: perspective(800px) rotateY(360deg);
     }
 }
-@keyframes program{
-    to{
-        transform: var(--transform, none)
+@keyframes program {
+    to {
+        transform: var(--transform, none);
+    }
+}
+$positions: (
+    "1": 50px 0px,
+    "2": -40px -55px,
+    "3": 50px -70px,
+    "4": -50px -50px,
+);
+@each $name, $position in $positions {
+    @keyframes page404_#{$name} {
+        from,
+        to {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: $position;
+        }
     }
 }
