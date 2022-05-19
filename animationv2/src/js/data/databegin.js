@@ -14,12 +14,8 @@ export const arr = [
         <p>Praktycznie <b>wszystko</b> może zostać animowane.
         Np. <b>width, height, background-color, color, transform, cursor</b> i wiele więcej...
     </p>
-    <p><b>Na przykład:</b></p>
-    <div class="css-track">
-    <div></div>
-    </div>
     <p>W prawdzie mówiąc ciężko jest wymienić, właściwości CSS których nie można animować, to nie znaczy że ich nie ma. Przykładowe właściwości, których nie można animować: <b>all, animation, will-change</b>.
-    Podobny efekt można uzyskać za pomocą <b>marquee</b>, ten element div rusza się od początku załadowania się strony i robi to w <b>nieskończoność</b>, można sprawdzić :)</p>`
+    Podobny efekt można uzyskać za pomocą <b>marquee</b>, poniżej przygotowałem przykładową animację którą można osiągnąć w samym CSS.</p>`
   },
   {
     header: "Rodzaje Animacji",

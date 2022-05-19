@@ -126,42 +126,148 @@ $positions: (
     }
 }
 
-@keyframes filter{
+@keyframes filter {
     $width: 5px;
-    from{
-        filter: blur(2px) drop-shadow(0 0 $width red)
+    from {
+        filter: blur(2px) drop-shadow(0 0 $width red);
     }
-    5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95%{
-        filter: blur(2px) drop-shadow(0 0 $width transparent)
+    5%,
+    15%,
+    25%,
+    35%,
+    45%,
+    55%,
+    65%,
+    75%,
+    85%,
+    95% {
+        filter: blur(2px) drop-shadow(0 0 $width transparent);
     }
-    10%{
-        filter: blur(2px) drop-shadow(0 0 $width orange)
+    10% {
+        filter: blur(2px) drop-shadow(0 0 $width orange);
     }
-    20%{
-        filter: blur(2px) drop-shadow(0 0 $width yellow)
+    20% {
+        filter: blur(2px) drop-shadow(0 0 $width yellow);
     }
-    30%{
-        filter: blur(2px) drop-shadow(0 0 $width lightgreen)
+    30% {
+        filter: blur(2px) drop-shadow(0 0 $width lightgreen);
     }
-    40%{
-        filter: blur(2px) drop-shadow(0 0 $width green)
+    40% {
+        filter: blur(2px) drop-shadow(0 0 $width green);
     }
-    50%{
-        filter: blur(2px) drop-shadow(0 0 $width lightblue)
+    50% {
+        filter: blur(2px) drop-shadow(0 0 $width lightblue);
     }
-    60%{
-        filter: blur(2px) drop-shadow(0 0 $width blue)
+    60% {
+        filter: blur(2px) drop-shadow(0 0 $width blue);
     }
-    70%{
-        filter: blur(2px) drop-shadow(0 0 $width fuchsia)
+    70% {
+        filter: blur(2px) drop-shadow(0 0 $width fuchsia);
     }
-    80%{
-        filter: blur(2px) drop-shadow(0 0 $width purple)
+    80% {
+        filter: blur(2px) drop-shadow(0 0 $width purple);
     }
-    90%{
+    90% {
         filter: blur(2px) drop-shadow(0 0 $width pink);
     }
-    to{
+    to {
         filter: blur(2px) drop-shadow(0 0 $width red);
+    }
+}
+
+@keyframes fullRotation {
+    70% {
+        transform: translateX(10px) rotateX(-45deg) rotateY(-30deg);
+    }
+}
+
+@keyframes test0 {
+    12.5%,
+    87.5% {
+        transform: translate3d(0, -100px, 0);
+    }
+    25%,
+    75% {
+        transform: translate3d(0, -100px, 0) translateX(-50px);
+    }
+    37.5% {
+        transform: translate3d(100px, -100px, 0) translate(50px);
+    }
+    50% {
+        transform: translate3d(100px, -100px, 100px) translate(50px);
+    }
+    62.5% {
+        transform: translate3d(0, -100px, 100px) translate(-50px);
+    }
+}
+
+@keyframes test2 {
+    12.5%,
+    87.5% {
+        transform: translate3d(100px, -100px, 0);
+    }
+    25%,
+    75% {
+        transform: translate3d(100px, -100px, 0) translateX(50px);
+    }
+    37.5% {
+        transform: translate3d(100px, -100px, 100px) translateX(50px);
+    }
+    50% {
+        transform: translate3d(0, -100px, 100px) translateX(-50px);
+    }
+    62.5% {
+        transform: translate3d(0, -100px, 0) translateX(-50px);
+    }
+}
+
+@keyframes test18 {
+    12.5%,
+    87.5% {
+        transform: translate3d(0px, -100px, 100px);
+    }
+    25%,
+    75% {
+        transform: translate3d(0, -100px, 100px) translateX(-50px);
+    }
+    37.5% {
+        transform: translate3d(0, -100px, 0) translateX(-50px);
+    }
+    50% {
+        transform: translate3d(100px, -100px, 0) translateX(50px);
+    }
+    62.5% {
+        transform: translate3d(100px, -100px, 100px) translateX(50px);
+    }
+}
+
+@keyframes test20 {
+    12.5%,
+    87.5% {
+        transform: translate3d(100px, -100px, 100px);
+    }
+    25%,
+    75% {
+        transform: translate3d(100px, -100px, 100px) translateX(50px);
+    }
+    37.5% {
+        transform: translate3d(0px, -100px, 100px) translateX(-50px);
+    }
+    50% {
+        transform: translate3d(0px, -100px, 0) translateX(-50px);
+    }
+    62.5% {
+        transform: translate3d(100px, -100px, 0) translateX(50px);
+    }
+}
+
+@keyframes pulse {
+    from, to{
+        background: $nav-color-hover;
+        border: 1px solid $nav-color-hover;
+    }
+    12.5% {
+        background: #a6d9a6;
+        border: 1px solid #84b484;
     }
 }

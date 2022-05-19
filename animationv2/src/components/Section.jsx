@@ -6,6 +6,7 @@ import copy from 'copy-to-clipboard'
 import { motion } from 'framer-motion'
 import { messages } from '../js/data/message'
 import { Shake } from 'reshake'
+import Cube from './Cube'
 
 const Section = props => {
     const ref = useRef(null)
@@ -85,9 +86,10 @@ const Section = props => {
             <h1>{props.header}</h1>
             <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
             {
+                (props.beginCube) ? <Cube></Cube> :
                 (props.picturedTransform) ? <>
                     <div className="pictured">
-                        <h2>{(transforms[props.counter] !== undefined) ? `${transforms[props.counter].value};` : 'in progress...'}</h2>
+                        <h2>{`${transforms[props.counter].value || ''};`}</h2>
                         {
                             (props.perspectivePicture) ?
                                 <div className="flex" style={{ height: '50vh' }}>
@@ -111,7 +113,7 @@ const Section = props => {
                     }
                 </> : (props.picturedAnimation) ? <>
                     <div className="pictured">
-                        <h2>{(animations[props.counter - 4] !== undefined) ? `${animations[props.counter - 4].value};` : "in progress..."}</h2>
+                        <h2>{`${animations[props.counter - 4].value || ""};`}</h2>
                         <div className={([22, 23, 54, 55, 56, 57].includes(props.counter)) ? 'css-track-color' : 'css-track-animation'}>
                             {![63, 64, 65].includes(props.counter) ?
                                 <div style={{ ...animations[props.counter - 4], animationPlayState: (!isDisabled) ? 'paused' : 'running' }} /> :

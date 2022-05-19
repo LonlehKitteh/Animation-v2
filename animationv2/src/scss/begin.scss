@@ -101,7 +101,7 @@
 }
 .begin h1 {
     margin: -2rem;
-    font-family: monospace, 'Cairo';
+    font-family: monospace, "Cairo";
     margin-bottom: 2rem;
     color: white !important;
     background-color: $btn-primary-hover;
@@ -114,10 +114,76 @@
     user-select: none;
     text-shadow: none !important;
 }
-.twoButtons{
+.twoButtons {
     display: flex;
     justify-content: space-around;
-    div{
+    div {
         flex-grow: 1;
+    }
+}
+
+$time: 5s;
+.animation-3d {
+    $size: 150px;
+    width: $size;
+    height: $size;
+    perspective: 900px;
+    margin: 10rem auto;
+    .box {
+        transform-style: preserve-3d;
+        transform: rotateX(-30deg) rotateY(-45deg);
+        animation: fullRotation $time 1s ease-in-out infinite;
+        .cube {
+            width: $size / 3;
+            height: $size / 3;
+            position: absolute;
+            transform-style: preserve-3d;
+            .cube__face {
+                position: absolute;
+                width: $size / 3;
+                height: $size / 3;
+                background: inherit;
+                box-shadow: 0 0 0.5 * $size / 3 rgba(gainsboro, 0.5) inset;
+                backface-visibility: hidden;
+                background: #ff7f50;
+                border: 1px solid #ff7f50;
+
+                $rotates: 0, 90, 180, -90, 90, -90;
+                $counter: 1;
+                @each $rotate in $rotates {
+                    &:nth-child(#{$counter}) {
+                        @if $counter > 4 {
+                            transform: rotateX($rotate + deg) translateZ($size / 6);
+                        } @else {
+                            transform: rotateY($rotate + deg) translateZ($size / 6);
+                        }
+                        $counter: $counter + 1;
+                    }
+                }
+            }
+        }
+    }
+    $jump: 0;
+    $counter: 0;
+    @for $z from 0 to 3 {
+        @for $i from 0 to 9 {
+            .cube#{$counter} {
+                transform: translate3d($size / 3 * ($i%3), $size / 3 * ($jump % 3), $size / 3 * $z);
+                animation: test#{$counter} $time infinite;
+            }
+            @if ($i + 1) % 3 == 0 {
+                $jump: $jump + 1;
+            }
+            $counter: $counter + 1;
+        }
+    }
+}
+
+.cube0,
+.cube2,
+.cube18,
+.cube20 {
+    .cube__face {
+        animation: pulse $time ease-in-out infinite both;
     }
 }

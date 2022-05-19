@@ -42,7 +42,9 @@ export default function Begin() {
                             sections={sections}
                             id={`s${counter}`}
                             header={el.header}
-                            content={el.content} />)}
+                            content={el.content}
+                            beginCube={counter === 0}
+                            />)}
                 </div>
                 <div className="aside">
                     <Menu links={links}>
