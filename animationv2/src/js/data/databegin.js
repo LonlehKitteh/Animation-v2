@@ -22,7 +22,7 @@ export const arr = [
     contentMainHeader: `Niestety <span class="css-role">animacja</span> może być przeprowadzona w dwojaki sposób, to znaczy wyróżniamy <b>dwa rodzaje</b> <span class="css-role">animacji</span>:`,
 
     left: {
-      header: 'Animacja schodkowa',
+      header: 'Animacja płynna',
       textBefore: `To jest taka <span class="css-role">animacja</span>, która jest płynna to znaczy element posiada <b>przejście</b> pomiędzy stanami. Np: <b>color, border, padding, width, height</b>, itd...`,
       textAfter: `Zauważ, że ta <span class="css-role">animacja</span> ma płynne przejście pomiędzy stanami`,
       code: `<span class="css-comment">/* Przykładowa animacja płynna */</span>
@@ -54,7 +54,7 @@ export const arr = [
     },
 
     right: {
-      header: 'Animacja płynna',
+      header: 'Animacja schodkowa',
       textBefore: `To jest taka <span class="css-role">animacja</span>, która <b>nie posiada przejścia</b> pomiędzy stanami. Np: <b>background-image, cursor, display, flex-wrap, resize,</b> itd...`,
       textAfter: 'Zauważ, że to wygląda dokładnie jakby ten element <b>nie miał przejścia pomiędzy stanami</b>, oczywiście da się to obejść w inny sposób np nie animować właściwości <b>display</b> tylko <b>opacity</b> :)',
       code: `<span class="css-comment">/* Przykładowa animacja schodkowa */</span>

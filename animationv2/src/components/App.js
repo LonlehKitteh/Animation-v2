@@ -15,7 +15,6 @@ import Begin from './Begin'
 import { AnimatePresence } from 'framer-motion'
 import Example0 from '../projects/example0/example0'
 import TestCss from './TestCss'
-import TestSvg from './TestSvg'
 import ScrollUp from './ScrollUp'
 import PageNotFound from './PageNotFound'
 import { AuthProvider } from "./context/AuthContext"
@@ -84,7 +83,6 @@ export default function App() {
                     <Route path="/keyframes" component={Keyframes} />
                     <Route path="/galery" component={Galery} />
                     <PrivateRoute path="/testcss" component={TestCss} />
-                    <Route path="/testsvg" component={TestSvg} />
 
                     <Route path="/login" component={Login} />
                     <Route path="/signup" component={Signup} />

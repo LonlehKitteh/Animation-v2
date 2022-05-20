@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { pageTransition, pageVariants } from '../js/pageAnimation'
 import { Form, Button } from 'react-bootstrap'
-import { useCorrect, useQuestion } from './questions/Question'
+import { useCorrect } from './hooks/useCorrect'
+import { useQuestion } from './hooks/useQuestion'
 import '../css/test.css'
 
 export default function TestCss() {
     const question = useQuestion()
     const correct = useCorrect()
-    const [points, setPoints] = useState(0)
-    const [randAnswers,] = useState(shuffle([1, 2, 3]))
+    const points = useRef(0);
     const [randQuestions,] = useState(shuffle([0, 1, 2, 3]))
+    const inputs = useRef([])
 
     function shuffle(array) {
         var i = array.length, j = 0, temp;
@@ -35,7 +36,8 @@ export default function TestCss() {
                 el.classList.add("incorrect")
                 if (correct[randQuestions[key++]].value === answer.innerHTML) {
                     counter++
-                    setPoints(counter)
+                    points.current = counter
+                    console.log(points.current)
                 }
             }
             for (let i = 0; i <= correct.length - 1; i++) {
@@ -52,6 +54,12 @@ export default function TestCss() {
             if (counter > correct.length / 2) document.getElementById("points").style.setProperty("--color", "white")
         })
     }
+
+    function handleChange(e, key) {
+        inputs.current.map(element => Object.values(element).indexOf(key) < -1 )
+        inputs.current = [...inputs.current ,{ key: key, target: e.target }];
+    }
+
     return (
         <motion.div
             className="page"
@@ -74,14 +82,15 @@ export default function TestCss() {
                                 return (
                                     <Form.Group key={`${check.id}-${key}`}>
                                         <Form.Label>{`${key + 1}. ${quest.question}`}</Form.Label>
-                                        {[1, 2, 3].map((el, counter) => {
+                                        {shuffle([1, 2, 3]).map((el, counter) => {
                                             return (
                                                 <Form.Check
                                                     key={el}
                                                     type="radio"
-                                                    label={quest[`answer${randAnswers[counter]}`]}
+                                                    label={quest[`answer${el}`]}
                                                     name={`formHorizontalRadios${key + 1}`}
                                                     id={`formHorizontalRadios${key + 1}-${counter + 1}`}
+                                                    onChange={e => handleChange(e, key + 1)}
                                                 />
                                             )
                                         })}
@@ -92,7 +101,7 @@ export default function TestCss() {
                     })
                 }
                 <div id="points">{`${points} / ${correct.length}`}
-                    <div style={{ width: `${Math.round(points / correct.length * 100)}%`, filter: `hue-rotate(${Math.round(points / correct.length * 180)}deg)` }}></div> 
+                    <div style={{ width: `${Math.round(points / correct.length * 100)}%`, filter: `hue-rotate(${Math.round(points / correct.length * 180)}deg)` }}></div>
                 </div>
                 <Button variant="success" id="answers" onClick={takeAnswers}>Sprawdź odpowiedzi</Button>
             </Form>

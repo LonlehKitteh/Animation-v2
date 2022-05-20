@@ -1,6 +1,5 @@
 // begin
-1. Dodać animacje 3d na stronie begin. (wyrzucić starą)
-2. Ogarnąć kopiowanie na stronach. (begin)
+1. Ogarnąć kopiowanie na stronach. (begin)
 
 // transform-origin
 1. poprawić widok sekcji
@@ -13,3 +12,4 @@
 4. poprawic admin panel
 5. zrobic test
 6. content dla 3d
+7. wystylowac forgot pass itp.
