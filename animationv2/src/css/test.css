@@ -1,6 +1,6 @@
-.test {
+.form {
   width: 60%;
-  font-family: monospace, 'Cairo';
+  font-family: monospace, "Cairo";
   margin: auto;
   background-color: white;
   border-radius: 1rem;
@@ -18,60 +18,28 @@
   gap: 1rem;
 }
 
-.test .form-label {
+.form .form-label {
   font-weight: bold;
   color: var(--nav-color-hover, #009fff);
 }
 
-.test .form-label:first-of-type {
+.form .form-label:first-of-type {
   -ms-grid-column-align: center;
       justify-self: center;
 }
 
-.test #answers {
+.form #answers {
   margin: auto;
 }
 
-.test label {
+.form label {
   display: block;
   opacity: 1 !important;
-  padding-left: .3rem;
+  padding-left: 0.3rem;
 }
 
-.test .form-check {
-  margin: .3rem 0;
-}
-
-.incorrect {
-  color: #fb3e3e;
-  font-weight: bold;
-}
-
-input.incorrect {
-  background-color: #fb3e3e !important;
-  border-color: #fb3e3e !important;
-  -webkit-box-shadow: 0 0 0 0.25rem #fb3e3e50 !important;
-          box-shadow: 0 0 0 0.25rem #fb3e3e50 !important;
-}
-
-input.correct {
-  background-color: transparent !important;
-  border-color: #42a342 !important;
-  -webkit-box-shadow: 0 0 0 0.25rem #42a34250 !important;
-          box-shadow: 0 0 0 0.25rem #42a34250 !important;
-}
-
-input.correct:checked {
-  background-color: #42a342 !important;
-}
-
-.correct {
-  color: #42a342;
-  font-weight: bold;
-}
-
-input:disabled {
-  opacity: 1 !important;
+.form .form-check {
+  margin: 0.3rem 0;
 }
 
 .mainTitle {
@@ -85,40 +53,79 @@ i.fas.fa-exclamation {
   font-size: 2rem;
 }
 
-#points {
-  padding: .5rem 0;
-  width: 0;
-  background-color: var(--css-track, #e1e1e1);
-  border-radius: 1rem;
-  position: relative;
-  overflow: hidden;
-  -webkit-transition: width 0.2s ease-in-out, color 0.2s 0.2s ease-in-out;
-  transition: width 0.2s ease-in-out, color 0.2s 0.2s ease-in-out;
-  color: transparent;
-}
-
-#points div {
+.test .push {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 100%;
-  background: -webkit-gradient(linear, right top, left top, color-stop(10%, #fdb9b9), to(#fb3e3e));
-  background: linear-gradient(to left, #fdb9b9 10%, #fb3e3e);
-  border-radius: 1rem;
-  -webkit-transition: width 0.2s 0.2s ease-out;
-  transition: width 0.2s 0.2s ease-out;
+  width: 100vw;
+  height: calc(100vh - 56px);
+  background-position: fixed;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #e8f0f7), color-stop(50%, #4d5bf9));
+  background: linear-gradient(to bottom, #e8f0f7 50%, #4d5bf9 50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#points:after {
-  content: var(--points);
+.test .push .container {
+  width: clamp(25vw, 30vw, 40vw);
+  height: clamp(25vw, 30vw, 40vw);
+  background: white;
+  border-radius: 8px;
+  -webkit-box-shadow: 20px 20px 40px #4d5bf940;
+          box-shadow: 20px 20px 40px #4d5bf940;
+  position: relative;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.test .push .container .circular-progress {
+  position: relative;
+  height: 75%;
+  width: 75%;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.test .push .container .circular-progress::before {
+  content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: block;
-  color: var(--color, black);
+  height: 95%;
+  width: 95%;
+  background: white;
+  border-radius: 50%;
+}
+
+.test .push .container .circular-progress .value-container {
+  color: #231c3d;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 5vw;
+  font-family: 'Cairo';
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }

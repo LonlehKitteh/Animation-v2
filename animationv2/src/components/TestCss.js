@@ -5,13 +5,23 @@ import { Form, Button } from 'react-bootstrap'
 import { useCorrect } from './hooks/useCorrect'
 import { useQuestion } from './hooks/useQuestion'
 import '../css/test.css'
+import { useAuth } from './context/AuthContext'
 
 export default function TestCss() {
     const question = useQuestion()
     const correct = useCorrect()
     const points = useRef(0);
-    const [randQuestions,] = useState(shuffle([0, 1, 2, 3]))
+    const valueRef = useRef(null)
+    const [randQuestions,] = useState(shuffle([...Array(4).keys()]))
     const inputs = useRef([])
+    const [isDisabled, setIsDisabled] = useState(false)
+    const circularProgressRef = useRef(null)
+    const { currentUser } = useAuth()
+
+    useEffect(() => {
+        handleAnimation(points.current / correct.length * 100)
+    }, [isDisabled, correct.length])
+    
 
     function shuffle(array) {
         var i = array.length, j = 0, temp;
@@ -27,84 +37,91 @@ export default function TestCss() {
 
     function takeAnswers(e) {
         e.preventDefault()
-        var counter = 0
-        var key = 0
-        document.querySelectorAll("input").forEach(el => {
-            let answer = document.querySelector(`[for=${el.id}]`)
-            if (el.checked) {
-                answer.classList.add("incorrect")
-                el.classList.add("incorrect")
-                if (correct[randQuestions[key++]].value === answer.innerHTML) {
-                    counter++
-                    points.current = counter
-                    console.log(points.current)
-                }
-            }
-            for (let i = 0; i <= correct.length - 1; i++) {
-                if (correct[randQuestions[i]].value === answer.innerHTML) {
-                    answer.classList.remove("incorrect")
-                    el.classList.remove("incorrect")
-                    answer.classList.add("correct")
-                    el.classList.add("correct")
-                }
-            }
-            el.disabled = true
-            document.getElementById("points").style.width = "100%"
-            document.getElementById("points").style.setProperty("--points", `"${Math.round(counter / correct.length * 100)}%"`)
-            if (counter > correct.length / 2) document.getElementById("points").style.setProperty("--color", "white")
-        })
+        let temp = []
+        correct.map(element => temp.push(element.value))
+        points.current = inputs.current.filter(element => temp.includes(element.answer)).length
+        setIsDisabled(true)
+        currentUser.pointsCSS = points.current / correct.length * 100
     }
 
-    function handleChange(e, key) {
-        inputs.current.map(element => Object.values(element).indexOf(key) < -1 )
-        inputs.current = [...inputs.current ,{ key: key, target: e.target }];
+    function handleChange(e, key, answer) {
+        var found = inputs.current.find(object => Object.values(object)[0] === key)
+        if (found) {
+            found.target = e.target
+            found.answer = answer
+            return
+        }
+
+        inputs.current = [...inputs.current, { key: key, target: e.target, answer: answer }];
+    }
+
+    function handleAnimation(points) {
+        let speed = 50;
+        let progressValue = 0;
+        let color = '#4d5bf9'
+        if(valueRef.current === null) return
+        let progress = setInterval(() => {
+            if (progressValue !== points) progressValue++;
+            valueRef.current.innerHTML = `${progressValue}%`;
+            circularProgressRef.current.style.background = `conic-gradient(${color} ${progressValue * 3.6}deg, ${color}40 ${progressValue * 3.6}deg)`
+            circularProgressRef.current.style.filter = `hue-rotate(${progressValue * 3.6}deg)`
+            if (progressValue === points) clearInterval(progress)
+        }, speed)
     }
 
     return (
         <motion.div
-            className="page"
+            className="page test"
             initial="initial"
             animate="in"
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
         >
-            <Form className="test">
-                <div className="alert alert-primary d-flex align-items-center" role="alert">
-                    <i className="fas fa-exclamation"></i>
-                    <span>Test sprawdzający wiedzę z animacji w CSS3.</span>
-                </div>
-                {
-                    question.map(check => {
-                        return (
-                            check.questions.map((quest, key) => {
-                                quest = check.questions[randQuestions[key]]
+            {
+                !isDisabled ? <div className='push'>
+                    <Form className="form">
+                        <div className="alert alert-primary d-flex align-items-center" role="alert">
+                            <i className="fas fa-exclamation"></i>
+                            <span>Test sprawdzający wiedzę z animacji w CSS3.</span>
+                        </div>
+                        {
+                            question.map(check => {
                                 return (
-                                    <Form.Group key={`${check.id}-${key}`}>
-                                        <Form.Label>{`${key + 1}. ${quest.question}`}</Form.Label>
-                                        {shuffle([1, 2, 3]).map((el, counter) => {
-                                            return (
-                                                <Form.Check
-                                                    key={el}
-                                                    type="radio"
-                                                    label={quest[`answer${el}`]}
-                                                    name={`formHorizontalRadios${key + 1}`}
-                                                    id={`formHorizontalRadios${key + 1}-${counter + 1}`}
-                                                    onChange={e => handleChange(e, key + 1)}
-                                                />
-                                            )
-                                        })}
-                                    </Form.Group>
+                                    check.questions.map((quest, key) => {
+                                        quest = check.questions[randQuestions[key]]
+                                        return (
+                                            <Form.Group key={`${check.id}-${key}`}>
+                                                <Form.Label>{`${key + 1}. ${quest.question}`}</Form.Label>
+                                                {shuffle([1, 2, 3]).map((el, counter) => {
+                                                    return (
+                                                        <Form.Check
+                                                            key={el}
+                                                            type="radio"
+                                                            label={quest[`answer${el}`]}
+                                                            name={`formHorizontalRadios${key + 1}`}
+                                                            id={`formHorizontalRadios${key + 1}-${counter + 1}`}
+                                                            onChange={e => handleChange(e, key + 1, quest[`answer${el}`])}
+                                                        />
+                                                    )
+                                                })}
+                                            </Form.Group>
+                                        )
+                                    })
                                 )
                             })
-                        )
-                    })
-                }
-                <div id="points">{`${points} / ${correct.length}`}
-                    <div style={{ width: `${Math.round(points / correct.length * 100)}%`, filter: `hue-rotate(${Math.round(points / correct.length * 180)}deg)` }}></div>
-                </div>
-                <Button variant="success" id="answers" onClick={takeAnswers}>Sprawdź odpowiedzi</Button>
-            </Form>
+                        }
+                        <Button variant="success" id="answers" onClick={takeAnswers}>Sprawdź odpowiedzi</Button>
+                    </Form>
+                </div> :
+                    <div className="push">
+                        <div className="container">
+                            <div className="circular-progress" ref={circularProgressRef}>
+                                <div className="value-container" ref={valueRef}></div>
+                            </div>
+                        </div>
+                    </div>
+            }
         </motion.div>
     )
 }

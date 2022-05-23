@@ -66,6 +66,7 @@ export default function UpdateProfile() {
                     </Form>
                 </Card.Body>
             </Card>
+            <div>test CSS points: {currentUser.pointsCSS}%</div>
             <div className="w-100 text-center mt-2">
                 <Link to="/">Cancel</Link>
             </div>
