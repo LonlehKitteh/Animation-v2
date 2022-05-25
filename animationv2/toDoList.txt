@@ -10,6 +10,6 @@
 1. dodać keyframes
 3. themes
 4. poprawic admin panel
-5. zrobic test
+5. zrobic test // well fuck.
 6. content dla 3d
 7. wystylowac forgot pass itp.

@@ -1,4 +1,5 @@
 @import "./variables.scss";
+@import "./mixins.scss";
 
 .page.auth {
     height: calc(100vh - 56px);
@@ -55,9 +56,43 @@
     .password {
         box-shadow: 0 0 0 0.25rem none;
         border: 1px solid #ced4da;
-        &:focus{
+        &:focus {
             box-shadow: 0 0 0 0.25rem var(--passwordStrength, hsla(216, 98%, 52%, 0.251)) !important;
             border-color: var(--passwordColor, hsl(216, 98%, 76%)) !important;
+        }
+    }
+    .container {
+        width: clamp(25vw, 30vw, 40vw);
+        height: clamp(25vw, 30vw, 40vw);
+        background: white;
+        border-radius: 8px;
+        box-shadow: 20px 20px 40px #4d5bf940;
+        position: relative;
+        padding: 0;
+        @include flex-center;
+        .circular-progress {
+            position: relative;
+            height: 75%;
+            width: 75%;
+            border-radius: 50%;
+            @include flex-center;
+            &::before {
+                $size: 95%;
+                content: "";
+                position: absolute;
+                height: $size;
+                width: $size;
+                background: white;
+                border-radius: 50%;
+            }
+            .value-container {
+                color: #231c3d;
+                font-weight: bold;
+                font-size: 5vw;
+                font-family: "Cairo";
+                position: relative;
+                user-select: none;
+            }
         }
     }
 }

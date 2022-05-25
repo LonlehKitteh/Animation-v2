@@ -17,26 +17,20 @@ export default function Signup() {
     const history = useHistory();
 
     async function handleSubmit(e) {
-        e.preventDefault()
-
-        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-            return setError('Passwords do not match')
-        }
-
-        if (!/[A-Z]/.test(passwordRef.current.value) || passwordRef.current.value.length < 7) {
-            return setError('Your password is to weak')
-        }
+        e.preventDefault();
+        if (passwordRef.current.value !== passwordConfirmRef.current.value) return setError('Passwords do not match');
+        if (!/[A-Z]/.test(passwordRef.current.value) || passwordRef.current.value.length < 7) return setError('Your password is to weak');
 
         try {
-            setError('')
-            setLoading(true)
-            await signup(nameRef.current.value, emailRef.current.value, passwordRef.current.value)
-            history.push("/")
+            setError('');
+            setLoading(true);
+            await signup(nameRef.current.value, emailRef.current.value, passwordRef.current.value);
+            history.push("/");
         } catch {
-            setError('Failed to create an account')
+            setError('Failed to create an account');
         }
 
-        setLoading(false)
+        setLoading(false);
     }
 
     function handleInput(){
