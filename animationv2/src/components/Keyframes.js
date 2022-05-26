@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { pageTransition, pageVariants } from '../js/pageAnimation'
 
 export default function Keyframes() {
+    
     return (
         <motion.div layout
             className="page"
@@ -14,7 +15,7 @@ export default function Keyframes() {
         >
             <div className="push">
                 <div className="main">
-                    test
+
                 </div>
             </div>
         </motion.div>

@@ -5,23 +5,26 @@ import { Form, Button } from 'react-bootstrap'
 import { useCorrect } from './hooks/useCorrect'
 import { useQuestion } from './hooks/useQuestion'
 import '../css/test.css'
+import { useUser } from './hooks/useUser'
+import app from '../firebase'
 import { useAuth } from './context/AuthContext'
 
 export default function TestCss() {
+    const { currentUser } = useAuth()
     const question = useQuestion()
     const correct = useCorrect()
     const points = useRef(0);
-    const valueRef = useRef(null)
+    const valueRef = useRef(null);
     const [randQuestions,] = useState(shuffle([...Array(4).keys()]))
     const inputs = useRef([])
     const [isDisabled, setIsDisabled] = useState(false)
     const circularProgressRef = useRef(null)
-    const { currentUser } = useAuth()
+    const users = useUser()
 
     useEffect(() => {
         handleAnimation(points.current / correct.length * 100)
     }, [isDisabled, correct.length])
-    
+
 
     function shuffle(array) {
         var i = array.length, j = 0, temp;
@@ -35,13 +38,20 @@ export default function TestCss() {
         return array;
     }
 
-    function takeAnswers(e) {
-        e.preventDefault()
+    function takeAnswers() {
         let temp = []
         correct.map(element => temp.push(element.value))
         points.current = inputs.current.filter(element => temp.includes(element.answer)).length
         setIsDisabled(true)
-        currentUser.pointsCSS = points.current / correct.length * 100
+
+        const foundUser = users.find(data => data.user === currentUser.uid)
+
+        if (foundUser) {
+            app.firestore().collection("usersData").doc(foundUser.id).update({ pointsCSS: Math.max(points.current / correct.length * 100, foundUser.pointsCSS) });
+            return;
+        }
+
+        app.firestore().collection("usersData").add({ pointsCSS: points.current / correct.length * 100, user: currentUser.uid });
     }
 
     function handleChange(e, key, answer) {
@@ -59,7 +69,7 @@ export default function TestCss() {
         let speed = 50;
         let progressValue = 0;
         let color = '#4d5bf9'
-        if(valueRef.current === null) return
+        if (valueRef.current === null) return
         let progress = setInterval(() => {
             if (progressValue !== points) progressValue++;
             valueRef.current.innerHTML = `${progressValue}%`;
@@ -68,7 +78,6 @@ export default function TestCss() {
             if (progressValue === points) clearInterval(progress)
         }, speed)
     }
-
     return (
         <motion.div
             className="page test"

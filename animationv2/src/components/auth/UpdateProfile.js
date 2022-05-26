@@ -1,13 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
-import { useCorrect } from '../hooks/useCorrect'
 import { motion } from 'framer-motion';
 import { pageTransition, pageVariants } from '../../js/pageAnimation';
 
 export default function UpdateProfile() {
-    // const correct = useCorrect();
     const emailRef = useRef();
     const nameRef = useRef();
     const passwordRef = useRef();
@@ -17,22 +15,22 @@ export default function UpdateProfile() {
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
-    const circularProgressRef = useRef(null);
-    const valueRef = useRef(null);
+    // const circularProgressRef = useRef(null);
+    // const valueRef = useRef(null);
 
-    function handleAnimation(points) {
-        let speed = 50;
-        let progressValue = 0;
-        let color = '#4d5bf9'
-        if (valueRef.current === null) return
-        let progress = setInterval(() => {
-            if (progressValue !== points) progressValue++;
-            valueRef.current.innerHTML = `${progressValue}%`;
-            circularProgressRef.current.style.background = `conic-gradient(${color} ${progressValue * 3.6}deg, ${color}40 ${progressValue * 3.6}deg)`
-            circularProgressRef.current.style.filter = `hue-rotate(${progressValue * 3.6}deg)`
-            if (progressValue === points) clearInterval(progress)
-        }, speed)
-    }
+    // function handleAnimation(points) {
+    //     let speed = 50;
+    //     let progressValue = 0;
+    //     let color = '#4d5bf9'
+    //     if (valueRef.current === null) return
+    //     let progress = setInterval(() => {
+    //         if (progressValue !== points) progressValue++;
+    //         valueRef.current.innerHTML = `${progressValue}%`;
+    //         circularProgressRef.current.style.background = `conic-gradient(${color} ${progressValue * 3.6}deg, ${color}40 ${progressValue * 3.6}deg)`
+    //         circularProgressRef.current.style.filter = `hue-rotate(${progressValue * 3.6}deg)`
+    //         if (progressValue === points) clearInterval(progress)
+    //     }, speed)
+    // }
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -65,14 +63,14 @@ export default function UpdateProfile() {
             variants={pageVariants}
             transition={pageTransition}
         >
-            {console.log(currentUser)}
+            {/* {console.log(currentUser)}
             {currentUser.pointsCSS ?
                 <div className="container">
                     <div className="circular-progress" ref={circularProgressRef}>
                         <div className="value-container" ref={valueRef}></div>
                     </div>
                 </div> : null
-            }
+            } */}
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Update Profile</h2>

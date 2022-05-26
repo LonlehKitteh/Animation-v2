@@ -53,8 +53,8 @@ i.fas.fa-exclamation {
     background: linear-gradient(to bottom, #e8f0f7 50%, #4d5bf9 50%);
     @include flex-center;
     .container {
-        width: clamp(25vw, 30vw, 40vw);
-        height: clamp(25vw, 30vw, 40vw);
+        width: clamp(300px, 30vw, 40vw);
+        height: clamp(300px, 30vw, 40vw);
         background: white;
         border-radius: 8px;
         box-shadow: 20px 20px 40px #4d5bf940;
@@ -79,7 +79,7 @@ i.fas.fa-exclamation {
             .value-container{
                 color: #231c3d;
                 font-weight: bold;
-                font-size: 5vw;
+                font-size: clamp(70px, 7vw, 8vw);
                 font-family: 'Cairo';
                 position: relative;
                 user-select: none;

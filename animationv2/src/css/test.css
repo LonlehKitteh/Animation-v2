@@ -74,8 +74,8 @@ i.fas.fa-exclamation {
 }
 
 .test .push .container {
-  width: clamp(25vw, 30vw, 40vw);
-  height: clamp(25vw, 30vw, 40vw);
+  width: clamp(300px, 30vw, 40vw);
+  height: clamp(300px, 30vw, 40vw);
   background: white;
   border-radius: 8px;
   -webkit-box-shadow: 20px 20px 40px #4d5bf940;
@@ -121,7 +121,7 @@ i.fas.fa-exclamation {
 .test .push .container .circular-progress .value-container {
   color: #231c3d;
   font-weight: bold;
-  font-size: 5vw;
+  font-size: clamp(70px, 7vw, 8vw);
   font-family: 'Cairo';
   position: relative;
   -webkit-user-select: none;
