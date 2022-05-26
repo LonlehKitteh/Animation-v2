@@ -96,3 +96,56 @@
         }
     }
 }
+.update {
+    .push {
+        position: relative;
+        .alert{
+            position: absolute;
+            bottom: 1%;
+            right: 1%;
+            margin: 0;
+        }
+        .container {
+            background: none;
+            box-shadow: none;
+            flex-direction: column-reverse;
+            padding: 2rem;
+            height: 60%;
+            width: fit-content;
+            background: #66a3ff;
+            margin: 2rem;
+            justify-content: space-between;
+            &:nth-child(2) {
+                background: #66a3ff;
+                filter: hue-rotate(35deg);
+            }
+            .circular-progress {
+                height: 15rem;
+                width: 15rem;
+            }
+            .result {
+                font-weight: bold;
+                font-family: "Cairo";
+                height: min-content;
+                margin: 0;
+            }
+            .value-container {
+                font-size: 2rem !important;
+            }
+            .form-control::placeholder{
+                font-size: smaller;
+            }
+            .update-form{
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                position: relative;
+            }
+            button{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+}

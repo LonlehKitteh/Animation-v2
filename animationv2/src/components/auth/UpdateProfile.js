@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react'
-import { Form, Button, Card, Alert } from 'react-bootstrap';
+import React, { useRef, useState, useEffect } from 'react'
+import { Form, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { motion } from 'framer-motion';
 import { pageTransition, pageVariants } from '../../js/pageAnimation';
+import app from '../../firebase'
 
 export default function UpdateProfile() {
     const emailRef = useRef();
@@ -12,25 +13,30 @@ export default function UpdateProfile() {
     const passwordConfirmRef = useRef();
     const { currentUser, updatePassword, updateEmail } = useAuth();
     const [error, setError] = useState('');
-    const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
-    // const circularProgressRef = useRef(null);
-    // const valueRef = useRef(null);
+    const [points, setPoints] = useState(0)
+    app.firestore().collection('usersData').get().then(querrySnap => querrySnap.forEach(data => data.data().user === currentUser.uid ? setPoints(data.data().pointsCSS) : null))
+    const circularProgressRef = useRef(null);
+    const valueRef = useRef(null)
 
-    // function handleAnimation(points) {
-    //     let speed = 50;
-    //     let progressValue = 0;
-    //     let color = '#4d5bf9'
-    //     if (valueRef.current === null) return
-    //     let progress = setInterval(() => {
-    //         if (progressValue !== points) progressValue++;
-    //         valueRef.current.innerHTML = `${progressValue}%`;
-    //         circularProgressRef.current.style.background = `conic-gradient(${color} ${progressValue * 3.6}deg, ${color}40 ${progressValue * 3.6}deg)`
-    //         circularProgressRef.current.style.filter = `hue-rotate(${progressValue * 3.6}deg)`
-    //         if (progressValue === points) clearInterval(progress)
-    //     }, speed)
-    // }
+    useEffect(() => {
+        handleAnimation(points)
+    }, [points])
+
+    function handleAnimation(score) {
+        if (valueRef.current === null) return
+        let speed = 50;
+        let progressValue = 0;
+        let color = '#4d5bf9'
+        let progress = setInterval(() => {
+            if (progressValue !== score) progressValue++;
+            valueRef.current.innerHTML = `${progressValue}%`;
+            circularProgressRef.current.style.background = `conic-gradient(${color} ${progressValue * 3.6}deg, ${color}40 ${progressValue * 3.6}deg)`
+            circularProgressRef.current.style.filter = `hue-rotate(${progressValue * 3.6}deg)`
+            if (progressValue === score) clearInterval(progress)
+        }, speed)
+    }
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -45,8 +51,7 @@ export default function UpdateProfile() {
         if (/[admin || tester || administrator]/.test(nameRef.current.value.toLowerCase())) console.log("tak")
 
         Promise.all(promisses).then(() => {
-            history.push('/update%20profile')
-            setMessage('Account updated')
+            history.push('/begin')
         }).catch(() => {
             setError('Failed to update account')
         }).finally(() => {
@@ -56,29 +61,26 @@ export default function UpdateProfile() {
 
     return (
         <motion.div
-            className="page auth"
+            className="page auth update"
             initial="initial"
             animate="in"
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
         >
-            {/* {console.log(currentUser)}
-            {currentUser.pointsCSS ?
+            <div className='push'>
+            {error && <Alert variant="danger">{error}</Alert>}
                 <div className="container">
+                    <p className='result'>Test css result</p>
                     <div className="circular-progress" ref={circularProgressRef}>
                         <div className="value-container" ref={valueRef}></div>
                     </div>
-                </div> : null
-            } */}
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Update Profile</h2>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    {message && <Alert variant="success">{message}</Alert>}
-                    <Form onSubmit={handleSubmit}>
+                </div>
+                <div className='container'>
+                    <p className="result">Update Profile Zone</p>
+                    <Form onSubmit={handleSubmit} className='update-form'>
                         <Form.Group id="name">
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label>Name</Form.Label>
                             <Form.Control type="text" ref={nameRef} defaultValue={currentUser.displayName} />
                         </Form.Group>
                         <Form.Group id="email">
@@ -99,10 +101,7 @@ export default function UpdateProfile() {
                         <Button disabled={loading} className="w-100"
                             type="submit">Update</Button>
                     </Form>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
-                <Link to="/">Cancel</Link>
+                </div>
             </div>
         </motion.div>
     )
