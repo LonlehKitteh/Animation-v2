@@ -177,7 +177,7 @@
           justify-content: space-between;
 }
 
-.update .push .container:nth-child(2) {
+.update .push .container.update {
   background: #66a3ff;
   -webkit-filter: hue-rotate(35deg);
           filter: hue-rotate(35deg);
@@ -231,6 +231,6 @@
 
 .update .push .container button {
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   left: 0;
 }

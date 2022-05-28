@@ -11,7 +11,7 @@ export default function UpdateProfile() {
     const nameRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const { currentUser, updatePassword, updateEmail } = useAuth();
+    const { currentUser, updatePassword, updateEmail, updateName } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -25,8 +25,8 @@ export default function UpdateProfile() {
     }, [points])
 
     function handleAnimation(score) {
-        if (valueRef.current === null) return
-        let speed = 50;
+        if (valueRef.current === null || valueRef.current.innerHTML === null) return
+        let speed = 10;
         let progressValue = 0;
         let color = '#4d5bf9'
         let progress = setInterval(() => {
@@ -48,7 +48,12 @@ export default function UpdateProfile() {
 
         if (emailRef.current.value !== currentUser.email) promisses.push(updateEmail(emailRef.current.value))
         if (passwordRef.current.value) promisses.push(updatePassword(passwordRef.current.value))
-        if (/[admin || tester || administrator]/.test(nameRef.current.value.toLowerCase())) console.log("tak")
+        if (!['admin', 'tester', 'administrator'].includes(nameRef.current.value.toLowerCase()) && nameRef.current.value.length > 3){
+            promisses.push(updateName(nameRef.current.value))
+        } else{
+            setLoading(false)
+            return setError("Incorrect name")
+        }
 
         Promise.all(promisses).then(() => {
             history.push('/begin')
@@ -70,13 +75,13 @@ export default function UpdateProfile() {
         >
             <div className='push'>
             {error && <Alert variant="danger">{error}</Alert>}
-                <div className="container">
+                <div className="container css">
                     <p className='result'>Test css result</p>
                     <div className="circular-progress" ref={circularProgressRef}>
                         <div className="value-container" ref={valueRef}></div>
                     </div>
                 </div>
-                <div className='container'>
+                <div className='container update'>
                     <p className="result">Update Profile Zone</p>
                     <Form onSubmit={handleSubmit} className='update-form'>
                         <Form.Group id="name">
@@ -98,8 +103,7 @@ export default function UpdateProfile() {
                             <Form.Control type="password" ref={passwordConfirmRef}
                                 placeholder="Leave blank to keep the same" />
                         </Form.Group>
-                        <Button disabled={loading} className="w-100"
-                            type="submit">Update</Button>
+                        <Button disabled={loading} className="w-100" type="submit">Update</Button>
                     </Form>
                 </div>
             </div>

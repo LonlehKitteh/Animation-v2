@@ -29,11 +29,11 @@ export default function PerspectiveOrigin() {
                     {
                         dataperspectiveorigin.map((data, key) => <Section
                             sections={sections}
-                            counter={key + 29}
+                            counter={key + 28}
                             code={data.code}
                             copy={data.copy}
                             isChildNeed={true}
-                            picturedTransform={key > 0 ? true : false}
+                            picturedTransform={key > 1 ? true : false}
                             perspectivePicture={true}
                             header={data.header}
                             content={data.content}

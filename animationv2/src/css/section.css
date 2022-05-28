@@ -3,7 +3,7 @@
   background: white;
   padding: 1rem;
   margin: 1rem;
-  font-family: sans-serif;
+  font-family: 'Cairo';
   letter-spacing: -1px;
   color: var(--section-main, black);
 }

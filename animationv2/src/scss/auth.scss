@@ -115,7 +115,7 @@
             background: #66a3ff;
             margin: 2rem;
             justify-content: space-between;
-            &:nth-child(2) {
+            &.update{
                 background: #66a3ff;
                 filter: hue-rotate(35deg);
             }
@@ -143,7 +143,7 @@
             }
             button{
                 position: absolute;
-                bottom: 0;
+                bottom: 5%;
                 left: 0;
             }
         }

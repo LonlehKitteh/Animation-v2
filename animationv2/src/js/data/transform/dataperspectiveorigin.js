@@ -52,7 +52,7 @@ export const dataperspectiveorigin = [
                 <li>procenty</li>
                 <li>wartości pozycjonujące (bez top oraz bottom) np. right, left, center</li>
             </ul>
-            <p>Składnik x określa pozycję początkową punktu zbiegu perspektywy interesującego nas elementu HTML względem lewej krawędzi tego elementu HTML.</p>
+            <p>Składnik <b>x</b> określa pozycję początkową punktu zbiegu perspektywy interesującego nas elementu HTML względem lewej krawędzi tego elementu HTML.</p>
         
             <b>Wartościami parametru y mogą być:</b>
             <ul class="examples">
@@ -61,7 +61,11 @@ export const dataperspectiveorigin = [
                 <li>procenty</li>
                 <li>wartości pozycjonujące (bez left oraz right) np. top, center, bottom</li>
             </ul>
-            <p>Składnik y określa pozycję początkową punktu zbiegu perspektywy interesującego nas elementu HTML względem górnej krawędzi tego elementu HTML.</p>    `,
+            <p>Składnik <b>y</b> określa pozycję początkową punktu zbiegu perspektywy interesującego nas elementu HTML względem górnej krawędzi tego elementu HTML.</p>    `
+    },
+    {
+        header: 'zastosowanie',
+        content: `Właściwość CSS <span class="css-role">perspective-origin</span> służy do usawienia początkowego punktu zbiegu perspektywy, podobnie jak <span class="css-role">transform-origin</span>. Ustawiłem <b>punkt</b> w pozycji 100% 100%.`,
         code: code2('perspective-origin', 'value', transforms[30].perspectiveOrigin, false, true, true),
         copy: copyText('perspective-origin', transforms[30].perspectiveOrigin, `perspective: 300px;`, true)
     }

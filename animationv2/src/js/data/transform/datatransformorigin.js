@@ -11,8 +11,8 @@ export const datatransformorigin = [
             </div>
             <div class="alert alert-info" role="alert">
                 <i class="fas fa-exclamation"></i>
-                <span>Za pomocą właściwości transform-origin możemy określić w przestrzeni pozycję początkową punktu zero interesującego nas elementu HTML. 
-                Właściwość transform-origin nie jest funkcją, ponieważ nie posiada nawiasów, wszystkie parametry podajemy bez przecinka. Paramert x jest parametrem wymaganym, a parametry y nie są parametrami wymaganymi.</span>
+                <span>Za pomocą właściwości <b>transform-origin</b> możemy określić w przestrzeni pozycję początkową <b>punktu zero</b> interesującego nas elementu HTML. 
+                Właściwość <b>transform-origin</b> nie jest funkcją, ponieważ nie posiada nawiasów, wszystkie parametry podajemy bez przecinka. Paramert <b>x</b> jest parametrem wymaganym, a parametry <b>y</b> nie są parametrami wymaganymi.</span>
             </div>
             <b>Wartościami parametru x mogą być:</b>
             <ul class="examples">
@@ -21,7 +21,6 @@ export const datatransformorigin = [
                 <li>procenty</li>
                 <li>wartości pozycjonujące (bez top oraz bottom) np. right, left, center</li>
             </ul>
-            <p>W przypadku podania wartości dodatnich punkt zero zostanie przesunięty w prawo względem lewej krawędzi. W przypadku podania wartości ujemnych punkt zero zostanie przesunięty w lewo względem prawej krawędzi. Wartości procentowe liczone są względem aktualnego rozmiaru szerokości elementu html.</p>
         
             <b>Wartościami parametru y mogą być:</b>
             <ul class="examples">
@@ -29,8 +28,7 @@ export const datatransformorigin = [
                 <li>jednostki relatywne</li>
                 <li>procenty</li>
                 <li>wartości pozycjonujące (bez left oraz right) np. top, center, bottom</li>
-            </ul>
-            <p>W przypadku podania wartości dodatnich punkt zero zostanie przesunięty w dół względem górnej krawędzi. W przypadku podania wartości ujemnych punkt zero zostanie przesunięty w górę względem dolnej krawędzi. Wartości procentowe liczone są względem aktualnego rozmiaru wysokości elementu html.</p>    `
+            </ul>`
     },
     {
         header: "Informacje znacznika transform-origin",
@@ -63,7 +61,7 @@ export const datatransformorigin = [
     },
     {
         header: "Zastosowanie",
-        content: "Właściwość CSS transform-origin służy między innymi do stworzenia rotacji względem punktu zero. Ustawiłem punkt zero w lewym górnym rogu więc cały element obraca się względem niego.",
+        content: `Właściwość CSS <span class="css-role">transform-origin</span> służy między innymi do stworzenia rotacji względem <b>punktu zero</b>. Ustawiłem <b>punkt zero</b> w lewym górnym rogu więc cały element obraca się względem niego.`,
         code: `<span class="css-selector">div</span>{
         <span class="css-property">width</span>: <span class="css-number">196px</span>;
         <span class="css-property">height</span>: <span class="css-number">96px</span>;

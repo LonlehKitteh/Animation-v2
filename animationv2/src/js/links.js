@@ -22,29 +22,29 @@ export const links = [["CSS - Animation",
         id: "css",
         icon: "fas fa-vial"
     }
+],
+[
+    "SVG - Animation",
+    {
+        mainTitle: "comming soon",
+        id: "svg",
+        icon: "fas fa-vial"
+    }
+],
+[
+    "JS + Animation",
+    {
+        mainTitle: "comming soon",
+        id: "js",
+        icon: "fas fa-vial"
+    }
+],
+[
+    "WebGL + threeJS",
+    {
+        mainTitle: "comming soon",
+        id: "webgl",
+        icon: "fas fa-vial"
+    }
 ]
-// [
-//     "SVG - Animation",
-//     {
-//         mainTitle: "test",
-//         id: "svg",
-//         icon: "fas fa-vial"
-//     }
-// ],
-// [
-//     "JS + Animation",
-//     {
-//         mainTitle: "test",
-//         id: "js",
-//         icon: "fas fa-vial"
-//     }
-// ],
-// [
-//     "WebGL + threeJS",
-//     {
-//         mainTitle: "test",
-//         id: "webgl",
-//         icon: "fas fa-vial"
-//     }
-// ]
 ]

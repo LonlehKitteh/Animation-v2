@@ -1,5 +1,16 @@
 import { transforms, code, copyText } from "../datatransform"
 
+function example(name, parameter, value1, value2, value3, bonusText = '', neededText) {
+    return `<h2>${name}(<span class="parameter">${parameter}</span>)</h2>
+    <p>Parametr <span class="parameter">${parameter}</span> jest <b>wymaganym</b> parametrem funkcji <b>${name}()</b>. Parametr <span class="parameter">${parameter}</span> ${neededText} ${bonusText}</p>
+    <b>Przykładowe zapisy: </b>
+    <ul class="examples">
+        <li>${name}(${value1})</li>
+        <li>${name}(${value2})</li>
+        <li>${name}(${value3})</li>
+    </ul>`
+}
+
 export const datatransform = [
     {
         header: "Informacje znacznika transform",
@@ -54,21 +65,16 @@ export const datatransform = [
     },
     {
         header: "perspective",
-        content: "perspective",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>perspective()</b> możemy określić (potrzebny dla przekształceń w przestrzeni 3D) <b>rozmiar perspektywy</b> interesującego nas elementu HTML. Warto używać tej właściwości, ponieważ nadaje ona elementowi <b>"efekt przekształcenia w przestrzeni"</b></div>
+        ${example('perspective', 'value', '200px', '40em', '2ch', 'Parametrem <span class="parameter">value</span> może być każda <b>liczba dodatnia</b>.', 'określa rozmiar perspektywy elementu HTML')}
+        `,
         code: code('transform', 'value', transforms[1].transform),
         copy: copyText('transform', transforms[1].transform)
     },
     {
         header: "translateX",
-        content: `<div>Za pomocą właściwości <b>transform</b> oraz funkcji <b>translateX()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przesunięciu elementu HTML <b>względem poziomej osi X</b>.</div>
-        <h2>translateX(<span class="parameter">x</span>)</h2>
-        <p>Parametr <span class="parameter">x</span> jest <b>wymaganym</b> parametrem funkcji translateX(). Parametr <span class="parameter">x</span> określa wielkość przesunięcia elementu HTML względem poziomej osi X.</p>
-        <b>Przykładowe zapisy: </b>
-        <ul class="examples">
-            <li>translateX(200px)</li>
-            <li>translateX(-20em)</li>
-            <li>translateX(50%)</li>
-        </ul>
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>translateX()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przesunięciu elementu HTML <b>względem poziomej osi X</b>.</div>
+        ${example('translateX', 'x', '200px', '-20em', '50%', '', 'określa wielkość przesunięcia elementu HTML względem poziomej osi X.')}
         `,
         code: code('transform', 'value', transforms[2].transform),
         copy: copyText('transform', transforms[2].transform)
@@ -76,29 +82,22 @@ export const datatransform = [
     {
         header: "translateY",
         content: `<div>
-        Za pomocą właściwości transform oraz funkcji translateY() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przesunięciu elementu HTML względem pionowej osi Y.</div>
-        <h2>translateY(<span class="parameter">y</span>)</h2>
-        <p>Parametr y jest wymaganym parametrem funkcji translateY(). Parametr y określa wielkość przesunięcia elementu HTML względem pionowej osi Y.</p>
-        <b>Przykładowe zapisy: </b>
-        <ul class="examples">
-            <li>translateY(200q)</li>
-            <li>translateY(-5rem)</li>
-            <li>translateY(50%)</li>
-        </ul>
+        Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji translateY() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przesunięciu elementu HTML względem pionowej osi Y.</div>
+        ${example('translateY', 'y', '200q', '-5rem', '50%','', 'określa wielkość przesunięcia elementu HTML względem pionowej osi Y.',)}
         `,
         code: code('transform', 'value', transforms[3].transform),
         copy: copyText('transform', transforms[3].transform)
     },
     {
         header: "translate",
-        content: `<div>Za pomocą właściwości transform oraz funkcji translate() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przesunięciu elementu HTML względem poziomej osi X i pionowej osi Y.</div>
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji translate() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przesunięciu elementu HTML względem poziomej osi X i pionowej osi Y.</div>
         <h2>translate(<span class="parameter">x</span>, y)</h2>
-        <p>Parametr x jest wymaganym parametrem funkcji translate(). Parametr x określa wielkość przesunięcia elementu HTML względem poziomej osi X. Parametr y nie jest wymagany. Określa wielkość przesunięcia elementu HTML względem pionowej osi Y.</p>
+        <p>Parametr <span class="parameter">x</span> jest wymaganym parametrem funkcji <b>translate()</b>. Parametr <span class="parameter">x</span> określa wielkość przesunięcia elementu HTML względem poziomej osi X. Parametr <b>y</b> nie jest wymagany. Określa wielkość przesunięcia elementu HTML względem pionowej osi Y.</p>
         <b>Przykładowe zapisy:</b>
         <ul class="examples">
-            <li>translateY(200q, 200px)</li>
-            <li>translateY(-5rem)</li>
-            <li>translateY(50%, -80%)</li>
+            <li>translate(200q, 200px)</li>
+            <li>translate(-5rem)</li>
+            <li>translate(50%, -80%)</li>
         </ul>
         `,
         code: code('transform', 'value', transforms[4].transform),
@@ -106,56 +105,53 @@ export const datatransform = [
     },
     {
         header: "translateZ",
-        content: "in progress...",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>translateZ()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na przesunięciu elementu HTML względem prostopadłej do <b>punktu zero osi Z</b></div>.
+        ${example('translateZ', 'z', '200px', '-20em', '50ch', '', 'możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na przesunięciu elementu HTML względem <b>punktu zero</b> osi Z.')}
+        `,
         code: code('transform', 'value', transforms[5].transform),
         copy: copyText('transform', transforms[5].transform)
     },
     {
         header: "translate3d",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>translate3d()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na jednoczesnym przesunięciu elementu HTML względem poziomej <b>osi X</b> oraz względem pionowej <b>osi Y</b> oraz <b>osi Z</b> względem <b>punktu zero</b></div>.
+        <h2>translate3d(<span class="parameter">x</span>, y, z)</h2>
+        <p>Parametr <span class="parameter">x</span> jest wymaganym parametrem funkcji <b>translate()</b>. Parametr <span class="parameter">x</span> określa wielkość przesunięcia elementu HTML względem poziomej osi X. Parametr <b>y</b> nie jest wymagany. Określa wielkość przesunięcia elementu HTML względem pionowej osi Y. Parametr <b>z</b> nie jest wymagany. Określa wielkość przesunięcia elementu HTML względem osi Z.</p>
+        <b>Przykładowe zapisy:</b>
+        <ul class="examples">
+            <li>translate3d(100px, 200px, 50px)</li>
+            <li>translate3d(150px, -25%, -75px)</li>
+            <li>translate3d(0px)</li>
+        </ul>
+        `,
         code: code('transform', 'value', transforms[6].transform),
         copy: copyText('transform', transforms[6].transform)
     },
     {
         header: "scaleX",
-        content: `<div>Za pomocą właściwości transform oraz funkcji scaleX() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przeskalowaniu elementu HTML względem poziomej osi X.</div>
-        <h2>scaleX(<span class="parameter">x</span>)</h2>
-        <p>Parametr x jest wymaganym parametrem funkcji scaleX(). Parametr x określa wielkość przeskalowania elementu HTML względem poziomej osi X.</p>
-        <b>Przykładowe zapisy:</b>
-        <ul class="examples">
-            <li>scaleX(2)</li>
-            <li>scaleX(0.5)</li>
-            <li>scaleX(-1.5)</li>
-        </ul>
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>scaleX()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przeskalowaniu elementu HTML względem poziomej <b>osi X</b>.</div>
+        ${example('scaleX', 'x', '2', '0.5', '-1.5', '', 'określa wielkość przeskalowania elementu HTML względem poziomej osi X.')}
         `,
         code: code('transform', 'value', transforms[7].transform),
         copy: copyText('transform', transforms[7].transform)
     },
     {
         header: "scaleY",
-        content: `<div>Za pomocą właściwości transform oraz funkcji scaleY() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przeskalowaniu elementu HTML względem pionowej osi Y.</div>
-        <h2>scaleY(<span class="parameter">y</span>)</h2>
-        <p>Parametr y jest wymaganym parametrem funkcji scaleY(). Parametr y określa wielkość przeskalowania elementu HTML względem poziomej osi Y.</p>
-        <b>Przykładowe zapisy:</b>
-        <ul class="examples">
-            <li>scaleY(0)</li>
-            <li>scaleY(-0.75)</li>
-            <li>scaleY(1.25)</li>
-        </ul>
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>scaleY()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przeskalowaniu elementu HTML względem pionowej <b>osi Y</b>.</div>
+        ${example('scaleY', 'y', '0', '-0.75', '1.25', '', 'określa wielkość przeskalowania elementu HTML względem pionowej osi Y.')}
         `,
         code: code('transform', 'value', transforms[8].transform),
         copy: copyText('transform', transforms[8].transform)
     },
     {
         header: "scale",
-        content: `<div>Za pomocą właściwości transform oraz funkcji scale() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przeskalowaniu elementu HTML względem poziomej osi X i pionowej osi Y.</div>
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>scale()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na przeskalowaniu elementu HTML względem poziomej <b>osi X</b> i pionowej <b>osi Y</b>.</div>
         <h2>scale(<span class="parameter">x</span>, y)</h2>
-        <p>Parametr x jest wymaganym parametrem funkcji scale(). Parametr x określa wielkość przeskalowania elementu HTML względem poziomej osi X. Parametr y nie jest parametrem wymaganym, określa wielkość przeskalowania elementu html względem pionowej osi Y.</p>
+        <p>Parametr <span class="parameter">x</span> jest wymaganym parametrem funkcji <b>scale()</b>. Parametr <span class="parameter">x</span> określa wielkość przeskalowania elementu HTML względem poziomej osi X. Parametr <b>y</b> nie jest parametrem wymaganym, określa wielkość przeskalowania elementu html względem pionowej osi Y.</p>
         <b>Przykładowe zapisy:</b>
         <ul class="examples">
-            <li>scaleY(2)</li>
-            <li>scaleY(-0.75, 1.1)</li>
-            <li>scaleY(1.25, -2)</li>
+            <li>scale(2)</li>
+            <li>scale(-0.75, 1.1)</li>
+            <li>scale(1.25, -2)</li>
         </ul>
         `,
         code: code('transform', 'value', transforms[9].transform),
@@ -163,19 +159,34 @@ export const datatransform = [
     },
     {
         header: "scaleZ",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>scaleZ()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na dodatkowym przeskalowaniu elementu HTML względem <b>osi Z</b>.</div>
+        ${example('scaleZ', 'z', '0.5', '2', '-1', `Funkcja <b>scaleZ()</b> oddziałuje tylko na te funkcje służące do przekształcenia elementu HTML w przestrzeni 3D, które występują <b>po funkcji scaleZ()</b> w naszym zapisie. Funkcja <b>scaleZ()</b> ma sens tylko wtedy, gdy na danym elemencie HTML chcemy dokonać przekształcenia w przestrzeni 3D za pomocą jakiejkolwiek innej funkcji służącej do przekształcenia elementu HTML w przestrzeni 3D.`, `określa wielkość dodatkowego przeskalowania elementu HTML względem <b>osi Z</b>.`)}
+        `,
         code: code('transform', 'value', transforms[10].transform),
         copy: copyText('transform', transforms[10].transform)
     },
     {
         header: "scale3d",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>scale3d()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na jednoczesnym przeskalowaniu rozmiaru szerokości elementu HTML względem poziomej <b>osi X</b> oraz rozmiaru wysokości elementu HTML względem pionowej <b>osi Y</b>, jak również na dodatkowym przeskalowaniu elementu HTML względem <b>osi Z</b>.</div>
+        <h2>scale3d(<span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">z</span>)</h2>
+        <p>Wszystkie parametry są wymagane w funkcji <b>scale3d()</b>. Parametr <span class="parameter">x</span> określa wielkość przeskalowania rozmiaru szerokości elementu HTML względem poziomej <b>osi X</b>. Parametr <span class="parameter">y</span> określa wielkość przeskalowania rozmiaru szerokości elementu HTML względem pionowej <b>osi Y</b>. Parametr <span class="parameter">z</span> określa wielkość dodatkowego przeskalowania elementu HTML względem <b>osi Z</b>.</p>
+        <div class="alert alert-info" role="alert">
+                <i class="fas fa-exclamation"></i>
+                <span>Jest to połączenie wszystkich poprzednich <b>scale</b> więc <b>scaleZ</b> działa bez zmian.</span>
+        </div>
+        <b>Przykładowe zapisy:</b>
+        <ul class="examples">
+            <li>scale3d(0.5, 2, 0.75)</li>
+            <li>scale3d(-1, 0.8, 2)</li>
+            <li>scale3d(1.552, 1, 0.8)</li>
+        </ul>
+        `,
         code: code('transform', 'value', transforms[11].transform),
         copy: copyText('transform', transforms[11].transform)
     },
     {
         header: "skewX",
-        content: `<p>Za pomocą właściwości transform oraz funkcji skewX() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na pochyleniu elementu HTML względem poziomej osi X.</p>
+        content: `<p>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>skewX()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na pochyleniu elementu HTML względem poziomej <b>osi X</b>.</p>
         <div class="alert alert-info" role="alert">
                 <i class="fas fa-exclamation"></i>
                 <span>Warto wiedzieć, że CSS oferuje nam rozmaite jednostki kątowe takie jak: ( deg, turn, rad, grad ) 
@@ -187,7 +198,7 @@ export const datatransform = [
                 </span>
         </div>
         <h2>skewX(<span class="parameter">x</span>)</h2>
-        <p>Parametr x jest wymaganym parametrem funkcji skewX(). Parametr x określa wielkość pochylenia elementu HTML względem poziomej osi X.</p>
+        <p>Parametr <span class="parameter">x</span> jest wymaganym parametrem funkcji <b>skewX()</b>. Parametr <span class="parameter">x</span> określa wielkość pochylenia elementu HTML względem poziomej <b>osi X</b>.</p>
         <b>Przykładowe zapisy:</b>
         <ul class="examples">
             <li>skewX(-45deg)</li>
@@ -200,24 +211,17 @@ export const datatransform = [
     },
     {
         header: "skewY",
-        content: `<div>Za pomocą właściwości transform oraz funkcji skewY() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na pochyleniu elementu HTML względem pionowej osi Y.</div>
-        <h2>skewY(<span class="parameter">x</span>)</h2>
-        <p>Parametr y jest wymaganym parametrem funkcji skewY(). Parametr y określa wielkość pochylenia elementu HTML względem poziomej osi Y.</p>
-        <b>Przykładowe zapisy:</b>
-        <ul class="examples">
-            <li>skewY(-2.5rad)</li>
-            <li>skewY(50deg)</li>
-            <li>skewY(-2turn)</li>
-        </ul>
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>skewY()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na pochyleniu elementu HTML względem pionowej <b>osi Y</b>.</div>
+        ${example('skewY', 'y', '-2.5rad', '50deg', '-2turn', '', `określa wielkość pochylenia elementu HTML względem poziomej <b>osi Y</b>.`)}
         `,
         code: code('transform', 'value', transforms[13].transform),
         copy: copyText('transform', transforms[13].transform)
     },
     {
         header: "skew",
-        content: `<div>Za pomocą właściwości transform oraz funkcji skew() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na pochyleniu elementu HTML względem poziomej osi X i pionowej osi Y.</div>
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>skew()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na pochyleniu elementu HTML względem poziomej <b>osi X</b> i pionowej <b>osi Y</b>.</div>
         <h2>skew(<span class="parameter">x</span>, y)</h2>
-        <p>Parametr x jest wymaganym parametrem funkcji skew(). Parametr x określa wielkość przeskalowania elementu HTML względem poziomej osi X. Parametr y nie jest wymaganym parametrem, określa wielkość pochylenia względem osi pionowej Y.</p>
+        <p>Parametr <span class="parameter">x</span> jest wymaganym parametrem funkcji skew(). Parametr <span class="parameter">x</span> określa wielkość przeskalowania elementu HTML względem poziomej <b>osi X</b>. Parametr <b>y</b> nie jest wymaganym parametrem, określa wielkość pochylenia względem pionowej <b>osi Y</b>.</p>
         <b>Przykładowe zapisy:</b>
         <ul class="examples">
             <li>skew(30deg, -2.5rad)</li>
@@ -230,9 +234,9 @@ export const datatransform = [
     },
     {
         header: "rotate",
-        content: `<div>Za pomocą właściwości transform oraz funkcji rotate() możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na obróceniu elementu HTML WZGLĘDEM PUNKTU ZERO.</div>
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>rotate()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na obróceniu elementu HTML względem <b>punktu zero</b>.</div>
         <h2>rotate(<span class="parameter">angle</span>)</h2>
-        <p>Parametr angle jest wymaganym parametrem funkcji rotate(). Parametr angle określa wielkość obrotu elementu HTML względem punktu zero.</p>
+        <p>Parametr <span class="parameter">angle</span> jest wymaganym parametrem funkcji <b>rotate()</b>. Parametr <span class="parameter">angle</span> określa wielkość obrotu elementu HTML względem <b>punktu zero</b>.</p>
         <b>Przykładowe zapisy:</b>
         <ul class="examples">
             <li>rotate(1turn)</li>
@@ -245,46 +249,83 @@ export const datatransform = [
     },
     {
         header: "rotateX",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>rotateX()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na obrocie elementem HTML względem poziomej <b>osi X</b>.</div>
+        ${example('rotateX', 'x', '40deg', '-1turn', '4.77rad', '', 'określa wielkość obrotu elementem HTML względem poziomej osi X.')}
+        `,
         code: code('transform', 'value', transforms[16].transform),
         copy: copyText('transform', transforms[16].transform)
     },
     {
         header: "rotateY",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>rotateY()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na obrocie elementem HTML względem pionowej <b>osi Y</b>.</div>
+        ${example('rotateY', 'y', '60deg', '-0.8turn', '5.25rad', '', 'określa wielkość obrotu elementem HTML względem pionowej <b>osi Y</b>.')}
+        `,
         code: code('transform', 'value', transforms[17].transform),
         copy: copyText('transform', transforms[17].transform)
     },
     {
         header: "rotateZ",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>rotateZ()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na obrocie elementem HTML względem <b>osi Z</b>.</div>
+        ${example('rotateZ', 'z', '45deg', '0.1turn', '-6.66rad', '', `określa wielkość obrotu elementem HTML względem <b>osi Z</b>.`)}
+        `,
         code: code('transform', 'value', transforms[18].transform),
         copy: copyText('transform', transforms[18].transform)
     },
     {
         header: "rotate3d",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>rotate3d()</b> możemy przekształcić interesujący nas element HTML w przestrzeni 3D. Wspomniane przekształcenie polega na obrocie elementem HTML względem wektora 3D wyznaczonego przez stosunek długości wektorów znajdujących się na <b>osi X</b>, <b>osi Y</b> oraz <b>osi Z</b>.</div>
+        <h2>rotate3d(<span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">z</span>, <span class="parameter">angle</span>)</h2>
+        <p>Wszystkie parametry są wymagane. Parametr <span class="parameter">x</span> określa długość <b>wektora X</b>. Parametr <span class="parameter">y</span> określa długość <b>wektora Y</b>. Parametr <span class="parameter">z</span> określa długość <b>wektora Z</b>. Parametr angle jest wymaganym parametrem funkcji rotate3d(). Parametr <span class="parameter">angle</span> określa wielkość obrotu elementem HTML względem wektora 3D wyznaczonego przez stosunek długości wektorów znajdujących się na <b>osi X</b>, <b>osi Y</b> oraz <b>osi Z</b>.</p>
+        <b>Przykładowe zapisy:</b>
+        <ul class="examples">
+            <li>rotate3d(1, 2.5, 3, 75deg)</li>
+            <li>rotate3d(-1, 2, 1, -0.75turn)</li>
+            <li>rotate3d(-1, -1, -1, 100grad)</li>
+        </ul>
+        `,
         code: code('transform', 'value', transforms[19].transform),
         copy: copyText('transform', transforms[19].transform)
     },
     {
         header: "matrix",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>matrix()</b> możemy w dowolny dostępny sposób przekształcić interesujący nas element HTML w przestrzeni 2D <b>wykorzystując do tego celu tylko jedną funkcję</b>.</div>
+        <div class="alert alert-warning" role="alert">
+                <i class="fas fa-exclamation"></i>
+                <span>Warto wspomnieć, że ta funckja jest dosyć uciążliwa w zapamiętaniu, ponieważ należy <b>biegle się obsługiwać w trygonometrii</b> i trzeba zapamiętać <b>6 parametrów wymaganych</b> aby ta funnkcja działała. Użycie tej fukncji może mieć większy sens jedynie w przypadku <b>skomplikowanych animacji w JS</b>.</span>
+        </div>
+        <b>Przykładowe zapisy:</b>
+        <ul class="examples">
+            <li>matrix(1, 0, 0, 1, 100, 50)</li>
+            <li>matrix(0.5, 0, 0, 0.5, 0, 0)</li>
+            <li>matrix(0.5, 0, 0, 0.5, 100, 50)</li>
+        </ul>
+        `,
         code: code('transform', 'value', transforms[20].transform),
         copy: copyText('transform', transforms[20].transform)
     },
     {
         header: "matrix3d",
-        content: "test test test",
+        content: `<div>Za pomocą właściwości <span class="css-role">transform</span> oraz funkcji <b>matrix3d()</b> możemy w dowolny dostępny sposób przekształcić interesujący nas element HTML w przestrzeni 3D <b>wykorzystując do tego celu tylko jedną funkcję</b>.</div>
+        <div class="alert alert-warning" role="alert">
+                <i class="fas fa-exclamation"></i>
+                <span>Warto wspomnieć, że ta funckja jest dosyć uciążliwa w zapamiętaniu, ponieważ należy <b>biegle się obsługiwać w trygonometrii</b> i trzeba zapamiętać <b>16 parametrów wymaganych</b> aby ta funnkcja działała. Użycie tej fukncji może mieć większy sens jedynie w przypadku <b>skomplikowanych animacji w JS</b>.</span>
+        </div>
+        <b>Przykładowe zapisy:</b>
+        <ul class="examples">
+            <li>matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 125, 75, 50, 1)</li>
+            <li>matrix3d(0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 1)</li>
+            <li>matrix3d(0.5, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0.5, 0, 125, 75, 50, 1)</li>
+        </ul>
+        `,
         code: code('transform', 'value', transforms[21].transform),
         copy: copyText('transform', transforms[21].transform)
     },
     {
         header: "kombinacja",
-        content: `<p>Za pomocą właściwości transform oraz sekwencji funkcji możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na wykonaniu jednej funkcji a następnie drugiej.</p>
+        content: `<p>Za pomocą właściwości <span class="css-role">transform</span> oraz <b>sekwencji funkcji</b> możemy przekształcić interesujący nas element HTML w przestrzeni 2D. Wspomniane przekształcenie polega na wykonaniu <b>jednej funkcji a następnie drugiej</b>.</p>
         <div class="alert alert-info" role="alert">
                 <i class="fas fa-exclamation"></i>
-                <span>Kolejność transformacji jest bardzo istotna, ponieważ to może prowadzić do złej transformacji.</span>
+                <span>Kolejność transformacji jest bardzo istotna, ponieważ to może prowadzić do <b>złej transformacji</b>.</span>
         </div>
         <b>Przykładowe zapisy:</b>
         <ul class="examples">

@@ -9,10 +9,7 @@ const useObserver = (sections, links) => {
                 const link = links.current[parseInt(entry.target.id.substring(1))].current;
                 if (!link) return;
 
-                if (!entry.isIntersecting) {
-                    link.removeAttribute("style");
-                    return;
-                }
+                if (!entry.isIntersecting) return link.removeAttribute("style");
 
                 link.style.setProperty('--randomColor', `#${Math.floor(Math.random() * 16777215).toString(16)}`);
                 link.style.fontWeight = "bold";
