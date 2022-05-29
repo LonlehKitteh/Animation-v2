@@ -1119,30 +1119,6 @@ html {
   text-transform: uppercase;
 }
 
-.toCreator {
-  width: 60px;
-  height: 60px;
-  background: red;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 100000 !important;
-  position: fixed;
-  bottom: 1vh;
-  right: -10vh;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: right 0.2s ease, -webkit-transform 0.5s ease;
-  transition: right 0.2s ease, -webkit-transform 0.5s ease;
-  transition: right 0.2s ease, transform 0.5s ease;
-  transition: right 0.2s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
-}
-
-.activated {
-  right: 1vh;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
 .scrollUp {
   width: 3rem;
   height: 3rem;

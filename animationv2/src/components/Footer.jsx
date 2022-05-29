@@ -27,7 +27,7 @@ export default function Footer() {
             <div className="minNav">
                 <div className="prev">
                     {
-                        pages.findIndex(i => i === location.pathname.substring(1)) - 1 > 0 ?
+                        pages.findIndex(i => i === location.pathname.substring(1)) - 1 >= 0 ?
                             <>
                                 <p>Poprzedni artykuł</p>
                                 <Link to={`/${pages[pages.findIndex(i => i === location.pathname.substring(1)) - 1]}`}>{pages[pages.findIndex(i => i === location.pathname.substring(1)) - 1]}</Link>

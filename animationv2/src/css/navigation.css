@@ -70,6 +70,10 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
   margin-right: 3rem;
 }
 
+.container a.logo:hover {
+  color: var(--btn-primary-hover, #008cff);
+}
+
 .container a:not(:is(#collasible-nav-dropdown, .logo, .nav-link)) {
   color: var(--navigation, #20232a);
   text-transform: uppercase;
@@ -211,4 +215,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
 
 .account a {
   color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.account a:hover {
+  color: var(--btn-primary-hover, #008cff) !important;
 }

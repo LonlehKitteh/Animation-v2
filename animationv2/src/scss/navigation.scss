@@ -56,6 +56,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
     &.logo {
         color: $nav-color;
         margin-right: 3rem;
+        &:hover{
+            color: $btn-primary-hover;
+        }
     }
     &:not(:is(#collasible-nav-dropdown, .logo, .nav-link)) {
         color: $navigation;
@@ -156,6 +159,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
 .account {
     a {
         color: rgba(255, 255, 255, 0.55) !important;
+        &:hover{
+            color: $btn-primary-hover !important;
+        }
     }
     display: flex;
     justify-content: center;

@@ -39,7 +39,7 @@ export default function ScrollUp() {
             <div>
                 <motion.i
                     className="fas fa-angle-double-up"
-                    whileTap={{ rotate: 45 }} />
+                    whileTap={{ y: -5 }} />
             </div>
         </motion.div>
     )

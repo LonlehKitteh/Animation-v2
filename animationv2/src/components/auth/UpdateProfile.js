@@ -41,6 +41,7 @@ export default function UpdateProfile() {
     function handleSubmit(e) {
         e.preventDefault()
         if (passwordRef.current.value !== passwordConfirmRef.current.value) return setError('Passwords do not match')
+        if (['admin', 'tester', 'administrator'].includes(nameRef.current.value.toLowerCase()) || nameRef.current.value.length < 3) return setError("Incorrect name")
 
         const promisses = []
         setLoading(true)
@@ -48,12 +49,7 @@ export default function UpdateProfile() {
 
         if (emailRef.current.value !== currentUser.email) promisses.push(updateEmail(emailRef.current.value))
         if (passwordRef.current.value) promisses.push(updatePassword(passwordRef.current.value))
-        if (!['admin', 'tester', 'administrator'].includes(nameRef.current.value.toLowerCase()) && nameRef.current.value.length > 3){
-            promisses.push(updateName(nameRef.current.value))
-        } else{
-            setLoading(false)
-            return setError("Incorrect name")
-        }
+        if (nameRef.current.value !== currentUser.displayName) promisses.push(updateName(nameRef.current.value))
 
         Promise.all(promisses).then(() => {
             history.push('/begin')
@@ -74,7 +70,7 @@ export default function UpdateProfile() {
             transition={pageTransition}
         >
             <div className='push'>
-            {error && <Alert variant="danger">{error}</Alert>}
+                {error && <Alert variant="danger">{error}</Alert>}
                 <div className="container css">
                     <p className='result'>Test css result</p>
                     <div className="circular-progress" ref={circularProgressRef}>

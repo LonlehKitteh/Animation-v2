@@ -292,24 +292,6 @@ html {
     }
 }
 // ----------------------------------------------------------------------------------------------
-
-.toCreator {
-    width: 60px;
-    height: 60px;
-    background: red;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 100000 !important;
-    position: fixed;
-    bottom: 1vh;
-    right: -10vh;
-    transform: scale(0);
-    transition: right 0.2s ease, transform 0.5s ease;
-}
-.activated {
-    right: 1vh;
-    transform: scale(1);
-}
 .scrollUp {
     width: 3rem;
     height: 3rem;
