@@ -713,6 +713,48 @@
   }
 }
 
+@-webkit-keyframes modified {
+  from {
+    background-color: #84b484;
+    -webkit-box-shadow: 0 0 2px 1px #84b484;
+            box-shadow: 0 0 2px 1px #84b484;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+    opacity: 1;
+  }
+  to {
+    background-color: #323641;
+    -webkit-box-shadow: 0 0 2px 1px #323641;
+            box-shadow: 0 0 2px 1px #323641;
+  }
+}
+
+@keyframes modified {
+  from {
+    background-color: #84b484;
+    -webkit-box-shadow: 0 0 2px 1px #84b484;
+            box-shadow: 0 0 2px 1px #84b484;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: translate(150%);
+            transform: translate(150%);
+    opacity: 1;
+  }
+  to {
+    background-color: #323641;
+    -webkit-box-shadow: 0 0 2px 1px #323641;
+            box-shadow: 0 0 2px 1px #323641;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -778,7 +820,6 @@ html {
       -ms-flex-align: center;
           align-items: center;
   z-index: 2;
-  will-change: transition;
 }
 
 .css-track div:after {
@@ -847,7 +888,6 @@ html {
       -ms-flex-align: center;
           align-items: center;
   z-index: 2;
-  will-change: transform, background-color;
   -webkit-transform: translate(-150%);
           transform: translate(-150%);
   -webkit-animation-name: move;
@@ -858,6 +898,12 @@ html {
           animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
+}
+
+.css-track-animation div.modified,
+.css-track-color div.modified {
+  -webkit-animation: modified 4s linear infinite;
+          animation: modified 4s linear infinite;
 }
 
 .css-track-animation div:after,
@@ -1021,7 +1067,7 @@ html {
   color: #b5bd68;
 }
 
-.css-comment {
+.css-comment, .html-comment {
   color: #969896;
   font-style: italic;
 }

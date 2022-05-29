@@ -38,7 +38,6 @@ html {
         animation: homePage 7s ease-in-out infinite both;
         @include flex-center;
         z-index: 2;
-        will-change: transition;
         &:after {
             content: "div";
             font-size: 2.1rem;
@@ -84,12 +83,14 @@ html {
         border-radius: 0.2rem;
         @include flex-center;
         z-index: 2;
-        will-change: transform, background-color;
         transform: translate(-150%);
         animation-name: move;
         animation-duration: 4s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
+        &.modified{
+            animation: modified 4s linear infinite;
+        }
         &:after {
             content: "div";
             font-size: 2.1rem;
@@ -219,7 +220,7 @@ html {
 .css-value {
     color: #b5bd68;
 }
-.css-comment {
+.css-comment,.html-comment {
     color: #969896;
     font-style: italic;
 }

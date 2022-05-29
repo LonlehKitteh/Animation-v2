@@ -39,15 +39,15 @@ export const dataanimation = [
     {
         header: "grupa",
         content: `<div>Składniki grupy wartości <span class="css-role">animation</span>:</div>
-        <ol class="group-elements">
-            <li><a href="#s0">name</a></li>
-            <li><a href="#s6">duration</a></li>
-            <li><a href="#s11">timing-function</a></li>
-            <li><a href="#s25">delay</a></li>
-            <li><a href="#s30">iteration-count</a></li>
-            <li><a href="#s36">direction</a></li>
-            <li><a href="#s44">fill-mode</a></li>
-            <li><a href="#s52">play-state</a></li>
+        <ol class="group-elements"><b>
+            <li>name</li>
+            <li>duration</li>
+            <li>timing-function</li>
+            <li>delay</li>
+            <li>iteration-count</li>
+            <li>direction</li>
+            <li>fill-mode</li>
+            <li>play-state</li></b>
         </ol>
         <div class="alert alert-info" role="info">
                 <i class="fas fa-exclamation"></i>
