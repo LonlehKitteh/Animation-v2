@@ -129,6 +129,8 @@ $time: 5s;
     height: $size;
     perspective: 900px;
     margin: 10rem auto;
+    position: relative;
+    transform: translateX(20%);
     .box {
         transform-style: preserve-3d;
         transform: rotateX(-30deg) rotateY(-45deg);

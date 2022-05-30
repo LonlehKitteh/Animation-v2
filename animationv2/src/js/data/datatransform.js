@@ -4,8 +4,8 @@ export const transforms = [
         value: 'transform: none'
     },
     {
-        transform: 'perspective(100px) rotateX(125deg)',
-        value: 'transform: perspective(100px) rotateX(125deg)'
+        transform: 'perspective(100px) rotateX(45deg)',
+        value: 'transform: perspective(100px) rotateX(45deg)'
     },
     {
         transform: 'translateX(40px)',
@@ -24,8 +24,8 @@ export const transforms = [
         value: 'transform: perspective(100px) translateZ(20px)'
     },
     {
-        transform: 'perspective(300px) translate3d(50px, 75px, 40px)',
-        value: 'transform: perspective(300px) translate3d(50px, 75px, 40px)'
+        transform: 'perspective(300px) translate3d(25px, 75px, 40px)',
+        value: 'transform: perspective(300px) translate3d(25px, 75px, 40px)'
     },
     {
         transform: 'scaleX(0.8)',
@@ -88,13 +88,13 @@ export const transforms = [
         value: 'transform: perspective(300px) matrix3d(0.7071067, 0, -0.7071067, 0, 0, 1, 0, 0, 0.7071067, 0, 0.7071067, 0, 0, 0, 0, 1)'
     },
     {
-        transform: 'translateX(100px) rotate(30deg)',
-        value: 'transform: translateX(100px) rotate(30deg)'
+        transform: 'translateX(-25px) rotate(30deg)',
+        value: 'transform: translateX(-25px) rotate(30deg)'
     },
     {
-        transformOrigin: 'left top',
+        transformOrigin: 'center bottom',
         animation: 'transformOrigin 4s linear infinite',
-        value: 'transform-origin: left top'
+        value: 'transform-origin: center bottom'
     },
     {
         transformStyle: 'flat',

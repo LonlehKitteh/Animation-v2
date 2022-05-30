@@ -25,6 +25,7 @@ export default function Keyframes() {
         >
             <div className="push">
                 <div className="main">
+                <p className="title">Keyframes</p>
                     {datakeyframes.map((element, counter) => <Section
                         key={counter}
                         sections={sections}

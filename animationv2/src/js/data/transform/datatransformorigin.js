@@ -5,9 +5,9 @@ export const datatransformorigin = [
     {
         header: "Punkt Zero",
         content: `
-            <div class="pictured">
+            <div class="pictured schemat">
                 <h2>transform-origin: <span class="parameter">x</span> y;</h2>
-                <div class="flex"><img src="${Schemat}" alt="transform-origin-sketch" /></div>
+                <img src="${Schemat}" alt="transform-origin-sketch" />
             </div>
             <div class="alert alert-info" role="alert">
                 <i class="fas fa-exclamation"></i>
@@ -69,7 +69,7 @@ export const datatransformorigin = [
         <span class="css-property">font-size</span>: <span class="css-number">1.2rem</span>;
         <span class="css-property">background-color</span>: <span class="css-value">#009fff</span>;
         <span class="css-property">animation</span>: <span class="css-value">rotation 4s linear infinite</span>;
-        <span class="important"><span class="css-property">transform-origin</span>: <span class="css-value">left top</span>;</span>
+        <span class="important"><span class="css-property">transform-origin</span>: <span class="css-value">center bottom</span>;</span>
     }
 
     <span class="css-selector">@keyframes</span> rotation {
@@ -79,7 +79,7 @@ export const datatransformorigin = [
             <span class="css-property">transform</span>: <span class="css-value">rotate(<span class="css-number">180deg</span>)</span>;
         }
     }`,
-        copy: copyText('animation', 'rotation 4s linear infinite', `transform-origin: left top; 
+        copy: copyText('animation', 'rotation 4s linear infinite', `transform-origin: center bottom; 
     }
 @keyframes rotation{
     from, to{

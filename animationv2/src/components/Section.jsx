@@ -92,7 +92,7 @@ const Section = props => {
                         <h2>{`${transforms[props.counter].value || ''};`}</h2>
                         {
                             (props.perspectivePicture) ?
-                                <div className="flex" style={{ height: '50vh' }}>
+                                <div className="flex">
                                     <div className="parent" style={transforms[props.counter]}>{(props.isChildNeed) ? "div.parent" : <span>div</span>}
                                         {(props.isChildNeed) ? <div className="child" style={(transforms[props.counter] !== undefined) ? transforms[props.counter].child : null}>div.child</div> : null}
                                     </div>

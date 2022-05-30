@@ -11,27 +11,27 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
     width: max-content !important;
     user-select: none;
 }
-.dropdown-menu{
-    a{
+.dropdown-menu {
+    a {
         padding-right: 1rem;
         padding-left: 1rem;
     }
 }
-.subtitle{
-    span{
+.subtitle {
+    span {
         padding-left: 1rem;
         cursor: default;
         text-transform: uppercase;
     }
-    a{
-        font-size: .75rem;
-        padding: .1rem 1rem;
+    a {
+        font-size: 0.75rem;
+        padding: 0.1rem 1rem;
         text-transform: lowercase;
     }
 }
 .container {
     margin: 0;
-    .dropdown-menu.show > a:last-of-type{
+    .dropdown-menu.show > a:last-of-type {
         border-top: 1px solid $menu-border;
         margin-top: 0.4rem;
     }
@@ -56,7 +56,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
     &.logo {
         color: $nav-color;
         margin-right: 3rem;
-        &:hover{
+        &:hover {
             color: $btn-primary-hover;
         }
     }
@@ -134,20 +134,62 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
     @include flex-center;
     a {
         color: rgba(255, 255, 255, 0.55) !important;
-        &:hover{
+        &:hover {
             color: $btn-primary-hover !important;
         }
     }
 }
-@media screen and (max-width: 1151px){
-    .container :is(a, button, .version){
+@media screen and (max-width: 1151px) {
+    .container :is(a, button, .version) {
         font-size: small;
     }
-    .logo{
+    .logo {
         margin-right: 1rem !important;
     }
-    .me-auto.navbar-nav{
-        align-items: center;
-        justify-content: center;
+    .loginpanel {
+        justify-content: flex-end;
+        flex-direction: row;
+    }
+    .galery {
+        margin: 0.3rem 0;
+    }
+}
+@media screen and (max-width: 991px) {
+    .dropdown-menu.show {
+        background: transparent;
+        border: none;
+        .subtitle :is(span, i) {
+            color: white !important;
+            &:hover {
+                color: $btn-primary-hover;
+            }
+        }
+        a{
+            color: white !important;
+            &.active{
+                background: transparent !important;
+                color: $btn-primary !important;
+            }
+        }
+        .subtitle a {
+            color: #fff7 !important;
+            &:hover {
+                color: $btn-primary-hover;
+            }
+            &.active{
+                background: transparent !important;
+                color: $btn-primary !important;
+            }
+        }
+        a:last-of-type {
+            border-top: none !important;
+            margin-top: 0 !important;
+        }
+    }
+    .galery{
+        display: block;
+        a{
+            padding: 0;
+        }
     }
 }

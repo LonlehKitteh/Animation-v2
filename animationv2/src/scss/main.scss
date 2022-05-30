@@ -88,7 +88,7 @@ html {
         animation-duration: 4s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
-        &.modified{
+        &.modified {
             animation: modified 4s linear infinite;
         }
         &:after {
@@ -131,6 +131,7 @@ html {
     top: 3.5rem;
     left: 0;
     width: 100%;
+    overflow-x: hidden;
     .push {
         display: flex;
         .main {
@@ -141,7 +142,6 @@ html {
                 font-family: "Cairo";
                 letter-spacing: 1px;
                 padding: 1.5rem;
-                margin: -2rem;
                 margin-bottom: 1rem;
                 text-transform: uppercase;
                 background: $nav-color-hover;
@@ -220,7 +220,8 @@ html {
 .css-value {
     color: #b5bd68;
 }
-.css-comment,.html-comment {
+.css-comment,
+.html-comment {
     color: #969896;
     font-style: italic;
 }
@@ -638,5 +639,138 @@ html {
                 animation: page404_#{$name} 30s #{$name}s steps(5) infinite, filter 20s #{$name}s linear infinite;
             }
         }
+    }
+}
+
+@media screen and (max-width: 1151px) {
+    .page {
+        top: 51.5px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .page {
+        top: 45.5px;
+        .push {
+            flex-direction: column-reverse;
+            .main {
+                width: 100%;
+                .title {
+                    font-size: 1.5rem;
+                }
+                .section{
+                    h1{
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+            .aside {
+                width: 100%;
+                .menu {
+                    position: static !important;
+                    width: 100%;
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+    .footer {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 752px) {
+    .flex {
+        flex-direction: column;
+        .flex-child:last-of-type {
+            border-left: none;
+        }
+    }
+}
+@media screen and (max-width: 652px) {
+    .aside {
+        .menu a{
+            font-size:0.7rem;
+        }
+    }
+    .css-lan{
+        padding: 0.5rem;
+        font-size: smaller;
+    }
+    .mysterious-btn {
+        top: -0.5rem;
+        right: -0.5rem;
+        i{
+            font-size: small;
+            padding: .5rem 0.6rem;
+        }
+    }
+    .mysterious-text{
+        right: 1.8rem;
+        top: 0.25rem;
+    }
+    .copy{
+        font-size: small;
+        right: -.5rem;
+        .copy-btn i{
+            font-size: small;
+            padding: .5rem 0.6rem;
+        }
+        .copy-message{
+            padding: .7rem .5rem;
+        }
+    }
+    .main {
+        .title {
+            font-size: 1rem !important;
+        }
+    }
+    .section {
+        font-size: smaller;
+        font-family: sans-serif;
+        margin: 0;
+        h1{
+            margin: -1rem;
+            margin-top: -2rem;
+            font-size: 1rem !important;
+            padding: .7rem !important;
+        }
+        .pictured {
+            margin-bottom: 5rem !important;
+            h2{
+                font-size: .9rem;
+            }
+            .css-example-block {
+                width: 80vw;
+                height: 70vw;
+                margin: auto;
+            }
+        }
+    }
+    .footer {
+        .minNav {
+            padding: 0 1rem !important;
+            font-size: .9rem;
+            a {
+                font-size: .6rem !important;
+            }
+        }
+    }
+    .mainFooter {
+        flex-wrap: wrap;
+        .links {
+            flex-basis: 50%;
+            margin-top: 1rem;
+        }
+    }
+    #animacja1, #animacja2{
+        font-size: 0.9rem !important;
+    }
+    .css-track-animation div::after, .css-track-color div::after{
+        font-size: 1rem;
+    }
+    .css-track-animation, .css-track-color{
+        height: initial;
+    }
+    .juxtaposition p{
+        font-size: small;
     }
 }

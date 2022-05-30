@@ -3,7 +3,7 @@
   background: white;
   padding: 1rem;
   margin: 1rem;
-  font-family: 'Cairo';
+  font-family: "Cairo";
   letter-spacing: -1px;
   color: var(--section-main, black);
 }
@@ -22,6 +22,7 @@
 
 .section h1,
 .section h2 {
+  margin: -2rem;
   text-align: center;
   margin-bottom: 3rem;
   font-family: "Cairo";
@@ -42,12 +43,27 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  width: 300px;
-  height: 300px;
+  width: 50vw;
+  height: 50vw;
+  max-width: 300px;
+  max-height: 300px;
   background: coral;
   text-align: center;
   margin: auto;
   border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .section .parent span {
@@ -68,8 +84,20 @@
 
 .section .parent .child {
   background: #a6d9a6;
-  height: 250px;
+  height: 38.46154vw;
+  width: 38.46154vw;
+  max-width: 250px;
+  max-height: 250px;
   border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 p + .section {
@@ -129,6 +157,31 @@ p + .section {
   border: 1px solid var(--menu-border, #c5c5c5a1);
   font-size: 1.1rem;
   font-family: monospace;
+}
+
+.pictured.schemat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pictured.schemat h2 {
+  width: 100%;
+}
+
+.pictured.schemat img {
+  width: 100%;
+  height: 100%;
 }
 
 .parameter {
@@ -341,7 +394,7 @@ p + .section {
       -ms-user-select: none;
           user-select: none;
   font-weight: bold;
-  font-family: 'Cairo';
+  font-family: "Cairo";
 }
 
 .css-role {
@@ -355,8 +408,8 @@ p + .section {
   right: -1rem;
   cursor: pointer;
   border-radius: 50%;
-  -webkit-transition: background-color .2s ease-in-out;
-  transition: background-color .2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   will-change: background-color;
 }
 
@@ -368,8 +421,8 @@ p + .section {
 
 .mysterious-text {
   position: absolute;
-  font-family: monospace, 'Cairo';
-  top: .5rem;
+  font-family: monospace, "Cairo";
+  top: 0.5rem;
   right: 4rem;
   color: #888;
 }
@@ -377,8 +430,8 @@ p + .section {
 .group-elements a {
   color: black;
   text-decoration: none;
-  -webkit-transition: color .2s ease-in-out;
-  transition: color .2s ease-in-out;
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
   font-weight: bold;
 }
 
@@ -391,7 +444,7 @@ p + .section {
   font-size: 1.5rem;
   color: var(--navigation, #20232a);
   text-transform: uppercase;
-  font-family: 'Cairo';
+  font-family: "Cairo";
   font-weight: bold;
   margin: 1rem 0;
 }

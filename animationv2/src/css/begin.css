@@ -936,6 +936,9 @@
   -webkit-perspective: 900px;
           perspective: 900px;
   margin: 10rem auto;
+  position: relative;
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
 }
 
 .animation-3d .box {

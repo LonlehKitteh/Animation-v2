@@ -5,6 +5,7 @@
     color: white;
     width: 70%;
     padding-bottom: 1rem;
+    font-size: 16px;
     font-family: 'Cairo';
     .subtitle-footer {
         display: flex;
@@ -14,7 +15,7 @@
             text-transform: uppercase;
         }
         a {
-            font-size: 0.65rem;
+            font-size: 0.65em;
             padding: 0.1rem 1rem;
             text-transform: uppercase !important;
             color: darken($color: white, $amount: 25) !important;
@@ -24,7 +25,7 @@
     }
     h1 {
         color: #999;
-        font-size: 1.2rem;
+        font-size: 1.2em;
         font-family: monospace;
         text-transform: uppercase;
         font-weight: bold;
@@ -35,6 +36,7 @@
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
+        padding: 0 1rem;
         i {
             margin-right: 1rem;
         }
@@ -46,15 +48,15 @@
                 margin-right: 12px !important;
             }
             &.active {
-                color: $btn-primary-hover;
+                color: $btn-primary-hover !important;
             }
         }
     }
     .minNav {
-        height: 10rem;
+        height: 10em;
         background-color: #282c34;
         margin-bottom: 1rem;
-        padding: 0 6rem;
+        padding: 0 6em;
         display: flex;
         box-sizing: border-box;
         align-items: center;
@@ -70,7 +72,7 @@
                 text-transform: capitalize;
                 text-decoration: none;
                 color: white;
-                font-size: 1.8rem;
+                font-size: 1.8em;
                 transition: color 0.3s ease-in-out;
                 width: max-content;
                 &:hover {
@@ -97,7 +99,7 @@
 }
 .author {
     color: #999;
-    font-size: 0.7rem;
+    font-size: 0.7em;
     font-family: monospace;
     text-transform: uppercase;
     font-weight: bold;
