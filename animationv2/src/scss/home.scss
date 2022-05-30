@@ -21,7 +21,7 @@
         width: max-content;
         justify-content: center;
         align-items: center;
-        font-size: 4rem;
+        font-size: clamp(17px, 3vw, 5vw);
         box-decoration-break: clone;
         div:not(.typed-cursor) {
             color: white;
@@ -39,8 +39,8 @@
         align-self: flex-end;
     }
     button {
-        font-size: 4rem;
-        border-radius: 1rem;
+        font-size: clamp(17px, 3vw, 5vw);
+        border-radius: clamp(10px, 2%, 1.5rem);
         text-transform: uppercase;
         font-family: monospace, "Cairo";
         position: absolute;
@@ -48,60 +48,29 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    $size: 18vw;
     .jupiter {
-        background: url("../images/jupiter.webP");
-        border-radius: 50%;
-        width: 400px;
-        height: 400px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        position: absolute;
+        @include picture($size, 150px, "../images/jupiter.webP");
         z-index: -4;
-        cursor: pointer;
         top: 20%;
         right: 5%;
     }
-    .neptune{
-        background: url("../images/neptune.webP");
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        position: absolute;
+    .neptune {
+        @include picture($size / 4, 60px, "../images/neptune.webP");
         bottom: 5%;
         right: 30%;
         z-index: -5;
-        cursor: pointer;
     }
-    .earth{
-        background: url("../images/earth.webP");
-        border-radius: 50%;
-        width: 200px;
-        height: 200px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        position: absolute;
+    .earth {
+        @include picture($size / 2, 75px, "../images/earth.webP");
         bottom: 10%;
         left: 15%;
         z-index: -2;
-        cursor: pointer;
     }
-    .mars{
-        background: url("../images/mars.webP");
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        position: absolute;
+    .mars {
+        @include picture($size * 0.625, 80px, "../images/mars.webP");
         top: 25%;
         left: 10%;
         z-index: -3;
-        cursor: pointer;
     }
 }

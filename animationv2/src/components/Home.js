@@ -18,9 +18,7 @@ export default function Home() {
 
     useEffect(() => {
         typed.current = new Typed(el.current, options)
-        return () => {
-            typed.current.destroy()
-        }
+        return () => typed.current.destroy()
     })
 
     return (
@@ -39,11 +37,10 @@ export default function Home() {
                 </div>
 
                 <Link to="/begin"><Button variant="success">Get Started</Button></Link>
-
                 <motion.div
                     drag
                     dragConstraints={pageRef}
-                    animate={{ scale: 0.8, x: -700, y: -250 }}
+                    animate={{ scale: 0.8, x: -window.outerWidth * 0.5, y: -window.outerHeight / 5 }}
                     initial={{ scale: 1, x: 0, y: 0 }}
                     transition={{
                         delay: 0.1,
@@ -57,7 +54,7 @@ export default function Home() {
                 <motion.div
                     drag
                     dragConstraints={pageRef}
-                    animate={{ scale: 0.5, x: 200, y: -800 }}
+                    animate={{ scale: 0.5, x: window.outerWidth * 0.25, y: -window.outerHeight * 0.83 }}
                     initial={{ scale: 1, x: 0, y: 0 }}
                     transition={{
                         delay: 0.1,
@@ -71,7 +68,7 @@ export default function Home() {
                 <motion.div
                     drag
                     dragConstraints={pageRef}
-                    animate={{ scale: 1.1, x: 500, y: -300 }}
+                    animate={{ scale: 1.1, x: window.outerWidth * 0.25, y: -window.outerHeight * 0.4 }}
                     initial={{ scale: 1, x: 0, y: 0 }}
                     transition={{
                         delay: 0.1,
@@ -85,7 +82,7 @@ export default function Home() {
                 <motion.div
                     drag
                     dragConstraints={pageRef}
-                    animate={{ scale: 0.9, x: 200, y: 300 }}
+                    animate={{ scale: 0.9, x: window.outerWidth * 0.5, y: window.outerHeight * 0.5 }}
                     initial={{ scale: 1, x: 0, y: 0 }}
                     transition={{
                         delay: 0.1,

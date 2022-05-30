@@ -31,7 +31,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 4rem;
+  font-size: clamp(17px, 3vw, 5vw);
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
 }
@@ -57,8 +57,8 @@
 }
 
 .space button {
-  font-size: 4rem;
-  border-radius: 1rem;
+  font-size: clamp(17px, 3vw, 5vw);
+  border-radius: clamp(10px, 2%, 1.5rem);
   text-transform: uppercase;
   font-family: monospace, "Cairo";
   position: absolute;
@@ -70,60 +70,68 @@
 
 .space .jupiter {
   background: url("../images/jupiter.webP");
-  border-radius: 50%;
-  width: 400px;
-  height: 400px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  width: 18vw;
+  height: 18vw;
+  min-width: 150px;
+  min-height: 150px;
   position: absolute;
-  z-index: -4;
+  border-radius: 50%;
   cursor: pointer;
+  z-index: -4;
   top: 20%;
   right: 5%;
 }
 
 .space .neptune {
   background: url("../images/neptune.webP");
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
+  width: 4.5vw;
+  height: 4.5vw;
+  min-width: 60px;
+  min-height: 60px;
   position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
   bottom: 5%;
   right: 30%;
   z-index: -5;
-  cursor: pointer;
 }
 
 .space .earth {
   background: url("../images/earth.webP");
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
+  width: 9vw;
+  height: 9vw;
+  min-width: 75px;
+  min-height: 75px;
   position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
   bottom: 10%;
   left: 15%;
   z-index: -2;
-  cursor: pointer;
 }
 
 .space .mars {
   background: url("../images/mars.webP");
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
+  width: 11.25vw;
+  height: 11.25vw;
+  min-width: 80px;
+  min-height: 80px;
   position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
   top: 25%;
   left: 10%;
   z-index: -3;
-  cursor: pointer;
 }

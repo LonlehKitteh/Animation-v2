@@ -46,11 +46,6 @@ export default function Navigation() {
                         <Nav className="galery">
                             <NavLink to="/galery"><i className="fas fa-camera"></i>Galery</NavLink>
                         </Nav>
-                        <Nav className="themes">
-                            <NavDropdown title="Themes" id="collasible-nav-dropdown">
-                                <Nav.Item><span className="black"></span>black</Nav.Item>
-                            </NavDropdown>
-                        </Nav>
                         <Nav className="galery">
                             <NavLink to="/creator"><i className="fas fa-tools"></i>Creator</NavLink>
                         </Nav>
@@ -67,7 +62,6 @@ export default function Navigation() {
                             </Nav>
                     }
                 </Navbar.Collapse>
-                <Nav className="version"><span>1.5</span><i className="fas fa-copyright"></i></Nav>
             </Container>
         </Navbar>
     )

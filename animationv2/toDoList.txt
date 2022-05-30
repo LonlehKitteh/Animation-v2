@@ -1,4 +1,2 @@
-3. themes
-7. wystylowac forgot pass itp.
-8. RWD
-9. Easter Egg
+1. RWD
+2. Easter Egg

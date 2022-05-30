@@ -11,3 +11,16 @@
     font-size: 1.4rem;
     font-weight: bold;
 }
+@mixin picture($size, $minSize, $url) {
+    background: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: $size;
+    height: $size;
+    min-width: $minSize;
+    min-height: $minSize;
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+}
