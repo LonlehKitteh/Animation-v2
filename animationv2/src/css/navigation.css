@@ -225,6 +225,10 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
   .dropdown-menu.show a {
     color: white !important;
   }
+  .dropdown-menu.show a:hover {
+    color: var(--btn-primary-hover, #008cff) !important;
+    background: transparent !important;
+  }
   .dropdown-menu.show a.active {
     background: transparent !important;
     color: var(--btn-primary, #009fff) !important;
@@ -234,6 +238,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
   }
   .dropdown-menu.show .subtitle a:hover {
     color: var(--btn-primary-hover, #008cff);
+    background: transparent !important;
   }
   .dropdown-menu.show .subtitle a.active {
     background: transparent !important;

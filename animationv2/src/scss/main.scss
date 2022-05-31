@@ -364,15 +364,11 @@ html {
                 justify-content: space-between;
                 position: relative;
                 align-items: center;
-                .mysterious-btn {
-                    position: static;
-                    margin: 1rem;
-                    i {
-                        padding: 0.75rem;
-                    }
-                }
-                .mysterious-text {
-                    position: static;
+                gap: .2rem;
+                padding: .5rem;
+                button span{
+                    margin-right: .1rem;
+                    font-size: small;
                 }
             }
             .program {
@@ -643,11 +639,19 @@ html {
 }
 
 @media screen and (max-width: 1151px) {
-    .page {
+    .page,
+    .page.auth {
         top: 51.5px;
+    }
+    .page.auth {
+        height: calc(100vh - 51.5px) !important;
     }
 }
 @media screen and (max-width: 991px) {
+    .page.auth {
+        top: 45.5px;
+        height: calc(100vh - 45.5px) !important;
+    }
     .page {
         top: 45.5px;
         .push {
@@ -657,8 +661,8 @@ html {
                 .title {
                     font-size: 1.5rem;
                 }
-                .section{
-                    h1{
+                .section {
+                    h1 {
                         font-size: 1.2rem;
                     }
                 }
@@ -684,38 +688,45 @@ html {
             border-left: none;
         }
     }
+    .creator .options{
+        flex-direction: column;
+        div, button{
+            flex-grow: 1;
+            width: 100%;
+        }
+    }
 }
 @media screen and (max-width: 652px) {
     .aside {
-        .menu a{
-            font-size:0.7rem;
+        .menu a {
+            font-size: 0.7rem;
         }
     }
-    .css-lan{
+    .css-lan {
         padding: 0.5rem;
         font-size: smaller;
     }
     .mysterious-btn {
         top: -0.5rem;
         right: -0.5rem;
-        i{
+        i {
             font-size: small;
-            padding: .5rem 0.6rem;
+            padding: 0.5rem 0.6rem;
         }
     }
-    .mysterious-text{
+    .mysterious-text {
         right: 1.8rem;
         top: 0.25rem;
     }
-    .copy{
+    .copy {
         font-size: small;
-        right: -.5rem;
-        .copy-btn i{
+        right: -0.5rem;
+        .copy-btn i {
             font-size: small;
-            padding: .5rem 0.6rem;
+            padding: 0.5rem 0.6rem;
         }
-        .copy-message{
-            padding: .7rem .5rem;
+        .copy-message {
+            padding: 0.7rem 0.5rem;
         }
     }
     .main {
@@ -727,16 +738,16 @@ html {
         font-size: smaller;
         font-family: sans-serif;
         margin: 0;
-        h1{
+        h1 {
             margin: -1rem;
             margin-top: -2rem;
             font-size: 1rem !important;
-            padding: .7rem !important;
+            padding: 0.7rem !important;
         }
         .pictured {
             margin-bottom: 5rem !important;
-            h2{
-                font-size: .9rem;
+            h2 {
+                font-size: 0.9rem;
             }
             .css-example-block {
                 width: 80vw;
@@ -748,9 +759,12 @@ html {
     .footer {
         .minNav {
             padding: 0 1rem !important;
-            font-size: .9rem;
+            font-size: 1rem;
             a {
-                font-size: .6rem !important;
+                font-size: 0.8rem !important;
+            }
+            .next a {
+                margin-left: auto;
             }
         }
     }
@@ -761,16 +775,22 @@ html {
             margin-top: 1rem;
         }
     }
-    #animacja1, #animacja2{
+    #animacja1,
+    #animacja2 {
         font-size: 0.9rem !important;
     }
-    .css-track-animation div::after, .css-track-color div::after{
+    .css-track-animation div::after,
+    .css-track-color div::after {
         font-size: 1rem;
     }
-    .css-track-animation, .css-track-color{
+    .css-track-animation,
+    .css-track-color {
         height: initial;
     }
-    .juxtaposition p{
+    .juxtaposition p {
         font-size: small;
     }
+}
+@media screen and (max-width: 500px){
+
 }

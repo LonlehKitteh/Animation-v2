@@ -147,3 +147,28 @@
         }
     }
 }
+@media screen and (max-width: 768px) {
+    .page.auth .main{
+        width: 80vw;
+        padding: 6rem 1rem 2rem 1rem;
+        #email, #password, #name, #password-confirm{
+            flex-wrap: nowrap;
+            flex-direction: row !important;
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    .page.auth .main{
+        #email, #password, #name, #password-confirm{
+            margin: .5rem;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        button{
+            width: auto !important;
+            margin: auto !important;
+        }
+    }
+}

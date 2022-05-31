@@ -166,6 +166,10 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
         }
         a{
             color: white !important;
+            &:hover {
+                color: $btn-primary-hover !important;
+                background: transparent !important;
+            }
             &.active{
                 background: transparent !important;
                 color: $btn-primary !important;
@@ -175,6 +179,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
             color: #fff7 !important;
             &:hover {
                 color: $btn-primary-hover;
+                background: transparent !important;
             }
             &.active{
                 background: transparent !important;

@@ -75,29 +75,22 @@ const Creator = () => {
                 </div>
                 <div className='control-panel'>
                     <div className='options'>
-                        <div style={{ flexGrow: 1 }}>
-                            <motion.div
-                                style={{ display: 'inline-block' }}
-                                className="m-3"
-                                whileTap={{ scale: 0.9 }}
-                                whileHover={{ scale: 1.05, zIndex: 99 }}
-                                transition={btnAnimation}
-                                onClick={handleClick}
-                            >
-                                <Button variant="primary">Add animation <i className="fas fa-plus-circle"></i></Button>
-                            </motion.div>
-                        </div>
-                        <div className="mysterious-text">Press me!</div>
-                        <div>
-                            <motion.div
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="mysterious-btn" onClick={() => handleStart()}
-                                style={{ backgroundColor: isDisabled ? '#ff2600' : '#00ff4c' }}
-                            >
-                                <i className={`fas ${isDisabled ? 'fa-pause' : 'fa-play'}`}></i>
-                            </motion.div>
-                        </div>
+                        <motion.div
+                            whileTap={{ scale: 0.9 }}
+                            whileHover={{ scale: 1.05, zIndex: 99 }}
+                            transition={btnAnimation}
+                            onClick={handleClick}
+                        >
+                            <Button variant="primary"><span>Add</span> <i className="fas fa-plus-circle"></i></Button>
+                        </motion.div>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            transition={btnAnimation}
+                            onClick={() => handleStart()}
+                        >
+                            <Button variant={isDisabled ? "danger" : "success"}><span>Start</span> <i className={`fas ${isDisabled ? 'fa-pause' : 'fa-play'}`}></i></Button>
+                        </motion.div>
                     </div>
                     <div className='program'>
                         {todos.map((el, key) =>

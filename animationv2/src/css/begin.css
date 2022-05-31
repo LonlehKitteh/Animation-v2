@@ -1197,3 +1197,10 @@
   -webkit-animation: pulse 5s ease-in-out infinite both;
           animation: pulse 5s ease-in-out infinite both;
 }
+
+@media screen and (max-width: 652px) {
+  .begin h1 {
+    padding: 1rem !important;
+    margin: -1rem;
+  }
+}

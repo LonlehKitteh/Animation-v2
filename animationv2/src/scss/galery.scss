@@ -4,17 +4,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    gap: .1rem;
+    padding: .3rem;
     div {
         background: $nav-color-hover;
-        border-radius: 0.7rem;
+        border-radius: 0.2rem;
     }
     a {
         width: 100%;
         color: white;
         text-decoration: none;
-        height: 25vh;
+        height: 25vw;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -24,6 +24,9 @@
     }
     i {
         font-size: 8vw;
+    }
+    span{
+        font-size: 3vw;
     }
 }
 .prevPageGalery,
