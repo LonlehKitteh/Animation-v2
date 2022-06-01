@@ -98,7 +98,7 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
                 >
                     <Modal.Header>
                         <Modal.Title id="example-modal-sizes-title-lg" className='flex'>
-                            <div>You can take whatever you what</div> <div className="arm"></div>
+                            <div>Add animation!</div>
                         </Modal.Title>
                         <button type="button" className="btn-close" aria-label="Close" onClick={handleClose}></button>
                     </Modal.Header>
@@ -106,7 +106,7 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
                         <div className='modal-group'>
                             {
                                 buttonsAndIcons.map((element, key) => {
-                                    return <motion.div key={key} style={{ filter: `hue-rotate(${key * 10}deg)` }} className="modal-element" whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15, opacity: 0.9 }} transition={btnAnimation}>
+                                    return <motion.div key={key} style={{ filter: `hue-rotate(${key * 10}deg)` }} className="modal-element" whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05, opacity: 0.9, zIndex: 999 }} transition={btnAnimation}>
                                         <div className="modal-child">
                                             <div className='cube'>
                                                 <div className='content-cube'></div>
@@ -128,11 +128,11 @@ const Bundle = ({ isDisabled, setCounter, ...props }) => {
                 </Modal>
                 <div className={`control-btn ${props.element.text === 'transform-origin' ? 'down' : ''}`}>
                     {props.element.text !== '' ? <>
-                        <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
+                        <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} transition={btnAnimation}>
                             <Button variant="success" onClick={() => handleSave()}><i className="fas fa-check"></i></Button>
                         </motion.div>
 
-                        <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.15 }} transition={btnAnimation}>
+                        <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }} transition={btnAnimation}>
                             <Button variant="warning" onClick={() => handleUndo()}><i className="fas fa-undo"></i></Button>
                         </motion.div>
 

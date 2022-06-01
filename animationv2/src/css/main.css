@@ -1284,12 +1284,12 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: .2rem;
-  padding: .5rem;
+  gap: 0.2rem;
+  padding: 0.5rem;
 }
 
 .creator .push .control-panel .options button span {
-  margin-right: .1rem;
+  margin-right: 0.1rem;
   font-size: small;
 }
 
@@ -1302,23 +1302,25 @@ html {
 .creator .push .control-panel .code {
   background: #474949;
   color: white;
-  padding: 1rem;
+  padding: 0.3rem;
   font-family: "Cairo";
   position: relative;
   cursor: pointer;
 }
 
 .creator .push .control-panel .code h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 0;
   font-family: "Cairo";
 }
 
 .creator .push .control-panel .code div {
   text-indent: 1rem;
+  font-size: 12px;
 }
 
 .creator .push .control-panel .code span {
+  font-size: 1vw;
   position: absolute;
   top: 0.3rem;
   right: 0.3rem;
@@ -1463,15 +1465,6 @@ html {
   margin: 0 0.2rem;
 }
 
-.arm {
-  background: url("../images/arm.webP");
-  background-position: center;
-  background-size: cover;
-  width: 32px;
-  height: 32px;
-  margin-left: 0.4rem;
-}
-
 .customRange {
   margin: 5px 1rem;
   background-color: transparent;
@@ -1506,22 +1499,21 @@ html {
 }
 
 .modal-group {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
   margin: auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 150px 150px 150px 150px;
-      grid-template-columns: 150px 150px 150px 150px;
-  -ms-grid-rows: 150px 150px 150px 150px;
-      grid-template-rows: 150px 150px 150px 150px;
-  gap: 1rem;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0.1rem;
+  height: 80vh;
 }
 
 .modal-group .modal-element {
+  height: 100%;
   background-color: #009dffb9;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   cursor: pointer;
   position: relative;
 }
@@ -1588,6 +1580,7 @@ html {
 }
 
 .notFound {
+  overflow: hidden;
   width: 100%;
   height: calc(100vh - 56px);
   background: linear-gradient(45deg, #101727 10%, #1f2c4d 40%, #0d131f 100%);
@@ -1624,6 +1617,7 @@ html {
   font-size: 4rem;
   -webkit-filter: drop-shadow(0 0 6px black);
           filter: drop-shadow(0 0 6px black);
+  z-index: 99;
 }
 
 .notFound .return {
@@ -1654,6 +1648,7 @@ html {
   height: 100%;
   background: url("../images/pagenotfound.png");
   background-attachment: fixed;
+  background-size: 100vw 100vh;
 }
 
 .notFound .slices .slice1 {
@@ -1689,38 +1684,68 @@ html {
   .page.auth {
     top: 51.5px;
   }
-  .page.auth {
+  .page.auth,
+  .creator,
+  .notFound {
     height: calc(100vh - 51.5px) !important;
   }
 }
 
 @media screen and (max-width: 991px) {
-  .page.auth {
+  .modal-dialog {
+    max-width: 700px;
+  }
+  .page.auth,
+  .creator,
+  .notFound {
     top: 45.5px;
     height: calc(100vh - 45.5px) !important;
   }
-  .page {
+  .creator .push {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .creator .push .title {
+    padding: 0.3rem;
+    font-size: 1.5rem;
+  }
+  .creator .push .animation-field {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .creator .push .animation-field .animation-item {
+    width: 15vw !important;
+    height: 15vw !important;
+    outline: none !important;
+  }
+  .page:not(.update) {
     top: 45.5px;
   }
-  .page .push {
+  .page:not(.update) .push {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
   }
-  .page .push .main {
+  .page:not(.update) .push .main {
     width: 100%;
   }
-  .page .push .main .title {
+  .page:not(.update) .push .main .title {
     font-size: 1.5rem;
   }
-  .page .push .main .section h1 {
+  .page:not(.update) .push .main .section h1 {
     font-size: 1.2rem;
   }
-  .page .push .aside {
+  .page:not(.update) .push .aside {
     width: 100%;
   }
-  .page .push .aside .menu {
+  .page:not(.update) .push .aside .menu {
     position: static !important;
     width: 100%;
     padding: 1rem;
@@ -1731,6 +1756,21 @@ html {
 }
 
 @media screen and (max-width: 752px) {
+  .notFound .slices div {
+    background: #1f2c4d50;
+  }
+  .update .push {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .update .push .container {
+    padding: 0.5rem !important;
+  }
+  .update .push .css {
+    height: auto !important;
+  }
   .flex {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1746,7 +1786,8 @@ html {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .creator .options div, .creator .options button {
+  .creator .options div,
+  .creator .options button {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
@@ -1755,6 +1796,37 @@ html {
 }
 
 @media screen and (max-width: 652px) {
+  .notFound .main-text {
+    font-size: 2.5rem;
+  }
+  .modal-group {
+    height: 90vw;
+  }
+  .modal-body {
+    padding: 0.1rem !important;
+  }
+  .modal-child .text {
+    font-size: 2.5vw;
+  }
+  .bundle .control-btn .about-step {
+    font-size: smaller;
+  }
+  .bundle .control-btn .customRange {
+    margin: 0.1rem;
+    width: 100px;
+  }
+  .bundle .control-btn .number {
+    height: 26px;
+    width: 35px;
+    font-size: 0.8rem;
+  }
+  .bundle .control-btn button {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  .bundle i {
+    font-size: smaller !important;
+  }
   .aside .menu a {
     font-size: 0.7rem;
   }
