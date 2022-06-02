@@ -1,14 +1,15 @@
 @import "./variables.scss";
 @import './mixins.scss';
 
-
+.test .push{
+    position: static !important;
+}
 .form {
     width: 60%;
     font-family: monospace, "Cairo";
     margin: auto;
     background-color: white;
-    border-radius: 1rem;
-    margin-top: 1rem;
+    border-radius: .3rem;
     box-shadow: 0 0 20px -3px #18181881;
     padding: 3rem;
     display: flex;
@@ -48,9 +49,9 @@ i.fas.fa-exclamation {
     top: 0;
     left: 0;
     width: 100vw;
-    height: calc(100vh - 56px);
+    padding: 1rem;
     background-position: fixed;
-    background: linear-gradient(to bottom, #e8f0f7 50%, #4d5bf9 50%);
+    background: #4d5bf9;
     @include flex-center;
     .container {
         width: clamp(300px, 30vw, 40vw);

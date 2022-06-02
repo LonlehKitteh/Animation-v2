@@ -1680,13 +1680,32 @@ html {
 }
 
 @media screen and (max-width: 1151px) {
+  .test .push {
+    background: #4d5bf9 !important;
+    height: auto !important;
+    padding: 1rem;
+  }
+  .test .push form {
+    margin-top: 0 !important;
+    width: 100%;
+  }
+  .test .push form .alert {
+    font-size: small;
+  }
+  .test .push form .form-label {
+    font-size: smaller;
+  }
+  .test .push form .form-check-label {
+    font-size: small;
+  }
   .page,
   .page.auth {
     top: 51.5px;
   }
   .page.auth,
   .creator,
-  .notFound {
+  .notFound,
+  .test.score .push {
     height: calc(100vh - 51.5px) !important;
   }
 }
@@ -1697,7 +1716,8 @@ html {
   }
   .page.auth,
   .creator,
-  .notFound {
+  .notFound,
+  .test.score .push {
     top: 45.5px;
     height: calc(100vh - 45.5px) !important;
   }

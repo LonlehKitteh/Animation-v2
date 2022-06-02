@@ -15,7 +15,7 @@ export default function TestCss() {
     const correct = useCorrect()
     const points = useRef(0);
     const valueRef = useRef(null);
-    const [randQuestions,] = useState(shuffle([...Array(4).keys()]))
+    const [randQuestions,] = useState(shuffle([...Array(10).keys()]))
     const inputs = useRef([])
     const [isDisabled, setIsDisabled] = useState(false)
     const circularProgressRef = useRef(null)
@@ -80,7 +80,7 @@ export default function TestCss() {
     }
     return (
         <motion.div
-            className="page test"
+            className={`page test ${isDisabled ? 'score' : ''}`}
             initial="initial"
             animate="in"
             exit="out"

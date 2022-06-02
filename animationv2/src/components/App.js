@@ -91,14 +91,9 @@ export default function App() {
                     <PrivateRoute path="/update profile" component={UpdateProfile} />
                     <Route path="/example0" exact component={Example0} />
                     <Route component={PageNotFound} />
-
-                    {/* <Route path="/example1" exact component={Example1}></Route>
-                    <Route path="/example2" exact component={Example2}></Route>
-                    <Route path="/example3" exact component={Example3}></Route>
-                    <Route path="/example4" exact component={Example4}></Route> */}
                 </Switch>
             </AnimatePresence>
-            <ScrollUp />
+            {location.pathname !== '/' && location.pathname !== '/testcss' ? <ScrollUp /> : null}
         </AuthProvider>
     )
 }
