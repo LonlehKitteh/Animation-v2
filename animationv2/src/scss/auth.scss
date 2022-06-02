@@ -97,6 +97,7 @@
 .update {
     .push {
         position: relative;
+        gap: 1rem;
         .alert{
             position: absolute;
             bottom: 1%;
@@ -111,15 +112,15 @@
             height: 60%;
             width: fit-content;
             background: #66a3ff;
-            margin: 2rem;
+            margin: 0;
             justify-content: space-between;
             &.update{
                 background: #66a3ff;
                 filter: hue-rotate(35deg);
             }
             .circular-progress {
-                height: 15rem;
-                width: 15rem;
+                height: 15vh;
+                width: 15vh;
             }
             .result {
                 font-weight: bold;
@@ -128,7 +129,7 @@
                 margin: 0;
             }
             .value-container {
-                font-size: 2rem !important;
+                font-size: 4.5vh !important;
             }
             .form-control::placeholder{
                 font-size: smaller;

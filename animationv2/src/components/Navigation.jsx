@@ -6,18 +6,18 @@ import { links } from '../js/links'
 import { useAuth } from './context/AuthContext'
 
 export default function Navigation() {
-    const [error, setError] = useState('')
-    const { currentUser, logout } = useAuth()
-    const history = useHistory()
+    const [error, setError] = useState('');
+    const { currentUser, logout } = useAuth();
+    const history = useHistory();
 
     async function handleLogout() {
-        setError('')
+        setError('');
 
         try {
-            await logout()
-            history.push('/login')
+            await logout();
+            history.push('/login');
         } catch {
-            setError('Failed to log out')
+            setError('Failed to log out');
         }
     }
 
@@ -37,8 +37,8 @@ export default function Navigation() {
                                                 return <NavLink to={subtitle} key={`${counter}-${key}`}>{subtitle}</NavLink>
                                             }) : null}
                                         </div>
-                                    } 
-                                     if(typeof element !== 'string') return <NavLink key={`${counter}-${index}`} to={`${element.mainTitle}${element.id || ''}`}><i className={element.icon}></i>{element.mainTitle}</NavLink>
+                                    }
+                                    if (typeof element !== 'string') return <NavLink key={`${counter}-${index}`} to={`${element.mainTitle}${element.id || ''}`}><i className={element.icon}></i>{element.mainTitle}</NavLink>
                                     return null
                                 })}
                             </NavDropdown>
